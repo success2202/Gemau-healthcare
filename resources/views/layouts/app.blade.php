@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>{{config('app.name')}} ?? {{_('Sanlive Medhub')}}</title>
+    <title>{{config('app.name') ?? _('Sanlive Medhub')}} </title>
     <link rel="stylesheet" href="{{asset('/frontend/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/fonts/Linearicons/Font/demo-files/demo.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com/">

@@ -65,7 +65,7 @@
 
 /*1. RESET AND TYPHOGRAPHY */
 * {
-  font-family: "Jost", sans-serif;
+  font-family: "Roboto","BlinkMacSystemFont","Segoe UI","Helvetica Neue",Arial,sans-serif;
   font-weight: 400;
 }
 
@@ -3392,10 +3392,11 @@ textarea.form-control {
 
 .ps-product__badge {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 25px;
+  right: 20px;
   z-index: 10;
   text-transform: uppercase;
+  
 }
 
 .ps-product__badge .ps-badge {

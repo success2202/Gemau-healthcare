@@ -1,44 +1,42 @@
 <div class="ps-navigation">
     <div class="container">
         <div class="ps-navigation__left">
-            <nav class="ps-main-menu">
+            <nav class="ps-main-menu" >
                 <ul class="menu">
-                    <li class="has-mega-menu"><a href="#"> <i class="fa fa-bars"></i>Products<span class="sub-toggle"><i class="fa fa-chevron-down"></i></span></a>
+                    <li class="has-mega-menu"><a href="#" style="font-size:0.9em; font-weight:light"> <i class="fa fa-bars"></i>Categories<span class="sub-toggle"><i class="fa fa-chevron-down"></i></span></a>
                         <div class="mega-menu">
                             <div class="container">
                                 <div class="mega-menu__row">
                                    
-                                    <div class="mega-menu__column">
-                                        <h4>Equipment</h4>
+                                @forelse($site_categories as $site_cat)
+                                    <div class="mega-menu__column" >
+                                        <a href="" style="font-size:0.9em; font-weight:bolder">{{ucwords(strtolower($site_cat->name))}}</a>
                                         <ul class="sub-menu--mega">
-                                            <li><a href="category-list.html">Blades</a></li>
-                                            <li><a href="category-list.html">Education</a></li>
-                                            <li><a href="category-list.html">Germicidal lamps</a></li>
-                                            <li><a href="category-list.html">Heart Health</a></li>
-                                            <li><a href="category-list.html">Infusion stands</a></li>
-                                            <li><a href="category-list.html">Lighting</a></li>
-                                            <li><a href="category-list.html">Machines</a></li>
+                                            @php $x = 0 @endphp
+                                        @forelse($site_cat->products as $prod)
+                                            <li><a href="" style="font-family:  sans-serif; font-size:0.85em;color:#0000009e">{{$prod->name}}</a></li>
+                                          @php 
+                                            $x++;
+                                            if($x > 6) break;
+                                           @endphp
+                                            @empty
+                                        @endforelse
                                         </ul>
                                     </div>
+                                @empty 
+                                @endforelse
                                 </div>
-                               
                             </div>
                         </div>
                     </li>
-                
-                    <li class="has-mega-menu"><a href="#"> Homepages<span class="sub-toggle"><i class="fa fa-chevron-down"></i></span></a>
-                        <div class="mega-menu">
-                            <div class="container">
-                           
-                            </div>
-                        </div>
-                    </li>
-                    <li class="has-mega-menu"><a href="blog-sidebar1.html">Blog</a></li>
-                    <li class="has-mega-menu"><a href="contact-us.html">Contact</a></li>
+                    @forelse ($site_menu as $menu )
+                    <li class="has-mega-menu"><a  style="font-size:0.9em; font-weight:light" href="blog-sidebar1.html">{{$menu->name}}</a></li>
+                    @empty
+                    @endforelse
                 </ul>
             </nav>
         </div>
-        <div class="ps-navigation__right">Need help? <strong>0020 500 - MYMEDI - 000</strong></div>
+        {{-- <div class="ps-navigation__right">Need help?  <i class="fa fa-phone"> </i><strong>{{$settings->site_phone}}</strong></div> --}}
     </div>
 </div>
 </header>

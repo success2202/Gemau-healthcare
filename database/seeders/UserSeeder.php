@@ -17,9 +17,9 @@ class UserSeeder extends Seeder
     {
         //
 
-        // User::create([
-        //     'first_name' => 'sanlive', 'last_name' => 'pharm' ,'email' => 'support@sanlivepharm.com', 'phone' => '08028928282', 'password' => hash::make('mike123'),
-        // ]);
+        User::create([
+            'first_name' => 'sanlive', 'last_name' => 'pharm' ,'email' => 'support@sanlivepharm.com', 'phone' => '08028928282', 'password' => hash::make('mike123'),
+        ]);
 
            
     }

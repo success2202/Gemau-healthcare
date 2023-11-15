@@ -10,6 +10,9 @@ class Slider extends Model
     use HasFactory;
 
     protected $fillable = [
-
+        'title', 'content', 'image_path', 'links'
     ];
+
+    CONST Active = 1;
+    CONST Inactive = -1;
 }

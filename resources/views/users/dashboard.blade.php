@@ -1,0 +1,239 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class="ps-home ps-home--8">
+    <div class="ps-home__content">
+        <div class="container">
+            <div class="ps-promo"><a class="ps-promo__item" href="#"><img class="ps-promo__text" src="{{asset('/frontend/img/'.$advert_top->image_path)}}" alt><img class="ps-promo__banner" src="{{asset('/frontend/img/'.$advert_top->txt)}}" alt></a></div>
+            {{-- <div class="ps-promo mobile"><a class="ps-promo__item" href="#"><img class="ps-promo__text" src="{{asset('/frontend/img/'.$advert_top->txt)}}" alt><img class="ps-promo__banner" src="{{asset('/frontend/img/'.$advert_top->image_path)}}" alt></a></div> --}}
+            <section class="ps-section--banner ps-banner--container">
+                <div class="ps-section__overlay">
+                    <div class="ps-section__loading"></div>
+                </div>
+                <div class="owl-carousel" data-owl-auto="false" data-owl-loop="true" data-owl-speed="15000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+                   
+                    @forelse ($sliders as $slider)
+                    <div class="ps-banner" style="background:#306A53;">
+                        <div class="container-no-round">
+                            <div class="ps-banner__block">
+                                <div class="ps-banner__content">
+                                    <h2 class="ps-banner__title text-white">{{$slider->title}}</h2>
+                                    <div class="ps-banner__desc text-white">{{$slider->content}}</div>
+                                    <div class="ps-banner__btn-group">
+                                    </div>
+                                    {{-- <a class="bg-warning ps-banner__shop" href="#">Add to cart</a>
+                                    <div class="ps-banner__persen bg-warning ps-left">-30%</div> --}}
+                                </div>
+                                <div class="ps-banner__thumnail ps-banner__fluid"><img class="ps-banner__image" src="{{asset('/frontend/img/'.$slider->image_path)}}" alt="alt" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>                     
+                    @empty
+                    @endforelse
+
+                </div>
+            </section>
+            <section class="ps-section--category ps-category--image">
+                {{-- <h3 class="ps-section__title">Check out the most popular categories</h3> --}}
+                <div class="ps-section__content">
+                    <div class="row" style="background: #eae7e73f; padding:10px; border:5px solid #ede8e836">
+                        @forelse ($category as  $cat)
+                        <div class="col-6 col-md-4">
+                            <div class="ps-category__thumbnail"> <a class="ps-category__image" href="">
+                                <img src="{{asset('/frontend/img/'.$cat->image_path)}}" alt></a>
+                                <div class="ps-category__content">
+                                <a class="ps-category" href="">{{$cat->name}}</a> <br>
+                                <a class="ps-category__more" href="">More</a></div>
+                            </div>
+                        </div>  
+                        @empty 
+                        @endforelse
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="ps-section--latest" style="margin-top:5px">
+            <div class="container" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
+                <p class="" style="font-size: 20px; color:#000;">Latest products</p>
+                <div class="ps-section__carousel">
+                    <div class="owl-carousel" data-owl-auto="false" data-owl-loop="true" data-owl-speed="13000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5" data-owl-item-xl="5" data-owl-duration="1000" data-owl-mousedrag="on">
+                   
+                        @forelse ($latest as $prod)
+                        <div class="ps-section__product">
+                            <div class="ps-product ps-product--standard">
+                                <div class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
+                                    <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" />
+                                            {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
+                                        </figure>
+                                    </a>
+                                    <div class="ps-product__badge" style="right:20px; ">
+                                        <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-20%</div>
+                                    </div>
+                                </div>
+                                <div class="ps-product__content">
+                                    <h5 class="ps-p"><a href="product1.html">Somersung Sonic X2000 Pro Black</a></h5>
+                                    <div class="ps-product__meta"><span class="ps-pr">$299.99    <span style="font-size:15px"> <del> $299.99</del></span></span></span>
+                                    </div>
+                                    <div class="ps-product__actions ps-product__group-mobile">
+                                        <div class="ps-product__cart"> <a class="ps-btn ps-btn--warning" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a></div>
+                                    </div>
+                                   <center> <button class="btn btn-success"> Add to Cart</button></center> 
+                                </div>
+                            
+                            </div>
+                        </div> 
+                        @empty
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="ps-promo ps-home__promo">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="ps-promo__item"><img class="ps-promo__banner" src="{{asset('/frontend/img/promotion/bg-banner8.jpg')}}" alt="alt" />
+                            <div class="ps-promo__content">
+                                <h4 class="text-white ps-promo__name">Hubble <br/>Eye Lenses</h4>
+                                <div class="ps-promo__sale text-yellow">-12%</div><a class="ps-promo__btn" href="category-grid.html">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="ps-promo__item"><img class="ps-promo__banner" src="{{asset('/frontend/img/promotion/bg-banner6.jpg')}}" alt="alt" />
+                            <div class="ps-promo__content">
+                                <h4 class="ps-promo__name">Domestic <br/>Clean PRO</h4>
+                                <div class="ps-promo__meta d-horizontal">
+                                    <p class="ps-promo__price text-primary">$15.99</p>
+                                    <p class="ps-promo__del">$29.99</p>
+                                </div><a class="ps-promo__btn" href="category-grid.html">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <section class="ps-section--featured" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
+                    <p class="" style="font-size: 20px; color:#000;">Skin And Beauty Essentials</p>
+                <div class="ps-section__content">
+                    <div class="row m-0">
+                        @forelse ($latest as $prod)
+                        <div class="col-6 col-md-4 col-lg-2dot4 p-0">
+                            <div class="ps-section__product">
+                                <div class="ps-product ps-product--standard">
+                                    <div class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
+                                        <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" />
+                                                {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
+                                            </figure>
+                                        </a>
+                                        <div class="ps-product__badge" style="right:20px; ">
+                                            <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-20%</div>
+                                        </div>
+                                    </div>
+                                    <div class="ps-product__content">
+                                        <h5 class="ps-p"><a href="product1.html">Somersung Sonic X2000 Pro Black</a></h5>
+                                        <div class="ps-product__meta"><span class="ps-pr">$299.99    <span style="font-size:15px"> <del> $299.99</del></span></span></span>
+                                        </div>
+                                        <div class="ps-product__actions ps-product__group-mobile">
+                                            <div class="ps-product__cart"> <a class="ps-btn ps-btn--warning" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a></div>
+                                        </div>
+                                        <center> <button class="btn btn-success"> Add to Cart</button></center> 
+                                    </div>
+                                    
+                                </div>
+                            </div> 
+                        </div>
+                        @empty
+                        @endforelse
+                      
+                    </div>
+                    <div class="ps-shop__more"><a href="#">Show all</a></div>
+                </div>
+            </section>
+
+             
+        <section class="ps-section--featured mt-5" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
+                <p class="" style="font-size: 20px; color:#000;">Skin And Beauty Essentials</p>
+            <div class="ps-section__content">
+                <div class="row m-0">
+                    @forelse ($latest as $prod)
+                    <div class="col-6 col-md-4 col-lg-2dot4 p-0">
+                        <div class="ps-section__product">
+                            <div class="ps-product ps-product--standard">
+                                <div class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
+                                        <figure><img src="{{asset('/frontend/img/products/054.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/057.jpg')}}" alt="alt" />
+                                            {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
+                                        </figure>
+                                    </a>
+                                    <div class="ps-product__badge" style="right:20px; ">
+                                        <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-20%</div>
+                                    </div>
+                                </div>
+                                <div class="ps-product__content">
+                                    <h5 class="ps-p"><a href="product1.html">Somersung Sonic X2000 Pro Black</a></h5>
+                                    <div class="ps-product__meta"><span class="ps-pr">$299.99    <span style="font-size:15px"> <del> $299.99</del></span></span></span>
+                                    </div>
+                                    <div class="ps-product__actions ps-product__group-mobile">
+                                        <div class="ps-product__cart"> <a class="ps-btn ps-btn--warning" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a></div>
+                                    </div>
+                                    <center> <button class="btn btn-success"> Add to Cart</button></center> 
+                                </div>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                    @empty
+                    @endforelse
+                  
+                </div>
+                <div class="ps-shop__more"><a href="#">Show all</a></div>
+            </div>
+        </section>
+         
+        <section class="ps-section--featured mt-5" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
+            <p class="" style="font-size: 20px; color:#000;">Skin And Beauty Essentials</p>
+        <div class="ps-section__content">
+            <div class="row m-0">
+                @forelse ($latest as $prod)
+                <div class="col-6 col-md-4 col-lg-2dot4 p-0">
+                    <div class="ps-section__product">
+                        <div class="ps-product ps-product--standard">
+                            <div class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
+                                    {{-- <figure><img src="{{asset('/frontend/img/products/054.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/057.jpg')}}" alt="alt" /> --}}
+                                        <figure><img src="{{asset('/frontend/img/products/045.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/054.jpg')}}" alt="alt" />
+                                    </figure>
+                                </a>
+                                <div class="ps-product__badge" style="right:20px; ">
+                                    <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-20%</div>
+                                </div>
+                            </div>
+                            <div class="ps-product__content">
+                                <h5 class="ps-p"><a href="product1.html">Somersung Sonic X2000 Pro Black</a></h5>
+                                <div class="ps-product__meta"><span class="ps-pr">$299.99    <span style="font-size:15px"> <del> $299.99</del></span></span></span>
+                                </div>
+                                <div class="ps-product__actions ps-product__group-mobile">
+                                    <div class="ps-product__cart"> <a class="ps-btn ps-btn--warning" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a></div>
+                                </div>
+                                <center> <button class="btn btn-success"> Add to Cart</button></center> 
+                            </div>
+                            
+                        </div>
+                    </div> 
+                </div>
+                @empty
+                @endforelse
+              
+            </div>
+            <div class="ps-shop__more"><a href="#">Show all</a></div>
+        </div>
+    </section>
+      
+        </div>
+        <div class="ps-home__line"></div>
+     
+    </div>
+</div>
+
+@endsection
