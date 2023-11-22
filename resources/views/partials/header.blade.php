@@ -1,7 +1,7 @@
 <header class="ps-header ps-header--2 ps-header--8">
     <div class="ps-noti">
         <div class="container">
-            <p class="m-0">{!! $announcment->content??null !!}</p>
+            <p class="m-0">  <marquee> {!! $announcment->content??null !!}</marquee> </p>
         </div><a class="ps-noti__close"><i class="icon-cross"></i></a>
     </div>
     <div class="ps-header__top">
@@ -27,28 +27,34 @@
     </div>
     <div class="ps-header__middle">
         <div class="container">
-            <div class="ps-logo"><a href="index.html"> <img src="{{asset('/frontend/img/'.$settings->site_logo)}}" alt>
+            <div class="ps-logo"><a href="{{route('users.index')}}"> <img src="{{asset('/frontend/img/'.$settings->site_logo)}}" alt>
                 <img class="sticky-logo" src="{{asset('/frontend/img/'.$settings->site_logo)}}" alt></a></div><a class="ps-menu--sticky" href="#"><i class="fa fa-bars"></i></a>
             <div class="ps-header__right">
                 <ul class="ps-header__icons">
                     {{-- <li><a class="ps-header__item open-search" href="#"><i class="icon-magnifier"></i></a></li> --}}
-                    <li ><a   class="ps-header__item" style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" id="login-modal"> <i class="icon-user"></i> Account </a>
+                   @guest
+                    <li ><a   class="ps-header__item" style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" id="login-modal"> <i class="icon-user"  style="font-size:20px; padding-right:2px; font-weight:800"></i> Account </a>
                         <div class="ps-login--modal">
-                            <form method="get" action="https://nouthemes.net/html/mymedi/do_action">
-                                <div class="form-group" >
-                                    <label>Username or Email Address</label>
-                                    <input class="form-control" style="border-radius:5px" type="text">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="form-control" style="border-radius:5px" type="password">
-                                </div>
                                 <button class="ps-btn ps-btn--warning" style="border-radius:5px" type="submit">Log In</button>
-                            </form>
+                            <hr> 
+                        <a href=""> Orders </a>
+                        <a href=""> Inbox </a>
                         </div>
                     </li>
-                    <li ><a   class="ps-header__item" style="width:100px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" > <i class="icon-user"></i> Help</a>
-                        <li ><a   class="ps-header__item" style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" > <i class="icon-cart-empty"></i>  Cart </a>
+                    @else 
+                    <li ><a   class="ps-header__item" style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" id="login-modal"> <i class="icon-user"  style="font-size:20px; padding-right:2px; font-weight:800"></i> Account </a>
+                        <div class="ps-login--modal">
+                            <button class="ps-btn ps-btn--primary" style="border-radius:5px" type="submit">My Account</button>
+                            <hr>
+                        {{-- <a href="" class="ps-btn " style="font-size: 20px; background-color:none; color:#000; text-align:left"> Orders </a> --}}
+                        </div>
+                    </li>
+
+                    @endauth
+                    <li ><a   class="ps-header__item" style="width:100px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" > <i class="icon-question" style="font-size:20px; padding-right:2px; border:2px solid #5b6c8f; border-radius:50px; font-weight:800" ></i> Help</a>
+                        <li ><a   class="ps-header__item " style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="{{route('carts.index')}}" > 
+                            <i  style="font-size:20px; padding-right:2px; font-weight:800" class="icon-cart-empty"></i> 
+                             <span class="badge cartReload" style="left:12px">{{Cart::count()}}</span>  Cart </a>
                 </ul>
                 <div class="ps-header__search">
                     <form action="" method="post">

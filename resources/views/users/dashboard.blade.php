@@ -79,7 +79,7 @@
                                     <div class="ps-product__actions ps-product__group-mobile">
                                         <div class="ps-product__cart"> <a class="ps-btn ps-btn--warning" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a></div>
                                     </div>
-                                   <center> <button class="btn btn-success"> Add to Cart</button></center> 
+                                   <center> <a href="{{route('users.products',[$prod->hashid, $prod->productUrl])}}" class="btn btn-success"> Add to Cart</a></center> 
                                 </div>
                             
                             </div>

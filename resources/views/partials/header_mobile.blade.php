@@ -6,7 +6,7 @@
     </div>
     <div class="ps-header__middle">
         <div class="container">
-            <div class="ps-logo"><a href="index.html"> <img src="img/mobile-logo.png" alt></a></div>
+            <div class="ps-logo"><a href="index.html"> <img src="{{asset('/frontend/img/'.$settings->site_logo)}}" alt></a></div>
             <div class="ps-header__right">
                 <ul class="ps-header__icons">
                     <li><a class="ps-header__item open-search" href="#"><i class="fa fa-search"></i></a></li>

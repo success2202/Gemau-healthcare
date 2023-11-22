@@ -13,4 +13,8 @@ class Product extends Model
 
         'category_id', 'name', 'title', 'description', 'specification', 'image_path', 'price', 'sale_price', 'discount', 'views', 'order_count', 'sku', 'qty', 'status'
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

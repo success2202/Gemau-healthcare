@@ -3765,7 +3765,7 @@ textarea.form-control {
   font-size: 30px;
   font-weight: 600;
   line-height: 36px;
-  color: #FD8D27;
+  /* color: #FD8D27; */
 }
 
 .ps-product--detail .ps-product__del {
@@ -15070,7 +15070,7 @@ textarea.form-control {
   .ps-header--8 .ps-header__middle .ps-header__search {
     display: inline-block;
     float: left;
-    min-width: 590px;
+    min-width: 500px;
   }
   .ps-header--8 .ps-header__middle .ps-middle__text {
     display: none;
