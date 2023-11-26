@@ -6,6 +6,7 @@ use App\Http\Controllers\Users\HomeController;
 use App\Http\Controllers\Users\ProductDetailsController;
 use App\Http\Controllers\Users\CartsController;
 use App\Http\Controllers\Users\CheckoutController;
+use App\Http\Controllers\Users\PaymentController;
 
 Route::get('/',  [HomeController::class, '__invoke'])->name('users.index');
 Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('users.index');
@@ -29,3 +30,6 @@ Route::controller(AddressController::class)->group(function(){
     Route::get('/checkout/address/create', 'CreateAddress')->name('createAddress');
     Route::post('/checkout/address/store', 'StoreAddress')->name('storeAddress');
 });
+
+Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('paystack.checkout');
+Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);

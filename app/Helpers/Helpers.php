@@ -29,4 +29,48 @@ if(!function_exists('addHashId')){
     return $data;
     }
 }
+
+if(!function_exists('shippingBase')){
+    function shippingBase($param = null){
+        return 'https://api.jand2gidi.com.ng/api/v1/'.$param;
+    }
+
+
+if(!function_exists('moneyFormat')){
+    function moneyFormat($data){
+        return '₦'.number_format($data,2);
+    }
+}
+
+if(!function_exists('GenerateRef')){
+
+    function GenerateRef($size){
+        return substr(str_replace(['[', ']', '+', '=','!','@','#','%','&','*','(',')','/'], '', base64_encode(random_bytes(16))),0, $size);
+    }
+}
+
+if(!function_exists('checkCart')){
+    function checkCart(){
+        if(count(\Cart::content()) <= 0){
+            return redirect()->intended(route('users.index'));
+        }
+    }
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

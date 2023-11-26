@@ -40,6 +40,7 @@ return [
     */
 
     'debug' => (bool) env('APP_DEBUG', false),
+    'GIDIAPIKey'=> env('GIDIAPIKey'),
 
     /*
     |--------------------------------------------------------------------------
@@ -162,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Vinkla\Hashids\HashidsServiceProvider::class,
+        Unicodeveloper\Paystack\PaystackServiceProvider::class,
       
 
         /*
@@ -233,6 +235,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'hashids' => Vinkla\Hashids\HashidsServiceProvider::class,
+        'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
 
     ],
 

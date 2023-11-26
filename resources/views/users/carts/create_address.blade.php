@@ -104,6 +104,18 @@
                                 </div>
                                 <div class="col-12 col-md-4 mt-1">
                                     <div class="ps-form__group">
+                                        <label id="state" style="color:rgb(114, 111, 111)"> State</label>
+                                        <input class="form-control ps-form__input @error('state') is-invalid @enderror" type="text"
+                                            placeholder="Enter City and State"  id="state" value="{{old('state')}}" name="state">
+                                    </div>
+                                    @error('state')
+                                    <span class="alert alert-danger" role="error">
+                                        {{$message}}
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="col-12 col-md-4 mt-1">
+                                    <div class="ps-form__group">
                                         <label id="country" style="color:rgb(114, 111, 111)">Country </label>
                                         <input class="form-control ps-form__input @error('country') is-invalid @enderror" type="text"
                                             placeholder="Country"  id="country" value="{{old('country')}}" name="country">

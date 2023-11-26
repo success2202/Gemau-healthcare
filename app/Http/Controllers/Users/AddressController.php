@@ -50,6 +50,7 @@ class AddressController extends Controller
                 'address' => 'required',
                 'city' => 'required',
                 'country' => 'required',
+                'state' => 'required'
             ]);
             if($valid->fails()){ 
         return back()->withInput($req->all())->withErrors($valid);
@@ -64,6 +65,7 @@ class AddressController extends Controller
             'address' => $req->address,
             'city' => $req->city,
             'country' => $req->country,
+            'state' => $req->state,
             'is_default' => $req->is_default
         ];
         ShippingAddress::create($data);
