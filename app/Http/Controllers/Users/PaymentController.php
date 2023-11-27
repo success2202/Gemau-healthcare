@@ -19,14 +19,13 @@ class PaymentController extends Controller
     {
 
         $data = array(
-            "amount" => $req->amount,
+            "amount" => $req->amount * 100,
             "reference" => GenerateRef(20),
             "email" => auth_user()->email,
             "currency" => "NGN",
             "orderID" => $req->orderNo,
 
         );
-        dd($data);
         try{
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         }catch(\Exception $e) {
@@ -41,6 +40,12 @@ class PaymentController extends Controller
     public function handleGatewayCallback()
     {
         $paymentDetails = Paystack::getPaymentData();
+
+        if($paymentDetails['status'] == true){
+
+        
+
+        }
 
         dd($paymentDetails);
       

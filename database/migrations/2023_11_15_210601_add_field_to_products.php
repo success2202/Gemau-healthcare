@@ -15,7 +15,7 @@ class AddFieldToProducts extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->string('gallery')->nullable();
+            // $table->string('gallery')->nullable();
         });
     }
 
