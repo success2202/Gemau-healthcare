@@ -78,9 +78,10 @@
                             <div class="ps-shopping__label">Total</div>
                             <div class="ps-shopping__price">₦{{\Cart::priceTotal()}}</div>
                         </div>
-                        <div class="ps-shopping__text">Shipping options will be updated during checkout.</div>
+                        <div class="ps-shopping__text">Shipping options will be updated during checkout.</div> 
                        
-                        <div class="ps-shopping__checkout"><a class="ps-btn ps-btn--success"  style="border-radius:5px" href="{{route('checkout.index')}}">Proceed to checkout</a>
+                        <div class="ps-shopping__checkout">
+                        <a class="ps-btn ps-btn--success"  style="border-radius:5px" href="{{route('checkout.index',$cartSession)}}">Proceed to checkout</a>
                             <a class="ps-shopping__link" href="{{route('shops.index')}}">Continue Shopping</a></div>
                     </div>
                 </div>

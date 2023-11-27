@@ -47,6 +47,9 @@
                     <p class="p-2 delivery" > {{$start->format('D d, M')}} - {{$end->format('D, d M')}} 
                         <span style="float:right; color:green"> N0 </span></p>
                     <p class="p-2 delivery" > You have to visit our office at {{$settings->address}} to pick your item</p>
+                    <input type="hidden" name="address_id" value="{{$address->id}}"> 
+                    <input type="hidden" name="orderNo" value="{{$address->id}}"> 
+                    
                
                 </div>
                 </div>

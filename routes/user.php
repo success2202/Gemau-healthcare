@@ -14,14 +14,14 @@ Route::get('/products/{id}/{url}', [ProductDetailsController::class, '__invoke']
 
 Route::controller(CartsController::class)->group( function(){
 Route::get('/cart/{id}',  'add')->name('carts.add');
-Route::get('/carts/index',  'Index')->name('carts.index');
+Route::get('/carts/index/',  'Index')->name('carts.index');
 Route::get('/delete/{id}',  'destroy')->name('carts.delete');
 Route::post('updatecart', 'update')->name('carts.update');
 Route::get('shop', 'update')->name('shops.index');
 });
 
 Route::controller(CheckoutController::class)->group(function(){
-Route::get('/checkout', 'Index')->name('checkout.index');
+Route::get('/checkout/{cart?}', 'Index')->name('checkout.index');
 });
 
 Route::controller(AddressController::class)->group(function(){

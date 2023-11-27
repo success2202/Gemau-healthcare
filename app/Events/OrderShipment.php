@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class CartItemsEvent
+class OrderShipment
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -20,13 +20,10 @@ class CartItemsEvent
      * @return void
      */
 
-     public $carts;
-     public $orderNo, $cartSession;
-    public function __construct($carts, $orderNo, $cartSession)
+     public $shipment;
+    public function __construct($shipment)
     {
-        $this->carts = $carts;
-        $this->orderNo = $orderNo;
-        $this->cartSession = $cartSession;
+        $this->shipment = $shipment;
     }
 
     /**

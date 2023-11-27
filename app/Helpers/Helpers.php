@@ -49,13 +49,7 @@ if(!function_exists('GenerateRef')){
     }
 }
 
-if(!function_exists('checkCart')){
-    function checkCart(){
-        if(count(\Cart::content()) <= 0){
-            return redirect()->intended(route('users.index'));
-        }
-    }
-}
+
 
 }
 

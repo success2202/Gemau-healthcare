@@ -25,17 +25,17 @@ class AddCartItems implements ShouldQueue
      * @param  \App\Events\CartItemsEvent  $event
      * @return void
      */
-    public function handle(CartItemsEvent $carts)
-    {
-            $orderNo = rand(111111111,999999999);
-            foreach($carts as $cart){
+    public function handle(CartItemsEvent $events)
+    {    
+            foreach($events->carts as $cart){
             $data = [
                 'user_id' => auth_user()->id,
                 'product_id' => $cart->model->id,
-                'Order_no' => $orderNo,
+                'Order_no' => $events->orderNo,
                 'qty' => $cart->qty,
-                'payable' => $cart->amount,
-                'status' => 'pending'
+                'payable' => $cart->price * $cart->qty,
+                'status' => 0,
+                'cartSession' => $events->cartSession
             ];
             CartItem::create($data);
           }

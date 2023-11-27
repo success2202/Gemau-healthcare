@@ -44,6 +44,7 @@ class CartsController extends Controller
         return view('users.carts.carts') 
         ->with('carts', \Cart::content())
         ->with('latest', $prod)
+        ->with('cartSession', Hashids::connection('products')->encode(rand(11,99)))
         ->with('breadcrumb', 'Shopping Cart');
     }
 
