@@ -1,7 +1,7 @@
 
 
 
-<div class="modal fade" id="popupAddcartV2" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true" style="top:-70%; background:none" >
+<div class="modal fade" id="popupAddcartV2"  data-keyboard="true" tabindex="-1" aria-hidden="true" style="top:-70%; background:none" >
     <div class="modal-dialog modal-lg modal-dialog-centered ps-addcart">
         <div class="modal-content">
             <div class="modal-body" style="background: #12a05c !important; padding:5px">

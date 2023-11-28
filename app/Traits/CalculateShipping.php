@@ -21,7 +21,7 @@ trait CalculateShipping {
             "vehicle" => 'bike',
             "item_category" => 'medical',
             "location_from"=> $settings->address,
-            "location_to" => $request->address,
+            "location_to" => $request->address, 
             "description" => 'Sending Medical Products to customers',
         ];
         $shipping = new Base(shippingBase('shipments'), 'post', env('GIDIAPIKey'), $data);

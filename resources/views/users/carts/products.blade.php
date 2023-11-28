@@ -258,6 +258,7 @@
                            // $('.cartReloads').html(thousands_separators(response));
                            $('#popupAddcartV2').modal('show');
                             setTimeout(function() {
+                                $('#popupAddcartV2').modal('hide');  
                             }, 5);
                         }else{
                             alert('no');

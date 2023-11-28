@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="{{asset('/frontend/plugins/noUiSlider/nouislider.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/home-8.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     @yield('styles')
 </head>
 <body>
@@ -41,7 +44,6 @@
 @include('partials.mobile_sidebar')
 @include('partials.preloader')
 
-
 <script src="{{asset('/frontend/plugins/jquery.min.js')}}"></script>
     <script src="{{asset('/frontend/plugins/popper.min.js')}}"></script>
     <script src="{{asset('/frontend/plugins/bootstrap4/js/bootstrap.min.js')}}"></script>
@@ -53,6 +55,50 @@
     <script src="{{asset('/frontend/plugins/noUiSlider/nouislider.min.js')}}"></script>
     <script src="{{asset('/frontend/js/main.js')}}"></script>
     @yield('script')
+
+
+    
+    <script type="text/javascript">
+
+
+let message = {!! json_encode(Session::get('msg')) !!};
+let msg = {!! json_encode(Session::get('alert')) !!};
+//alert(msg);
+toastr.options = {
+        timeOut: 3000,
+        progressBar: true,
+        showMethod: "slideDown",
+        hideMethod: "slideUp",
+        showDuration: 200,
+        hideDuration: 200
+    };
+if(message != null && msg == 'success'){
+toastr.success(message);
+}else if(message != null && msg == 'error'){
+    toastr.error(message);
+}
+
+
+
+        // toastr.options = {
+        //      "closeButton": true,
+        //      "debug": false,
+        //      "newestOnTop": false,
+        //      "progressBar": true,
+        //      "positionClass": "toast-top-right",
+        //      "preventDuplicates": true,
+        //      "onclick": null,
+        //      "showDuration": "300",
+        //      "hideDuration": "1000",
+        //      "timeOut": "5000",
+        //      "extendedTimeOut": "1000",
+        //      "showEasing": "swing",
+        //      "hideEasing": "linear",
+        //      "showMethod": "fadeIn",
+        //      "hideMethod": "fadeOut"
+        //  };
+         
+     </script>
 </body>
 </html>
 

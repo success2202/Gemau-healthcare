@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Events\CartItemsEvent;
+use App\Events\OrderShipment;
 use App\Listeners\AddCartItems;
+use App\Listeners\CreateShipmentOder;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         CartItemsEvent::class => [
             AddCartItems::class,
+        ],
+        OrderShipment::class => [
+            CreateShipmentOder::class
         ]
     ];
 

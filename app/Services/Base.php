@@ -1,5 +1,8 @@
 <?php 
 namespace App\Services;
+use Psr\Http\Message\ResponseInterface;
+use Illuminate\Support\Facades\Session;
+use GuzzleHttp\Exception\RequestException;
 
 use GuzzleHttp\Client;
 
@@ -19,7 +22,9 @@ class Base {
     }
 
     public function Client(){
-    $client = new Client();
+   
+    try{
+        $client = new Client();
     $res = $client->request($this->method, $this->url, [
         'headers' => [
             'Authorization' => 'Bearer '.config('app.GIDIAPIKey'),
@@ -29,11 +34,14 @@ class Base {
         ],
         'json' => $this->jsonBody
     ]);
-  
+    $res = json_decode($res->getBody(),true);
+ 
     return $res;
+    }catch(\Exception $e){
+  
+     return $e->getMessage();
     }
-
-
+}
 
 }
 

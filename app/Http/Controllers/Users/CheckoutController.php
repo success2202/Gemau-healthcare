@@ -26,7 +26,6 @@ class CheckoutController extends Controller
     }
 
     public function Index($cartSession = null){
-    
         if(count(\Cart::content()) <= 0 || empty(\Cart::content())){
             return redirect()->intended(route('users.index'));
         }
@@ -35,29 +34,29 @@ class CheckoutController extends Controller
         $orderNo = rand(111111111,999999999);
 
         $address = ShippingAddress::where('is_default', 1)->first();
-        $chk = explode(' ',$address->state);
-        $states = ShipmentLocation::where('states', 'LIKE', ucfirst($chk[0]))->first();
-        if($states->states == 'Lagos'){
+            $chk = explode(' ',$address->state);
+            $states = ShipmentLocation::where('states', 'LIKE', ucfirst($chk[0]))->first();
+        if(ucfirst(strtolower($states->states)) == 'Lagos' ||  ucfirst(strtolower($address->city)) == "Lagos"){
             if(in_array($address->city,json_decode($states->location, true)))
             {   
             $gidi = [
                 'location_to' => $address->city
             ];
-                 $response = $this->checkGidiRates($gidi);
-                $res = json_decode($response->getBody(),true);
-            $shipping_fee = $res['data']['fee'];
-        }else{
-            $shipping_fee = '5000'; //flat feee
-        }
+            $response = $this->checkGidiRates($gidi);
+           }
         }else{
             $naijaship = [
                 "destination" => $states->location,
                 "weight" => 0.5
             ];
-            $response =  $this->checkNaijaRates($naijaship);
-            $res = json_decode($response->getBody(),true);
-            $shipping_fee = $res['data']['fee'];
+            $response =  $this->checkNaijaRates($naijaship);  
         }
+        if(isset($response['message'])){
+            $shipping_fee = $response['data']['fee'];
+           }else{
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'Network error occured, could not get shipping fee');
+           }
         //add cart items 
         $cart = Hashids::connection('products')->decode($cartSession);
         $check = CartItem::where(['user_id' => auth_user()->id, 'cartSession' => $cart])->first();
@@ -67,6 +66,8 @@ class CheckoutController extends Controller
          //possibly delivery period
          $date['start'] = Carbon::now()->addDay(3);
          $date['end'] = Carbon::now()->addDay(6);
+
+         
         return view('users.carts.checkout', $date)
         ->with('carts', $carts)
         ->with('address', $address)

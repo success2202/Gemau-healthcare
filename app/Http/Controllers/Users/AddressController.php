@@ -20,7 +20,9 @@ class AddressController extends Controller
 
     public function ShippingAddress(){
         $address = ShippingAddress::latest()->get();
+        
         addHashId($address);
+
         return view('users.carts.address')
         ->with('carts', \Cart::content())
         ->with('addresses', $address);

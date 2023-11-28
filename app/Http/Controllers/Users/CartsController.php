@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Product;
 use Vinkla\Hashids\Facades\Hashids;
 
@@ -28,7 +29,8 @@ class CartsController extends Controller
      
          if($response){
           //   dd($res);
-             return response()->json($response);
+          return response()->json($response);
+
          }
      }
 
@@ -55,7 +57,8 @@ class CartsController extends Controller
     {
       //dd($id.' '.$request->rowId);
         \Cart::remove($id);
-        Session()->flash('message', 'Cart Deleted Successfully');
+        Session::flash('alert', 'error');
+        Session::flash('msg', 'Cart Successfully removed');
         return back();
     }
 
@@ -65,7 +68,8 @@ class CartsController extends Controller
 
         // Update the cart item quantity
         \Cart::update($cartItemId, $quantity);
-        session()->flash('success', 'Cart item quantity updated successfully');
+        Session::flash('alert', 'success');
+        Session::flash('msg', 'Cart item quantity updated successfully');
         return back();
     }
 }

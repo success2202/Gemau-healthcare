@@ -16,7 +16,7 @@ class AddCartItems implements ShouldQueue
      */
     public function __construct()
     {
-        //
+        
     }
 
     /**

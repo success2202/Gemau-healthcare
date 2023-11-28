@@ -42,16 +42,18 @@
                         </div>
                     </li>
                     @else 
-                    <li ><a   class="ps-header__item" style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" id="login-modal"> <i class="icon-user"  style="font-size:20px; padding-right:2px; font-weight:800"></i> Account </a>
+                    <li ><a   class="ps-header__item" style="width:120px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" id="login-modal"> 
+                        <i class="icon-user"  style="font-size:20px; padding-right:2px; font-weight:800"></i> Hi! {{strtoupper(auth_user()->first_name)}} </a>
                         <div class="ps-login--modal">
-                            <button class="ps-btn ps-btn--primary" style="border-radius:5px" type="submit">My Account</button>
+                            <a href="{{route('users.account.index')}}" class="ps-btn ps-btn--primary" style="border-radius:5px" type="submit">My Account</a>
                             <hr>
                         {{-- <a href="" class="ps-btn " style="font-size: 20px; background-color:none; color:#000; text-align:left"> Orders </a> --}}
                         </div>
                     </li>
 
                     @endauth
-                    <li ><a   class="ps-header__item" style="width:100px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" > <i class="icon-question" style="font-size:20px; padding-right:2px; border:2px solid #5b6c8f; border-radius:50px; font-weight:800" ></i> Help</a>
+                    <li ><a   class="ps-header__item" style="width:100px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" > 
+                        <i class="icon-question" style="font-size:14px; margin-right:2px; border:2px solid #5b6c8f; border-radius:50px; padding:2px; font-weight:bolder" ></i> Help</a>
                         <li ><a   class="ps-header__item " style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="{{route('carts.index')}}" > 
                             <i  style="font-size:20px; padding-right:2px; font-weight:800" class="icon-cart-empty"></i> 
                              <span class="badge cartReload" style="left:12px">{{Cart::count()}}</span>  Cart </a>

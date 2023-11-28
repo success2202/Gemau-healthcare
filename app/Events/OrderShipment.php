@@ -7,10 +7,11 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class OrderShipment
+class OrderShipment implements ShouldQueue
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -20,10 +21,13 @@ class OrderShipment
      * @return void
      */
 
-     public $shipment;
-    public function __construct($shipment)
+     public $address;
+     public $orderNo;
+    public function __construct($address, $orderNo)
     {
-        $this->shipment = $shipment;
+        $this->address = $address;
+        $this->orderNo = $orderNo;
+
     }
 
     /**

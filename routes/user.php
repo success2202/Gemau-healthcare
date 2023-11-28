@@ -7,6 +7,7 @@ use App\Http\Controllers\Users\ProductDetailsController;
 use App\Http\Controllers\Users\CartsController;
 use App\Http\Controllers\Users\CheckoutController;
 use App\Http\Controllers\Users\PaymentController;
+use App\Http\Controllers\Users\UserController;
 
 Route::get('/',  [HomeController::class, '__invoke'])->name('users.index');
 Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('users.index');
@@ -25,7 +26,7 @@ Route::get('/checkout/{cart?}', 'Index')->name('checkout.index');
 });
 
 Route::controller(AddressController::class)->group(function(){
-    Route::get('/checkout/address', 'ShippingAddress')->name('checkouts.changeAddress');
+    Route::get('/checkout/address/index', 'ShippingAddress')->name('checkouts.changeAddress');
     Route::get('/checkout/address/change/{id}', 'UpdateDefaultAddress')->name('UpdateDefaultAddress');
     Route::get('/checkout/address/create', 'CreateAddress')->name('createAddress');
     Route::post('/checkout/address/store', 'StoreAddress')->name('storeAddress');
@@ -33,3 +34,10 @@ Route::controller(AddressController::class)->group(function(){
 
 Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('paystack.checkout');
 Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
+
+
+Route::controller(UserController::class)->group(function(){
+
+    Route::get('/users/accounts', 'Index')->name('users.account.index');
+
+});
