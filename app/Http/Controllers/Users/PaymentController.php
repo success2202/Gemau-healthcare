@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Users;
 use App\Events\OrderShipment;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Payment;
 use App\Models\ShippingAddress;
 use Illuminate\Support\Facades\Redirect;
 use Unicodeveloper\Paystack\Facades\Paystack;
@@ -64,9 +65,18 @@ class PaymentController extends Controller
                 'payment_ref'=> $paymentDetails['data']['reference'],
                 'is_paid' => 1,
             ]);
+            Payment::create([
+                'user_id' => auth_user()->id, 
+                'order_id' => $paymentDetails['data']['metadata'], 
+                'payment_ref' => GenerateRef(10), 
+                'external_ref' => $paymentDetails['data']['reference'], 
+                'status' => 1, 
+                'payable' => $paymentDetails['data']['amount']
+            ]);
             if($orders->shipping_method == 'home_delivery'){
            event(new OrderShipment($address, $paymentDetails['data']['metadata']));
             }
+           
         \Cart::destroy();
             return redirect(route('users.index'));
         }else{

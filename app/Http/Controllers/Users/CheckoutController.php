@@ -36,13 +36,14 @@ class CheckoutController extends Controller
         $address = ShippingAddress::where('is_default', 1)->first();
             $chk = explode(' ',$address->state);
             $states = ShipmentLocation::where('states', 'LIKE', ucfirst($chk[0]))->first();
-        if(ucfirst(strtolower($states->states)) == 'Lagos' ||  ucfirst(strtolower($address->city)) == "Lagos"){
+        if(ucfirst(strtolower($states->states)) == 'Lagos'){
             if(in_array($address->city,json_decode($states->location, true)))
             {   
             $gidi = [
                 'location_to' => $address->city
             ];
             $response = $this->checkGidiRates($gidi);
+            $shipping_fee = $response['data']['fee'];
            }
         }else{
             $naijaship = [
@@ -50,20 +51,19 @@ class CheckoutController extends Controller
                 "weight" => 0.5
             ];
             $response =  $this->checkNaijaRates($naijaship);  
-        }
-        if(isset($response['message'])){
             $shipping_fee = $response['data']['fee'];
-           }else{
+        }
+        // dd($response);
+       
+        if(!isset($shipping_fee)){
             Session::flash('alert', 'error');
             Session::flash('msg', 'Network error occured, could not get shipping fee');
            }
-        //add cart items 
         $cart = Hashids::connection('products')->decode($cartSession);
         $check = CartItem::where(['user_id' => auth_user()->id, 'cartSession' => $cart])->first();
         if(!isset($check) || empty($check)){
             event(new CartItemsEvent($carts, $orderNo, $cartSession));
         }
-         //possibly delivery period
          $date['start'] = Carbon::now()->addDay(3);
          $date['end'] = Carbon::now()->addDay(6);
 

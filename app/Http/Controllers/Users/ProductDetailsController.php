@@ -14,8 +14,14 @@ class ProductDetailsController extends Controller
     public function __invoke($id, $url)
     {
       $ss =   Hashids::connection('products')->decode($id);
-      $data['product'] = Product::findorfail($ss[0]);
-      $data['latest'] = Product::where('category_id', $data['product']->category->id)->get();
+      $product = Product::findorfail($ss[0]);
+      session()->push('products.recently_viewed', $product->getKey());
+      $data['latest'] = Product::where('category_id', $product->category->id)->get();
+      $data['product'] = $product;
+      $products = session()->get('products.recently_viewed');
+      $datas = array_slice(array_unique($products), -5, 5, true);
+      $data['recent'] = Product::whereIn('id', $datas)->take(5)->get();
+     
       foreach($data['latest']  as $prod){
         $prod->hashid = $id;
         $prod->productUrl =  urlencode(trimInput($data['product'] ->name));

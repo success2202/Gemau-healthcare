@@ -37,7 +37,15 @@ Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallbac
 
 
 Route::controller(UserController::class)->group(function(){
-
-    Route::get('/users/accounts', 'Index')->name('users.account.index');
-
+    Route::get('/accounts/index', 'Index')->name('users.account.index');
+    Route::get('/account/orders', 'Orders')->name('users.orders');
+    Route::get('/account/orders/details/{id}', 'OrderDetails')->name('users.orders.details');
+    Route::get('/account/address', 'Addresses')->name('users.account.address');
+    Route::get('/account/address/edit/{id}', 'EditAddress')->name('users.address.edit');
+    Route::post('/account/address/update/{id}', 'UpdateAddress')->name('users.address.update');
+    Route::get('/account/address/create', 'CreateAddress')->name('users.address.create');
+    Route::post('/account/address/store/', 'storeAddress')->name('users.address.store');
+    Route::get('/account/address/delete/{id}', 'AddressDelete')->name('users.address.delete');
+    Route::get('/account/recent/products/', 'recentViews')->name('users.recent.views');
+    Route::get('/account/order/payments', 'OrderPayments')->name('users.order.payments');
 });

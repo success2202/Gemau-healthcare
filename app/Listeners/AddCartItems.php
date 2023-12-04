@@ -35,7 +35,10 @@ class AddCartItems implements ShouldQueue
                 'qty' => $cart->qty,
                 'payable' => $cart->price * $cart->qty,
                 'status' => 0,
-                'cartSession' => $events->cartSession
+                'cartSession' => $events->cartSession,
+                'image' => $cart->model->image_path,
+                'product_name' => $cart->model->name,
+                'price' => $cart->model->sale_price
             ];
             CartItem::create($data);
           }
