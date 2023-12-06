@@ -32,7 +32,11 @@ class AppServiceProvider extends ServiceProvider
         View::share('announcment', Annoucement::latest()->first());
         View::share('settings', Setting::latest()->first());
         View::share('site_menu', Menu::get());
-        View::share('site_categories', Category::with('products')->has('products')->take(6)->get());
         View::share('advert_top', Advert::where('placement', 'top')->first());
+        $categories = Category::latest()->get();
+        foreach($categories as $cat){
+            addHashId($cat->products);
+        }
+        View::share('site_categories', $categories);
         }
 }

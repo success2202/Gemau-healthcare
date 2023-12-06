@@ -26,9 +26,9 @@ class HomeController extends Controller
             $dd->hashid = Hashids::connection('products')->encode($dd->id);
             $dd->productUrl = trimInput($dd->name);
         }
+
         return view('users.dashboard', [
             'sliders' => $slider,
-            'category' => Category::take(10)->get(),
             'latest' => $products
         ]);
     }

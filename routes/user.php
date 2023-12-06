@@ -7,6 +7,7 @@ use App\Http\Controllers\Users\ProductDetailsController;
 use App\Http\Controllers\Users\CartsController;
 use App\Http\Controllers\Users\CheckoutController;
 use App\Http\Controllers\Users\PaymentController;
+use App\Http\Controllers\Users\SearchController;
 use App\Http\Controllers\Users\UserController;
 
 Route::get('/',  [HomeController::class, '__invoke'])->name('users.index');
@@ -48,4 +49,10 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/account/address/delete/{id}', 'AddressDelete')->name('users.address.delete');
     Route::get('/account/recent/products/', 'recentViews')->name('users.recent.views');
     Route::get('/account/order/payments', 'OrderPayments')->name('users.order.payments');
+    Route::get('/accounts/settings', 'AccountSettings')->name('users.account.settings');
+    Route::post('/accounts/settings/update', 'UpdateAccountSettings')->name('users.settings.update');
+});
+
+Route::controller(SearchController::class)->group(function(){
+    Route::get('/catalogs/{id?}', '__invoke')->name('products.search');
 });

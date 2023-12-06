@@ -23,51 +23,41 @@
 
                     <div class="row">
                         <span class="pt-5 pl-5"> <a href="#" onclick="history.back()"> {{_('<< back ')}} </a> <hr style="width:100%"></span>
-                        <div class="col-12 col-md-12" >
-                            <span style="float:right">  <a href="{{route('users.address.create')}}" class="btn btn-primary "> Add New Address</a></span> 
-                       </div>
-                       <div class="ps-shopping__table">
+                       <div class="table-responsive-sm">
                         <table class="table ps-table ps-table--product">
                             <thead>
+                                @if(count($payments) > 0)
                                 <tr>
-                                    <th class="ps-product__remove"></th>
-                                    <th class="ps-product__thumbnail"></th>
-                                    <th class="ps-product__name">Product name</th>
-                                    <th class="ps-product__meta">Unit price</th>
-                                    <th class="ps-product__quantity">Quantity</th>
-                                    <th class="ps-product__subtotal">Subtotal</th>
+                                   
+                                    <th>Order No</th>
+                                    <th>Payment Ref</th>
+                                    <th >External Ref</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                   
                                 </tr>
+                                @endif
                             </thead>
                             <tbody>
+                                @forelse ($payments as  $pay)
                                 <tr>
-                                    <td class="ps-product__remove"> <a href="#"><i class="icon-cross"></i></a></td>
-                                    <td class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
-                                            <figure><img src="img/products/055.jpg" alt=""></figure>
-                                        </a></td>
-                                    <td class="ps-product__name"> <a href="product1.html">Somersung Sonic X2500 Pro White</a></td>
-                                    <td class="ps-product__meta"> <span class="ps-product__price">$399.99</span>
+                                    <td > {{$pay->order_id}}</td>
+                                    <td > {{$pay->payment_ref}}</td>
+                                    <td >{{$pay->external_ref}} </td>
+                                    <td >{{moneyFormat($pay->payable)}}</td>
+                                    <td >
+                                        @if($pay->status == 1) 
+                                        <span class="badge badge-success"> Success</span> 
+                                        @else <span class="badge badge-warning"> Pending</span>
+                                         @endif
                                     </td>
-                                    <td class="ps-product__quantity"><span>1</span>
-                                    </td>
-                                    <td class="ps-product__subtotal">$399.99</td>
                                 </tr>
-                                <tr>
-                                    <td class="ps-product__remove"> <a href="#"><i class="icon-cross"></i></a></td>
-                                    <td class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
-                                            <figure><img src="img/products/001.jpg" alt=""></figure>
-                                        </a></td>
-                                    <td class="ps-product__name"> <a href="product1.html">Digital Thermometer X30-Pro</a></td>
-                                    <td class="ps-product__meta"> <span class="ps-product__price sale">$77.65</span><span class="ps-product__del">$80.65</span>
-                                    </td>
-                                    <td class="ps-product__quantity">
-                                        <div class="def-number-input number-input safari_only">
-                                            <button class="minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"><i class="icon-minus"></i></button>
-                                            <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                            <button class="plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"><i class="icon-plus"></i></button>
-                                        </div>
-                                    </td>
-                                    <td class="ps-product__subtotal">$77.65</td>
-                                </tr>
+                                @empty
+                                
+                                    <p style="margin: 80px auto"> No Data Found</p>
+                                    
+                                
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

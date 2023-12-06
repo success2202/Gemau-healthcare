@@ -14,9 +14,8 @@
                     Recently Viewed</a></li>
             <li><a class="dropdown-item navIL" href="{{route('users.order.payments')}}"> <i class="icon-wallet"> </i>&nbsp; Card
                     Payments</a></li>
-            <li><a class="dropdown-item navIL" href=""><i class="icon-cog"> </i>&nbsp; Update
+            <li><a class="dropdown-item navIL" href="{{route('users.account.settings')}}"><i class="icon-cog"> </i>&nbsp; Update
                     Account</a></li>
-
         </ul>
     </div>
 </div>
