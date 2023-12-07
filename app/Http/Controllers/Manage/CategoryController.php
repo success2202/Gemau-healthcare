@@ -7,6 +7,8 @@ use App\Models\Category;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Traits\imageUpload;
+use Vinkla\Hashids\Facades\Hashids;
 
 class CategoryController extends Controller
 {
@@ -16,6 +18,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+     use imageUpload;
      public $category;
 
     public function __construct()
@@ -24,8 +27,10 @@ class CategoryController extends Controller
     }
     public function index()
     {
+        $category = Category::latest()->get();
+        addHashId($category);
         return view('manage.category.index')
-            ->with('category', Category::latest()->get())
+            ->with('category', $category)
             ->with('bheading', 'Category')
             ->with('breadcrumb', 'Index');
     }
@@ -64,15 +69,7 @@ class CategoryController extends Controller
         }
 
         if ($request->file('image')) {
-            $file = $request->file('image');
-            $name = $file->getClientOriginalName();
-            $FileName = \pathinfo($name, PATHINFO_FILENAME);
-            $ext = $file->getClientOriginalExtension();
-            $time = md5(time() . $FileName);
-            $fileName = $time . '.' . $ext;
-            //$image->move('images/category/', $fileName);
-            Image::make($request->file('image'))->resize(600, 334)->save('images/category/' . $fileName);
-            // $ff = Image::make($request->file('image'))->resize(440, 440)->save('images/category/' . $fileName);
+            $fileName = $this->UploadImage($request, 'images/category/');
         }
         //  dd($fileName);
         $data = [
@@ -108,10 +105,12 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $id =  decrypt($id);
+        $id =  Hashids::connection('products')->decode($id);
+        $cat = Category::where('id', $id[0])->first();
+        $cat->hashid = Hashids::connection('products')->encode($id);
         return view('manage.category.edit')
             ->with('bheading', 'Category')
-            ->with('category',  Category::where('id', $id)->first())
+            ->with('category',   $cat)
             ->with('breadcrumb', 'Edit Catogry');
     }
 
@@ -124,22 +123,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $id = decrypt($id);
+        $id = Hashids::connection('products')->decode($id);
         $category = category::where('id', $id)->first();
         $category->name = $request->name;
         if($request->file('image')){
-            $file = $request->file('image');
-            $name = $file->getClientOriginalName();
-            $FileName = \pathinfo($name, PATHINFO_FILENAME);
-            $ext = $file->getClientOriginalExtension();
-            $time = md5(time().$FileName);
-            $fileName = $time.'.'.$ext;
-            // $file->move('images/category/', $fileName);
-            Image::make($request->file('image'))->resize(600, 334)->save('images/category/' . $fileName);
-        //    Image::make($request->file('image'))->resize(440, 440)->save('images/category/' . $fileName);
-            $category->image = $fileName;
+            $category->image_path = $this->UploadImage($request, 'images/category/');
         }else{
-            $category->image =  $category->image;  
+            $category->image_path =  $category->image;  
         }
         if($category->save()){
             Session::flash('alert', 'success');

@@ -28,7 +28,6 @@
                                            <thead>
                                             <tr><th class="text-left">S/N</th>
                                                 <th>Category</th>
-                                                <th>Sub Categories</th>
                                                 <th>Image</th>
                                                  <th>Created At</th>
                                                 <th></th>
@@ -43,12 +42,6 @@
                                                 <td>
                                                     <a href="#">{{$sp->name}}</a>
                                                 </td> 
-                                               
-                                                <td>
-                                                    @foreach ($sp->subCategory as $item)
-                                                    <i class="fa fa-dot-circle-o"> </i> <a href="#">{{$item->name}}</a> <br>
-                                                    @endforeach
-                                                </td> 
                                               
                                             
                                                 <td>
@@ -57,19 +50,13 @@
                                                   <td>
                                                     <a href="#">{{$sp->created_at->format('d/M/y')}}</a>
                                                 </td>
-                                                         @php
-                                                        $id = $sp->id;
-                                                        $parameter = encrypt($id);
-                                                        @endphp
                                                 <td class="text-right">
                                                     <div class="dropdown">
                                                         <a href="#" data-toggle="dropdown">
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a href="{{route('category.edit', encrypt($sp->id))}}" class="dropdown-item">Edit Cateogry</a>
-                                                            <a href="{{route('edit.subcat', encrypt($sp->id))}}" class="dropdown-item">Edit Sub Cateogry</a>
-                                                            <a href="{{route('create.subcat', encrypt($sp->id))}}" class="dropdown-item">Add Sub Category</a>  
+                                                            <a href="{{route('category.edit', $sp->hashid)}}" class="dropdown-item">Edit Cateogry</a> 
                                                         </div>
                                                     </div>
                                                 </td>

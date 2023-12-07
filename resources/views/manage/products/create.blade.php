@@ -6,8 +6,8 @@
  <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                {{Form::open(['action' => 'ProductController@store', 'method'=>'post', 'enctype' => 'multipart/form-data'])}}
-              @csrf
+                  <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
               <div class="card">
                         <div class="card-body">
                             <h6 class="card-title">Create Product</h6>
@@ -23,7 +23,7 @@
                                             @enderror
                                         </div>
                                     </div> 
-                                        <div class="col-md-12">
+                                        <div class="col-md-6 col-12">
                                         <div class="form-group">
                                            <input required type="number" name="price"  value="{{old('price')}}" class="form-control @error('price') is-invalid @enderror" id="exampleInput"
                                                    aria-describedby="EventLocation" placeholder="Product Price">
@@ -35,7 +35,7 @@
                                         </div>
                                          </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-6 col-12">
                                           <div class="form-group">
                                             <input required type="number" name="sale_price"  value="{{old('sale_price')}}" class="form-control @error('price') is-invalid @enderror" id="exampleInputEmail1"
                                                    aria-describedby="emailHelp" placeholder="Sale Price">
@@ -47,89 +47,18 @@
                                           </div>           
                                         </div>
 
-                                        <div class="col-md-6">
+
+                                        <div class="col-md-12">
                                           <div class="form-group">
-                                            <label>Color of product</label>
-                                            <select name="colors[]" id="color"  multiple required>
-                                              @foreach ($colorproduct as $color )
-                                                <option value="{{$color->name}}">{{$color->name}}</option>
-                                              @endforeach
-                                            </select>
-                                            <small id="emailHelp" class="form-text text-muted">Select Color 
+                                            <input required type="number" name="qty"  value="{{old('qty')}}" class="form-control @error('qty') is-invalid @enderror" id="exampleInputEmail1"
+                                                   aria-describedby="emailHelp" placeholder="Available quantity">
+                                            <small id="emailHelp" class="form-text text-muted">Available quantity
                                             </small>
-                                            @error('color')
-                                            <span class="invalid-feedback"> <small> *</small> </span>
+                                            @error('qty')
+                                            <span class="invalid-feedback"> <small> {{$message}}</small> </span>
                                             @enderror
-                                          </div>
+                                          </div>           
                                         </div>
-
-                                        <div class="col-md-6">
-                                          <div class="form-group">
-                                            <label>Size of product</label>
-                                            <select name="sizes[]" id="size"  multiple required>
-                                                @foreach ($sizeproduct as $size )
-                                                  <option value="{{$size->name}}">{{$size->name}}</option>
-                                                @endforeach
-                                               
-                                            </select>
-                                            <small id="emailHelp" class="form-text text-muted">Select Size 
-                                            </small>
-                                            @error('size')
-                                            <span class="invalid-feedback"> <small> *</small> </span>
-                                            @enderror
-                                          </div>
-                                        </div>
-
-                                        {{-- <div class="col-md-6">
-                                          <div class="form-group">
-                                            <label>Variant Inventory</label> 
-                                            <select name="variants[]" id="variants"  multiple>
-                                             
-                                                <option value="L-0">L-0</option>
-                                                <option value="XL-1">XL-1</option>
-                                                <option value="XXL-1">XXL-1</option>
-                                                <option value="3XL-1">3XL-1</option>
-                                                <option value="4XL-0">4XL-0</option>
-                                                <option value="44-1">44-1</option>
-                                                <option value="46-1">46-1</option>
-                                                <option value="48-1">48-1</option>
-                                                <option value="50-1">50-1</option>
-                                                <option value="52-0">52-0</option>
-                                            </select>
-                                            <small id="emailHelp" class="form-text text-muted">Select Varient Inventory 
-                                            </small>
-                                            @error('size')
-                                            <span class="invalid-feedback"> <small> *</small> </span>
-                                            @enderror
-                                          </div>
-                                        </div> --}}
-
-                                        <script>
-                                            // new MultiSelectTag('variants', {
-                                            //     rounded: true,    // default true
-                                            //     shadow: true,      // default false
-                                            //     placeholder: 'Search',  // default Search...
-                                            //     onChange: function(values) {
-                                            //         console.log(values)
-                                            //     }
-                                            // });
-                                            new MultiSelectTag('color', {
-                                                rounded: true,    // default true
-                                                shadow: true,      // default false
-                                                placeholder: 'Search',  // default Search...
-                                                onChange: function(values) {
-                                                    console.log(values)
-                                                }
-                                            });
-                                            new MultiSelectTag('size', {
-                                                rounded: true,    // default true
-                                                shadow: true,      // default false
-                                                placeholder: 'Search',  // default Search...
-                                                onChange: function(values) {
-                                                    console.log(values)
-                                                }
-                                            })
-                                        </script>
 
                                       <div class="col-md-12">
                                          <div class="form-group">
@@ -203,7 +132,7 @@
                            </div>
                         </div>
                         </div>
-                    {{Form::close()}}
+                  </form>
 
     </div>
                         </div>

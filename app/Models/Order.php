@@ -11,4 +11,9 @@ class Order extends Model
     protected $fillable = [
         'order_no', 'cart_items_id', 'shipping_method', 'user_id', 'payable', 'payment_ref', 'payment_method', 'address_id', 'is_paid', 'is_delivered', 'dispatch_status'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }

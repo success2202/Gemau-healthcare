@@ -33,7 +33,7 @@
                                                 <th>City</th>
                                                   <th>State</th>
                                                  <th>Postal Code</th>
-                                                 <th>Delivery Company</th>
+                                                 <th>Country</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -42,14 +42,14 @@
                                             @if(isset($shipping))
                                             
                                                 <td>
-                                                    <a href="#">{{$shipping->receiver_name}}</a>
+                                                    <a href="#">{{$shipping->name}}</a>
                                                 </td>
                                             
                                                  <td>
-                                                    <a href="#">{{$shipping->receiver_email}}</a>
+                                                    <a href="#">{{$shipping->email}}</a>
                                                 </td>
                                                   <td>
-                                                    <a href="#">{{$shipping->receiver_phone}}</a>
+                                                    <a href="#">{{$shipping->phone}}</a>
                                                 </td>
                                                  <td>
                                                     <a href="#">{{$shipping->address}}</a>
@@ -61,10 +61,10 @@
                                                     <a href="#">{{$shipping->state}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$shipping->zip_code}}</a>
+                                                    <a href="#">{{$shipping->postal_code}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$shipping->delivery_method}}</a>
+                                                    <a href="#">{{$shipping->country}}</a>
                                                 </td>
                                             
                                             </tr>

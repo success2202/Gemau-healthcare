@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-12 col-xl-7">
                                 <div class="ps-product__info">
-                                    @if($product->status != 0)
+                                    @if($product->status != 0 || $product->qty <= 0)
                                     <div class="ps-product__badge"><span class="ps-badge ps-badge--outstock">OUT OF STOCK</span>
                                     </div>
                                     @endif
@@ -77,12 +77,13 @@
                                      
                                         <div class="d-md-flex align-items-center">
                                             <div class="def-number-input number-input safari_only">
-                                            </div><button type="button" style="border-radius:5px" class="ps-btn ps-btn--success"  id="add2cart">Add to cart</button>
+                                            </div><button type="button" style="border-radius:5px" class="ps-btn ps-btn--success"  id="add2cart" 
+                                            @if($product->status != 0 || $product->qty <= 0)
+                                            disabled @endif>Add to cart</button>
                                         </div>
                                     </div>
                                     <div class="ps-product__social">
                                         <ul class="ps-social ps-social--color">
-
                                         Share this Product
                                             <li><a class="ps-social__link facebook" href="#"><i class="fa fa-facebook"> </i><span class="ps-tooltip">Facebook</span></a></li>
                                             <li><a class="ps-social__link twitter" href="#"><i class="fa fa-twitter"></i><span class="ps-tooltip">Twitter</span></a></li>

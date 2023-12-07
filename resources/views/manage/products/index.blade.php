@@ -33,6 +33,8 @@
                                                 <th>Discount Percentage</th>
                                                 <th>Image</th>
                                                 <th>Views</th>
+                                                <th>Qty</th>
+                                                <th>Status</th>
                                                  <th>Created At</th>
                                                 <th></th>
                                             </tr>
@@ -56,20 +58,22 @@
                                                     <a href="#">{{number_format($sp->discount,0)}}%</a>
                                                 </td> 
                                                 <td>
-                                                    <a href="#"><img src="{{asset('/images/products/'.$sp->image)}}" width="50px" height="50px"></a> 
+                                                    <a href="#"><img src="{{asset('/images/products/'.$sp->image_path)}}" width="50px" height="50px"></a> 
                                                 </td>  
                                                 
                                                  <td>
                                                     <a href="#">{{$sp->views}}</a>
-                                                </td>       
+                                                </td> 
+                                                <td>
+                                                    <a href="#">{{$sp->qty}}</a>
+                                                </td>
+                                                <td>
+                                                    <a href="#">@if($sp->status == 0 ) <span class="badge bg-success"> active</span> @else <span class="badge bg-info"> Disabled </span> @endif</span> </a>
+                                                </td>      
                                                   <td>
                                                     <a href="#">{{$sp->created_at->format('d/M/y')}}</a>
                                                 </td>
-                                               
-                                                         @php
-                                                        $id = $sp->id;
-                                                        $parameter = encrypt($id);
-                                                        @endphp
+                                            
                                                 <td class="text-right">
                                                     <div class="dropdown">
                                                         <a href="#" data-toggle="dropdown">
@@ -77,21 +81,21 @@
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                            
-                                                        <a href="{{route('product.edit', encrypt($sp->id))}}" class="dropdown-item">Edit Product</a>
+                                                        <a href="{{route('product.edit', $sp->hashid)}}" class="dropdown-item">Edit Product</a>
                                                         {{-- <a href="{{route('product.delete', encrypt($sp->id))}}" class="dropdown-item" style="color:red">Delete Product</a> --}}
-                                                        <form method="post" action="{{route('product.delete', encrypt($sp->id))}}" id="form1"> 
+                                                        <form method="post" action="{{route('product.delete', $sp->hashid)}}" id="form1"> 
                                                             @csrf    
                                                              <input type="hidden" name="status" value="1">
                                                               <button type="submit"  class="dropdown-item" style="color:red">Delete Product</button>
                                                         </form>
                                                         @if($sp->status != 1) 
-                                                            <form method="post" action="{{route('product.status', encrypt($sp->id))}}" id="form1"> 
+                                                            <form method="post" action="{{route('product.status', $sp->hashid)}}" id="form1"> 
                                                             @csrf    
                                                              <input type="hidden" name="status" value="1">
                                                               <button type="submit"  class="dropdown-item" style="color:red">Disable</button>
                                                              </form>
                                                        @else
-                                                        <form method="post" action="{{route('product.status', encrypt($sp->id))}}" id="form2"> 
+                                                        <form method="post" action="{{route('product.status', $sp->hashid)}}" id="form2"> 
                                                               @csrf  
                                                               <input type="hidden" name="status" value="0">
                                                               <button type="submit"  class="dropdown-item" style="color:green">Enable</button>

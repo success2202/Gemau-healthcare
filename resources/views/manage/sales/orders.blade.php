@@ -85,9 +85,9 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a href="{{route('admin.order-details', encrypt($sp->order_No))}}" class="dropdown-item">View Order Details</a>
-                                                            <a href="{{route('admin.shipping', encrypt($sp->order_No))}}" class="dropdown-item">View Shipping</a>
-                                                          <a href="{{route('order.status', encrypt($sp->order_No))}}" class="dropdown-item">Update Status</a>
+                                                            <a href="{{route('admin.order-details', encrypt($sp->order_no))}}" class="dropdown-item">View Order Details</a>
+                                                            <a href="{{route('admin.shipping', encrypt($sp->order_no))}}" class="dropdown-item">View Shipping</a>
+                                                          <a href="{{route('order.status', encrypt($sp->order_no))}}" class="dropdown-item">Update Status</a>
                                                         </div>
                                                     </div>
                                                 </td>

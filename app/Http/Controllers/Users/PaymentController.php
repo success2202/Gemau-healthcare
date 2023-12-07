@@ -6,6 +6,7 @@ use App\Events\OrderShipment;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Payment;
+use App\Models\Product;
 use App\Models\ShippingAddress;
 use Illuminate\Support\Facades\Redirect;
 use Unicodeveloper\Paystack\Facades\Paystack;
@@ -75,6 +76,10 @@ class PaymentController extends Controller
             ]);
             if($orders->shipping_method == 'home_delivery'){
            event(new OrderShipment($address, $paymentDetails['data']['metadata']));
+            }
+            foreach(\Cart::destroy() as $items){
+                $prod = Product::where('id', $items->model->id)->first();
+                $prod->update(['qty' => $prod->qty -1 ]);
             }
            
         \Cart::destroy();

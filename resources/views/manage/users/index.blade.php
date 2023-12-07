@@ -106,8 +106,8 @@
                                                  <th> &nbsp; &nbsp; &nbsp;&nbsp; </th>
                                             </thead>
                                             <tbody>
-                                        @if(count($orders) > 0)
-                                        @foreach ($orders as  $sp)
+                                        @forelse ($orders as  $sp)
+                                        
                                             <tr>
                                                 <td>
                                                     <a href="#">{{substr($sp->user->email,0,15)}}..</a>
@@ -160,12 +160,11 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                              @endforeach
-                                              @else 
-                                              <tr>
-                                              <td> No data available </td>
-                                              </tr>
-                                              @endif
+                                             @empty
+                                             <tr>
+                                                <td> No data available </td>
+                                                </tr>
+                                             @endforelse
                                             </tbody>
                                         </table>
                                     </div>

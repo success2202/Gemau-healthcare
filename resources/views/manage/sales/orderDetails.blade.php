@@ -41,17 +41,17 @@
                                             <tr>
                                         
                                                 <td>
-                                                    <img src="{{asset('/images/products/'.$sp->image)}}" width="50px" height="50px"> 
+                                                    <img src="{{asset('/images/products/'.$sp->image_path)}}" width="50px" height="50px"> 
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$sp->order_No}}</a>
+                                                    <a href="#">{{$sp->Order_no}}</a>
                                                 </td>
                                                 <td>
                                                     <a href="#">{{$sp->product_name}}</a>
                                                 </td>
                                             
                                                  <td>
-                                                    <a href="#">{{number_format($sp->price,2)}}</a>
+                                                    <a href="#">{{moneyFormat($sp->payable,2)}}</a>
                                                 </td>
                                                   <td>
                                                     <a href="#">{{$sp->qty}}</a>

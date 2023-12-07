@@ -6,8 +6,8 @@
  <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                {{Form::open(['action' => ['ProductController@update', encrypt($product->id)], 'method'=>'post', 'enctype' => 'multipart/form-data'])}}
-              @csrf
+                  <form action="{{route('product.update',$product->hashid)}}" method="post" enctype="multipart/form-data">
+                    @csrf
               @method('put') 
               <div class="card">
                         <div class="card-body">
@@ -24,7 +24,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-6 col-12">
                                         <div class="form-group">
                                            <input type="text" name="price"  value="{{$product->price}}"class="form-control @error('price') is-invalid @enderror" id="exampleInput"
                                                    aria-describedby="EventLocation" placeholder="Product Price">
@@ -36,7 +36,7 @@
                                         </div>
                                          </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-12">
                                           <div class="form-group">
                                               <input type="text" name="sale_price"  value="{{$product->sale_price}}" class="form-control @error('sale_price') is-invalid @enderror" id="exampleInputEmail1"
                                                     aria-describedby="emailHelp" placeholder="Sale Price">
@@ -48,7 +48,7 @@
                                           </div>           
                                       </div>
 
-                                      <div class="col-md-6">
+                                      <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <input type="text" name="sale_price"  value="{{$product->discount}}%" disabled class="form-control @error('sale_price') is-invalid @enderror" id="exampleInputEmail1"
                                                   aria-describedby="emailHelp" placeholder="Sale Price">
@@ -60,66 +60,22 @@
                                         </div>           
                                     </div>
 
-                                      {{-- {{$product->colors}} --}}
-                                      <div class="col-md-6">
-                                        <div class="form-group">
-                                          <select name="colors[]" id="colors">
-                                            @foreach ($colorproduct as $color)
-                                                <option value="{{ $color->name }}" {{ $color->name == optional($product->colors->first())->name  ? 'selected' : '' }}>
-                                                    {{ $color->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        
-                                          <small id="emailHelp" class="form-text text-muted">Select Color 
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group">
+                                          <input type="text" name="qty"  value="{{$product->qty}}"  class="form-control @error('qty') is-invalid @enderror" id="exampleInputEmail1"
+                                                aria-describedby="emailHelp" placeholder="Enter Quantity available">
+                                          <small id="emailHelp" class="form-text text-muted">Enter Quantity available
                                           </small>
-                                          @error('color')
-                                          <span class="invalid-feedback"> <small> *</small> </span>
+                                          @error('qty')
+                                          <span class="invalid-feedback"> <small> {{$message}}</small> </span>
                                           @enderror
-                                        </div>
-                                      </div>
-                                      
-                                      <div class="col-md-6">
-                                        <div class="form-group">
-                                          <select name="sizes[]" id="sizes"  multiple >
-                                            @foreach ($sizeproduct as $size)
-                                                <option value="{{ $size->name }}" {{ $size->name == optional($product->sizes->first())->name  ? 'selected' : '' }}>
-                                                    {{ $size->name }}
-                                                </option>
-                                            @endforeach
-                                          </select>
-                                          <small id="emailHelp" class="form-text text-muted">Select Size 
-                                          </small>
-                                          @error('size')
-                                          <span class="invalid-feedback"> <small> *</small> </span>
-                                          @enderror
-                                        </div>
-                                      </div>
-
-                                      <script>
-                                       
-                                        new MultiSelectTag('colors', {
-                                            rounded: true,    // default true
-                                            shadow: true,      // default false
-                                            placeholder: 'Search',  // default Search...
-                                            onChange: function(values) {
-                                                console.log(values)
-                                            }
-                                        });
-                                        new MultiSelectTag('sizes', {
-                                            rounded: true,    // default true
-                                            shadow: true,      // default false
-                                            placeholder: 'Search',  // default Search...
-                                            onChange: function(values) {
-                                                console.log(values)
-                                            }
-                                        })
-                                    </script>
+                                      </div>           
+                                  </div>
 
                                     </div>           
                                   </div>
 
-                                      <div class="col-md-6">
+                                      <div class="col-md-12">
                                          <div class="form-group">
                                            
                                            <select class="form-control  @error('category_id') is-invalid @enderror" name="category_id"> 
@@ -151,7 +107,7 @@
                                          
 
 
-                                               <div class="col-md-6">
+                                               <div class="col-md-12">
                                   <div class="custom-file">
                                         <input type="file"name="image" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Choose Cover Image</label>
@@ -161,12 +117,12 @@
                                               @error('image')
                                             <span class="invalid-feedback"> <small> *</small> </span>
                                             @enderror
-                                            <img src="{{asset('/images/products/'.$product->image)}}" width="100px" height="100px"> 
+                                            <img src="{{asset('/images/products/'.$product->image_path)}}" width="100px" height="100px"> 
                                       
                                          </div>
 
                                          
-                                               <div class="col-md-6">
+                                               <div class="col-md-12">
                                                 <div class="custom-file">
                                  
                                             <input type="file" name="images[]" multiple="" class="custom-file-input  @error('images') is-invalid @enderror" id="customFile">
@@ -204,7 +160,7 @@
                            </div>
                         </div>
                         </div>
-                    {{Form::close()}}
+                      </form>
 
                     </div>
                         </div>

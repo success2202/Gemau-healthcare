@@ -50,6 +50,12 @@ if(!function_exists('GenerateRef')){
     }
 }
 
+if(!function_exists('decodeHashid')){
+    function decodeHashid($id){
+        $id = Hashids::connection('products')->decode($id)[0];
+        return $id;
+    }
+}
 
 
 }

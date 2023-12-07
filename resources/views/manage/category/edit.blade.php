@@ -5,8 +5,8 @@
  <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                {{Form::open(['action' => ['CategoryController@update', encrypt($category->id)], 'method'=>'post', 'enctype' => 'multipart/form-data'])}}
-              @csrf
+                  <form action="{{route('category.update', $category->hashid)}}" method="post" enctype="multipart/form-data">
+                    @csrf
               @method('put')
               <div class="card">
                         <div class="card-body">
@@ -30,7 +30,7 @@
                                             <input type="file"name="image" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Change Image</label>
                                             </div>
-                                               <img src="{{asset('/images/category/'.$category->image)}}" width="50px" height="50px">
+                                               <img src="{{asset('/images/category/'.$category->image_path)}}" width="50px" height="50px">
                                             <small id="emailHelp" class="form-text text-muted">Change Category Image
                                             </small>
                                               @error('image')
@@ -54,7 +54,7 @@
                            </div>
                         </div>
                         </div>
-                    {{Form::close()}}
+                  </form>
 
     </div>
                         </div>

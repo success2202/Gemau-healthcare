@@ -11,7 +11,7 @@ use App\Http\Controllers\Users\SearchController;
 use App\Http\Controllers\Users\UserController;
 
 Route::get('/',  [HomeController::class, '__invoke'])->name('users.index');
-Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('users.index');
+Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('index');
 Route::get('/products/{id}/{url}', [ProductDetailsController::class, '__invoke'])->name('users.products');
 
 Route::controller(CartsController::class)->group( function(){
