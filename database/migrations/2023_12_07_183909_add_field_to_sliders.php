@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldToAdminNotifications extends Migration
+class AddFieldToSliders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddFieldToAdminNotifications extends Migration
      */
     public function up()
     {
-        Schema::table('admin_notifications', function (Blueprint $table) {
+        Schema::table('sliders', function (Blueprint $table) {
             //
-            $table->integer('admn_id')->nullable();
+            $table->integer('status')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddFieldToAdminNotifications extends Migration
      */
     public function down()
     {
-        Schema::table('admin_notifications', function (Blueprint $table) {
+        Schema::table('sliders', function (Blueprint $table) {
             //
         });
     }

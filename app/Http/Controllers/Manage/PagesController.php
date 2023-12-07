@@ -105,7 +105,7 @@ class PagesController extends Controller
     }
 
     public function Terms(){
-        $termscondition = TermsConditions::first();
+        $termscondition = TermsCondition::first();
         return  view('users.pages..termsConditions')
         ->with('termscondition', $termscondition);
     }

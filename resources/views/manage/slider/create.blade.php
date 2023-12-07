@@ -97,7 +97,7 @@ $('input[name="audition_date"]').daterangepicker({
 });
 
 let message = {!! json_encode(Session::get('message')) !!};
-let msg = {!! json_encode(Session::get('alert')) !!};
+let msg = {!! json_encode(Session::get('msg')) !!};
 
 toastr.options = {
         timeOut: 3000,

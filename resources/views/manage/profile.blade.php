@@ -4,7 +4,8 @@
  <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                {{Form::open(['action' => 'AdminController@updateProfile', 'method'=>'post', 'enctype' => 'multipart/form-data'])}}
+                    <form action="{{route('updateProfile')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                 <div class="card">
                         <div class="card-body">
                             <h6 class="card-title">Update Profile</h6>
@@ -48,8 +49,8 @@
                         <hr>
                         @if(Session::has('pass'))
 
-    <span class="alert {{Session::get('alert')}}" role="alert"> {{Session::get('pass')}}</span>
-@endif
+                                <span class="alert {{Session::get('alert')}}" role="alert"> {{Session::get('pass')}}</span>
+                            @endif
                             <div class="card-body">
                             <h6 class="card-title">Update Password</h6>
                             <div class="row">
@@ -99,11 +100,11 @@
                            </div>
                         </div>
                         </div>
-                    {{Form::close()}}
+                    </form>
 
-    </div>
+                    </div>
                         </div>
-                    </>
+                    
                    
 
 @endsection

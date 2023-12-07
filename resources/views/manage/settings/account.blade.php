@@ -105,25 +105,17 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary"> Update Details</button>
-                       
                     </form>
                 </div>
             </div>
-
-
         </div>
     </div>
 
 </div>
-
-
-
-
 @endsection
 
 @section('script')
 <script>
-
 $('.clockpicker-example').clockpicker({
     autoclose: true
 });

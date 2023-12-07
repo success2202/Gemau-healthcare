@@ -67,11 +67,11 @@
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="secondname"  value="{{old('secondname')}}" class="form-control @error('title') is-invalid @enderror" id="exampleInputEmail1"
+                                                    <input type="text" name="title"  value="{{old('title')}}" class="form-control @error('title') is-invalid @enderror" id="exampleInputEmail1"
                                                            aria-describedby="emailHelp" placeholder="Slider Title">
                                                     <small id="emailHelp" class="form-text text-muted">Slider Title
                                                     </small>
-                                                    @error('secondname')
+                                                    @error('title')
                                                     <span class="invalid-feedback"> <small> * </small> </span>
                                                     @enderror
                                                 </div>
@@ -95,10 +95,10 @@
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text"  name="thirdname"   placeholder="Enter Slider content" value="{{old('thirdname')}}" class="form-control @error('content') is-invalid @enderror"  > 
+                                                    <input type="text"  name="content"   placeholder="Enter Slider content" value="{{old('content"')}}" class="form-control @error('content') is-invalid @enderror"  > 
                                                     <small id="emailHelp" class="form-text text-muted">Slider Content
                                                     </small>
-                                                    @error('thirdname')
+                                                    @error('content"')
                                                     <span class="invalid-feedback"> <small> * </small> </span>
                                                     @enderror
                                                 </div>

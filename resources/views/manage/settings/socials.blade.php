@@ -57,7 +57,7 @@
                                 <li class="list-group-item">
                                     <div class="flex-grow-1 min-width-0">
                                         <div class="mb-1 d-flex justify-content-between align-items-center">
-                                            <div class="text-truncate app-list-title">Change Tiktok Link</div>
+                                            <div class="text-truncate app-list-title">Change Twitter Account</div>
                                             <div class="pl-3 d-flex">
                                                 <span class="text-nowrap text-muted"></span>
                                                 
@@ -67,11 +67,11 @@
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="tiktok"  value="{{$settings->tiktok}}" class="form-control @error('tiktok') is-invalid @enderror" id="exampleInputEmail1"
-                                                           aria-describedby="emailHelp" placeholder="Change Tiktok Link">
-                                                    <small id="emailHelp" class="form-text text-muted">Update Tiktok Link
+                                                    <input type="text" name="twitter"  value="{{$settings->twitter}}" class="form-control @error('twitter') is-invalid @enderror" id="exampleInputEmail1"
+                                                           aria-describedby="emailHelp" placeholder="Change Twitter Link">
+                                                    <small id="emailHelp" class="form-text text-muted">Update Twitter Account
                                                     </small>
-                                                    @error('tiktok')
+                                                    @error('twitter')
                                                     <span class="invalid-feedback"> <small> * </small> </span>
                                                     @enderror
                                                 </div>
@@ -83,7 +83,7 @@
                                 <li class="list-group-item">
                                     <div class="flex-grow-1 min-width-0">
                                         <div class="mb-1 d-flex justify-content-between align-items-center">
-                                            <div class="text-truncate app-list-title">Change Pinterest  Link</div>
+                                            <div class="text-truncate app-list-title">Change linkedIn Account</div>
                                             <div class="pl-3 d-flex">
                                                 <span class="text-nowrap text-muted"></span>
                                                 
@@ -93,11 +93,11 @@
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="pinterest"  value="{{$settings->pinterest}}" class="form-control @error('pinterest') is-invalid @enderror" id="exampleInputEmail1"
-                                                           aria-describedby="emailHelp" placeholder="Change Pinterest  Link">
-                                                    <small id="emailHelp" class="form-text text-muted">Update Pinterest  Link
+                                                    <input type="text" name="linkedIn"  value="{{$settings->linkedIn}}" class="form-control @error('linkedIn') is-invalid @enderror" id="exampleInputEmail1"
+                                                           aria-describedby="emailHelp" placeholder="Change linkedIn Account">
+                                                    <small id="emailHelp" class="form-text text-muted">Update linkedIn Account
                                                     </small>
-                                                    @error('pinterest')
+                                                    @error('linkedIn"')
                                                     <span class="invalid-feedback"> <small> * </small> </span>
                                                     @enderror
                                                 </div>

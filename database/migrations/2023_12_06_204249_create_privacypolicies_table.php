@@ -15,6 +15,7 @@ class CreatePrivacypoliciesTable extends Migration
     {
         Schema::create('privacypolicies', function (Blueprint $table) {
             $table->id();
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }

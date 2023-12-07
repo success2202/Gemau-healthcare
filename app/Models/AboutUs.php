@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AboutUs extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['content'];
+    protected $table = "about_us";
 }

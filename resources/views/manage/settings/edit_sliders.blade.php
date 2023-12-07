@@ -38,7 +38,7 @@
                                             <div class="text-muted d-flex justify-content-between">
                                                 <div class="text-truncate small"></div>
                                                 <div class="col-md-12">
-                                                    <img src="{{asset('images/sliders/'.$slider->image)}}" width="100px">
+                                                    <img src="{{asset('images/sliders/'.$slider->image_path)}}" width="100px">
                                                     <div class="custom-file">
                                                      
                                                         <input type="file" name="image" class="custom-file-input  @error('image') is-invalid @enderror">
@@ -67,11 +67,11 @@
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="secondname"  value="{{$slider->secondname}}" class="form-control @error('title') is-invalid @enderror" id="exampleInputEmail1"
+                                                    <input type="text" name="title"  value="{{$slider->title}}" class="form-control @error('title') is-invalid @enderror" id="exampleInputEmail1"
                                                            aria-describedby="emailHelp" placeholder="Slider Title">
                                                     <small id="emailHelp" class="form-text text-muted">Slider Title
                                                     </small>
-                                                    @error('secondname')
+                                                    @error('title')
                                                     <span class="invalid-feedback"> <small> * </small> </span>
                                                     @enderror
                                                 </div>
@@ -95,10 +95,10 @@
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text"  name="thirdname"   placeholder="Enter Slider content" value="{{$slider->thirdname}}" class="form-control @error('content') is-invalid @enderror"  >{{$slider->content}} 
+                                                    <input type="text"  name="content"   placeholder="Enter Slider content" value="{{$slider->content}}" class="form-control @error('content') is-invalid @enderror"  >{{$slider->content}} 
                                                     <small id="emailHelp" class="form-text text-muted">Slider Content
                                                     </small>
-                                                    @error('thirdname')
+                                                    @error('content')
                                                     <span class="invalid-feedback"> <small> * </small> </span>
                                                     @enderror
                                                 </div>

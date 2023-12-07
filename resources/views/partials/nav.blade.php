@@ -3,11 +3,10 @@
         <div class="ps-navigation__left">
             <nav class="ps-main-menu" >
                 <ul class="menu">
-                    <li class="has-mega-menu"><a href="#" style="font-size:0.9em; font-weight:light"> <i class="fa fa-bars"></i>Categories<span class="sub-toggle"><i class="fa fa-chevron-down"></i></span></a>
-                        <div class="mega-menu">
+                    <li class="has-mega-menu"><a href="{{route('products.search')}}" style="font-size:0.9em; font-weight:light"> <i class="fa fa-bars"></i>All Categories<span class="sub-toggle"></span></a>
+                        {{-- <div class="mega-menu">
                             <div class="container">
-                                <div class="mega-menu__row">
-{{--                                    
+                                <div class="mega-menu__row">                                
                                 @forelse($site_categories as $site_cat)
                                     <div class="mega-menu__column" >
                                         <a href="" style="font-size:0.9em; font-weight:bolder; color:rgb(10, 10, 168)">{{ucwords(strtolower($site_cat->name))}}</a>
@@ -24,20 +23,25 @@
                                         </ul>
                                     </div>
                                 @empty 
-                                @endforelse --}}
+                                @endforelse 
 
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </li>
-                    @forelse ($site_menu as $menu )
-                    <li class="has-mega-menu"><a  style="font-size:0.9em; font-weight:light" href="blog-sidebar1.html">{{$menu->name}}</a></li>
+                    <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('index')}}">Home</a></li>
+                    <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('AboutUs')}}">About Us</a></li>
+                    <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('contactUs')}}">Contact Us</a></li>
+
+                    @forelse($site_categories->take(6) as $site_cat)
+                    <li class="has-mega-menu"><a  style="font-size:0.9em; font-weight:light" href="blog-sidebar1.html">{{ucfirst(strtolower($site_cat->name))}}</a></li>
                     @empty
                     @endforelse
+
                 </ul>
             </nav>
         </div>
-        {{-- <div class="ps-navigation__right">Need help?  <i class="fa fa-phone"> </i><strong>{{$settings->site_phone}}</strong></div> --}}
+        <div class="ps-navigation__right">Need help?  <i class="fa fa-phone"> </i><strong>{{$settings->site_phone}}</strong></div>
     </div>
 </div>
 </header>

@@ -1,12 +1,12 @@
 <header class="ps-header ps-header--2 ps-header--8">
-    <div class="ps-noti">
+    <div class="ps-noti" style="background: #125925">
         <div class="container">
             <p class="m-0">  <marquee> {!! $announcment->content??null !!}</marquee> </p>
         </div><a class="ps-noti__close"><i class="icon-cross"></i></a>
     </div>
     <div class="ps-header__top">
         <div class="container">
-            <div class="ps-header__text"> <strong>100% Secure delivery </strong>without contacting the courier </div>
+            <div class="ps-header__text"> <strong>100% Secure delivery, </strong>Secured Payment options </div>
             <div class="ps-top__right">
                 <div class="ps-language-currency">
                     <a class="ps-dropdown-value" href="javascript:void(0);" data-toggle="modal" data-target="#popupCurrency">NGN</a></div>
@@ -19,7 +19,8 @@
                     </ul>
                 </div>
                 <ul class="menu-top">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Order Tracking</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-info" style="color:#fff" href="index.html">Upload Doctor's Prescription</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary"  style="color:#fff" href="index.html">Special Medication Request</a></li>
                 </ul>
                 {{-- <div class="ps-header__text">Need help? <strong>{{$settings->site_phone}}</strong></div> --}}
             </div>
@@ -27,8 +28,8 @@
     </div>
     <div class="ps-header__middle">
         <div class="container">
-            <div class="ps-logo"><a href="{{route('users.index')}}"> <img src="{{asset($settings->site_logo)}}" alt>
-                <img class="sticky-logo" src="{{asset($settings->site_logo)}}" alt></a></div><a class="ps-menu--sticky" href="#"><i class="fa fa-bars"></i></a>
+            <div class="ps-logo"><a href="{{route('users.index')}}"> <img src="{{asset('images/'.$settings->site_logo)}}" alt>
+                <img class="sticky-logo" src="{{asset('images/'.$settings->site_logo)}}" alt></a></div><a class="ps-menu--sticky" href="{{route('users.index')}}"><i class="fa fa-bars"></i></a>
             <div class="ps-header__right">
                 <ul class="ps-header__icons">
                     {{-- <li><a class="ps-header__item open-search" href="#"><i class="icon-magnifier"></i></a></li> --}}
@@ -36,9 +37,6 @@
                     <li ><a   class="ps-header__item" style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="{{route('login')}}" id="login-modal"> <i class="icon-user"  style="font-size:20px; padding-right:2px; font-weight:800"></i> Account </a>
                         <div class="ps-login--modal">
                                 <button class="ps-btn ps-btn--warning" style="border-radius:5px" type="submit">Log In</button>
-                            <hr> 
-                        <a href=""> Orders </a>
-                        <a href=""> Inbox </a>
                         </div>
                     </li>
                     @else 
@@ -52,7 +50,7 @@
                     </li>
 
                     @endauth
-                    <li ><a   class="ps-header__item" style="width:100px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" > 
+                    <li ><a   class="ps-header__item" style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" > 
                         <i class="icon-question" style="font-size:14px; margin-right:2px; border:2px solid #5b6c8f; border-radius:50px; padding:2px; font-weight:bolder" ></i> Help</a>
                         <li ><a   class="ps-header__item " style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="{{route('carts.index')}}" > 
                             <i  style="font-size:20px; padding-right:2px; font-weight:800" class="icon-cart-empty"></i> 
@@ -69,7 +67,7 @@
                         </div>
                     </form>
                 </div>
-                {{-- <div class="ps-middle__text">Need help? <strong>{{$settings->site_phone}}</strong></div> --}}
+                <div class="ps-middle__text">Need help? <strong>{{$settings->site_phone}}</strong> </div>
             </div>
         </div>
     </div>

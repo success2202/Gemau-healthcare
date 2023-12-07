@@ -69,11 +69,6 @@ class AdminController extends Controller
   
       }
   
-      public function getDownloads($img){
-          $file=public_path()."/images/products/".decrypt($img);
-          return response()->download($file);
-      }
-  
   
       public function notify(){
           return view('manage.users.notify')
@@ -93,10 +88,7 @@ class AdminController extends Controller
               $notify->user_id = $user->id;
               $notify->title = $request->title;
               $notify->message = 'Dear '.$user->name. ' '.$request->message;
-              if($notify->save()){
-                  $notifyCount = $user->notifyCount + 1;
-                  user::where('id', $user->id)->update(['notifyCount'=>$notifyCount]);
-              }
+              $notify->save();
               }
               Session::flash('alert', 'success');
               Session::flash('message', 'Notification sent Successfully');
@@ -105,14 +97,7 @@ class AdminController extends Controller
               return back()->withInputErrors();
           }
       }
-  
-      public function updateNotify($id){
-        AdminNotification::where('id', decrypt($id))
-              ->update([
-                  'is_read' => 1
-              ]);
-              return back();
-      }
+
   
       public function Analytical(){
           $data['users'] = User::where('updated_at', '>=', Carbon::now()->subMinutes(20))->latest()->get();
@@ -135,12 +120,11 @@ class AdminController extends Controller
       }
   
       public function updateProfile(Request $request){
-          $pass = $this->validate($request, [
+           $this->validate($request, [
               'oldPassword' => 'required',
               'password' => 'required|min:5',
               ]);
              $hashedPassword = auth('admin')->user()->password;
-             $pass =  bcrypt($request->password);
               if (Hash::check($request->oldPassword , $hashedPassword)) {
               if (!Hash::check($request->password , $hashedPassword)) {
                     $users_password = bcrypt($request->password);

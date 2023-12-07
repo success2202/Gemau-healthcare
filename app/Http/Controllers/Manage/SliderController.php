@@ -41,16 +41,16 @@ class SliderController extends Controller
         
     }
         $data = [
-            'image' =>   $fileName,
-            'secondname' => $request->secondname,
-            'thirdname' =>  $request->thirdname,
-            'status' => 1,
+            'image_path' =>   $fileName,
+            'title' => $request->title,
+            'content' =>  $request->content,
+            'link' => 1,
         ];
 
        //dd($data);
         Slider::create($data);
         Session::flash('alert', 'success');
-        Session::flash('alert', 'Slider Added Successfully');
+        Session::flash('msg', 'Slider Added Successfully');
         return back();
     }
 
@@ -74,16 +74,17 @@ class SliderController extends Controller
             $fileName = $name.time().'.'.$ext;
             $image->move('images/sliders/',$fileName);
     }else{
-        $fileName = $sl->image;
+        $fileName = $sl->image_path;
     }
-        $data = [
-            'image' =>  $fileName,
-            'secondname' => $request->secondname,
-            'thirdname' =>  $request->thirdname
-        ];
+    $data = [
+        'image_path' =>   $fileName,
+        'title' => $request->title,
+        'content' =>  $request->content,
+        'link' => 1,
+    ];
          $sl->fill($data)->save();
         Session::flash('alert', 'success');
-        Session::flash('alert', 'Slider Updated Successfully');
+        Session::flash('msg', 'Slider Updated Successfully');
         return back();
     }
 
@@ -92,7 +93,7 @@ class SliderController extends Controller
         if($slider){
             $slider->delete();
             Session::flash('alert', 'error');
-            Session::flash('alert', 'Slider Deleted Successfully');
+            Session::flash('msg', 'Slider Deleted Successfully');
             return back();
         }
         Session::flash('alert', 'error');
@@ -104,7 +105,7 @@ class SliderController extends Controller
         $slid = Slider::where('id', decrypt($id))->first();
         $slid->update(['status' => 1]);
         Session::flash('alert', 'success');
-        Session::flash('alert', 'Slider Activated Successfully');
+        Session::flash('msg', 'Slider Activated Successfully');
         return back();
     }
     
@@ -112,7 +113,7 @@ class SliderController extends Controller
         $slid = Slider::where('id', decrypt($id))->first();
         $slid->update(['status' => 0]);
         Session::flash('alert', 'error');
-        Session::flash('alert', 'Slider Deactivated Successfully');
+        Session::flash('msg', 'Slider Deactivated Successfully');
         return back();
     }
    

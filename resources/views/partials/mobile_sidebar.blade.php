@@ -1,9 +1,13 @@
 <div class="ps-menu--slidebar">
     <div class="ps-menu__content">
         <ul class="menu--mobile">
-            <li class="menu-item-has-children"><a href="category-list.html">Shop</a></li>
-            <li class="menu-item-has-children"><a href="blog-sidebar1.html">Blog</a></li>
-            <li class="menu-item-has-children"><a href="contact-us.html">Contact</a></li>
+            <li><a href="{{route('users.account.index')}}">My account</a></li>
+            <li><a href="{{route('users.orders')}}">My orders</a></li>
+            <li><a href="{{route('users.account.address')}}">Address Book</a></li>
+            <li><a href="{{ route('AboutUs')}}">About Us</a></li>
+            <li><a href="{{ route('PrivacyPolicy')}}">Privacy Policy</a></li>
+            <li><a href="{{route('pages.terms')}}">Terms &amp; Conditions</a></li>
+            <li><a href="{{ route('contactUs')}}">Contact Us</a></li>
         </ul>
     </div>
     <div class="ps-menu__footer">

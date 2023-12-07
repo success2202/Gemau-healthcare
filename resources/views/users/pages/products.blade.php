@@ -78,14 +78,10 @@
                                 <ul class="menu--mobile">
                                   
                                  @forelse ($categories as $cat )
-                                    <li><a href="{{route('products.search', $cat->hashid)}}" style="font-size: 14px">{{substr($cat->name, 0,30)}}</a><span class="sub-toggle"><i class="fa fa-chevron-down"></i></span>
+                                    <li><a href="{{route('products.search',$cat->hashid)}}" style="font-size: 14px">{{substr($cat->name, 0,30)}}</a><span class="sub-toggle"><i class="fa fa-chevron-down"></i></span>
                                         <ul class="sub-menu">
                                             @foreach ($cat->products as $prod )
-                                            @php
-                                                
-
-                                            @endphp
-                                                
+                                           
                                             <li><a href="{{route('users.products',[$prod->hashid, $prod->productUrl])}}">{{$prod->name}}</a></li>
                                             @endforeach
                                         </ul>

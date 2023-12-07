@@ -5,15 +5,17 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
-use App\Model\Setting;
+use App\Models\Setting;
+use App\Traits\imageUpload;
 use App\Models\Privacypolicy;
-use App\Models\TermsConditions;
+use App\Models\TermsCondition;
 use App\Models\AboutUs;
 use Illuminate\Support\Facades\Session;
 
 class SettingsController extends Controller
 {
     //
+    use imageUpload;
 
     public function Index(){
        
@@ -57,7 +59,7 @@ class SettingsController extends Controller
             'content' => $request->content,
         ];
     
-        $record = Aboutus::firstOrCreate([], $data);
+         Aboutus::firstOrCreate([], $data);
     
         Session::flash('alert', 'success');
         Session::flash('message', 'About us created Successfully');
@@ -74,9 +76,7 @@ class SettingsController extends Controller
 
     public function AboutusUpdate(Request $request, $id)
     {
-      
         $aboutus = Aboutus::where('id', decrypt($id))->first();
-       
         $aboutus->content = $request->input('content');
        
         $aboutus->save();
@@ -161,7 +161,7 @@ class SettingsController extends Controller
     }
 
     public function TermsConditions(){
-        $termscondition = TermsConditions::first();
+        $termscondition = TermsCondition::first();
         return view('manage.termsConditions.index')
         ->with('bheading', 'Website Settings')
         ->with('breadcrumb', 'Website Settings')
@@ -179,15 +179,14 @@ class SettingsController extends Controller
             'content' => $request->content,
         ];
     
-        $record = TermsConditions::firstOrCreate([], $data);
-    
+        TermsCondition::firstOrCreate([], $data);
         Session::flash('alert', 'success');
         Session::flash('message', 'Terms and Conditions created Successfully');
         return back();
     }
 
     public function TermsConditionsEdit($id){
-        $termsConditions = TermsConditions::where('id', decrypt($id))->first();
+        $termsConditions = TermsCondition::where('id', decrypt($id))->first();
         return view('manage.termsConditions.edit')
         ->with('bheading', 'Website Settings')
         ->with('breadcrumb', 'Website Settings')
@@ -196,10 +195,8 @@ class SettingsController extends Controller
 
     public function TermsConditionsUpdate(Request $request, $id)
     {  
-        $record = TermsConditions::where('id', decrypt($id))->first();
-       
+        $record = TermsCondition::where('id', decrypt($id))->first();
         $record->content = $request->input('content');
-       
         $record->save();
         Session::flash('alert', 'success');
         Session::flash('message', 'Terms Conditions updated Successfully');
@@ -207,7 +204,7 @@ class SettingsController extends Controller
     }
 
     public function TermsConditionsDelete($id){
-        $record = TermsConditions::where('id', decrypt($id))->first();
+        $record = TermsCondition::where('id', decrypt($id))->first();
         if($record){
             $record->delete();
             Session::flash('alert', 'error');
@@ -222,8 +219,8 @@ class SettingsController extends Controller
     public function UpdateSocials(Request $request){
         $data = [
             'facebook' => $request->facebook,
-            'tiktok' => $request->tiktok,
-            'pinterest' => $request->pinterest,
+            'twitter' => $request->twitter,
+            'linkedIn' => $request->linkedIn,
             'instagram' => $request->instagram,
         ];
         $testim = Setting::first();
@@ -234,7 +231,6 @@ class SettingsController extends Controller
     }
 
     public function UpdateSettings(Request $request){
-
         $data = [
             'site_name' => $request->site_name,
             'site_phone' => $request->site_phone,
@@ -244,62 +240,15 @@ class SettingsController extends Controller
             'about' => $request->about_us,
             'state' => $request->state,
             'country' => $request->country,
-            'postal_code' => $request->postal_code,
         ];
-
         if($request->file('image')){
-            $image = $request->file('image');
-            $ext = $image->getClientOriginalExtension();
-            $fileName = 'logo'.time().'.'.$ext;
-            $image->move('assets',$fileName);
-            $data['logo'] = $fileName;
+          $data['site_logo'] = $this->ImagesNoResize($request,'images/');
         }
-       
-        $testim = Settings::first();
+        $testim = Setting::first();
         $testim->update($data);
         Session::flash('alert', 'success');
         Session::flash('message', 'Logo Updated Successfully');
         return back();
-    }
-
-    public function flashMsg(){
-        return view('manage.flashMsg.create')
-        ->with('flashMsg', FlashMsg::latest()->first())
-        ->with('bheading', 'Website Settings')
-        ->with('breadcrumb', 'Website Settings');
-    }
-
-    public function flashMsgUpdate(Request $request){
-
-        
-        $data = [
-            'title' => $request->title,
-            'sub_title' => $request->sub_title,
-            'content' => $request->content,
-        ];
-
-        if($request->file('image')){
-            $image = $request->file('image');
-            $ext = $image->getClientOriginalExtension();
-            $fileName = time().'flash'.'.'.$ext;
-            $image->move('assets',$fileName);
-            $data['image'] = $fileName;
-        }
-
-        FlashMsg::updateOrCreate($data);
-        Session::flash('alert', 'success');
-        Session::flash('message', 'Message Updated Successfully');
-        return back();
-    }
-
-    public function FlashMsgDelete(){
-
-       $flash = FlashMsg::first();
-       $flash->delete();
-       Session::flash('alert', 'error');
-       Session::flash('message', 'Message Deleted Successfully');
-       return back();  
-
     }
 
 

@@ -11,9 +11,6 @@ use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
-    //
-
-
     public function Order(){
         $orders = Order::latest()->get();
         addHashId($orders);
@@ -40,33 +37,27 @@ class OrderController extends Controller
     }
 
     public function updateStatus(Request $request, $id){
-        $id = decrypt($id);
-        $order = Order::where('order_No', $id)->first();
-            
-              $dd =  Order::where('order_No', $order->order_No)
-                ->update([
+        $order = Order::where('order_no', $id)->first();
+             $order->update([
                 'is_delivered' => $request->delivery,
                 'dispatch_status' => $request->dispatch,
                 'is_paid' => $request->payment
                 ]);
                 if($request->payment == 1){
                     $ref = "SFSL".rand(111111,999999);
-                    Order::where('order_No', $order->order_No)
-                    ->update(['payment_ref' => $ref]);
+                    $order->update(['payment_ref' => $ref]);
                 }
-
-                if($dd){
                 if($order->dispatch_status != 1 && $request->dispatch == 1){
-                $order_list = CartItem::where('order_No', $order->order_No )->get();
-                $shipping = ShippingAddress::where('id', $order->shipping_id )->first();
+                $order_list = CartItem::where('Order_no', $order->order_no )->get();
+                $shipping = ShippingAddress::where('id', $order->address_id )->first();
                 //dd($shipping);
                 $datas = [
-                'order_No' => $order->order_No,
-                'name' => $shipping->receiver_name,
+                'order_No' => $order->order_no,
+                'name' => $shipping->name,
                 'amount' => $order->amount,
-                'email' => $shipping->receiver_email,
-                'receiver_name' => $shipping->receiver_name,
-                'phone' => $shipping->receiver_phone,
+                'email' => $shipping->email,
+                'receiver_name' => $shipping->name,
+                'phone' => $shipping->phone,
                 'address' => $shipping->address,
                 'delivery_method' => $shipping->delivery_method,
                 'order_items' => $order_list,
@@ -75,7 +66,6 @@ class OrderController extends Controller
                 }
                 Session::flash('alert', 'success');
                 Session::flash('message', 'Status Updated Successfully');
-                return redirect()->back();
-                }
-    }
-}
+              return redirect()->back();           
+             }
+}   

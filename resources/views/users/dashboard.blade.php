@@ -4,7 +4,7 @@
     <div class="ps-home ps-home--8">
         <div class="ps-home__content">
             <div class="container">
-                <div class="ps-promo"><a class="ps-promo__item" href="#"><img class="ps-promo__text"
+                <div class="ps-promo"><a class="ps-promo__item" href="{{route('products.search')}}"><img class="ps-promo__text"
                             src="{{ asset('/frontend/img/' . $advert_top->image_path) }}" alt><img class="ps-promo__banner"
                             src="{{ asset('/frontend/img/' . $advert_top->txt) }}" alt></a></div>
                 {{-- <div class="ps-promo mobile"><a class="ps-promo__item" href="#"><img class="ps-promo__text" src="{{asset('/frontend/img/'.$advert_top->txt)}}" alt><img class="ps-promo__banner" src="{{asset('/frontend/img/'.$advert_top->image_path)}}" alt></a></div> --}}
@@ -22,15 +22,15 @@
                                 <div class="container-no-round">
                                     <div class="ps-banner__block">
                                         <div class="ps-banner__content">
-                                            <h2 class="ps-banner__title text-white">{{ $slider->title }}</h2>
-                                            <div class="ps-banner__desc text-white">{{ $slider->content }}</div>
+                                            {{-- <h2 class="ps-banner__title text-white">{{ $slider->title }}</h2>
+                                            <div class="ps-banner__desc text-white">{{ $slider->content }}</div> --}}
                                             <div class="ps-banner__btn-group">
                                             </div>
                                             {{-- <a class="bg-warning ps-banner__shop" href="#">Add to cart</a>
                                     <div class="ps-banner__persen bg-warning ps-left">-30%</div> --}}
                                         </div>
                                         <div class="ps-banner__thumnail ps-banner__fluid"><img class="ps-banner__image"
-                                                src="{{ asset('/frontend/img/' . $slider->image_path) }}" alt="alt" />
+                                                src="{{ asset('images/sliders/'.$slider->image_path) }}" alt="alt" />
                                         </div>
                                     </div>
                                 </div>

@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TermsConditions extends Model
+class TermsCondition extends Model
 {
     use HasFactory;
+    protected $fillable = ['content'];
+    protected $table = "terms_conditions";
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\Users\AddressController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users\HomeController;
@@ -55,4 +56,11 @@ Route::controller(UserController::class)->group(function(){
 
 Route::controller(SearchController::class)->group(function(){
     Route::get('/catalogs/{id?}', '__invoke')->name('products.search');
+});
+
+Route::controller(PageController::class)->group(function(){
+Route::get('/pages/about', 'AboutUs')->name('AboutUs');
+Route::get('/pages/terms', 'Terms')->name('pages.terms');
+Route::get('/pages/privacypolicy', 'PrivacyPolicy')->name('PrivacyPolicy');
+Route::get('/pages/contactus', 'ContactUs')->name('contactUs');
 });

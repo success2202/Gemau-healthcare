@@ -11,6 +11,7 @@ use App\Http\Controllers\Manage\SettingsController;
 use App\Http\Controllers\Manage\PagesController;
 use App\Http\Controllers\Manage\BlogController;
 use App\Http\Controllers\Manage\OrderController;
+use App\Http\Controllers\Manage\PageController;
 use App\Http\Controllers\Manage\ShippingController;
 
 Route::prefix('manage')->group(function () {
@@ -28,33 +29,32 @@ Route::prefix('manage')->group(function () {
             Route::get('/transaction/details/{id}', 'transactionDetails')->name('admin.transactions-details');
             Route::get('/admin/users/order/{id}', 'userOrders')->name('admin.user-orders');
             Route::get('/admin/users/transaction/{id}', 'userTransactions')->name('admin.user-transactions');
-            Route::get('/designs/download/{id}', 'getDownloads')->name('design.download');
-            Route::post('/users/notification', 'pushNotify');
+            Route::post('/users/notification', 'pushNotify')->name('pushNotify');
             Route::get('/users/notify', 'notify')->name('admin.notify');
-            Route::get('/notify/{id}', 'updateNotify')->name('update.admin-notify');
             Route::get('analytics', 'Analytical')->name('admin.analytical');
             Route::get('/profile', 'adminProfile')->name('admin.profile');
-            Route::post('/profile/update', 'updateProfile');
+            Route::post('/profile/update', 'updateProfile')->name('updateProfile');
             Route::post('/notification/clear', 'AdminNotify_clear');
+            Route::get('/users', 'Users')->name('admin.users');
         });
-
 
         Route::resource('/category', CategoryController::class);
         Route::resource('/product', ProductController::class);
+
         Route::controller(ProductController::class)->group(function () {
             Route::post('/product/status/{id}', 'status')->name('product.status');
             Route::post('/product/delete/{id}', 'delete')->name('product.delete');
         });
+
         Route::controller(OrderController::class)->group(function () {
             Route::get('/orders', 'Order')->name('admin.orders');
+            Route::get('/order/status/{id}', 'status')->name('order.status');
+            Route::post('/status/update/{id}', 'updateStatus')->name('updateStatus');
             Route::get('/orders/details/{id}', 'OrderDetails')->name('admin.order-details');
         });
 
         Route::controller(ShippingController::class)->group(function () {
             Route::get('/order/shipping/{id}', 'Shipping')->name('admin.shipping');
-            Route::get('/order/status/{id}', 'status')->name('order.status');
-            Route::post('/status/update/{id}', 'updateStatus');
-            Route::get('/users', 'Users')->name('admin.users');
         });
 
         Route::controller(PagesController::class)->group(function () {
@@ -113,4 +113,5 @@ Route::prefix('manage')->group(function () {
             Route::post('/website/settings/termsandconditions',  'termsandconditions')->name('admin.termsandconditions.index');
         });
     });
+
 });
