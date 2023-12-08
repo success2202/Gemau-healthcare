@@ -11,7 +11,7 @@ trait imageUpload{
         $name = $file->getClientOriginalName();
         $FileName = \pathinfo($name, PATHINFO_FILENAME);
         $ext = $file->getClientOriginalExtension();
-        $time = time() . $FileName;
+        $time = time() . 'livehealth';
         $fileName = $time . '.' . $ext;
         Image::make($request->file('image'))->resize($width??400, $height??400)->save($path.$fileName);
         return $fileName;
@@ -23,7 +23,7 @@ trait imageUpload{
             $name = $image->getClientOriginalName();
             $FileName = \pathinfo($name, PATHINFO_FILENAME);
             $ext = $image->getClientOriginalExtension();
-            $time = time().$FileName;
+            $time = time().'livehealth';
             $fileName = $time.'.'.$ext;
             Image::make($image)->resize($width??400, $height??400)->save($path.$fileName);
             $images[] = $fileName;

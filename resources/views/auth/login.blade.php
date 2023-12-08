@@ -32,8 +32,8 @@
 
     <!-- logo -->
     <div id="logo">
-        <img class="logo" src="{{asset('/frontend/img/'.$settings->site_logo)}}" alt="image">
-        <img class="logo-dark" src="{{asset('/frontend/img/'.$settings->site_logo)}}" alt="image">
+        <img class="logo" src="{{asset('/images/'.$settings->site_logo)}}" alt="image" width="200px">
+        <img class="logo-dark" src="{{asset('/images/'.$settings->site_logo)}}" alt="image" width="200px">
     </div>
     <!-- ./ logo -->
 
@@ -44,7 +44,7 @@
         @csrf
         <div class="form-group">
             <label style="float:left" for="password"> Email</label>
-            <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Username or email" required="" autofocus="">
+            <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Username or email" required="" autofocus="" autocomplete="">
             @error('email')
             <span class="alert alert-danger" role="alert"> 
                 {{$message}}
@@ -53,7 +53,7 @@
         </div>
         <div class="form-group">
             <label style="float:left" for="password"> Password</label>
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"  id="password" placeholder="Password" required="">
+            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"  id="password" placeholder="Password" required="" autocomplete="off">
         </div>
         <div class="form-group d-flex justify-content-between">
             <div class="custom-control custom-checkbox">

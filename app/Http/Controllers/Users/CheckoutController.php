@@ -36,6 +36,7 @@ class CheckoutController extends Controller
         $address = ShippingAddress::where('is_default', 1)->first();
             $chk = explode(' ',$address->state);
             $states = ShipmentLocation::where('states', 'LIKE', ucfirst($chk[0]))->first();
+            if(isset($states)){
         if(ucfirst(strtolower($states->states)) == 'Lagos'){
             if(in_array($address->city,json_decode($states->location, true)))
             {   
@@ -53,6 +54,9 @@ class CheckoutController extends Controller
             $response =  $this->checkNaijaRates($naijaship);  
             $shipping_fee = $response['data']['fee'];
         }
+    }else{
+        
+    }
         // dd($response);
        
         if(!isset($shipping_fee)){

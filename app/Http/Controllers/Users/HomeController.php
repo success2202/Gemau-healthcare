@@ -21,15 +21,18 @@ class HomeController extends Controller
     {
         
         $slider = Slider::latest()->get();
-        $products = Product::latest()->take(10)->get();
-        foreach($products as $dd){
-            $dd->hashid = Hashids::connection('products')->encode($dd->id);
-            $dd->productUrl = trimInput($dd->name);
-        }
+        $data['latest'] = Product::latest()->take(10)->get();
+        $data['topProducts'] = Product::orderBy('views', 'DESC')->take(10);
+        $data['productCat'] = Product::where('category_id', 2)->inRandomOrder()->take(10);
+        addHashId($data['latest']);
+        addHashId($data['topProducts']);
+        addHashId( $data['productCat']);
 
-        return view('users.dashboard', [
+
+
+        return view('users.dashboard', $data, [
             'sliders' => $slider,
-            'latest' => $products
+           
         ]);
     }
 }

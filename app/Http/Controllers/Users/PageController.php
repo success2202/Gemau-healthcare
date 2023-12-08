@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Users;
 
 use App\Models\Privacypolicy;
-use App\Models\TermsConditions;
+use App\Http\Controllers\Controller;
+use App\Models\TermsCondition;
 
 
 class PageController extends Controller
@@ -15,12 +16,12 @@ class PageController extends Controller
     }
 
     public function Terms(){
-        $termscondition = TermsConditions::first();
+        $termscondition = TermsCondition::first();
         return  view('users.pages.terms')
         ->with('termscondition', $termscondition);
     }
 
-    public function about(){
+    public function aboutUs(){
         return  view('users.pages.aboutUs');
     }
 

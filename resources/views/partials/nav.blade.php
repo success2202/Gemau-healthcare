@@ -34,7 +34,7 @@
                     <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('contactUs')}}">Contact Us</a></li>
 
                     @forelse($site_categories->take(6) as $site_cat)
-                    <li class="has-mega-menu"><a  style="font-size:0.9em; font-weight:light" href="blog-sidebar1.html">{{ucfirst(strtolower($site_cat->name))}}</a></li>
+                    <li class="has-mega-menu"><a  style="font-size:0.9em; font-weight:light" href="{{route('products.search', $site_cat->hashid)}}">{{ucfirst(strtolower($site_cat->name))}}</a></li>
                     @empty
                     @endforelse
 

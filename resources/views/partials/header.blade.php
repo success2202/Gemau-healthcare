@@ -19,8 +19,8 @@
                     </ul>
                 </div>
                 <ul class="menu-top">
-                    <li class="nav-item"><a class="nav-link btn btn-info" style="color:#fff" href="index.html">Upload Doctor's Prescription</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-primary"  style="color:#fff" href="index.html">Special Medication Request</a></li>
+                    <li class="nav-item"><a class="nav-link "  href="index.html">Upload Doctor's Prescription</a></li>
+                    <li class="nav-item"><a class="nav-link " href="index.html">Special Medication Request</a></li>
                 </ul>
                 {{-- <div class="ps-header__text">Need help? <strong>{{$settings->site_phone}}</strong></div> --}}
             </div>

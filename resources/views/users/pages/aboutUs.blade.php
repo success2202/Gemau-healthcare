@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <div class="ps-about">
     <div class="container">
         <ul class="ps-breadcrumb">
@@ -476,3 +479,5 @@
         </section>
     </div>
 </div>
+
+@endsection

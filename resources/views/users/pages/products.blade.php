@@ -41,11 +41,11 @@
                             <div class="col-6 col-lg-4 col-xl-3 p-0">
                                 <div class="ps-product ps-product--standard">
                                     <div class="ps-product__thumbnail"><a class="ps-product__image" href="{{route('users.products',[$prods->hashid, $prods->productUrl])}}">
-                                            <figure><img src="{{$prods->image_path}}" alt="alt"><img src="{{$prods->image_path}}" alt="alt">
+                                            <figure><img src="{{ '/images/products/'.$prods->image_path }}" alt="alt"><img src="{{ '/images/products/'.$prods->image_path }}" alt="alt">
                                             </figure>
                                         </a>
                                         <div class="ps-product__badge">
-                                            <span class="badge badge-warning"> -{{$prods->discount}}%</span>
+                                            <span class="badge badge-warning"> -{{number_format($prods->discount,0)}}%</span>
                                         </div>
                                     </div>
                                     <div class="ps-product__content">

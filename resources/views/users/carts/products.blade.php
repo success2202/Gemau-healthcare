@@ -4,8 +4,8 @@
 <div class="ps-page--product ps-page--product1">
     <div class="container">
         <ul class="ps-breadcrumb">
-            <li class="ps-breadcrumb__item"><a href="index.html">Home</a></li>
-            <li class="ps-breadcrumb__item"><a href="index.html">{{ucwords(strtolower($product->category->name))}}</a></li>
+            <li class="ps-breadcrumb__item"><a href="">Home</a></li>
+            <li class="ps-breadcrumb__item"><a href="">{{ucwords(strtolower($product->category->name))}}</a></li>
             <li class="ps-breadcrumb__item active" aria-current="page">{{$product->name}}</li>
         </ul>
         <div class="ps-page__content">
@@ -16,29 +16,22 @@
                             <div class="col-12 col-xl-5">
                                 <div class="ps-product--gallery">
                                     <div class="ps-product__thumbnail">
-                                        @if($product->gallery)
-                                            @php 
-                                                $images = json_decode($product->gallery);
-                                            @endphp
-                                            @foreach ($images as $item) 
-                                        <div class="slide"><img src="{{asset('/frontend/products/034.jpg')}}" alt="alt" /></div>
-                                        @endforeach
-                                        @else 
-                                        <div class="slide"><img src="{{asset('/frontend/img/products/034.jpg')}}" alt="alt" /></div>
-                                        @endif
-
+                                        <div class="slide"><img src="{{'/images/products/'.$product->image_path }}" alt="alt" /></div>
+                                        <div class="slide"><img src="{{'/images/products/'.$product->image_path }}" alt="alt" /></div>
                                     </div>
                                     <div class="ps-gallery--image">
                                         <div class="slide">
                                             @if($product->gallery)
+                                            
                                             @php 
+                                           
                                                 $images = json_decode($product->gallery);
                                             @endphp
                                             @foreach ($images as $item) 
-                                            <div class="ps-gallery__item"><img src="{{asset('/frontend/products/001.jpg')}}" alt="alt" /></div>
+                                            <div class="ps-gallery__item"><img src="{{'/images/products/'.$item }}" alt="alt" /></div>
                                             @endforeach
                                             @else 
-                                            <div class="slide"><img src="{{asset('/frontend/img/products/034.jpg')}}" alt="alt" /></div>
+                                            <div class="slide"><img src="{{'/images/products/'.$item }}" alt="alt" /></div>
                                             @endif
                                         </div>
                                         
@@ -52,11 +45,11 @@
                                     </div>
                                     @endif
                                    
-                                    <div class="ps-product__branch"><a href="#">{{$product->category->name}}</a></div>
+                                    <div class="ps-product__branch"><a href="{{route('products.search', $product->category->hashid )}}">{{$product->category->name}}</a></div>
                                     <div class="ps-product__title"><a href="#">{{$product->name}}</a></div>
                                     <div class="ps-product__desc">
                                         <ul class="ps-product__list">
-                                            <li>{{$product->title}}</li>
+                                            <li>{!! substr($product->description,0,100) !!}</li>
                                         </ul>
                                     </div>
                                     <div class="ps-product__meta"><span class="ps-product__price" style="font-size:30px">{{moneyFormat($product->sale_price)}}
@@ -179,17 +172,17 @@
                     @forelse ($latest as $prod)
                     <div class="ps-section__product">
                         <div class="ps-product ps-product--standard">
-                            <div class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
-                                <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" />
-                                        {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
+                            <div class="ps-product__thumbnail"><a class="ps-product__image" href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
+                                {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
+                                        <figure><img src="{{'/images/products/'.$prod->image_path}}" alt="alt" /><img src="{{'images/products/'.$prod->image_path}}" alt="alt" />
                                     </figure>
                                 </a>
                                 <div class="ps-product__badge" style="right:20px; ">
-                                    <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-20%</div>
+                                    <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-{{number_format($prod->discount)}}%</div>
                                 </div>
                             </div>
                             <div class="ps-product__content">
-                                <h5 class="ps-p"><a href="product1.html">{{$prod->name}}</a></h5>
+                                <h5 class="ps-p"><a href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">{{$prod->name}}</a></h5>
                                 <div class="ps-product__meta"><span class="ps-pr">{{moneyFormat($prod->sale_price)}}   <span style="font-size:15px"> <del> {{moneyFormat($prod->price)}}</del></span></span></span>
                                 </div>
                                 <div class="ps-product__actions ps-product__group-mobile">

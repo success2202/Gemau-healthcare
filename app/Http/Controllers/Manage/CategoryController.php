@@ -69,7 +69,7 @@ class CategoryController extends Controller
         }
 
         if ($request->file('image')) {
-            $fileName = $this->UploadImage($request, 'images/category/');
+            $fileName = $this->UploadImage($request, 'images/category/', 400,200);
         }
         //  dd($fileName);
         $data = [
@@ -127,7 +127,7 @@ class CategoryController extends Controller
         $category = category::where('id', $id)->first();
         $category->name = $request->name;
         if($request->file('image')){
-            $category->image_path = $this->UploadImage($request, 'images/category/');
+            $category->image_path = $this->UploadImage($request, 'images/category/',800,500);
         }else{
             $category->image_path =  $category->image;  
         }
