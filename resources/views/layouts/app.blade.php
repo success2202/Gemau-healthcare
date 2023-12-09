@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link href="img/favicon.png" rel="apple-touch-icon-precomposed">
-    <link href="img/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="{{asset('/images/favs.png')}}" rel="apple-touch-icon-precomposed">
+    <link href="{{asset('/images/favs.png')}}" rel="shortcut icon" type="image/png">
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">

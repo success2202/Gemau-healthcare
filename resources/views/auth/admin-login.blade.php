@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trendy Kay Collection | Admin</title>
+    <title>Sanlive Pharm</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('/assets/'.$settings->logo)}}"/>
 
@@ -30,7 +30,7 @@
 
 <div class="form-wrapper">
 
-                        <img class="logo" src=" {{ asset('/assets/'.$settings->logo)}}" height="auto" width="120px">
+                        <img class="logo" src=" {{ asset('/images/'.$settings->site_logo)}}" height="auto" width="120px">
                 
     <h5>Sign in</h5>
 
