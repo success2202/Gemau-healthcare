@@ -23,42 +23,17 @@
                                             @enderror
                                         </div>
                                     </div> 
-                                        <div class="col-md-6 col-12">
+                                        <div class="col-md-12 col-12">
                                         <div class="form-group">
                                            <input required type="number" name="price"  value="{{old('price')}}" class="form-control @error('price') is-invalid @enderror" id="exampleInput"
                                                    aria-describedby="EventLocation" placeholder="Product Price">
-                                            <small id="emailHelp" class="form-text text-muted">Product price per unit production 
+                                            <small id="emailHelp" class="form-text text-muted">Enter cost Price 
                                             </small>
                                             @error('price')
                                             <span class="invalid-feedback"> <small> {{$message}} </small> </span>
                                             @enderror
                                         </div>
                                          </div>
-
-                                        <div class="col-md-6 col-12">
-                                          <div class="form-group">
-                                            <input required type="number" name="sale_price"  value="{{old('sale_price')}}" class="form-control @error('price') is-invalid @enderror" id="exampleInputEmail1"
-                                                   aria-describedby="emailHelp" placeholder="Sale Price">
-                                            <small id="emailHelp" class="form-text text-muted">Discounted Price
-                                            </small>
-                                            @error('sale_price')
-                                            <span class="invalid-feedback"> <small> {{$message}}</small> </span>
-                                            @enderror
-                                          </div>           
-                                        </div>
-
-
-                                        <div class="col-md-12">
-                                          <div class="form-group">
-                                            <input required type="number" name="qty"  value="{{old('qty')}}" class="form-control @error('qty') is-invalid @enderror" id="exampleInputEmail1"
-                                                   aria-describedby="emailHelp" placeholder="Available quantity">
-                                            <small id="emailHelp" class="form-text text-muted">Available quantity
-                                            </small>
-                                            @error('qty')
-                                            <span class="invalid-feedback"> <small> {{$message}}</small> </span>
-                                            @enderror
-                                          </div>           
-                                        </div>
 
                                       <div class="col-md-12">
                                          <div class="form-group">
