@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Traits\imageUpload;
 
 class SliderController extends Controller
 {
     //
+    use imageUpload;
 
     public function Index(){
         return view('manage.settings.sliders', [
@@ -34,17 +36,13 @@ class SliderController extends Controller
        //dd(request()->file('images'));
 
         if($request->file('image')){
-            $image = $request->file('image');
-            $ext = $image->getClientOriginalExtension();
-            $fileName = time().'.'.$ext; 
-            $image->move('images/sliders/',$fileName);
-        
+            $fileName = $this->UploadImage($request, 'images/sliders');
     }
         $data = [
             'image_path' =>   $fileName,
-            'title' => $request->title,
-            'content' =>  $request->content,
-            'link' => 1,
+            // 'title' => $request->title,
+            // 'content' =>  $request->content,
+            // 'link' => 1,
         ];
 
        //dd($data);

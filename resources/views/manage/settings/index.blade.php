@@ -161,6 +161,23 @@
                                                 
                                             
                                         </div>
+
+                                        <div class="text-muted d-flex justify-content-between">
+                                            <div class="text-truncate small"></div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" name="announcement"  value="{{$announcement->content}}" class="form-control @error('announcement') is-invalid @enderror" id="exampleInputEmail1"
+                                                           aria-describedby="emailHelp" placeholder="Update Sliding Text">
+                                                    <small id="emailHelp" class="form-text text-muted">Sliding Text
+                                                    </small>
+                                                    @error('announcement')
+                                                    <span class="invalid-feedback"> <small> * </small> </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                                
+                                            
+                                        </div>
                                   
                                        
                                     </div>

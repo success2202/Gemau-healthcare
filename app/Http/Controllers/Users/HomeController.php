@@ -22,14 +22,11 @@ class HomeController extends Controller
         
         $slider = Slider::latest()->get();
         $data['latest'] = Product::latest()->take(10)->get();
-        $data['topProducts'] = Product::orderBy('views', 'DESC')->take(10);
-        $data['productCat'] = Product::where('category_id', 2)->inRandomOrder()->take(10);
+        $data['topProducts'] = Product::orderBy('views', 'DESC')->take(10)->get();
+        $data['productCat'] = Product::where('category_id', 2)->inRandomOrder()->take(10)->get();
         addHashId($data['latest']);
         addHashId($data['topProducts']);
         addHashId( $data['productCat']);
-
-
-
         return view('users.dashboard', $data, [
             'sliders' => $slider,
            

@@ -1,5 +1,6 @@
 <?php 
 namespace App\Traits;
+use Intervention\Image\Facades\Image;
 
 trait imageUpload{
 
@@ -27,5 +28,16 @@ trait imageUpload{
             $images[] = $image_url;
         }
        return $images;
+    }
+
+    function ImagesNoResize($request, $path){
+        $file = $request->file('image');
+        $name = $file->getClientOriginalName();
+        $FileName = \pathinfo($name, PATHINFO_FILENAME);
+        $ext = $file->getClientOriginalExtension();
+        $time = time() . $FileName;
+        $fileName = $time . '.' . $ext;
+        Image::make($request->file('image'))->save($path.$fileName);
+        return $fileName;
     }
 }

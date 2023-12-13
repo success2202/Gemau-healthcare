@@ -8,9 +8,13 @@ use App\Models\CartItem;
 use App\Models\ShipmentLocation;
 use Illuminate\Http\Request;
 use App\Models\ShippingAddress;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+use App\Services\RegisterUser;
 use App\Traits\CalculateShipping;
 use Carbon\Carbon;
 
@@ -22,10 +26,15 @@ class CheckoutController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     public function Index($cartSession = null){
+        if(!auth::check()){
+            $check = new RegisterUser;
+           return  $check->viewCheckout();
+        }
+
         if(count(\Cart::content()) <= 0 || empty(\Cart::content())){
             return redirect()->intended(route('users.index'));
         }
@@ -77,6 +86,24 @@ class CheckoutController extends Controller
         ->with('address', $address)
         ->with('orderNo', $orderNo)
         ->with('shipping_fee',  $shipping_fee);
+    }
+
+    public function RegisterUser(Request $request){
+        $userck = User::where('email', $request->email)->first();
+        if($userck){
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'This email address is already taken');
+            return back()->withInput($request->all());
+        }
+        $register = new RegisterUser;
+       $reg = $register->UserRegister($request);
+        if($reg){
+            return redirect()->intended(route('checkout.index'));
+        }
+       
+        Session::flash('alert', 'error');
+        Session::flash('msg', 'Something went wrong with your request');
+        return back();
     }
 
 }

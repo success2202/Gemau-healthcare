@@ -12,6 +12,7 @@ use App\Http\Controllers\Manage\PagesController;
 use App\Http\Controllers\Manage\BlogController;
 use App\Http\Controllers\Manage\OrderController;
 use App\Http\Controllers\Manage\PageController;
+use App\Http\Controllers\Manage\PrescriptionController;
 use App\Http\Controllers\Manage\ShippingController;
 
 Route::prefix('manage')->group(function () {
@@ -112,6 +113,11 @@ Route::prefix('manage')->group(function () {
             Route::post('/website/settings/update/settings',  'UpdateSettings')->name('admin.settings.updateSettings');
             Route::post('/website/settings/termsandconditions',  'termsandconditions')->name('admin.termsandconditions.index');
         });
+
+        Route::controller(PrescriptionController::class)->group(function(){
+        Route::get('prescription/all', 'Index')->name('admin.prescription');
+        });
+
     });
 
 });

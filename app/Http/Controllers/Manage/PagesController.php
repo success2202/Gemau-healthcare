@@ -90,25 +90,29 @@ class PagesController extends Controller
         }
     }
 
-    public function newsDetails($id){
-        return view('users.pages.news-details')
-        ->with('newss', Blog::where('id', decrypt($id))->first())
-        ->with('news',  Blog::latest()->get())
-        ->with('recent', Blog::latest()->take(5)->get());
-    }
+    // public function newsDetails($id){
+    //     return view('users.pages.news-details')
+    //     ->with('newss', Blog::where('id', decrypt($id))->first())
+    //     ->with('news',  Blog::latest()->get())
+    //     ->with('recent', Blog::latest()->take(5)->get());
+    // }
 
 
-    public function privacypolicy(){
-        $privacypolicy = Privacypolicy::first();
-        return  view('users.pages..privacy-policy')
-        ->with('privacypolicy', $privacypolicy);
-    }
+    // public function privacypolicy(){
+    //     $privacypolicy = Privacypolicy::first();
+    //     return  view('users.pages.privacy-policy')
+    //     ->with('privacypolicy', $privacypolicy)
+    //     ->with('bheading', 'privacy-policy')
+    //     ->with('breadcrumb', 'privacy-policy');
+    // }
 
-    public function Terms(){
-        $termscondition = TermsCondition::first();
-        return  view('users.pages..termsConditions')
-        ->with('termscondition', $termscondition);
-    }
+    // public function Terms(){
+    //     $termscondition = TermsCondition::first();
+    //     return  view('users.pages..termsConditions')
+    //     ->with('termscondition', $termscondition)
+    //     ->with('bheading', 'Edit Menu')
+    //     ->with('breadcrumb', 'Edit Menu');
+    // }
 
 
     public function about(){

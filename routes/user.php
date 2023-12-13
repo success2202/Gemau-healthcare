@@ -8,6 +8,7 @@ use App\Http\Controllers\Users\ProductDetailsController;
 use App\Http\Controllers\Users\CartsController;
 use App\Http\Controllers\Users\CheckoutController;
 use App\Http\Controllers\Users\PaymentController;
+use App\Http\Controllers\Users\PrescriptionController;
 use App\Http\Controllers\Users\SearchController;
 use App\Http\Controllers\Users\UserController;
 
@@ -25,6 +26,7 @@ Route::get('shop', 'update')->name('shops.index');
 
 Route::controller(CheckoutController::class)->group(function(){
 Route::get('/checkout/{cart?}', 'Index')->name('checkout.index');
+Route::post('/checkout/shippinginformation', 'RegisterUser')->name('users.RegisterUser');
 });
 
 Route::controller(AddressController::class)->group(function(){
@@ -63,4 +65,11 @@ Route::get('/pages/about', 'AboutUs')->name('AboutUs');
 Route::get('/pages/terms', 'Terms')->name('pages.terms');
 Route::get('/pages/privacypolicy', 'PrivacyPolicy')->name('PrivacyPolicy');
 Route::get('/pages/contactus', 'ContactUs')->name('contactUs');
+});
+
+Route::controller(PrescriptionController::class)->group(function(){
+
+    Route::get('/upload/prescription', 'Index')->name('user.prescription');
+    Route::post('/doctor/prescription', 'PrescriptionStore')->name('doctores.prescription');
+
 });

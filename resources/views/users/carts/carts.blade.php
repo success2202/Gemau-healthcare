@@ -102,8 +102,8 @@
                 <div class="ps-section__product">
                     <div class="ps-product ps-product--standard">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
-                            <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" />
-                                    {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
+                            {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
+                                    <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" />
                                 </figure>
                             </a>
                             <div class="ps-product__badge" style="right:20px; ">

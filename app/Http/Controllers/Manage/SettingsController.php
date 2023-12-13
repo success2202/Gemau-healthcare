@@ -10,6 +10,7 @@ use App\Traits\imageUpload;
 use App\Models\Privacypolicy;
 use App\Models\TermsCondition;
 use App\Models\AboutUs;
+use App\Models\Annoucement;
 use Illuminate\Support\Facades\Session;
 
 class SettingsController extends Controller
@@ -21,7 +22,8 @@ class SettingsController extends Controller
        
         return view('manage.settings.index')
         ->with('bheading', 'Website Settings')
-        ->with('breadcrumb', 'Website Settings');
+        ->with('breadcrumb', 'Website Settings')
+        ->with('announcement', Annoucement::latest()->first());
     }
 
   
@@ -243,6 +245,9 @@ class SettingsController extends Controller
         ];
         if($request->file('image')){
           $data['site_logo'] = $this->ImagesNoResize($request,'images/');
+        }
+        if($request->announcement){
+            Annoucement::latest()->first()->update(['content' => $request->announcement]);
         }
         $testim = Setting::first();
         $testim->update($data);

@@ -38,7 +38,7 @@
                                             <div class="text-muted d-flex justify-content-between">
                                                 <div class="text-truncate small"></div>
                                                 <div class="col-md-12">
-                                                    <img src="{{asset('images/sliders/'.$slider->image_path)}}" width="100px">
+                                                    <img src="{{$slider->image_path}}" width="100px">
                                                     <div class="custom-file">
                                                      
                                                         <input type="file" name="image" class="custom-file-input  @error('image') is-invalid @enderror">
@@ -54,7 +54,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                <li class="list-group-item">
+                                {{-- <li class="list-group-item">
                                     <div class="flex-grow-1 min-width-0">
                                         <div class="mb-1 d-flex justify-content-between align-items-center">
                                             <div class="text-truncate app-list-title"> Slider Title</div>
@@ -105,7 +105,7 @@
                                             </div>
                                         </div>
                                     </div>              
-                                </li>
+                                </li> --}}
                               
                                 <div style="float:right" class="pr-5 pt-3">
                                     <button type="submit" class="btn btn-primary w-20">Update Slider</button>

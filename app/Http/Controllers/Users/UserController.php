@@ -49,6 +49,11 @@ class UserController extends Controller
     public function OrderDetails($order_no)
     {
         $orders = Order::where('order_no', $order_no)->first();
+        if(!isset($orders)){
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'An error occured fetching order details');
+            return back();
+        }
         $order_items = CartItem::where('Order_no', $order_no)->get();
         $shipping = ShippingAddress::where('id', $orders->address_id)->first();
         $delivery = CreateShipment::where('order_id', $order_no)->first();
@@ -202,6 +207,9 @@ class UserController extends Controller
         }
         if(isset($req->email)){
             $data['email'] = $req->email;
+        }
+        if(isset($req->phone)){
+            $data['phone'] = $req->phone;
         }
         if(isset($req->password)){
             if(Hash::check($req->oldpassword , auth_user()->password)){

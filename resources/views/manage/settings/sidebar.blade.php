@@ -13,10 +13,10 @@
         <i data-feather="image" class="mr-2 width-15 height-15"></i>
         Page Sliders
     </a>
-    <a href="{{route('admin.news.index')}}" class="list-group-item">
+    {{-- <a href="{{route('admin.news.index')}}" class="list-group-item">
         <i data-feather="image" class="mr-2 width-15 height-15"></i>
         Blogs
-    </a> 
+    </a>  --}}
     <a href="{{route('admin.settings.aboutus')}}" class="list-group-item">
         <i data-feather="image" class="mr-2 width-15 height-15"></i>
         About us 

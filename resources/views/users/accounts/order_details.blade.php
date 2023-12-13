@@ -40,7 +40,6 @@
                                             </figure>
                                         </a>
                                     </div>
-                              
                                     <div class="ps-product__info">
                                         <p class="ps-product__tite" style="font-size:16px; color:#1e1b1b">
                                             <a class="ps-product__branch" href="#">{{isset($order->product_name)?$order->product_name:null}}</a><br>
@@ -50,13 +49,13 @@
                                         </p>
                                     </div>
                                 </div>
-
+{{dd($order->products)}}
 
                                     
                                 
                                 <div class="ps-product__footer" >
                                     <div class="d-none  d-xl-block ">
-                                    <span style=" float:right; color:rgb(10, 10, 128)"><a href=""  class="btn btn-info btn-lg" style="" > BUY AGAIN</a></span> </div>
+                                    <span style=" float:right; color:rgb(10, 10, 128)"><a href=""  class="btn btn-info btn-lg" style="{{ route('users.products', [$order->products->hashid, $order->products->productUrl]) }}" > BUY AGAIN</a></span> </div>
                                 </div>
                                 
                             </div>

@@ -76,29 +76,21 @@ if(message != null && msg == 'success'){
 toastr.success(message);
 }else if(message != null && msg == 'error'){
     toastr.error(message);
-}
-
-
-
-        // toastr.options = {
-        //      "closeButton": true,
-        //      "debug": false,
-        //      "newestOnTop": false,
-        //      "progressBar": true,
-        //      "positionClass": "toast-top-right",
-        //      "preventDuplicates": true,
-        //      "onclick": null,
-        //      "showDuration": "300",
-        //      "hideDuration": "1000",
-        //      "timeOut": "5000",
-        //      "extendedTimeOut": "1000",
-        //      "showEasing": "swing",
-        //      "hideEasing": "linear",
-        //      "showMethod": "fadeIn",
-        //      "hideMethod": "fadeOut"
-        //  };
-         
+}        
      </script>
+     <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6575ebf907843602b800450a/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>
 

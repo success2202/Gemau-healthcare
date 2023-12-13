@@ -35,7 +35,7 @@
                                             </figure>
                                         </a>
                                         <div class="ps-product__badge">
-                                            <div class="ps-badge ps-badge--sale">-{{$product->discount}}%</div>
+                                            <div class="ps-badge ps-badge--sale">-{{number_format($product->discount)}}%</div>
                                         </div>
                                     </div>
                                     <div class="ps-product__content"><a class="ps-product__branch" href="{{route('users.products',[$product->hashid, $product->productUrl])}}">{{$product->category->name}}</a>

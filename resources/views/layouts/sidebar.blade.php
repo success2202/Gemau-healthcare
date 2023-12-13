@@ -8,18 +8,7 @@
            <i class="fa fa-home"></i> &nbsp;Dashboard</a>
         </li>
 
-        <li class="navigation-divider">Website Menus</li>
-        <li>
-            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Menus"
-           data-nav-target="#dashboards">
-            <i class="fa fa-bars"></i>&nbsp; Manage Menu</a>
-            <ul>
-                <li><a href="{{route('admin.addMenu')}}"> Add New Menu</a></li>
-                <li><a href="{{route('admin.MenuIndex')}}"> Manage Menu</a></li>
-            </ul>
-        </li>
-
-         <li class="navigation-divider">Manage Products</li>
+         <li class="navigation-divider">Manage Website</li>
 
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Categories"
@@ -40,6 +29,7 @@
                 <li><a href="{{route('product.index')}}">Manage Products</a></li>
             </ul>
         </li>
+        <li class="navigation-divider">Manage Users</li>
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="View and Manage Sales"
             data-nav-target="#dashboards">
@@ -49,15 +39,15 @@
              </ul>
          </li>
 
-         {{-- <li>
+         
+         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Blogs"
                data-nav-target="#dashboards">
-                <i class="fa fa-newspaper-o"></i>&nbsp; Manage Blog</a>
+                <i class="fa fa-newspaper-o"></i>&nbsp;Prescriptions</a>
                 <ul>
-                    <li><a href="{{route('admin.news.create')}}">Post Blog</a></li>
-                    <li><a href="{{route('admin.news.index')}}">Manage Blog</a></li>
+                    <li><a href="{{route('admin.prescription')}}">View all</a></li>
                 </ul>
-        </li>   --}}
+        </li>  
 
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="View and Manage Users"

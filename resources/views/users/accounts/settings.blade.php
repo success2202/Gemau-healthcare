@@ -31,7 +31,7 @@
                                     <div class="ps-form__group">
                                         <label for="name" style="color:rgb(114, 111, 111)"> First Name</label>
                                         <input style="border-radius: 5px" class="form-control ps-form__input @error('first_name') is-invalid @enderror" type="text"
-                                            value="{{$user->first_name}}" placeholder="First name" id="name" name="name">
+                                            value="{{$user->first_name}}" placeholder="First name" id="name" name="first_name">
                                     </div>
                                     @error('first_name')
                                     <span class="alert alert-danger" role="error">
