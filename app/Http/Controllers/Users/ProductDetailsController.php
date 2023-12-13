@@ -23,8 +23,8 @@ class ProductDetailsController extends Controller
       $data['recent'] = Product::whereIn('id', $datas)->take(5)->get();
      
       foreach($data['latest']  as $prod){
-        $prod->hashid = $id;
-        $prod->productUrl =  urlencode(trimInput($data['product'] ->name));
+        $prod->hashid = Hashids::connection('products')->encode($prod->id);
+        $prod->productUrl =  trimInput($data['product'] ->name);
       }
       return view('users.carts.products', $data);
 
