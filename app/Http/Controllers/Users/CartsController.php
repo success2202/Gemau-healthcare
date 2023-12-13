@@ -17,7 +17,7 @@ class CartsController extends Controller
 use imageUpload;
     public function add(Request $request, $id)
      {   
-      // return response()->json($request->images);
+      return response()->json($request);
          $product = Product::find($id);
          if(isset($request->image)){
             $file = $this->UploadImage($request, '/carts/images');

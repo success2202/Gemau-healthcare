@@ -63,7 +63,7 @@
                                         </ul>
                                     </div>
                                     <form id="myForm" enctype="multipart/form-data">
-                                       
+                                        @csrf
                                     <div class="ps-product__quantity">
                                         <h6>Quantity:   
 
@@ -77,7 +77,6 @@
                                             </div> 
                                             <input type="file" id="precription_upload" name="image" style="border: none; visibility:hidden" > 
                                             </label>
-                                            <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                                             <br>
                                             @endif
 
@@ -222,7 +221,7 @@
             cartId = {!! json_encode($product->id) !!}
             $.ajaxSetup({
                 headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                // 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
                 $.ajax({
