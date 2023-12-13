@@ -97,7 +97,7 @@ class ProductController extends Controller
             'category_id' => 'required|integer',
             'image' => 'required|mimes:png,jpg,jpeg,gif',
             'description' => 'required',
-            'cost_price' => 'required|integer',
+            'cost_price' => 'required',
         ]);
         if ($valid->fails()) {
             Session::flash('alert', 'error');
@@ -183,7 +183,7 @@ class ProductController extends Controller
     {
         $id = decodeHashid($id);
         $valid = Validator::make($request->all(), [
-            'cost_price' => 'required|integer',
+            'cost_price' => 'required',
             'image' => 'mimes:png,jpg,jpeg,gif'
         ]);
         $cat = Category::where('id', $request->category_id)->first();

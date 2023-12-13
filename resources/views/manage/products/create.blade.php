@@ -92,7 +92,7 @@
                                          <div class="col-md-6 pt-4">
                                           <div class="custom-file">
                                             <label  for="requires_prescription">
-                                                    <input type="checkbox" style="width:15px; height:15px"  id="requires_prescription" name="requires_prescription"  class=" @error('requires_prescription') is-invalid @enderror" >
+                                                    <input type="checkbox" value="1" style="width:15px; height:15px"  id="requires_prescription" name="requires_prescription"  class=" @error('requires_prescription') is-invalid @enderror" >
                                                         This product requires prescription?
                                                     </div>
                                                   </label>
@@ -111,8 +111,6 @@
                          <div class="card">
                         <div class="card-body">
                         <div class="row">
-                          <div class="col-md-4">
-                          </div>
                           <div class="col-md-4">
                         <div class="p-5">
                              <button type="submit" class="btn btn-primary w-100 p-3">Add New Product</button>

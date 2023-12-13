@@ -3,12 +3,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
 <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
 
+<form action="{{route('product.update',$product->hashid)}}" method="post" enctype="multipart/form-data">
+  @csrf
  <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                  <form action="{{route('product.update',$product->hashid)}}" method="post" enctype="multipart/form-data">
-                    @csrf
-              @method('put') 
               <div class="card">
                         <div class="card-body">
                             <h6 class="card-title">Edit Product</h6>
@@ -38,11 +37,11 @@
 
                                       <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <input type="text" name="sale_price"  value="{{$product->discount}}%" disabled class="form-control @error('sale_price') is-invalid @enderror" id="exampleInputEmail1"
+                                            <input type="text" name="discount"  value="{{$product->discount}}%" disabled class="form-control @error('discount') is-invalid @enderror" id="exampleInputEmail1"
                                                   aria-describedby="emailHelp" placeholder="Sale Price">
                                             <small id="emailHelp" class="form-text text-muted">Discount
                                             </small>
-                                            @error('sale_price')
+                                            @error('discount')
                                             <span class="invalid-feedback"> <small> {{$message}}</small> </span>
                                             @enderror
                                         </div>           
@@ -118,16 +117,28 @@
                                   @endforeach
                                     @endif
                                          </div>
+                                         <div class="col-md-6 pt-4">
+                                          <div class="custom-file">
+                                            <label  for="requires_prescription">
+                                                    <input type="checkbox"  @if($product->requires_prescription == 1) checked @endif value="1" style="width:15px; height:15px"  id="requires_prescription" name="requires_prescription"  class=" @error('requires_prescription') is-invalid @enderror" >
+                                                        This product requires prescription?
+                                                    </div>
+                                                  </label>
+                                                    <small id="emailHelp" class="form-text text-muted"> This product requires prescription?
+                                                    </small>
+                                                      @error('requires_prescription')
+                                                    <span class="invalid-feedback"> <small> *</small> </span>
+                                                    @enderror
+                                                 </div>
                                             
                             </div> 
+
                         </div>
                          
                     </div>
                          <div class="card">
                         <div class="card-body">
                         <div class="row">
-                          <div class="col-md-4">
-                          </div>
                           <div class="col-md-4">
                         <div class="p-5">
                              <button type="submit" class="btn btn-primary w-100 p-3">Update Product</button>
@@ -136,11 +147,10 @@
                            </div>
                         </div>
                         </div>
-                      </form>
 
                     </div>
-                        </div>
-                    </div>
+                 
+                  </form>
                    
 
 @endsection
