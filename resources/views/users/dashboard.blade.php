@@ -147,7 +147,7 @@
                 </div>
                 <section class="ps-section--featured"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ $topProducts[0]->category->name }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">{{ count($topProducts) > 0?$topProducts[0]->category->name:'' }}</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($topProducts as $prods)
@@ -196,7 +196,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ $productCat[0]->category->name }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat) > 0? $productCat[0]->category->name:'' }}</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($productCat as $productCats)
@@ -242,7 +242,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ $latest[0]->category->name }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">{{ count($latest)> 0?$latest[0]->category->name:'' }}</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($latest as $prod)
@@ -292,7 +292,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ $latest[0]->category->name }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">{{ count($latest) > 0? $latest[0]->category->name:'' }}</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($latest as $prod)
