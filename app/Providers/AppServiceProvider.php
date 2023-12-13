@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Notification;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Vinkla\Hashids\Facades\Hashids;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
         $categories = Category::inRandomOrder()->get();
         foreach($categories as $cat){
             addHashId($cat->products);
+            $cat->hashid = Hashids::connection('products')->encode($cat->id);
         }
         View::share('site_categories', $categories);
         }
