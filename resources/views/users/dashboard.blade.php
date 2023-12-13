@@ -206,7 +206,7 @@
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                     href="{{ route('users.products', [$productCats->hashid, $productCats->productUrl]) }}">
                                         
-                                                        {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
+                                                        <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" />
                                                     </figure>
                                                 </a>
                                                 <div class="ps-product__badge" style="right:20px; ">
