@@ -31,8 +31,6 @@
                                                    <th>Payment Method</th>
                                                 <th>Amount</th>
                                                 <th>Type</th>
-                                                <th>Prev balance</th>
-                                                <th>Avail Balance</th>
                                                  <th>Created At</th>
                                                
                                             </thead>
@@ -57,16 +55,10 @@
                                                     <a href="#">{{$sp->payment_method}}</a>
                                                 </td>
                                                  <td>
-                                                    <a href="#">C${{number_format($sp->amount,2)}}</a>
+                                                    <a href="#">{{moneyFormat($sp->amount,2)}}</a>
                                                 </td>
                                                 <td>
                                                     <a href="#">{{$sp->type}}</a>
-                                                </td>
-                                                <td>
-                                                    <a href="#">C${{number_format($sp->prev_balance,2)}}</a>
-                                                </td>
-                                                <td>
-                                                    <a href="#">C${{number_format($sp->avail_balance,2)}}</a>
                                                 </td>
                                                  
                                                 <td>

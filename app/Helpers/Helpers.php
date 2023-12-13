@@ -57,6 +57,13 @@ if(!function_exists('decodeHashid')){
     }
 }
 
+if(!function_exists('convertPercent')){
+
+    function convertPercent($number, $percent){
+        return ($number*$percent)/100;
+    }
+}
+
 
 }
 

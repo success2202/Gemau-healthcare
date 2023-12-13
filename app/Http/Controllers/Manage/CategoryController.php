@@ -58,10 +58,12 @@ class CategoryController extends Controller
         $validate = Validator::make($request->all(), [
             'name' => 'required',
             'image' => 'required',
+            'markup' => 'required|numeric',
+                'inflated' => 'required|numeric'
         ]);
         if ($validate->fails()) {
             Session::flash('alert', 'error'); 
-            Session::flash('message', 'The fields with * are required');
+            Session::flash('message', $validate->errors()->first());
 
             return redirect()->back()->withErrors($validate)->withInput($request->all())
                 ->with('bheading', 'Category')
@@ -74,7 +76,9 @@ class CategoryController extends Controller
         //  dd($fileName);
         $data = [
             'name' => $request->name,
-            'image' => $fileName,
+            'image_path' => $fileName,
+            'markup' => $request->markup,
+            'inflated' => $request->inflated,
         ];
         $category =  $this->category->create($data);
         if ($category) {
@@ -123,9 +127,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $valid = Validator::make($request->all(),[
+                'markup' => 'required|numeric',
+                'inflated' => 'required|numeric'
+        ]);
+        if($valid->fails()){
+            Session::flash('alert', 'error');
+            Session::flash('message', $valid->errors()->first());  
+        }
         $id = Hashids::connection('products')->decode($id);
         $category = category::where('id', $id)->first();
         $category->name = $request->name;
+
+        $category->markup = $request->markup;
+        $category->inflated = $request->inflated;
         if($request->file('image')){
             $category->image_path = $this->UploadImage($request, 'images/category/',800,500);
         }else{

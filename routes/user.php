@@ -16,7 +16,7 @@ Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('index');
 Route::get('/products/{id}/{url}', [ProductDetailsController::class, '__invoke'])->name('users.products');
 
 Route::controller(CartsController::class)->group( function(){
-Route::get('/cart/{id}',  'add')->name('carts.add');
+Route::post('/cart/{id}',  'add')->name('carts.add');
 Route::get('/carts/index/',  'Index')->name('carts.index');
 Route::get('/delete/{id}',  'destroy')->name('carts.delete');
 Route::post('updatecart', 'update')->name('carts.update');

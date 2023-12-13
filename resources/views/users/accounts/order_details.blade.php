@@ -36,7 +36,7 @@
                                 <div class="ps-product__content" style="border-right:0px">
                                     <div class="ps-product__thumbnil" style="padding:0px; margin:0px; width:100px; background:rgba(200, 197, 197, 0.471); border-radius:100%">
                                         <a class="ps-product__image" href="#">
-                                            <figure><img src="{{asset('/frontend/img/products/053.jpg')}}" style="width: 100px" alt="alt">
+                                            <figure><img src="{{$order->image}}" style="width: 100px" alt="alt">
                                             </figure>
                                         </a>
                                     </div>

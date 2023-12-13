@@ -30,6 +30,7 @@
                                                 <th>Product Name</th>
                                                   <th>Price</th>
                                                 <th>Quantity</th>
+                                                <th>Product Prescription</th>
                                              
                                                  <th>Created At</th>
                                                 
@@ -41,7 +42,7 @@
                                             <tr>
                                         
                                                 <td>
-                                                    <img src="{{asset('/images/products/'.$sp->image_path)}}" width="50px" height="50px"> 
+                                                    <img src="{{$sp->image}}" width="50px" height="50px"> 
                                                 </td>
                                                 <td>
                                                     <a href="#">{{$sp->Order_no}}</a>
@@ -56,13 +57,13 @@
                                                   <td>
                                                     <a href="#">{{$sp->qty}}</a>
                                                 </td>
-                                                 
-                                            
-                                                 
-                                               
-                                               
-                                                {{$sp->description}}
-                                                </td>      
+                                                    
+                                                <td>
+                                                    @if($sp->product_prescription) 
+                                                    <a href="{{$sp->product_prescription}}"> 
+                                                        Download  </a> @endif
+                                                </td>
+                                                    
                                                   <td>
                                                     <a href="#">{{$sp->created_at->format('d/m/y h:ma')}}</a>
                                                 </td>

@@ -26,27 +26,15 @@
                                     </div>
                                         <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                           <input type="text" name="price"  value="{{$product->price}}"class="form-control @error('price') is-invalid @enderror" id="exampleInput"
-                                                   aria-describedby="EventLocation" placeholder="Product Price">
-                                            <small id="emailHelp" class="form-text text-muted">Product price per unit production 
+                                           <input type="text" name="cost_price"  value="{{$product->cost_price}}"class="form-control @error('cost_price') is-invalid @enderror" id="exampleInput"
+                                                   aria-describedby="EventLocation" placeholder="Product Cost Price">
+                                            <small id="emailHelp" class="form-text text-muted">Product cost price 
                                             </small>
-                                            @error('price')
+                                            @error('cost_price')
                                             <span class="invalid-feedback"> <small> {{$message}} </small> </span>
                                             @enderror
                                         </div>
                                          </div>
-
-                                        <div class="col-md-6 col-12">
-                                          <div class="form-group">
-                                              <input type="text" name="sale_price"  value="{{$product->sale_price}}" class="form-control @error('sale_price') is-invalid @enderror" id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp" placeholder="Sale Price">
-                                              <small id="emailHelp" class="form-text text-muted">Price after discount
-                                              </small>
-                                              @error('sale_price')
-                                              <span class="invalid-feedback"> <small> {{$message}}</small> </span>
-                                              @enderror
-                                          </div>           
-                                      </div>
 
                                       <div class="col-md-6 col-12">
                                         <div class="form-group">
@@ -59,18 +47,6 @@
                                             @enderror
                                         </div>           
                                     </div>
-
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                          <input type="text" name="qty"  value="{{$product->qty}}"  class="form-control @error('qty') is-invalid @enderror" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Enter Quantity available">
-                                          <small id="emailHelp" class="form-text text-muted">Enter Quantity available
-                                          </small>
-                                          @error('qty')
-                                          <span class="invalid-feedback"> <small> {{$message}}</small> </span>
-                                          @enderror
-                                      </div>           
-                                  </div>
 
                                     </div>           
                                   </div>
@@ -117,7 +93,7 @@
                                               @error('image')
                                             <span class="invalid-feedback"> <small> *</small> </span>
                                             @enderror
-                                            <img src="{{asset('/images/products/'.$product->image_path)}}" width="100px" height="100px"> 
+                                            <img src="{{$product->image_path}}" width="100px" height="100px"> 
                                       
                                          </div>
 
@@ -138,7 +114,7 @@
                                   @endphp
                                   @if(isset($dd) && count($dd) > 0)
                                   @foreach ($dd as $img )
-                                    <img src="{{asset('/images/products/'.$img)}}" width="100px" height="100px"> 
+                                    <img src="{{$img}}" width="100px" height="100px"> 
                                   @endforeach
                                     @endif
                                          </div>

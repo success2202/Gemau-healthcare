@@ -25,11 +25,11 @@
                                     </div> 
                                         <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                           <input required type="number" name="price"  value="{{old('price')}}" class="form-control @error('price') is-invalid @enderror" id="exampleInput"
-                                                   aria-describedby="EventLocation" placeholder="Product Price">
-                                            <small id="emailHelp" class="form-text text-muted">Enter cost Price 
+                                           <input required type="text" name="cost_price"  value="{{old('cost_price')}}" class="form-control @error('cost_price') is-invalid @enderror" id="exampleInput"
+                                                   aria-describedby="EventLocation" placeholder="Product Cost Price">
+                                            <small id="emailHelp" class="form-text text-muted">Enter Cost Price 
                                             </small>
-                                            @error('price')
+                                            @error('cost_price')
                                             <span class="invalid-feedback"> <small> {{$message}} </small> </span>
                                             @enderror
                                         </div>
@@ -88,6 +88,20 @@
                                             <span class="invalid-feedback"> <small> *</small> </span>
                                             @enderror
                                          </div>
+
+                                         <div class="col-md-6 pt-4">
+                                          <div class="custom-file">
+                                            <label  for="requires_prescription">
+                                                    <input type="checkbox" style="width:15px; height:15px"  id="requires_prescription" name="requires_prescription"  class=" @error('requires_prescription') is-invalid @enderror" >
+                                                        This product requires prescription?
+                                                    </div>
+                                                  </label>
+                                                    <small id="emailHelp" class="form-text text-muted"> This product requires prescription?
+                                                    </small>
+                                                      @error('requires_prescription')
+                                                    <span class="invalid-feedback"> <small> *</small> </span>
+                                                    @enderror
+                                                 </div>
                                             
                             </div> 
                         </div>

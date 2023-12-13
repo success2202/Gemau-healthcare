@@ -30,13 +30,33 @@
                                             <input type="file"name="image" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Change Image</label>
                                             </div>
-                                               <img src="{{asset('/images/category/'.$category->image_path)}}" width="50px" height="50px">
+                                               <img src="{{$category->image_path}}" width="50px" height="50px">
                                             <small id="emailHelp" class="form-text text-muted">Change Category Image
                                             </small>
                                               @error('image')
                                             <span class="invalid-feedback"> <small> *</small> </span>
                                             @enderror
-                                         </div>          
+                                         </div>   
+                                         <div class="col-md-6">
+                                          <div class="form-group">
+                                         <input type="text" name="markup" placeholder="markup" value="{{$category->markup}}" class="form-control @error('name') is-invalid @enderror" >
+                                               <small id="emailHelp" class="form-text text-muted">Enter Markup 
+                                               </small>
+                                               @error('markup')
+                                               <span class="invalid-feedback"> <small> * </small> </span>
+                                               @enderror
+                                           </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                             <input type="text" name="inflated" placeholder="markup" value="{{$category->inflated}}" class="form-control @error('inflated') is-invalid @enderror" >
+                                                   <small id="emailHelp" class="form-text text-muted">Enter Inflated cap 
+                                                   </small>
+                                                   @error('inflated')
+                                                   <span class="invalid-feedback"> <small> * </small> </span>
+                                                   @enderror
+                                               </div>
+                                                </div>       
                             </div> 
                         </div>
                          

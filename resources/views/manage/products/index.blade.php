@@ -58,7 +58,7 @@
                                                     <a href="#">{{number_format($sp->discount,0)}}%</a>
                                                 </td> 
                                                 <td>
-                                                    <a href="#"><img src="{{asset('/images/products/'.$sp->image_path)}}" width="50px" height="50px"></a> 
+                                                    <a href="#"><img src="{{$sp->image_path}}" width="50px" height="50px"></a> 
                                                 </td>  
                                                 
                                                  <td>

@@ -123,13 +123,13 @@
                                                     <a href="#">{{$delivery['name']}}</a>
                                                 </td>
                                                   <td>
-                                                    <a href="#">C${{$delivery['fuel_surcharge']}}</a>
+                                                    <a href="#">{{$delivery['fuel_surcharge']}}</a>
                                                 </td>
                                                  <td>
-                                                    <a href="#">C${{$delivery['shipment_charge']}}</a>
+                                                    <a href="#">{{$delivery['shipment_charge']}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">C${{$delivery['total_charge']}}</a>
+                                                    <a href="#">{{$delivery['total_charge']}}</a>
                                                 </td>
                                                 <td>
                                                     <a href="#">{{$delivery['effective_incoterms']}}</a>

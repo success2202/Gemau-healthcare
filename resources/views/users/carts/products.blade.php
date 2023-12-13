@@ -8,6 +8,7 @@
             <li class="ps-breadcrumb__item"><a href="">{{ucwords(strtolower($product->category->name))}}</a></li>
             <li class="ps-breadcrumb__item active" aria-current="page">{{$product->name}}</li>
         </ul>
+       
         <div class="ps-page__content">
             <div class="row">
                 <div class="col-12 col-md-9">
@@ -16,8 +17,8 @@
                             <div class="col-12 col-xl-5">
                                 <div class="ps-product--gallery">
                                     <div class="ps-product__thumbnail">
-                                        <div class="slide"><img src="{{'/images/products/'.$product->image_path }}" alt="alt" /></div>
-                                        <div class="slide"><img src="{{'/images/products/'.$product->image_path }}" alt="alt" /></div>
+                                        <div class="slide"><img src="{{$product->image_path }}" alt="alt" /></div>
+                                        <div class="slide"><img src="{{$product->image_path }}" alt="alt" /></div>
                                     </div>
                                     <div class="ps-gallery--image">
                                         <div class="slide">
@@ -28,10 +29,10 @@
                                                 $images = json_decode($product->gallery);
                                             @endphp
                                             @foreach ($images as $item) 
-                                            <div class="ps-gallery__item"><img src="{{'/images/products/'.$item }}" alt="alt" /></div>
+                                            <div class="ps-gallery__item"><img src="{{$item }}" alt="alt" /></div>
                                             @endforeach
                                             @else 
-                                            <div class="slide"><img src="{{'/images/products/'.$item }}" alt="alt" /></div>
+                                            <div class="slide"><img src="{{$item }}" alt="alt" /></div>
                                             @endif
                                         </div>
                                         
@@ -40,7 +41,7 @@
                             </div>
                             <div class="col-12 col-xl-7">
                                 <div class="ps-product__info">
-                                    @if($product->status != 0 || $product->qty <= 0)
+                                    @if($product->status == 1)
                                     <div class="ps-product__badge"><span class="ps-badge ps-badge--outstock">OUT OF STOCK</span>
                                     </div>
                                     @endif
@@ -61,6 +62,8 @@
                                             </li>
                                         </ul>
                                     </div>
+                                    <form id="myForm" enctype="multipart/form-data">
+                                        @csrf
                                     <div class="ps-product__quantity">
                                         <h6>Quantity:   
 
@@ -68,13 +71,24 @@
                                              <input type="text" value="1" name="qty" id="qty" style="border: 1px solid #8c8a8a53; height:30px; width:30px; text-align:center"> 
                                              <button class="ps-btn--success  increment-btn" style="width: 30px; border-radius:3px; height:30px"> + </button>  </h6>
                                      
+                                            @if($product->requires_prescription == 1)
+                                            <label for="precription_upload" > <span id="fileName" style="color:red" hidden> Upload file </span>
+                                            <div class="pb-3"><img src="{{asset('/upload.png')}}">
+                                            </div> 
+                                            <input type="file" id="precription_upload" name="image" style="border: none; visibility:hidden" > 
+                                            </label>
+                                            <br>
+                                            @endif
+
+                                            
                                         <div class="d-md-flex align-items-center">
                                             <div class="def-number-input number-input safari_only">
                                             </div><button type="button" style="border-radius:5px" class="ps-btn ps-btn--success"  id="add2cart" 
-                                            @if($product->status != 0 || $product->qty <= 0)
+                                            @if($product->status == 1)
                                             disabled @endif>Add to cart</button>
                                         </div>
                                     </div>
+                                    </form>
                                     <div class="ps-product__social">
                                         <ul class="ps-social ps-social--color">
                                         Share this Product
@@ -93,8 +107,6 @@
                         <div class="ps-product__content">
                             <ul class="nav nav-tabs ps-tab-list" id="productContentTabs" role="tablist">
                                 <li class="nav-item" role="presentation"><a class="nav-link active" id="description-tab" data-toggle="tab" href="#description-content" role="tab" aria-controls="description-content" aria-selected="true">Description</a></li>
-                                <li class="nav-item" role="presentation"><a class="nav-link" id="information-tab" data-toggle="tab" href="#information-content" role="tab" aria-controls="information-content" aria-selected="false">Additional information</a></li>
-                                <li class="nav-item" role="presentation"><a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews-content" role="tab" aria-controls="reviews-content" aria-selected="false">Reviews (0)</a></li>
                             </ul>
                             <div class="tab-content" id="productContent">
                                 <div class="tab-pane fade show active" id="description-content" role="tabpanel" aria-labelledby="description-tab">
@@ -109,40 +121,6 @@
                                         </div>
                                     </div>
                                 </div>
-                               
-                                <div class="tab-pane fade" id="reviews-content" role="tabpanel" aria-labelledby="reviews-tab">
-                                    <div class="ps-product__tabreview">
-                                      
-                                        <div class="ps-review--product">
-                                            <div class="ps-review__row">
-                                                <div class="ps-review__info">
-                                                    <div class="ps-review__name">John M.</div>
-                                                    <div class="ps-review__date">Oct 30, 2021</div>
-                                                </div>
-                                                <div class="ps-review__desc">
-                                                    <p>Everything is perfect. I would recommend!</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="ps-form--review">
-                                        <div class="ps-form__title">Write a review</div>
-                                        <div class="ps-form__desc">Your email address will not be published. Required fields are marked *</div>
-                                        <form action="https://nouthemes.net/html/mymedi/do_action" method="post">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="ps-form__block">
-                                                        <label class="ps-form__label">Your review *</label>
-                                                        <textarea class="form-control ps-form__textarea" style="border-radius: 5px"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 text-center">
-                                                    <button class="btn ps-btn ps-btn--success" style="border-radius: 5px">Add Review</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -154,11 +132,7 @@
                             <div class="ps-delivery__item"><i class="icon-bag2"></i>Shipping will be calculated on checkout</div>
                             <div class="ps-delivery__item"><i class="icon-wallet"></i>Please note that price may increase due to  exchange rate, ensure updated price before making payment</div>
                         </div>
-                        
-                        
                     </div>
-                  
-        
                 </div>
             </div>
         </div>
@@ -173,8 +147,7 @@
                     <div class="ps-section__product">
                         <div class="ps-product ps-product--standard">
                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                        <figure><img src="{{'/images/products/'.$prod->image_path}}" alt="alt" /><img src="{{'images/products/'.$prod->image_path}}" alt="alt" />
+                                        <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" />
                                     </figure>
                                 </a>
                                 <div class="ps-product__badge" style="right:20px; ">
@@ -210,6 +183,8 @@
 @section('script')
 
 <script>
+
+
     $(document).ready(function() {
         var myNumberInput = $('#qty');
         var incrementBtn = $('.increment-btn');
@@ -229,11 +204,21 @@
             }
           
         });
- 
-
+        $('#precription_upload').on('change', function(){
+        var file = $('#precription_upload')[0].files[0].name;
+        $('#fileName').attr('hidden', false);
+        $('#fileName').html(file);
+    });
         addToCartButton.on('click', function() {
+            if($('#precription_upload').attr('hidden') == false){
+                var file = $('#precription_upload')[0].files[0]
+            }else{
+                file = [];
+            }
+            
+            if(file != undefined){
+          var formData =  new FormData($('#myForm')[0]);
             cartId = {!! json_encode($product->id) !!}
-            qty = $('#qty').val();
             $.ajaxSetup({
                 headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -241,15 +226,16 @@
             });
                 $.ajax({
                     url: "{{route('carts.add','')}}"+"/"+cartId,
-                    type: "get",
-                    data:{ 
-                        qty:qty,
-                    },
-                    dataType: "json",
+                    type: "post",
+                    data:		formData,
+                    contentType: false,
+                    processData: false,
+                    dataType:	'json',
+                    cache:		false,
                     success:function(response){
                         if(response){
+                            console.log(response);
                             $('.cartReload').html(response.qty); 
-                           // $('.cartReloads').html(thousands_separators(response));
                            $('#popupAddcartV2').modal('show');
                             setTimeout(function() {
                                 $('#popupAddcartV2').modal('hide');  
@@ -262,7 +248,13 @@
                         console.log(xhr);
                     }
                 });
+            }else{
+        let message = "Please upload prescription before adding item to cart"
+        toastr.error(message)     
+     }
         });
+    
+
 
 
       

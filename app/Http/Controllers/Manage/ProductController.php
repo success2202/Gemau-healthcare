@@ -114,10 +114,12 @@ class ProductController extends Controller
             $prod->name = $request->name;
             $prod->category_id = $request->category_id;
             $prod->description = $request->description;
-            $prod->discount =  ((($request->price * $cat->inflated) - $request->price * $cat->markup) / ($request->price * $cat->inflated)) * 100;
-            $prod->price = (($request->price * $cat->inflated) / 100) + $request->price;
-            $prod->sale_price = ((($request->price * $cat->markup) / 100) + $request->price);
-
+            $xm = (convertPercent($request->cost_price,$cat->inflated) + $request->cost_price) - (convertPercent($request->cost_price,$cat->markup) + $request->cost_price);
+            $prod->discount =  ($xm/(convertPercent($request->cost_price,$cat->markup) + $request->cost_price))*100;
+            $prod->cost_price = $request->cost_price;
+            $prod->price = convertPercent($request->cost_price,$cat->inflated) + $request->cost_price;
+            $prod->sale_price = convertPercent($request->cost_price,$cat->markup) + $request->cost_price;
+            $prod->status = 0;
             if ($request->file('image')) {
                 $image =  $this->UploadImage($request, 'images/products/');
                 $prod->image_path = $image;
@@ -180,7 +182,7 @@ class ProductController extends Controller
     {
         $id = decodeHashid($id);
         $valid = Validator::make($request->all(), [
-            'price' => 'required|integer',
+            'cost_price' => 'required|integer',
             'image' => 'mimes:png,jpg,jpeg,gif'
         ]);
         $cat = Category::where('id', $request->category_id)->first();
@@ -197,9 +199,11 @@ class ProductController extends Controller
             $prod->name = $request->name;
             $prod->category_id = $request->category_id;
             $prod->description = $request->description;
-            $prod->discount =  ((($request->price * $cat->inflated) - $request->price * $cat->markup) / ($request->price * $cat->inflated)) * 100;
-            $prod->price = (($request->price * $cat->inflated) / 100) + $request->price;
-            $prod->sale_price = ((($request->price * $cat->markup) / 100) + $request->price);
+            $xm = (convertPercent($request->cost_price,$cat->inflated) + $request->cost_price) - (convertPercent($request->cost_price,$cat->markup) + $request->cost_price);
+            $prod->discount =  ($xm/(convertPercent($request->cost_price,$cat->markup) + $request->cost_price))*100;
+            $prod->cost_price = $request->cost_price;
+            $prod->price = convertPercent($request->cost_price,$cat->inflated) + $request->cost_price;
+            $prod->sale_price = convertPercent($request->cost_price,$cat->markup) + $request->cost_price;
 
             if ($request->file('image')) {
                 $image =  $this->UploadImage($request, 'images/products/');

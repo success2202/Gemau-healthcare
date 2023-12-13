@@ -30,7 +30,7 @@
                                     <div class="ps-banner__persen bg-warning ps-left">-30%</div> --}}
                                         </div>
                                         <div class="ps-banner__thumnail ps-banner__fluid"><img class="ps-banner__image"
-                                                src="{{ asset('images/sliders/'.$slider->image_path) }}" alt="alt" />
+                                                src="{{$slider->image_path }}" alt="alt" />
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                                 <div class="col-6 col-md-4">
                                     <div class="ps-category__thumbnail"> <a class="ps-category__image"
                                             href="{{ route('products.search', $cat->hashid) }}">
-                                            <img src="{{ asset('images/category/' . $cat->image_path) }}" alt></a>
+                                            <img src="{{ $cat->image_path}}" alt></a>
                                         <div class="ps-category__content">
                                             <a class="ps-category" href="{{route('products.search', $cat->hashid)}}">{{ $cat->name }}</a> <br>
                                             <a class="ps-category__more" href="{{route('products.search', $cat->hashid)}}">More</a>
@@ -76,8 +76,8 @@
                                         <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                 href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
                                                 {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                                <figure><img src="{{ 'images/products/'.$prod->image_path }}" alt="alt" /><img
-                                                        src="{{ 'images/products/'.$prod->image_path }}" alt="alt" />
+                                                <figure><img src="{{ $prod->image_path }}" alt="alt" /><img
+                                                        src="{{ $prod->image_path }}" alt="alt" />
                                                 </figure>
                                             </a>
                                             <div class="ps-product__badge" style="right:20px; ">
@@ -151,8 +151,8 @@
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                     href="{{ route('users.products', [$prods->hashid, $prods->productUrl]) }}">
                                                     {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                                    <figure><img src="{{'images/products/'.$prods->image_path }}" alt="alt" /><img
-                                                            src="{{'images/products/'.$prods->image_path }}" alt="alt" />
+                                                    <figure><img src="{{$prods->image_path }}" alt="alt" /><img
+                                                            src="{{$prods->image_path }}" alt="alt" />
                                                     </figure>
                                                 </a>
                                                 <div class="ps-product__badge" style="right:20px; ">
@@ -169,12 +169,6 @@
                                                         class="ps-pr">{{ moneyFormat($prods->sale_price) }} <span
                                                             style="font-size:15px"> <del>{{ moneyFormat($prods->price) }}
                                                             </del> </span></span></span>
-                                                </div>
-                                                <div class="ps-product__actions ps-product__group-mobile">
-                                                    <center> <a
-                                                            href="{{ route('users.products', [$prods->hashid, $prods->productUrl]) }}"
-                                                            class="btn  btn-lg" style="background:#07631d; color:#fff">
-                                                            Add to Cart</a></center>
                                                 </div>
                                                 <center> <a
                                                         href="{{ route('users.products', [$prods->hashid, $prods->productUrl]) }}"
@@ -205,9 +199,9 @@
                                         <div class="ps-product ps-product--standard">
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                     href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                                    <figure><img src="{{ 'images/products/'.$prod->image_path }}"
+                                                    <figure><img src="{{ $prod->image_path }}"
                                                             alt="alt" /><img
-                                                            src="{{ 'images/products/'.$prod->image_path }}"
+                                                            src="{{ $prod->image_path }}"
                                                             alt="alt" />
                                                         {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
                                                     </figure>
@@ -254,9 +248,9 @@
                                         <div class="ps-product ps-product--standard">
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                     href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                                    <figure><img src="{{ 'images/products/'.$prod->image_path }}"
+                                                    <figure><img src="{{ $prod->image_path }}"
                                                             alt="alt" /><img
-                                                            src="{{ 'images/products/'.$prod->image_path }}"
+                                                            src="{{ $prod->image_path }}"
                                                             alt="alt" />
                                                         {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
                                                     </figure>
@@ -276,12 +270,7 @@
                                                             style="font-size:15px"> <del>{{ moneyFormat($prod->price) }}
                                                             </del> </span></span></span>
                                                 </div>
-                                                <div class="ps-product__actions ps-product__group-mobile">
-                                                    <center> <a
-                                                            href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}"
-                                                            class="btn  btn-lg" style="background:#07631d; color:#fff">
-                                                            Add to Cart</a></center>
-                                                </div>
+                                                
                                                 <center> <a
                                                         href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#07631d; color:#fff"> Add to
@@ -309,9 +298,9 @@
                                         <div class="ps-product ps-product--standard">
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                     href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                                    <figure><img src="{{ '/images/products/'.$prod->image_path }}"
+                                                    <figure><img src="{{ $prod->image_path }}"
                                                             alt="alt" /><img
-                                                            src="{{ '/images/products/'.$prod->image_path }}"
+                                                            src="{{$prod->image_path }}"
                                                             alt="alt" />
                                                         {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
                                                     </figure>
@@ -331,12 +320,7 @@
                                                             style="font-size:15px"> <del>{{ moneyFormat($prod->price) }}
                                                             </del> </span></span></span>
                                                 </div>
-                                                <div class="ps-product__actions ps-product__group-mobile">
-                                                    <center> <a
-                                                            href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}"
-                                                            class="btn  btn-lg" style="background:#07631d; color:#fff">
-                                                            Add to Cart</a></center>
-                                                </div>
+                                                
                                                 <center> <a
                                                         href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#07631d; color:#fff"> Add to

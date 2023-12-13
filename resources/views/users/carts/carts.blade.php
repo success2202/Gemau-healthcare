@@ -16,7 +16,7 @@
                 <div class="ps-product ps-product--list" style="border:2px solid #d1d5dad4; border-radius:10px">
                     <div class="ps-product__content" style="border-right:0px">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="">
-                                <figure><img src="{{ '/images/products/'.$cart->model->image_path }}" alt="alt">
+                                <figure><img src="{{$cart->model->image_path }}" alt="alt">
                                 </figure>
                             </a>
                         </div>
