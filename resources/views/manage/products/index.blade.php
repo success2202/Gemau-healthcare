@@ -34,6 +34,7 @@
                                                 <th>Image</th>
                                                 <th>Views</th>
                                                 <th>Qty</th>
+                                                <th> Requires Prescription</th>
                                                 <th>Status</th>
                                                  <th>Created At</th>
                                                 <th></th>
@@ -52,7 +53,7 @@
                                                     <a href="#">{{$sp->name}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">C${{number_format($sp->sale_price,2)}}</a>
+                                                    <a href="#">{{moneyFormat($sp->sale_price)}}</a>
                                                 </td> 
                                                 <td>
                                                     <a href="#">{{number_format($sp->discount,0)}}%</a>
@@ -67,6 +68,9 @@
                                                 <td>
                                                     <a href="#">{{$sp->qty}}</a>
                                                 </td>
+                                                <td>
+                                                    <a href="#">@if($sp->requires_prescription == 0 ) No @else  Yes @endif</span> </a>
+                                                </td> 
                                                 <td>
                                                     <a href="#">@if($sp->status == 0 ) <span class="badge bg-success"> active</span> @else <span class="badge bg-info"> Disabled </span> @endif</span> </a>
                                                 </td>      
