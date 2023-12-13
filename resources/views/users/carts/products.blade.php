@@ -77,6 +77,7 @@
                                             </div> 
                                             <input type="file" id="precription_upload" name="image" style="border: none; visibility:hidden" > 
                                             </label>
+                                            <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                                             <br>
                                             @endif
 
