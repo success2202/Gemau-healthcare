@@ -63,7 +63,7 @@
                                         </ul>
                                     </div>
                                     <form id="myForm" enctype="multipart/form-data">
-                                        @csrf
+                                       
                                     <div class="ps-product__quantity">
                                         <h6>Quantity:   
 
