@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link href="{{asset('/images/favs.png')}}" rel="apple-touch-icon-precomposed">
     <link href="{{asset('/images/favs.png')}}" rel="shortcut icon" type="image/png">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <title>{{config('app.name') ?? _('Sanlive Medhub')}} </title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="author" content="Live Health epharm">
+    <meta name="keywords" content="Live Health epharm">
+    <meta name="description" content="Live Health epharm">
+    <title>{{config('app.name')}} </title>
     <link rel="stylesheet" href="{{asset('/frontend/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/fonts/Linearicons/Font/demo-files/demo.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com/">
