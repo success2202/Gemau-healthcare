@@ -119,6 +119,7 @@ class ProductController extends Controller
             $prod->cost_price = $request->cost_price;
             $prod->price = convertPercent($request->cost_price,$cat->inflated) + $request->cost_price;
             $prod->sale_price = convertPercent($request->cost_price,$cat->markup) + $request->cost_price;
+            $prod->requires_prescription= $request->requires_prescription;
             $prod->status = 0;
             if ($request->file('image')) {
                 $image =  $this->UploadImage($request, 'images/products/');
@@ -204,7 +205,7 @@ class ProductController extends Controller
             $prod->cost_price = $request->cost_price;
             $prod->price = convertPercent($request->cost_price,$cat->inflated) + $request->cost_price;
             $prod->sale_price = convertPercent($request->cost_price,$cat->markup) + $request->cost_price;
-
+            $prod->requires_prescription = $request->requires_prescription;
             if ($request->file('image')) {
                 $image =  $this->UploadImage($request, 'images/products/');
                 $prod->image_path = $image;
