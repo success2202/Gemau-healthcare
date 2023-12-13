@@ -115,7 +115,7 @@ class ProductController extends Controller
             $prod->category_id = $request->category_id;
             $prod->description = $request->description;
             $xm = (convertPercent($request->cost_price,$cat->inflated) + $request->cost_price) - (convertPercent($request->cost_price,$cat->markup) + $request->cost_price);
-            $prod->discount =  ($xm/(convertPercent($request->cost_price,$cat->markup) + $request->cost_price))*100;
+            $prod->discount =  ($xm/(convertPercent($request->cost_price,$cat->inflated) + $request->cost_price))*100;
             $prod->cost_price = $request->cost_price;
             $prod->price = convertPercent($request->cost_price,$cat->inflated) + $request->cost_price;
             $prod->sale_price = convertPercent($request->cost_price,$cat->markup) + $request->cost_price;
