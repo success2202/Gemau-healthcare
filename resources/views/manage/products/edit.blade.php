@@ -5,6 +5,7 @@
 
 <form action="{{route('product.update',$product->hashid)}}" method="post" enctype="multipart/form-data">
   @csrf
+  @method('put')
  <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
