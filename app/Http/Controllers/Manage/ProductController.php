@@ -97,7 +97,7 @@ class ProductController extends Controller
             'category_id' => 'required|integer',
             'image' => 'required|mimes:png,jpg,jpeg,gif',
             'description' => 'required',
-            'price' => 'required|integer',
+            'cost_price' => 'required|integer',
         ]);
         if ($valid->fails()) {
             Session::flash('alert', 'error');
