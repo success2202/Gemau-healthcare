@@ -210,7 +210,7 @@
         $('#fileName').html(file);
     });
         addToCartButton.on('click', function() {
-            if($('#fileName').attr('hidden', true)){
+            if(document.getElementById('fileName').hidden == false){
                 var file = $('#precription_upload')[0].files[0]
             }else{
                 file = [];
