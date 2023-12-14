@@ -19,7 +19,7 @@ class AddressController extends Controller
     }
 
     public function ShippingAddress(){
-        $address = ShippingAddress::latest()->get();
+        $address = ShippingAddress::where(['user_id' => auth_user()->id])->latest()->get();
         
         addHashId($address);
 

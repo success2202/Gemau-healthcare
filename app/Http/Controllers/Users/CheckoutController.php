@@ -42,36 +42,38 @@ class CheckoutController extends Controller
         $shipping_fee = 0;
         $orderNo = rand(111111111,999999999);
 
-        $address = ShippingAddress::where('is_default', 1)->first();
-            $chk = explode(' ',$address->state);
-            $states = ShipmentLocation::where('states', 'LIKE', ucfirst($chk[0]))->first();
+        $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' =>1])->first();
+        $states = ShipmentLocation::where('states', 'LIKE', ucfirst($address->state))->first();
             if(isset($states)){
-        if(ucfirst(strtolower($states->states)) == 'Lagos'){
-            if(in_array($address->city,json_decode($states->location, true)))
-            {   
+        if(ucfirst(strtolower($states->states)) == 'Lagos'){  
             $gidi = [
                 'location_to' => $address->city
             ];
             $response = $this->checkGidiRates($gidi);
-            $shipping_fee = $response['data']['fee'];
-           }
+            if(isset($response['data']['result'])){
+            $shipping_fee = $response['data']['result'];
+            }
         }else{
             $naijaship = [
                 "destination" => $states->location,
                 "weight" => 0.5
             ];
             $response =  $this->checkNaijaRates($naijaship);  
+            if(isset($response['data']['fee'])){
             $shipping_fee = $response['data']['fee'];
+            }
         }
-    }else{
-        
-    }
-        // dd($response);
-       
-        if(!isset($shipping_fee)){
+        if($shipping_fee <= 0){
             Session::flash('alert', 'error');
-            Session::flash('msg', 'Network error occured, could not get shipping fee');
-           }
+            Session::flash('msg', 'Could not get shipping Fee, the address provided is wrong, please edit and try again');
+        }
+        
+    }else{
+        Session::flash('alert', 'error');
+        Session::flash('msg', 'Network error occured, could not get shipping fee');
+    }
+
+
         $cart = Hashids::connection('products')->decode($cartSession);
         $check = CartItem::where(['user_id' => auth_user()->id, 'cartSession' => $cart])->first();
         if(!isset($check) || empty($check)){

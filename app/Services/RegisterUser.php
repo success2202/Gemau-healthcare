@@ -40,6 +40,7 @@ class RegisterUser {
         $data['state'] = $request->state;
         $data['country'] = $request->country;
         $data['user_id'] = $user->id;
+        $data['is_default'] = 1;
        $ship = ShippingAddress::create($data);
         return $ship;
     }
