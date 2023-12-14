@@ -221,7 +221,7 @@
             cartId = {!! json_encode($product->id) !!}
             $.ajaxSetup({
                 headers: {
-                // 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
                 $.ajax({
