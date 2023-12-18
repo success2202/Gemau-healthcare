@@ -5,9 +5,9 @@
 <div class="ps-categogy ps-categogy--dark" style="background: #e8e8e8;">
     <div class="container">
         <ul class="ps-breadcrumb">
-            <li class="ps-breadcrumb__item"><a href="index.html">Home</a></li>
-            <li class="ps-breadcrumb__item"><a href="index.html">Category</a></li>
-            <li class="ps-breadcrumb__item"><a href="index.html">Products</a></li>
+            <li class="ps-breadcrumb__item"><a href="">Home</a></li>
+            <li class="ps-breadcrumb__item"><a href="">Category</a></li>
+            <li class="ps-breadcrumb__item"><a href="">Products</a></li>
         </ul>
         <div class="ps-categogy__content">
             <div class="row row-reverse">

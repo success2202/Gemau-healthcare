@@ -19,11 +19,19 @@
         <div class="ps-shopping__content">
             <div class="row">
               @include('includes.accountSidebar')
-                <div class="col-12 col-md-7 col-lg-8 mt-5" style="background: #fff; border-radius: 5px">
+                <div class="col-12 col-md-7 col-lg-8 mt-5" style="background: #fff; border-radius: 5px" id="pdfContent">
                     <div class="row">
                        
-                        <span class="pt-5 pl-5"> <a href="#" onclick="history.back()"> {{_('<< Order Details ')}} </a>   </span> <hr style="width:100%"></span>
-                           <div class="col-12 col-md-12" >
+                        <span class="pt-5 pl-5"> <a href="#" onclick="history.back()"> {{_('<< Order Details ')}} </a>   &nbsp;  &nbsp; &nbsp;  <button  id="downloadBtn" class="btn btn-outline-info" style=" left:50px"> Download Receipt</button>   </span>  <hr style="width:100%"> </span>
+                        
+                        <div class="col-12 col-md-12 "  id="userDetails" hidden>
+                            <p class=" pl-3"> First Name: {{auth_user()->first_name}} <br>
+                        Last Name: {{auth_user()->last_name}}<br>
+                    Email: {{auth_user()->email}}</p>
+                    <hr>
+                        </div>
+                       
+                           <div class="col-12 col-md-12 "  >
                             <p class="pl-3" style="color:#414040"> Order No: {{$orders->order_no}} <br>
                              Placed On: {{$orders->created_at}}<br>
                              Total Amount: {{moneyFormat($orders->payable)}}</p>  
@@ -31,10 +39,10 @@
                      
                        <span class="pt-5 pl-5"> Items in Your Order    </span> 
                         @forelse($order_items as $order)
-                        <div class="col-12 col-md-12" >
+                        <div class="col-12 col-md-12 " >
                             <div class="ps-product ps-product--list" style="border:2px solid #d1d5dad4; border-radius:10px; margin-top:15px">
                                 <div class="ps-product__content" style="border-right:0px">
-                                    <div class="ps-product__thumbnil" style="padding:0px; margin:0px; width:100px; background:rgba(200, 197, 197, 0.471); border-radius:100%">
+                                    <div class="ps-product__thumbnil" style="">
                                         <a class="ps-product__image" href="#">
                                             <figure><img src="{{$order->image}}" style="width: 100px" alt="alt">
                                             </figure>
@@ -52,10 +60,10 @@
 
                                     
                                 
-                                <div class="ps-product__footer" >
+                                {{-- <div class="ps-product__footer" >
                                     <div class="d-none  d-xl-block ">
                                     <span style=" float:right; color:rgb(10, 10, 128)"><a href=""  class="btn btn-info btn-lg" style="" > BUY AGAIN</a></span> </div>
-                                </div>
+                                </div> --}}
                                 
                             </div>
                         </div>
@@ -146,4 +154,60 @@
 @endsection
 
 @section('script')
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       
+       <script>
+
+        let orderNo = {!! json_encode($orders->order_no) !!}
+    window.jsPDF = window.jspdf.jsPDF;
+            window.html2canvas = html2canvas;
+            let downloadBtn = document.getElementById('downloadBtn');
+            downloadBtn.addEventListener("click", createPdf);
+
+            function createPdf() {
+                $('#userDetails').attr('hidden', false);
+                html2canvas(document.getElementById('pdfContent')).then(canvas => {
+                    let source = $('#pdfContent')[0];
+                    const doc = new jsPDF({
+                        unit: "pt",
+                        orientation: 'portrait'
+                    });
+
+                    let margins = {
+                        top: 50,
+                        bottom: 50,
+                        left: 50,
+                        width: 500
+                    }
+
+                    let specialElementHandlers = {
+                        '#hasCharr': function(element, renderer) {
+                            return true;
+                        }
+                    };
+
+                    doc.setFont('Poppins-Bold', 'bold');
+                    doc.html(source, {
+                        x: margins.left,
+                        y: margins.top,
+                        width: margins.width,
+                        windowWidth: 900,
+                        elementHandlers: specialElementHandlers,
+                        callback: function() {
+                            doc.save(orderNo, margins)
+                        }
+                    });
+                });
+
+            }
+            setTimeout(() => {
+           
+                //  $('#userDetails').attr('hidden', true); 
+                 document.getElementById('userDetails').hidden = true
+               
+            }, 5000);
+           
+</script>
 @endsection

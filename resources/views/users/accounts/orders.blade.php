@@ -62,6 +62,7 @@
                         </div>
                         @empty 
                         @endforelse
+                        <div class="p-5" style="float: right;"> {{$orders->links()}}</div>
                     </div>
 
                 </div>

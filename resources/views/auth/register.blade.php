@@ -32,8 +32,8 @@
 
     <!-- logo -->
     <div id="logo">
-        <img class="logo" src="{{asset('/frontend/img/'.$settings->site_logo)}}" alt="image">
-        <img class="logo-dark" src="{{asset('/frontend/img/'.$settings->site_logo)}}" alt="image">
+        <img class="logo" src="{{$settings->site_logo)}}" alt="image">
+        <img class="logo-dark" src="{{$settings->site_logo)}}" alt="image">
     </div>
     <!-- ./ logo -->
 
@@ -60,7 +60,7 @@
         </div>
         <button class="btn btn-primary btn-block">Register</button>
         <hr>
-        <ul class="list-inline">
+        {{-- <ul class="list-inline">
             <li class="list-inline-item">
                 <a href="#" class="btn btn-facebook">
                     <i class="fa fa-facebook" style="color:#fff"> Login with Facebook</i>
@@ -71,8 +71,8 @@
                     <i class="fa fa-twitter" style="color:#fff"> Login with Twiter</i>
                 </a>
             </li>
-        </ul>
-        <hr>
+        </ul> --}}
+   
         <p class="text-muted">Already have an account?</p>
         <a href="{{route('login')}}" class="btn btn-outline-light btn-sm">Login Here!</a>
     </form>

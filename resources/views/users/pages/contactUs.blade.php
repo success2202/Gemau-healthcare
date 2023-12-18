@@ -5,7 +5,7 @@
 <div class="ps-contact">
     <div class="container">
         <ul class="ps-breadcrumb">
-            <li class="ps-breadcrumb__item"><a href="index.html">Home</a></li>
+            <li class="ps-breadcrumb__item"><a href="">Home</a></li>
             <li class="ps-breadcrumb__item active" aria-current="page">Contact us</li>
         </ul>
         <div class="ps-contact__content">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-8">
-                    <form action="https://nouthemes.net/html/mymedi/do_action" method="post">
+                    <form action="" method="post">
                         <div class="ps-form--contact">
                             <h2 class="ps-form__title">Fill up the form if you have any question</h2>
                             <div class="row">

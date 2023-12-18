@@ -64,7 +64,7 @@
         </div>
         <button class="btn btn-primary btn-block">Sign in</button>
         <hr>
-        <ul class="list-inline">
+        {{-- <ul class="list-inline">
             <li class="list-inline-item">
                 <a href="#" class="btn btn-facebook">
                     <i class="fa fa-facebook" style="color:#fff"> Login with Facebook</i>
@@ -76,8 +76,8 @@
                 </a>
             </li>
           
-        </ul>
-        <hr>
+        </ul> --}}
+  
         <p class="text-muted">Don't have an account?</p>
         <a href="{{route('register')}}" class="btn btn-outline-light btn-sm">Register now!</a>
     </form>

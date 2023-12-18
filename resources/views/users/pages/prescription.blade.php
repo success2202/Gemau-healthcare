@@ -5,7 +5,7 @@
 <div class="ps-checkout">
     <div class="container">
         <ul class="ps-breadcrumb">
-            <li class="ps-breadcrumb__item"><a href="index.html">Home</a></li>
+            <li class="ps-breadcrumb__item"><a href="">Home</a></li>
             <li class="ps-breadcrumb__item active" aria-current="page"> Doctor's Prescription</li>
         </ul>
         <div class="ps-checkout__content">
