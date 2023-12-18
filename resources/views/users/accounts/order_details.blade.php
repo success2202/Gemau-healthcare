@@ -49,13 +49,12 @@
                                         </p>
                                     </div>
                                 </div>
-{{dd($order->products)}}
 
                                     
                                 
                                 <div class="ps-product__footer" >
                                     <div class="d-none  d-xl-block ">
-                                    <span style=" float:right; color:rgb(10, 10, 128)"><a href=""  class="btn btn-info btn-lg" style="{{ route('users.products', [$order->products->hashid, $order->products->productUrl]) }}" > BUY AGAIN</a></span> </div>
+                                    <span style=" float:right; color:rgb(10, 10, 128)"><a href=""  class="btn btn-info btn-lg" style="" > BUY AGAIN</a></span> </div>
                                 </div>
                                 
                             </div>
