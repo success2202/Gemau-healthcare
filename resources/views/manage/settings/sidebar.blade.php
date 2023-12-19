@@ -18,15 +18,15 @@
         Blogs
     </a>  --}}
     <a href="{{route('admin.settings.aboutus')}}" class="list-group-item">
-        <i data-feather="image" class="mr-2 width-15 height-15"></i>
+        <i data-feather="user" class="mr-2 width-15 height-15"></i>
         About us 
     </a>
     <a href="{{route('admin.settings.privacyPolicy')}}" class="list-group-item">
-        <i data-feather="image" class="mr-2 width-15 height-15"></i>
+        <i data-feather="columns" class="mr-2 width-15 height-15"></i>
         Privacy Policy 
     </a>
     <a href="{{route('admin.settings.termsConditions')}}" class="list-group-item">
-        <i data-feather="image" class="mr-2 width-15 height-15"></i>
+        <i data-feather="info" class="mr-2 width-15 height-15"></i>
         Terms and Conditions 
     </a>
 

@@ -32,6 +32,7 @@ class AdminLoginController extends Controller
 
         if(Auth('admin')->attempt($credentials)){
             $request->session()->regenerate();
+            
             return redirect()->intended(route('admin.index'));
         }
 

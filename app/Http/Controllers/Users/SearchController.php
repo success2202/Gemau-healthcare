@@ -16,6 +16,7 @@ class SearchController extends Controller
     {  
        
         $products = [];
+        $data = [];
         if(isset($request->q)){
             $products = Product::where('name', 'LIKE', "%$request->q%")->simplePaginate(18);
             $data['searchterm'] = "Showing Results for ".$request->q;

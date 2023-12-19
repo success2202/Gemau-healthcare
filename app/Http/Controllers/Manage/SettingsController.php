@@ -9,6 +9,7 @@ use App\Models\Setting;
 use App\Traits\imageUpload;
 use App\Models\Privacypolicy;
 use App\Models\TermsCondition;
+use Intervention\Image\Facades\Image;
 use App\Models\AboutUs;
 use App\Models\Annoucement;
 use Illuminate\Support\Facades\Session;
@@ -246,6 +247,16 @@ class SettingsController extends Controller
         if($request->file('image')){
           $data['site_logo'] = $this->ImagesNoResize($request,'images/');
         }
+        if($request->file('fav')){
+                $file = $request->file('fav');
+                $name = $file->getClientOriginalName();
+                $FileName = \pathinfo($name, PATHINFO_FILENAME);
+                $ext = $file->getClientOriginalExtension();
+                $time = time() . $FileName;
+                $fileName = $time . '.' . $ext;
+                Image::make($request->file('fav'))->resize(50,50)->save('images/'.$fileName);
+            $data['fav'] = $fileName;
+          }
         if($request->announcement){
             Annoucement::latest()->first()->update(['content' => $request->announcement]);
         }

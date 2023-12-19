@@ -49,8 +49,26 @@
                                                 </div>
                                             
                                         </div>
+                                        <div class="text-muted d-flex justify-content-between">
+                                            <div class="text-truncate small"></div>
+                                            <div class="col-md-12">
+                                                <img src="{{asset('images/'.$settings->fav)}}" width="30px">
+                                                <div class="custom-file">
+                                                 
+                                                    <input type="file" name="fav" class="custom-file-input  @error('fav') is-invalid @enderror">
+                                                        <label class="custom-file-label" for="customFile">Change Website Favicon</label>
+                                                    </div>
+                                                    <small id="emailHelp" class="form-text text-muted"> Websit Favicon
+                                                    </small>
+                                                      @error('fav')
+                                                    <span class="invalid-feedback"> <small> *</small> </span>
+                                                    @enderror
+                                                </div>
+                                            
+                                        </div>
                                     </div>
                                 </li>
+                          
 
                                 <li class="list-group-item">
                                     <div class="flex-grow-1 min-width-0">

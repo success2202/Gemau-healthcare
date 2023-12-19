@@ -16,6 +16,9 @@ class AddFsieldsToSettings extends Migration
         Schema::table('settings', function (Blueprint $table) {
             //
             $table->string('fav')->default('favicon.png');
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('country')->nullable();
         });
     }
 
@@ -28,6 +31,11 @@ class AddFsieldsToSettings extends Migration
     {
         Schema::table('settings', function (Blueprint $table) {
             //
+
+            $table->dropColumn('fav');
+            $table->dropColumn('city');
+            $table->dropColumn('state');
+            $table->dropColumn('country');
         });
     }
 }

@@ -16,9 +16,10 @@ class paymentMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public $data)
     {
         //
+        $this->data = $data;
     }
 
     /**
@@ -28,6 +29,6 @@ class paymentMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->from('support@mazeoptions.com')->subject('Payment Details')->view('mails.paymentMail')->with('data', $this->data);
     }
 }

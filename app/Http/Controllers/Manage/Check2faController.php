@@ -32,7 +32,9 @@ class Check2faController extends Controller
             Session::flash('alert', 'error');
             Session::flash('msg', 'The code you entered is invalid or Expired');
             Session::flash('resend');
+            return back();
         }
+
     }
 
 }

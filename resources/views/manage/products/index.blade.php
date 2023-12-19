@@ -33,7 +33,6 @@
                                                 <th>Discount Percentage</th>
                                                 <th>Image</th>
                                                 <th>Views</th>
-                                                <th>Qty</th>
                                                 <th> Requires Prescription</th>
                                                 <th>Status</th>
                                                  <th>Created At</th>
@@ -65,9 +64,6 @@
                                                  <td>
                                                     <a href="#">{{$sp->views}}</a>
                                                 </td> 
-                                                <td>
-                                                    <a href="#">{{$sp->qty}}</a>
-                                                </td>
                                                 <td>
                                                     <a href="#">@if($sp->requires_prescription == 0 ) No @else  Yes @endif</span> </a>
                                                 </td> 

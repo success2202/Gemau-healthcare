@@ -161,7 +161,9 @@
                                 <div class="ps-product__actions ps-product__group-mobile">
                                     {{-- <div class="ps-product__cart"> <a class="ps-btn ps-btn--warning" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a></div> --}}
                                 </div>
-                               <center> <a href="{{route('users.products',[$prod->hashid, $prod->productUrl])}}" class="btn btn-success"> Add to Cart</a></center> 
+                               
+                                
+                               <center> <a href="{{route('users.products',[$prod->hashid, $prod->productUrl])}}" class="btn btn-success spinner-border spinner-border-sm"> Add to Cart</a></center> 
                             </div>
                         
                         </div>
@@ -217,6 +219,7 @@
             }
             
             if(file != undefined){
+                $('#add2cart').html('Please wait ....')
           var formData =  new FormData($('#myForm')[0]);
             cartId = {!! json_encode($product->id) !!}
             $.ajaxSetup({
@@ -231,7 +234,6 @@
                     contentType: false,
                     processData: false,
                     dataType:	'json',
-                    cache:		false,
                     success:function(response){
                         if(response){
                             console.log(response);
@@ -243,9 +245,12 @@
                         }else{
                             alert('no');
                         }
+                        $('#add2cart').html('Add to Cart');
                     },
+                 
                     error: function(xhr, status,error) {
                         console.log(xhr);
+                        $('#add2cart').html('Add to Cart')
                     }
                 });
             }else{

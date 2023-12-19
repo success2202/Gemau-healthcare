@@ -10,7 +10,7 @@
                         <table class="m_8958432110786407146tableheader" width="100%" cellspacing="0" cellpadding="0" style="vertical-align:middle">
                             <tbody>
                                 <tr bgcolor="#ffffff">
-                                  <td style="padding: 20px 20px; "><a href="#"><img src="{{$settings->site_logo}}" alt="image"
+                                  <td style="padding: 20px 20px; "><a href="#"><img src="{{asset('/images/'.$settings->site_logo)}}" alt="image"
                                                                                     style="height: 30px; margin-left: auto; margin-right: auto; display:block;"></a>
                                 </td>
                             </tr>
