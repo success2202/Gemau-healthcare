@@ -7,7 +7,7 @@
     <title> {{config('app.name')}}</title>
     <!-- Favicon -->
  <link rel="stylesheet" href="{{asset('/backend/vendors/dataTable/dataTables.min.css')}}" type="text/css">
-  <link rel="icon" href="{{asset('/images/favs.png')}}">
+  <link rel="icon" href="{{ asset('assets/images/'.$settings->fav)}}">
     <!-- Plugin styles -->
     <link rel="stylesheet" href="{{asset('/backend/vendors/bundle.css')}}" type="text/css">
   <!-- Datepicker -->

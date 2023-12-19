@@ -59,6 +59,7 @@
                  <div  style="border:1px solid #00000031; border-radius:10px">
                  <div class="ps-categogy--ist p-2" style="display: flex; ">
                     <input type="radio" name="delivery" id="home" value="home_delivery" data-amount="{{$shipping_fee}}"> 
+                    <input type="hidden" value="{{$shipping_fee}}" name="shipping_cost"> 
                     <label for="home" class="pl-2"> Home Delivery Delivery </label>
                     </div>
                     <div  class="mb-5" >

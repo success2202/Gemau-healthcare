@@ -4,13 +4,18 @@ namespace App\Http\Controllers\Users;
 
 use App\Events\OrderShipment;
 use App\Http\Controllers\Controller;
+use App\Mail\OrderMail;
+use App\Mail\RegMail;
 use App\Models\Order;
+use App\Mail\paymentMail;
 use App\Models\Payment;
 use App\Models\Product;
+use Illuminate\Support\Facades\Mail;
 use App\Models\ShippingAddress;
 use Illuminate\Support\Facades\Redirect;
 use Unicodeveloper\Paystack\Facades\Paystack;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
 {
@@ -41,10 +46,26 @@ class PaymentController extends Controller
             'is_paid' => 0,
             'is_delivered' => 0,
             'dispatch_status' => 0,
-            'shipping_method' => $req->delivery
+            'shipping_method' => $req->delivery,
         ]);
+
+        $addrs = ShippingAddress::where(['user_id', auth_user()->id, 'is_default' => 1])->first();
+    }else{
+        Session::flash('alert', 'error');
+        Session::flash('msg', 'Order Expired, refresh page and try again');
+        return back();
     }
         try {
+        Mail::to(auth_user()->email)->send( new RegMail([
+            'order_items' => \Cart::content(),
+            'name' => $addrs->name,
+            'order_no' => $req->orderNo,
+            'shipping_cost' => $req->shipping_cost,
+            'amount' => $req->amount,
+            'email' => $addrs->email,
+            'phone' => $addrs->phone,
+        ]));
+       
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         } catch (\Exception $e) {
             return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
@@ -66,10 +87,11 @@ class PaymentController extends Controller
                 'payment_ref'=> $paymentDetails['data']['reference'],
                 'is_paid' => 1,
             ]);
+            $ref = GenerateRef(10);
             Payment::create([
                 'user_id' => auth_user()->id, 
                 'order_id' => $paymentDetails['data']['metadata'], 
-                'payment_ref' => GenerateRef(10), 
+                'payment_ref' => $ref, 
                 'external_ref' => $paymentDetails['data']['reference'], 
                 'status' => 1, 
                 'payable' => $paymentDetails['data']['amount']
@@ -77,11 +99,12 @@ class PaymentController extends Controller
             if($orders->shipping_method == 'home_delivery'){
            event(new OrderShipment($address, $paymentDetails['data']['metadata']));
             }
-            foreach(\Cart::destroy() as $items){
-                $prod = Product::where('id', $items->model->id)->first();
-                $prod->update(['qty' => $prod->qty -1 ]);
-            }
-           
+           Mail::to(auth_user()->email)->send(new paymentMail([
+            'amount' => $paymentDetails['data']['amount'],
+            'order_No' => $paymentDetails['data']['metadata'],
+            'payment_ref' => $ref,
+            'external_ref' => $paymentDetails['data']['reference'],
+           ]));
         \Cart::destroy();
             return redirect(route('users.index'));
         }else{

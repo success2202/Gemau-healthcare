@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\Check2faMail;
+use App\Mail\check2fa;
 use App\Models\Admin;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Session;
@@ -20,7 +20,7 @@ class Check2faController extends Controller
         $data['otp'] = rand(111111,999999);
         $data['subject'] = 'Login Code';
         $user->update(['otp' => $data['otp']]);
-        Mail::to(Setting::pluck('site_email')[0])->send(new Check2faMail($data));
+        Mail::to(Setting::pluck('site_email')[0])->send(new check2fa($data));
         return view('auth.2fa');
     }
 

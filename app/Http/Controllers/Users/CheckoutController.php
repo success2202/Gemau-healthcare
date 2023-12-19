@@ -15,6 +15,8 @@ use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\Services\RegisterUser;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegMail;
 use App\Traits\CalculateShipping;
 use Carbon\Carbon;
 
@@ -99,6 +101,7 @@ class CheckoutController extends Controller
         }
         $register = new RegisterUser;
        $reg = $register->UserRegister($request);
+    
         if($reg){
             return redirect()->intended(route('checkout.index'));
         }

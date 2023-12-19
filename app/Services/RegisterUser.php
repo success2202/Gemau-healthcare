@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Models\ShippingAddress;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegMail;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
@@ -42,6 +44,7 @@ class RegisterUser {
         $data['user_id'] = $user->id;
         $data['is_default'] = 1;
        $ship = ShippingAddress::create($data);
+       Mail::to($data['email'])->send(new RegMail($data));
         return $ship;
     }
 
