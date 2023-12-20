@@ -119,7 +119,7 @@
                             <div class="ps-promo__item"><img class="ps-promo__banner"
                                     src="{{$advert[0]->image_path}}" alt="alt" />
                                 <div class="ps-promo__content">
-                                    <h4 class="text-whte ps-promo__name">{{$advert[0]->name}}</h4>
+                                    {{-- <h4 class="text-whte ps-promo__name">{{$advert[0]->name}}</h4> --}}
                                     <div class="ps-promo__sale text-yellow">-{{number_format($advert[0]->discount)}}%</div><a class="ps-promo__btn"
                                         href="{{ route('users.products', [$advert[0]->hashid, $advert[0]->productUrl]) }}">Shop now</a>
                                 </div>
@@ -129,7 +129,7 @@
                             <div class="ps-promo__item"><img class="ps-promo__banner"
                                     src="{{ $advert[1]->image_path }}" alt="alt" />
                                 <div class="ps-promo__content">
-                                    <h4 class="ps-promo__name">{{$advert[1]->name}}</h4>
+                                    {{-- <h4 class="ps-promo__name">{{$advert[1]->name}}</h4> --}}
                                     <div class="ps-promo__meta d-horizontal"> from
                                         <p class="ps-promo__price text-primary"> {{moneyFormat($advert[1]->sale_price)}}</p>
                                         <p class="ps-promo__del">{{moneyFormat($advert[1]->price)}}</p>
