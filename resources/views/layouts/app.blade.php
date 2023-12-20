@@ -9,8 +9,15 @@
     <link href="{{ asset('assets/images/'.$settings->fav)}}" rel="shortcut icon" type="image/png">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="author" content="Live Health epharm">
-    <meta name="keywords" content="Live Health epharm">
-    <meta name="description" content="Live Health epharm">
+    <meta name="application-name" content="livehealthepharma Web-App">
+    <meta property="og:site_name" content="livehealthepharma: Online Pharmacy in Nigeria">
+    <meta property="og:image" content="{{asset('images/'.$settings->site_logo)}}">
+    <meta name="twitter:description" content="Online Pharmacy in Nigeria">
+    <meta name="twitter:image" content="{{asset('images/'.$settings->site_logo)}}">
+    <meta property="og:description" content="The largest and biggest online pharmacy store in Nigeria. Easily get affordable medication and prescription drugs delivered to your doorstep. Get professional advice and consultation in real time">
+    <meta name="keywords" content="pharmacy, drug, eccomerce, cosmetics, buy drugs online, online pharmacy, doctors prescription">
+    <meta property="og:url" content="{{route('users.index')}}">
+    <meta property="og:title" content="livehealthepharma: Online Pharmacy in Nigeria">
     <title>{{config('app.name')}} </title>
     <link rel="stylesheet" href="{{asset('/frontend/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/fonts/Linearicons/Font/demo-files/demo.css')}}">

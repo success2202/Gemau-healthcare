@@ -16357,7 +16357,7 @@ textarea.form-control {
 }
 
 .ps-footer--8 .ps-footer--contact {
-  border-left: 1px solid #284686;
+  /* border-left: 1px solid #284686; */
   padding-left: 40px;
 }
 

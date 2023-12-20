@@ -3,11 +3,15 @@
     <div class="container">
         <div class="ps-footer__middle" >
             <div class="row">
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-md-5">
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <div class="ps-footer--address">
-                                <div class="ps-logo"><a href="{{route('index')}}"> <img src="{{asset('images/'.$settings->site_logo)}}" alt><img class="logo-white" src="{{asset('images/'.$settings->site_logo)}}" alt><img class="logo-black" src="{{asset('images/'.$settings->site_logo)}}" alt><img class="logo-white-all" src="{{asset('images/'.$settings->site_logo)}}" alt><img class="logo-green" src="{{asset('images/'.$settings->site_logo)}}" alt></a></div>
+                                <div class="ps-logo"><a href="{{route('index')}}"> <img src="{{asset('images/'.$settings->site_logo)}}" style="border-radius: 5px" alt>
+                                    <img class="logo-white" src="{{asset('images/'.$settings->site_logo)}}"  style="border-radius: 5px" alt="{{asset('images/'.$settings->site_logo)}}">
+                                    <img class="logo-black" src="{{asset('images/'.$settings->site_logo)}}" style="border-radius: 5px"  alt="{{asset('images/'.$settings->site_logo)}}">
+                                    <img class="logo-white-all" src="{{asset('images/'.$settings->site_logo)}}"  style="border-radius: 5px" alt="{{asset('images/'.$settings->site_logo)}}">
+                                    <img class="logo-green" src="{{asset('images/'.$settings->site_logo)}}" style="border-radius: 5px"  alt="{{asset('images/'.$settings->site_logo)}}" ></a></div>
                                 <div class="ps-footer__title">Our store</div>
                                 <p>{{$settings->address}}</p>
                                 <ul class="ps-social">
@@ -23,13 +27,13 @@
                                 <h5 class="ps-footer__title">Need help</h5>
                                 <div class="ps-footer__fax"><i class="icon-telephone"></i>{{$settings->site_phone}}</div>
                                 <p class="ps-footer__work">{{$settings->site_email}}</p>
-                                <hr>
+                              
                       
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-7">
                     <div class="row">
                         <div class="col-6 col-md-4">
                             <div class="ps-footer--block">
@@ -55,7 +59,7 @@
                         </div>
                         <div class="col-6 col-md-4">
                             <div class="ps-footer--block">
-                                <h5 class="ps-block__title">Store</h5>
+                                <h5 class="ps-block__title">Help Links</h5>
                                 <ul class="ps-block__list">
                                     <li><a href="{{ route('AboutUs')}}">About Us</a></li>
                                     <li><a href="{{ route('PrivacyPolicy')}}">Privacy Policy</a></li>
@@ -70,10 +74,17 @@
         </div>
         <div class="ps-footer--bottom">
             <div class="row">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-4">
                     <p>{{$settings->site_copyright}}</p>
                 </div>
-                <div class="col-12 col-md-6 text-right"><img src="img/payment.png" alt><img class="payment-light" src="img/payment-light.png" alt></div>
+                <div class="col-12 col-md-8 text-right">
+                    <img src="{{asset('/images/paystack_logo.png')}}"  width="70px" alt>
+                    <img class="payment-light" src="{{asset('/images/nafdac.png')}}"      width="70px"alt>
+                    <img class="payment-light" src="{{asset('/images/secure_ssl.png')}}"  width="70px" alt>
+                    <img class="payment-light" src="{{asset('/images/mastercard.png')}}"  width="70px"alt>
+                    <img class="payment-light" src="{{asset('/images/visa.png')}}"  width="70px" alt>
+                    <img class="payment-light" src="{{asset('/images/pcn.png')}}"  width="70px"alt>
+                </div>
             </div>
         </div>
     </div>

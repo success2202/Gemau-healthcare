@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-
 <div class="ps-checkout">
     <div class="container">
         <ul class="ps-breadcrumb">
@@ -12,7 +10,7 @@
     <form action="{{route('doctores.prescription')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <div class="col-12 col-lg-10">
+            <div class="col-12 col-lg-6">
                 <div class="ps-checkout__form">
                     <h3 class="ps-checkout__heading">Patient's Information</h3>
                     <div class="row">
@@ -73,7 +71,22 @@
                     <button type="submit" class="btn btn-success btn-lg w-25 p-2" style="border-radius: 10px"> Upload Prescription</button>
                 </div>
             </div>
-         
+            <div class="col-12 col-lg-6">
+                <section class="ps-section--block-grid" style="display: block">
+                    <div class="ps-section__content">
+                        <h3 class="ps-section__title">Upload your Prescription from a Doctor</h3>
+                        <div class="ps-section__subtitle">Here's a guide to ensure you upload a valid Prescription.</div>
+                        <div class="ps-section__desc">Please Ensure Your Prescription Contains All 5 Elements</div>
+                        <ul class="ps-section__list">
+                            <li>Hospital / Clinic Information</li>
+                            <li>Doctor's Details</li>
+                            <li>Patient's Details</li>
+                            <li>Drug Details</li>
+                            <li>Doctor's Signature / Stamp & Date</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </div>
     </form>
 </div>
