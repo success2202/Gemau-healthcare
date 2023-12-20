@@ -30,6 +30,6 @@ class DispatchMail extends Mailable
      */
     public function build()
     {
-        return $this->from('support@mazeoptions.com')->subject('Order Dispatched')->view('mails.dispatchMail')->with('data', $this->data);
+        return $this->from('superadmin@livehealthepharma.com', 'Livehealth Support')->subject('Order Dispatched')->view('mails.dispatchMail')->with('data', $this->data);
     }
 }

@@ -30,6 +30,6 @@ class OrderMail extends Mailable
      */
     public function build()
     {
-        return $this->from('support@mazeoptions.com')->subject('Order Details')->view('mails.orderMail')->with('data', $this->data);
+        return $this->from('superadmin@livehealthepharma.com', 'Livehealth Support')->subject('Order Details')->view('mails.orderMail')->with('data', $this->data);
     }
 }
