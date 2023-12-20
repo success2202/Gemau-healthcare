@@ -19,14 +19,15 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        
         $slider = Slider::latest()->get();
         $data['latest'] = Product::latest()->inRandomOrder()->take(6)->get();
         $data['topProducts'] = Product::orderBy('views', 'DESC')->take(6)->get();
         $data['productCat'] = Product::where('category_id', 1)->inRandomOrder()->take(6)->get();
+        $data['advert'] = Product::inRandomOrder()->take(2)->get();
         addHashId($data['latest']);
         addHashId($data['topProducts']);
         addHashId( $data['productCat']);
+        addHashId($data['advert']);
         return view('users.dashboard', $data, [
             'sliders' => $slider,
            
