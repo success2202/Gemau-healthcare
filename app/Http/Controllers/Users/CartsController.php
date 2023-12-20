@@ -75,7 +75,6 @@ use imageUpload;
     public function update(Request $request){
         $cartItemId = $request->cartId;
         $quantity = $request->qty;
-
         // Update the cart item quantity
         Cart::update($cartItemId, $quantity);
         Session::flash('alert', 'success');

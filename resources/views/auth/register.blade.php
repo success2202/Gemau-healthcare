@@ -32,8 +32,8 @@
 
     <!-- logo -->
     <div id="logo">
-        <img class="logo" src="{{$settings->site_logo)}}" alt="image">
-        <img class="logo-dark" src="{{$settings->site_logo)}}" alt="image">
+        <img class="logo" src="{{asset('/images/'.$settings->site_logo)}}" alt="image" width="200px">
+        <img class="logo-dark" src="{{asset('/images/'.$settings->site_logo)}}" alt="image" width="200px">
     </div>
     <!-- ./ logo -->
 
@@ -43,16 +43,40 @@
     <form method="post" action="{{route('register')}}"> 
         @csrf
         <div class="form-group">
-            <label style="float:left" for="password"> Full Name</label>
-            <input type="text" name="name" class="form-control" placeholder="Full Name" required="" autofocus="">
+            <label style="float:left" for="password"> First Name</label>
+            <input type="text" name="first_name" value="{{old('first_name')}}" class="form-control @error('first_name') is-invalid @enderror" placeholder="First Name" required="" autofocus="">
+            @error('first_name')
+            <span class="alert alert-danger" role="alert"> 
+                {{$message}}
+            </span>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label style="float:left" for="password"> Last Name</label>
+            <input type="text" name="last_name" value="{{old('last_name')}}"  class="form-control @error('last_name') is-invalid @enderror" placeholder="Last Name" required="" autofocus="">
+            @error('last_name')
+            <span class="alert alert-danger" role="alert"> 
+                {{$message}}
+            </span>
+            @enderror
         </div>
         <div class="form-group">
             <label style="float:left" for="password"> Email</label>
-            <input type="text" name="email" class="form-control" placeholder=" email" required="" autofocus="">
+            <input type="text" name="email" value="{{old('email')}}"  class="form-control @error('email') is-invalid @enderror" placeholder=" email" required="" autofocus="">
+            @error('email')
+            <span class="alert alert-danger" role="alert"> 
+                {{$message}}
+            </span>
+            @enderror
         </div>
         <div class="form-group">
             <label style="float:left" for="password"> Phone Number</label>
-            <input type="text" name="phone" class="form-control" placeholder="Phone Number" required="" autofocus="">
+            <input type="text" name="phone" value="{{old('phone')}}"  class="form-control @error('phone') is-invalid @enderror" placeholder="Phone Number" required="" autofocus="">
+            @error('phone')
+            <span class="alert alert-danger" role="alert"> 
+                {{$message}}
+            </span>
+            @enderror
         </div>
         <div class="form-group">
             <label style="float:left" for="password"> Password</label>

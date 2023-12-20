@@ -67,9 +67,9 @@
                                     <div class="ps-product__quantity">
                                         <h6>Quantity:   
 
-                                             <button class="ps-btn--success  decrement-btn" style="width: 30px; border-radius:3px; height:30px"> - </button> 
+                                             <button  type="button" class="ps-btn--success  decrement-btn" style="width: 30px; border-radius:3px; height:30px"> - </button> 
                                              <input type="text" value="1" name="qty" id="qty" style="border: 1px solid #8c8a8a53; height:30px; width:30px; text-align:center"> 
-                                             <button class="ps-btn--success  increment-btn" style="width: 30px; border-radius:3px; height:30px"> + </button>  </h6>
+                                             <button  type="button" class="ps-btn--success  increment-btn" style="width: 30px; border-radius:3px; height:30px"> + </button>  </h6>
                                      
                                             @if($product->requires_prescription == 1)
                                             <label for="precription_upload" > <span id="fileName" style="color:red" hidden> Upload file </span>

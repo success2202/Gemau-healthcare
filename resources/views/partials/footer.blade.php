@@ -1,4 +1,4 @@
-<footer class="ps-footer ps-footer--8" style="background: #064417">
+<footer class="ps-footer ps-footer--8" style="background: #03300f">
 
     <div class="container">
         <div class="ps-footer__middle" >

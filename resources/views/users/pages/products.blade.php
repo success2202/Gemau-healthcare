@@ -20,7 +20,7 @@
                         <div class="ps-categogy__onsale">
                             <form>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" id="onSaleProduct" checked>
+                                    <input class="custom-control-input" type="checkbox" id="onSaleProduct" checked >
                                     <label class="custom-control-label" for="onSaleProduct">@if(isset($searchterm)) {{$searchterm}} @else Showing All Results @endif</label>
                                 </div>
                             </form>

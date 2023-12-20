@@ -61,6 +61,25 @@
                             </div>
                         </div>
                         @empty 
+                        <div class="col-12 col-md-12" >
+                            <div class="ps-product ps-product--list" style="border:2px solid #d1d5dad4; border-radius:10px; margin-top:15px">
+                                <div class="ps-product__content" style="border-right:0px">
+                              
+                              
+                                    <div class="ps-product__info">
+                                        <p class="ps-product__tite" style="font-size:16px; color:#262525">
+                                          You don't have any order yet
+                                          <br> 
+                                          <a href="{{route('products.search')}}" class="btn btn-primary"> Start Shopping</a>
+                                        </p>
+                                       
+
+                                    </div>
+                                </div>
+                               
+                                
+                            </div>
+                        </div>
                         @endforelse
                         <div class="p-5" style="float: right;"> {{$orders->links()}}</div>
                     </div>

@@ -10,9 +10,10 @@
 
                 <p class="m-4">Cart ({{Cart::count()}})</p> 
                 <div class="ps-categogy--list">
-                    <form action="{{route('carts.update')}}" method="post" id="cartUpdate">
-                        @csrf
+                  
                 @forelse ($carts as $cart)
+                <form action="{{route('carts.update')}}" method="post" id="cartUpdate">
+                    @csrf
                 <div class="ps-product ps-product--list" style="border:2px solid #d1d5dad4; border-radius:10px">
                     <div class="ps-product__content" style="border-right:0px">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="">
@@ -23,25 +24,26 @@
                   
                         <div class="ps-product__info"><a class="ps-product__branch" href="#">{{$cart->model->category->name}}</a>
                             <p class="ps-product__tite" style="font-size:16px; color:#262525"><a>{{$cart->name}}</a></p>
-                            <div class="ps-product__meta"><span class="ps-product__price" style="font-size:15px">{{moneyFormat(1000)}}
-                                <span class="ps-product__del" style="font-size:15px">{{moneyFormat(10000)}}</span>
+                            <div class="ps-product__meta"><span class="ps-product__price" style="font-size:15px">{{moneyFormat($cart->model->sale_price)}}
+                                <span class="ps-product__del" style="font-size:15px">{{moneyFormat($cart->model->price)}}</span>
                             </div>
                             <ul class="ps-product__list">
-                                <li> <span class="ps-list__title">SKU: </span><a class="ps-list__text" href="#">{{_('aksakjs')}}</a>
+                                <li> <span class="ps-list__title">SKU: </span><a class="ps-list__text" href="#">{{$cart->model->sku}}</a>
                                 </li>
                             </ul>
-                            <button  type="submit"  class="ps-btn--success  decrement-btn" style="width: 30px; border-radius:3px; height:30px"> - </button> 
-                            <input type="text" value="{{$cart->qty}}" name="qty"  class="qty" style="border: 1px solid #8c8a8a53; height:30px; width:30px; text-align:center"> 
+                            <button  type="submit" name="qty" value="{{$cart->qty -1 }}" class="ps-btn--success  decrement-btn" style="width: 30px; border-radius:3px; height:30px"> - </button> 
+                            <input type="text" value="{{$cart->qty}}"  class="qty" style="border: 1px solid #8c8a8a53; height:30px; width:30px; text-align:center"> 
                             <input type="hidden" min="0" name="cartId" value="{{$cart->rowId}}">
-                            <button  type="submit" onclick="{{$cart->qty + 1}}" class="ps-btn--success  increment-btn" style="width: 30px; border-radius:3px; height:30px"> + </button>  </h6>
+                            <button  type="submit" name="qty" value="{{$cart->qty + 1}}" class="ps-btn--success  increment-btn" style="width: 30px; border-radius:3px; height:30px"> + </button>  </h6>
 
-                    <span style="floar:right"> <a href="{{route('carts.delete', $cart->rowId)}}"   class="btn btn-danger"> Remove</a></span>
+                           <span style="floar:right"> <a href="{{route('carts.delete', $cart->rowId)}}"   class="btn btn-danger"> Remove</a></span>
                         </div>
 
                  
                     </div>
-                </div>
                 </form>
+                </div>
+            
 
                     
                 @empty
