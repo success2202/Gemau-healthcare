@@ -19,8 +19,10 @@ Route::prefix('manage')->group(function () {
     Route::controller(AdminLoginController::class)->group(function () {
         Route::post('/login', 'store')->name('admin.login.submit');
         Route::get('/login', 'showLogin')->name('admin-login');
+        Route::post('/logout', 'logout')->name('admin.logout');
     });
     Route::get('/2fa', [Check2faController::class, 'Index'])->name('check2fa');
+    Route::post('/verify/2fa', [Check2faController::class, 'VerifyCode'])->name('verify.otp');
 
     Route::middleware(['auth:admin'])->group(function () {
         Route::middleware(['check2fa', 'auth'])->group(function(){

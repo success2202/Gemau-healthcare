@@ -31,7 +31,7 @@
         <div class="navigation-menu-tab">
           <div>
                 <div class="navigation-menu-tab-header" data-toggle="tooltip" title="Admin" data-placement="right">
-                    <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">
+                    <a href="{{route('admin.index')}}" class="nav-link" data-toggle="dropdown" aria-expanded="false">
                         <figure class="avatar avatar-sm">
                                  <img src="{{asset('images/'.$settings->site_logo)}}" height="10px" width="10px">
                         </figure>
@@ -56,11 +56,11 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('logout') }}" onclick="event.preventDefault() 
+                        <a href="{{route('admin.logout') }}" onclick="event.preventDefault() 
                                         document.getElementById('logout-form').submit()" data-placement="right" title="Logout">
                             <i data-feather="log-out"></i>
                         </a>
-                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                         <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" >
                                         @csrf
                                     </form> 
                     </li>
@@ -106,7 +106,7 @@
 
     <footer>
         <div class="container-fluid">
-            <div>© 2023 {{$settings->site_name}}, All Rights Reserved</a></div>
+            <div>© {{date('Y')}} {{$settings->site_name}}, All Rights Reserved</a></div>
             <div>
                 {{-- <nav class="nav">
                     

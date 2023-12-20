@@ -26,7 +26,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h2 class="font-weight-bold mb-2">{{$order}}</h2>
-                                    <div>Total Orders</div>
+                                    <div>Number of Orders</div>
                                 </div>
                                 <div>
                                     <span class="dashboard-pie-2">{{$order}}/100</span>
@@ -56,7 +56,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h2 class="font-weight-bold mb-2">{{moneyFormat($sales)}}</h2>
-                                    <div>Total Sales</div>
+                                    <div>Total Orders </div>
                                 </div>
                                 <div>
                                   

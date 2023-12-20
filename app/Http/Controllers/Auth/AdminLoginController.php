@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Admin;
 use Illuminate\Validation\ValidationException;
 
 
@@ -37,7 +38,7 @@ class AdminLoginController extends Controller
         }
 
 
-        return redirect()->back()->withInput($request->all())->withErrors('Email / Password not correct');
+        return redirect()->back()->withInput($request->all())->withErrors(['email' => 'Email / Password not correct']);
         
     }
 /**
@@ -55,5 +56,14 @@ class AdminLoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest:admin')->except('logout');
+    }
+
+    public function logout(Request $request)
+    { $xl = Admin::where('id', auth('admin')->user()->id)->first();
+        $xl->update(['otp' => null]);
+        Auth::guard('admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->intended(route('admin-login'));
     }
 }

@@ -20,19 +20,23 @@ class Check2faController extends Controller
         $data['otp'] = rand(111111,999999);
         $data['subject'] = 'Login Code';
         $user->update(['otp' => $data['otp']]);
+        try{
         Mail::to(Setting::pluck('site_email')[0])->send(new check2fa($data));
+        }catch(\Exception $e){
+        Session::flash('alert', 'error');
+        Session::flash('msg', 'An network error occured, try again');
+        return back();
+        }
         return view('auth.2fa');
     }
 
-    public function VerifyCode($code){
+    public function VerifyCode(Request $code){
         $user = Admin::where('id', auth('admin')->user()->id)->first();
-        if($user->otp == $code){
+        if($user->otp == $code->code){
             return redirect()->route('admin.index');
         }else{
-            Session::flash('alert', 'error');
-            Session::flash('msg', 'The code you entered is invalid or Expired');
             Session::flash('resend');
-            return back();
+            return back()->withErrors(['code' => 'The code you entered is invalid or Expired']);
         }
 
     }

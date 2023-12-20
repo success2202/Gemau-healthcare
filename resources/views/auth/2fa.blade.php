@@ -35,7 +35,7 @@
     <h5> 6 Digits code was sent to your email, please verify to login <i class="fa fa-lock"> </i></h5>
 
     <!-- form -->
-  <form class="login100-form validate-form" action="{{route('admin.login.submit')}}" method="POST">
+  <form class="login100-form validate-form" action="{{route('verify.otp')}}" method="POST">
                                          @csrf
         <div class="form-group">
             <input type="text" value="{{old('code')}}" class="form-control @error('code') is-invalid @enderror" name="code" placeholder="code" required autofocus>
