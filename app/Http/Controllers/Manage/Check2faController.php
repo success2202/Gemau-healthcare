@@ -16,6 +16,9 @@ class Check2faController extends Controller
     //
 
     public function Index(){
+        if(!auth('admin')->user()){
+            return redirect()->intended(route('admin-login'));
+        }
         $user = Admin::where('id', auth('admin')->user()->id)->first();
         $data['otp'] = rand(111111,999999);
         $data['subject'] = 'Login Code';

@@ -83,11 +83,11 @@
                                                            
                                                         <a href="{{route('product.edit', $sp->hashid)}}" class="dropdown-item">Edit Product</a>
                                                         {{-- <a href="{{route('product.delete', encrypt($sp->id))}}" class="dropdown-item" style="color:red">Delete Product</a> --}}
-                                                        <form method="post" action="{{route('product.delete', $sp->hashid)}}" id="form1"> 
+                                                        {{-- <form method="post" action="{{route('product.delete', $sp->hashid)}}" id="form1"> 
                                                             @csrf    
                                                              <input type="hidden" name="status" value="1">
                                                               <button type="submit"  class="dropdown-item" style="color:red">Delete Product</button>
-                                                        </form>
+                                                        </form> --}}
                                                         @if($sp->status != 1) 
                                                             <form method="post" action="{{route('product.status', $sp->hashid)}}" id="form1"> 
                                                             @csrf    
