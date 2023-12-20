@@ -120,7 +120,9 @@
                                     src="{{$advert[0]->image_path}}" alt="alt" />
                                 <div class="ps-promo__content">
                                     {{-- <h4 class="text-whte ps-promo__name">{{$advert[0]->name}}</h4> --}}
-                                    <div class="ps-promo__sale text-yellow">-{{number_format($advert[0]->discount)}}%</div><a class="ps-promo__btn"
+                                    <div class="ps-promo__sale text-yellow">{{moneyFormat($advert[1]->sale_price)}}</div>
+                                    
+                                    <a class="ps-promo__btn"
                                         href="{{ route('users.products', [$advert[0]->hashid, $advert[0]->productUrl]) }}">Shop now</a>
                                 </div>
                             </div>
