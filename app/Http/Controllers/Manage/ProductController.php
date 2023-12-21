@@ -119,7 +119,7 @@ class ProductController extends Controller
             $prod->cost_price = $request->cost_price;
             $prod->price = convertPercent($request->cost_price,$cat->inflated) + $request->cost_price;
             $prod->sale_price = convertPercent($request->cost_price,$cat->markup) + $request->cost_price;
-            $prod->requires_prescription= $request->requires_prescription;
+            $prod->requires_prescription= $request->requires_prescription??0;
             $prod->sku = 'LVPH'.rand(11111,99999);
             $prod->status = 0;
             if ($request->file('image')) {
@@ -206,7 +206,7 @@ class ProductController extends Controller
             $prod->cost_price = $request->cost_price;
             $prod->price = convertPercent($request->cost_price,$cat->inflated) + $request->cost_price;
             $prod->sale_price = convertPercent($request->cost_price,$cat->markup) + $request->cost_price;
-            $prod->requires_prescription = $request->requires_prescription;
+            $prod->requires_prescription = $request->requires_prescription??0;
             if ($request->file('image')) {
                 $image =  $this->UploadImage($request, 'images/products/');
                 $prod->image_path = $image;
