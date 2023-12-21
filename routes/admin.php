@@ -24,8 +24,8 @@ Route::prefix('manage')->group(function () {
     Route::get('/2fa', [Check2faController::class, 'Index'])->name('check2fa');
     Route::post('/verify/2fa', [Check2faController::class, 'VerifyCode'])->name('verify.otp');
 
-    Route::middleware(['Check2fa'])->group(function(){
-        Route::middleware(['auth:admin'])->group(function () {
+    Route::middleware(['auth:admin'])->group(function () {
+        Route::middleware(['Check2fa'])->group(function(){
         Route::controller(AdminController::class)->group(function () {
             Route::get('/index', 'index')->name('admin.index');
             Route::get('/', 'index')->name('admin.index');
