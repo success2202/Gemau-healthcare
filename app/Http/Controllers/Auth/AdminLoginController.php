@@ -30,10 +30,10 @@ class AdminLoginController extends Controller
     {
        
         $credentials = $request->only('email', 'password');
-
         if(Auth('admin')->attempt($credentials)){
             $request->session()->regenerate();
-            
+            $user = Admin::whereId(auth('admin')->user()->id)->first();
+            $user ->update(['otp' => null, 'is_verified'=> null]); 
             return redirect()->intended(route('admin.index'));
         }
 
