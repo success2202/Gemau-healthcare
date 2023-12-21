@@ -36,7 +36,7 @@ class Check2faController extends Controller
             $user->update(['is_verified' => 1]);
             return redirect()->route('admin.index');
         }else{
-            Session::flash('resend');
+            Session::flash('resend'); 
             return back()->withErrors(['code' => 'The code you entered is invalid or Expired']);
         }
 
