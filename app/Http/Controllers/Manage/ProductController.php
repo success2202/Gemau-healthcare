@@ -114,11 +114,10 @@ class ProductController extends Controller
             $prod->name = $request->name;
             $prod->category_id = $request->category_id;
             $prod->description = $request->description;
-            $xm = (convertPercent($request->cost_price,$cat->inflated) + $request->cost_price) - (convertPercent($request->cost_price,$cat->markup) + $request->cost_price);
-            $prod->discount =  ($xm/(convertPercent($request->cost_price,$cat->inflated) + $request->cost_price))*100;
+            $prod->discount =  ($request->cost_price * $cat->inflated - $request->cost_price * $cat->markup)/ ($request->cost_price * $cat->inflated) *100;
             $prod->cost_price = $request->cost_price;
-            $prod->price = convertPercent($request->cost_price,$cat->inflated) + $request->cost_price;
-            $prod->sale_price = convertPercent($request->cost_price,$cat->markup) + $request->cost_price;
+            $prod->price = $request->cost_price * $cat->inflated;
+            $prod->sale_price = $request->cost_price * $cat->markup;
             $prod->requires_prescription= $request->requires_prescription??0;
             $prod->sku = 'LVPH'.rand(11111,99999);
             $prod->status = 0;
@@ -201,11 +200,10 @@ class ProductController extends Controller
             $prod->name = $request->name;
             $prod->category_id = $request->category_id;
             $prod->description = $request->description;
-            $xm = (convertPercent($request->cost_price,$cat->inflated) + $request->cost_price) - (convertPercent($request->cost_price,$cat->markup) + $request->cost_price);
-            $prod->discount =  ($xm/(convertPercent($request->cost_price,$cat->markup) + $request->cost_price))*100;
+            $prod->discount =  ($request->cost_price * $cat->inflated - $request->cost_price * $cat->markup)/ ($request->cost_price * $cat->inflated) *100;
             $prod->cost_price = $request->cost_price;
-            $prod->price = convertPercent($request->cost_price,$cat->inflated) + $request->cost_price;
-            $prod->sale_price = convertPercent($request->cost_price,$cat->markup) + $request->cost_price;
+            $prod->price = $request->cost_price * $cat->inflated;
+            $prod->sale_price = $request->cost_price * $cat->markup;
             $prod->requires_prescription = $request->requires_prescription??0;
             if ($request->file('image')) {
                 $image =  $this->UploadImage($request, 'images/products/');
