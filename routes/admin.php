@@ -27,8 +27,8 @@ Route::prefix('manage')->group(function () {
     Route::middleware(['auth:admin'])->group(function () {
         Route::middleware(['Check2fa'])->group(function(){
         Route::controller(AdminController::class)->group(function () {
-            Route::get('/index', 'index')->name('admin.index');
-            Route::get('/', 'index')->name('admin.home');
+            Route::get('/index', 'index')->name('admin.home');
+            Route::get('/', 'index')->name('admin.index');
             Route::get('/transactions', 'Transactions')->name('admin.transctions');
             Route::get('/transaction/details/{id}', 'transactionDetails')->name('admin.transactions-details');
             Route::get('/admin/users/order/{id}', 'userOrders')->name('admin.user-orders');
