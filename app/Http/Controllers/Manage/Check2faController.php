@@ -25,7 +25,7 @@ class Check2faController extends Controller
         }catch(\Exception $e){
         Session::flash('alert', 'error');
         Session::flash('msg', 'An network error occured, try again');
-        return view('auth.2fa');
+        return $e;
         }
         return view('auth.2fa');
     }
