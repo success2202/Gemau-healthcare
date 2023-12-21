@@ -114,7 +114,7 @@ class ProductController extends Controller
             $prod->name = $request->name;
             $prod->category_id = $request->category_id;
             $prod->description = $request->description;
-            $prod->discount =  ($request->cost_price * $cat->inflated - $request->cost_price * $cat->markup)/ ($request->cost_price * $cat->markup) *100;
+            $prod->discount =  ($request->cost_price * $cat->inflated - $request->cost_price * $cat->markup)/ ($request->cost_price * $cat->inflated) *100;
             $prod->cost_price = $request->cost_price;
             $prod->price = $request->cost_price * $cat->inflated;
             $prod->sale_price = $request->cost_price * $cat->markup;
@@ -200,7 +200,7 @@ class ProductController extends Controller
             $prod->name = $request->name;
             $prod->category_id = $request->category_id;
             $prod->description = $request->description;
-            $prod->discount =  ($request->cost_price * $cat->inflated - $request->cost_price * $cat->markup)/ ($request->cost_price * $cat->markup) *100;
+            $prod->discount =  ((($request->cost_price * $cat->inflated) - ($request->cost_price * $cat->markup))/ ($request->cost_price * $cat->inflated)) *100;
             $prod->cost_price = $request->cost_price;
             $prod->price = $request->cost_price * $cat->inflated;
             $prod->sale_price = $request->cost_price * $cat->markup;
