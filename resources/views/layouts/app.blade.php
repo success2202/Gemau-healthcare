@@ -72,12 +72,12 @@ let message = {!! json_encode(Session::get('msg')) !!};
 let msg = {!! json_encode(Session::get('alert')) !!};
 //alert(msg);
 toastr.options = {
-        timeOut: 3000,
+        timeOut: 6000,
         progressBar: true,
         showMethod: "slideDown",
         hideMethod: "slideUp",
         showDuration: 200,
-        hideDuration: 200
+        hideDuration: 600
     };
 if(message != null && msg == 'success'){
 toastr.success(message);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manage;
 
 use App\Events\OrderShipment;
 use App\Http\Controllers\Controller;
+use App\Mail\NotifyMail;
 use Illuminate\Http\Request;
 
 use App\Models\CartItem;
@@ -72,29 +73,39 @@ class AdminController extends Controller
   
       public function notify(){
           return view('manage.users.notify')
-          ->with('bheading', 'Send Notification' )
-          ->with('breadcrumb', 'Send Notification');
+          ->with('bheading', 'Send Email' )
+          ->with('breadcrumb', 'Send Email');
       }
   
       public function pushNotify(Request $request){
           $validate = $this->validate($request, [
               'title' => 'required',
-              'message'=>'required'
+              'content'=>'required'
           ]);
           if($validate){
-              $users = User::all();
-              foreach($users as $user){
-              $notify = new Notification;
-              $notify->user_id = $user->id;
-              $notify->title = $request->title;
-              $notify->message = 'Dear '.$user->name. ' '.$request->message;
-              $notify->save();
-              }
+           
+            $users = User::latest()->get();
+            foreach($users as $user){
+            $data = [
+                'name' => $user->first_name,
+                'subject' => $request->title,
+                'content' => $request->content
+            ];
+            try{
+            Mail::to($user->email)->send(new NotifyMail($data));
+            }catch(\Exception $e){
+                Session::flash('alert', 'error');
+                Session::flash('message', 'Error Occured, We could not reach all the emails, but dont worry, we are good to go');
+                return back()->withInput($request->all());  
+            }
+        }
               Session::flash('alert', 'success');
-              Session::flash('message', 'Notification sent Successfully');
+              Session::flash('message', 'Notifications sent Successfully');
               return redirect()->back();
           }else{
-              return back()->withInputErrors();
+            Session::flash('alert', 'error');
+            Session::flash('message', 'Something went wrong, please try again'); 
+              return back()->withInput($request->all());
           }
       }
 
