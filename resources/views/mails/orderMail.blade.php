@@ -79,11 +79,11 @@
                                                     <tr class="m_8958432110786407146orderinfotr" style="border:1px solid #ddd;text-align:center">
                                                         <td class="m_8958432110786407146orderinfotd">
                                                             <center style="overflow:hidden;max-width:100%">
-                                                                <input type="image" class="m_8958432110786407146itemimage" src="{{asset('/images/products/'.$orders->image)}}" width="100px" height="100px">
+                                                                <input type="image" class="m_8958432110786407146itemimage" src="{{$orders->image_path}}" width="100px" height="100px">
                                                             </center>
                                                         </td>
                                                         <td class="m_8958432110786407146orderinfotd"><span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Item</span>
-                                                            {{$orders->product_name}}</td>
+                                                            {{$orders->mode->name}}</td>
                                                         <td class="m_8958432110786407146orderinfotd"><span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Quantity</span>{{$orders->qty}}</td>
                                                         <td class="m_8958432110786407146orderinfotd" style="text-align:right">
                                                             <span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">
