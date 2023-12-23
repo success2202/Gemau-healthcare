@@ -53,7 +53,7 @@ class PaymentController extends Controller
 
         $addrs = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
         try {
-            $data = [
+            $datas = [
                 'name' => auth()->user()->name,
                 'order_No' =>  $req->orderNo,
                 'delivery_method' =>  $req->delivery,
@@ -66,7 +66,7 @@ class PaymentController extends Controller
                 'amount' => $req->amount,
                 'shipment' => $req->fee
               ];
-              Mail::to(auth()->user()->email)->send( new OrderMail($data));
+              Mail::to(auth()->user()->email)->send( new OrderMail($datas));
             Session::put('orders_No', $req->orderNo);
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         } catch (\Exception $e) {
