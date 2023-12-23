@@ -10,10 +10,13 @@
                         <table class="m_8958432110786407146tableheader" width="100%" cellspacing="0" cellpadding="0" style="vertical-align:middle">
                             <tbody>
                                 <tr bgcolor="#ffffff">
-                                  <td style="padding: 20px 20px; "><a href="#"><img src="{{asset('/images/'.$settings->site_logo)}}" alt="image"
-                                                                                    style="height: 30px; margin-left: auto; margin-right: auto; display:block;"></a>
+                                  <td style="padding: 20px 20px; ">
+                                    <a href="{{route('index')}}">
+                                    <img src="{{ asset('/images/'.$settings->logo)}}" 
+                                    alt="image" style="height: 30px; margin-left: auto; margin-right: auto; display:block;">
+                                </a>
                                 </td>
-                            </tr>
+                            </tr> 
                         </tbody></table>
                         <hr>
                        
@@ -24,20 +27,15 @@
 
                                     Dear {{$data['name']}},
                                     
-                                    <p>Thank you for shopping on Livehealth MediPharm! Your order <b>{{$data['order_no']}}</b> has been successfully confirmed.
-                                    </p>.<p>
-
-                                            Thank you for choosing Livehealth MediPharm!.   
-                                            </p>     
-                                                                 
-
+                                    <p>Thank you for shopping on {{$settings->site_name}}! Your order <b>{{$data['order_No']}}</b> has been successfully confirmed.
+                                    </p>
                                         <div style="padding:0 0">
                                         <div style="padding:0 0">
                                             <div style="display:table;border-collapse:separate;width:100%;border-spacing:2px">
                                                 <div style="display:table-row">
                                                     <div style="width:50%;display:table-cell;background-color:#fff;border:1px solid #ddd;border-collapse:collapse;vertical-align:top">
                                                         <p style="background-color:#f8f8f8;font-weight:bold;margin-top:0;margin-bottom:0px;padding:3px;vertical-align:middle">Estimated delivery date(s)</p>
-                                                        <p style="padding-left:3px;margin-top:1px">Between 3 - 5 days after payment</p>
+                                                        <p style="padding-left:3px;margin-top:1px">Between 2 - 5 days working days</p>
                                                     </div>
                                                     <div style="width:50%;display:table-cell;background-color:#fff;border:1px solid #ddd;border-collapse:collapse;vertical-align:top">
                                                         <p style="background-color:#f8f8f8;font-weight:bold;margin-top:0;margin-bottom:0px;padding:3px;vertical-align:middle">Delivery method</p>
@@ -81,17 +79,15 @@
                                                     <tr class="m_8958432110786407146orderinfotr" style="border:1px solid #ddd;text-align:center">
                                                         <td class="m_8958432110786407146orderinfotd">
                                                             <center style="overflow:hidden;max-width:100%">
-                                                                <input type="image" class="m_8958432110786407146itemimage" src="{{asset($orders->image_path)}}" width="100px" height="100px">
+                                                                <input type="image" class="m_8958432110786407146itemimage" src="{{asset('/images/products/'.$orders->image)}}" width="100px" height="100px">
                                                             </center>
                                                         </td>
-                                                        <td class="m_8958432110786407146orderinfotd">
-                                                            <span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Item</span>
+                                                        <td class="m_8958432110786407146orderinfotd"><span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Item</span>
                                                             {{$orders->product_name}}</td>
-                                                        <td class="m_8958432110786407146orderinfotd">
-                                                            <span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Quantity</span>{{$orders->qty}}</td>
+                                                        <td class="m_8958432110786407146orderinfotd"><span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Quantity</span>{{$orders->qty}}</td>
                                                         <td class="m_8958432110786407146orderinfotd" style="text-align:right">
-                                                            <span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Price</span>
-                                                            ₦{{number_format($orders->price)}}</td>
+                                                            <span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">
+                                                                Price</span>C${{number_format($orders->price)}}</td>
                                                     </tr>
                                                     @endforeach
                                                
@@ -102,17 +98,17 @@
                                         <table style="width:100%;border:1px solid #ccc;margin-top:5px;table-layout:auto">
                                             <tbody><tr>
                                                 <td style="font-weight:bold!important;text-transform:uppercase!important">Shipping Cost</td>
-                                                <td style="text-align:right">₦{{$data['shipping_cost']}}</td>
+                                                <td style="text-align:right">{{$data['shipment']}}</td>
                                             </tr>
                                           
                                             <tr>
                                                 <td style="font-weight:bold!important;text-transform:uppercase!important">TOTAL</td>
-                                                <td style="text-align:right">₦ {{$data['amount']}}</td>
+                                                <td style="text-align:right"> {{$data['amount']}}</td>
                                             </tr>
                                             <tr>
                                                 <td style="font-weight:bold!important;text-transform:uppercase!important">Payment Method</td>
                                                 <td style="text-align:right">
-                                                    Card Payment
+                                                    Online Payment
                                                 </td>
                                             </tr>
                                         </tbody></table>
@@ -125,7 +121,7 @@
 <tbody><tr><td><img src="">
 </td></tr></tbody></table>
 
-<p>Thanks for choosing Trendykay!</p>
+<p>Thanks for choosing {{$settings->site_name}}!</p>
 
 <p>Warm Regards,</p>
          

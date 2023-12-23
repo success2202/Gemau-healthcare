@@ -48,19 +48,22 @@ class PaymentController extends Controller
             'dispatch_status' => 0,
             'shipping_method' => $req->delivery,
         ]);
-
-        $addrs = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
     }
+        $addrs = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
         try {
-        Mail::to(auth_user()->email)->send( new RegMail([
-            'order_items' => \Cart::content(),
-            'name' => $addrs->name,
-            'order_no' => $req->orderNo,
-            'shipping_cost' => $req->shipping_cost,
-            'amount' => $req->amount,
-            'email' => $addrs->email,
-            'phone' => $addrs->phone,
-        ]));
+            $data = [
+                'name' => auth()->user()->name,
+                'order_No' =>  $req->orderNo,
+                'delivery_method' =>  $req->delivery,
+                'receiver_name' =>$addrs->name, 
+                'phone' =>  $addrs->phone, 
+                'email' => $addrs->email,
+                'address' => $addrs->address.' '.$addrs->city.' '.$addrs->state.' '.$addrs->country,
+                'order_items' => \Cart::content(),
+                'total' =>  $req->amount,
+                'amount' => $req->amount,
+              ];
+              Mail::to(auth()->user()->email)->send( new OrderMail($data));
        
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         } catch (\Exception $e) {
