@@ -26,14 +26,14 @@ class RegisterUser {
 
     public function UserRegister($request){
         $pass = GenerateRef(10);
-        $data = [
+        $datas = [
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => hash::make($pass),
         ];
-        User::create($data);
+        User::create($datas);
         $user = User::latest()->first();
         Auth::loginUsingId($user->id);
         sleep(1);
@@ -45,7 +45,8 @@ class RegisterUser {
         $data['is_default'] = 1;
         $data['name'] = $user->first_name.''.$user->last_name;
        $ship = ShippingAddress::create($data);
-       Mail::to($data['email'])->send(new RegMail($data));
+       $data['password'] =  $pass;
+       Mail::to($data['email'])->send(new RegMail($datas));
         return $ship;
     }
 
