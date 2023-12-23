@@ -113,7 +113,7 @@ class PaymentController extends Controller
             'external_ref' => $paymentDetails['data']['reference'],
            ]));
         \Cart::destroy();
-            return redirect(route('users.account.index'));
+            return redirect(route('users.orders'));
         }else{
             Session::flash('alert', 'error');
             Session::flash('msg', 'he paystack token has expired. Please refresh the page and try again');
