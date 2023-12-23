@@ -50,10 +50,6 @@ class PaymentController extends Controller
         ]);
 
         $addrs = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
-    }else{
-        Session::flash('alert', 'error');
-        Session::flash('msg', 'Order Expired, refresh page and try again');
-        return back();
     }
         try {
         Mail::to(auth_user()->email)->send( new RegMail([
