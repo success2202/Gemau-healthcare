@@ -83,10 +83,12 @@ class PaymentController extends Controller
     public function handleGatewayCallback()
     {
         $paymentDetails = Paystack::getPaymentData();
+        dd($paymentDetails);
         $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
         if ($paymentDetails['status'] == true) {
   
             $orders = Order::where('order_no', $paymentDetails['data']['metadata'])->first();
+
             $orders->update([
                 'payment_ref'=> $paymentDetails['data']['reference'],
                 'is_paid' => 1,
