@@ -30,9 +30,10 @@ class PaymentController extends Controller
             "reference" => GenerateRef(20),
             "email" => auth_user()->email,
             "currency" => "NGN",
-            "orderID" => $req->orderNo,
+            "order_id" => $req->orderNo,
             "metadata" => $req->orderNo
         );
+
 
         $orderCheck = Order::where(['user_id' => auth_user()->id, 'order_no' =>$req->orderNo])->first();
         if(!$orderCheck || empty($orderCheck)){
@@ -66,7 +67,7 @@ class PaymentController extends Controller
                 'shipment' => $req->fee
               ];
               Mail::to(auth()->user()->email)->send( new OrderMail($data));
-       
+            Session::put('orders_No', $req->orderNo);
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         } catch (\Exception $e) {
 
@@ -83,11 +84,11 @@ class PaymentController extends Controller
     public function handleGatewayCallback()
     {
         $paymentDetails = Paystack::getPaymentData();
-        dd($paymentDetails);
         $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
         if ($paymentDetails['status'] == true) {
-  
-            $orders = Order::where('order_no', $paymentDetails['data']['metadata'])->first();
+           $order_no =  Session::get('orders_No');
+
+            $orders = Order::where('order_no', $order_no)->first();
 
             $orders->update([
                 'payment_ref'=> $paymentDetails['data']['reference'],
@@ -112,7 +113,7 @@ class PaymentController extends Controller
             'external_ref' => $paymentDetails['data']['reference'],
            ]));
         \Cart::destroy();
-            return redirect(route('users.index'));
+            return redirect(route('users.account.index'));
         }else{
             Session::flash('alert', 'error');
             Session::flash('msg', 'he paystack token has expired. Please refresh the page and try again');

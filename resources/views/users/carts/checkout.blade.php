@@ -38,7 +38,7 @@
                     <label for="delivery" style="width: 100%">
                         <div  style="border:1px solid #00000031; border-radius:10px">
                     <div class="ps-categogy--ist p-2" style="display: flex; ">
-                    <input type="radio" id="delivery" name="delivery" value="pickup_delivery" data-amount="0"> 
+                    <input type="radio" id="delivery" name="delivery" value="pickup_delivery" data-amount="0" checked> 
 
                     <label for="delivery" class="pl-2"> Pick-up Delivery </label>
                     </div>
