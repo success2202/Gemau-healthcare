@@ -49,7 +49,9 @@ class PaymentController extends Controller
             'shipping_method' => $req->delivery,
         ]);
     }
+
         $addrs = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
+        dd($addrs);
         try {
             $data = [
                 'name' => auth()->user()->name,
@@ -67,6 +69,8 @@ class PaymentController extends Controller
        
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         } catch (\Exception $e) {
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'he paystack token has expired. Please refresh the page and try again');
             return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
         }
     }
@@ -107,6 +111,8 @@ class PaymentController extends Controller
         \Cart::destroy();
             return redirect(route('users.index'));
         }else{
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'he paystack token has expired. Please refresh the page and try again');
             return Redirect::back()->withMessage(['msg' => 'An Error occured processing your payment.', 'type' => 'error']);
         }
     }
