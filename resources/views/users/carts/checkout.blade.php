@@ -49,6 +49,7 @@
                     <p class="p-2 delivery" > You have to visit our office at {{$settings->address}} to pick your item</p>
                     <input type="hidden" name="address_id" value="{{$address->id}}"> 
                     <input type="hidden" name="orderNo" value="{{$orderNo}}"> 
+                    <input type="hidden" name="fee" value="0"> 
                     
                
                 </div>
@@ -65,6 +66,7 @@
                     <div  class="mb-5" >
                     <p class="p-2 delivery" > Delivery between {{$start->format('D d M')}} - {{$end->format('D d M')}} <span style="float:right; color:green"> {{moneyFormat($shipping_fee)??'0'}}</span></p>
                     <p class="p-2 delivery" > Item will be shipped to your location at {{$address->address}}, {{$address->city}} |  {{$address->state}}, {{$address->country}}   </p>
+                    <input type="hidden" name="fee" value="{{$shipping_fee}}"> 
                  </div>
                 </div>
                  </label>

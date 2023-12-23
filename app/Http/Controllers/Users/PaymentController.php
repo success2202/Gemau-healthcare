@@ -63,14 +63,15 @@ class PaymentController extends Controller
                 'order_items' => \Cart::content(),
                 'total' =>  $req->amount,
                 'amount' => $req->amount,
+                'shipment' => $req->fee
               ];
               Mail::to(auth()->user()->email)->send( new OrderMail($data));
        
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         } catch (\Exception $e) {
-            dd($e);
+
             Session::flash('alert', 'error');
-            Session::flash('msg', 'he paystack token has expired. Please refresh the page and try again');
+            Session::flash('msg', 'The paystack token has expired. Please refresh the page and try again');
             return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
         }
     }
