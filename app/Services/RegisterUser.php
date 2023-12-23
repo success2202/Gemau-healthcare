@@ -43,6 +43,7 @@ class RegisterUser {
         $data['country'] = $request->country;
         $data['user_id'] = $user->id;
         $data['is_default'] = 1;
+        $data['name'] = $user->first_name.''.$user->last_name;
        $ship = ShippingAddress::create($data);
        Mail::to($data['email'])->send(new RegMail($data));
         return $ship;

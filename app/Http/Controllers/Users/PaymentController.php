@@ -49,7 +49,7 @@ class PaymentController extends Controller
             'shipping_method' => $req->delivery,
         ]);
 
-        $addrs = ShippingAddress::where(['user_id', auth_user()->id, 'is_default' => 1])->first();
+        $addrs = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
     }else{
         Session::flash('alert', 'error');
         Session::flash('msg', 'Order Expired, refresh page and try again');
