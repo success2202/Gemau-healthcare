@@ -105,7 +105,7 @@
                                             style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;"
                                             align="center" valign="top"> 
                                             <hr>
-                                           {{$settings->site_copyright}} {{date('d M Y')}}
+                                           {{$settings->site_copyright}} 
                                         </td>
                                     </tr>
                                 </table>
