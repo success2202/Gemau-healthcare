@@ -99,7 +99,7 @@ class PaymentController extends Controller
                 'user_id' => auth_user()->id, 
                 'order_id' => $paymentDetails['data']['metadata'], 
                 'payment_ref' => $ref, 
-                'external_ref' => $paymentDetails['data']['reference'], 
+                'external_ref' => $order_no, 
                 'status' => 1, 
                 'payable' => $paymentDetails['data']['amount']
             ]);
