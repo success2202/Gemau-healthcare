@@ -76,10 +76,6 @@
                                                
                                                         
                                                 <td class="text-right">
-                                                 @php
-                                                        $id = $sp->id;
-                                                        $parameter = encrypt($id);
-                                                        @endphp
                                                     <div class="dropdown">
                                                         <a href="#" data-toggle="dropdown">
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>

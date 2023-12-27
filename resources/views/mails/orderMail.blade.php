@@ -27,7 +27,9 @@
 
                                     Dear {{$data['name']}},
                                     
-                                    <p>Thank you for shopping on {{$settings->site_name}}! Your order <b>{{$data['order_No']}}</b> has been successfully confirmed.
+                                    <p>Thank you for shopping on {{$settings->site_name}}! Your order <b>{{$data['order_No']}}</b> has been successfully confirmed. 
+                                   
+                                        please proceed to make payment. 
                                     </p>
                                         <div style="padding:0 0">
                                         <div style="padding:0 0">
@@ -40,7 +42,7 @@
                                                     <div style="width:50%;display:table-cell;background-color:#fff;border:1px solid #ddd;border-collapse:collapse;vertical-align:top">
                                                         <p style="background-color:#f8f8f8;font-weight:bold;margin-top:0;margin-bottom:0px;padding:3px;vertical-align:middle">Delivery method</p>
                                                         <p style="padding-left:3px;margin-top:1px">
-                                                                 {{$data['delivery_method']}}
+                                                                 {{$data['delivery_method'] == 'home_delivery'? 'Home Delivery' : 'Pickup Delivery'}}
                                                             </p>
                                                                                 </div>
 
@@ -79,7 +81,7 @@
                                                     <tr class="m_8958432110786407146orderinfotr" style="border:1px solid #ddd;text-align:center">
                                                         <td class="m_8958432110786407146orderinfotd">
                                                             <center style="overflow:hidden;max-width:100%">
-                                                                <input type="image" class="m_8958432110786407146itemimage" src="{{$orders->image_path}}" width="100px" height="100px">
+                                                                <input type="image" class="m_8958432110786407146itemimage" src="{{$orders->model->image_path}}" width="100px" height="100px">
                                                             </center>
                                                         </td>
                                                         <td class="m_8958432110786407146orderinfotd"><span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Item</span>
@@ -87,7 +89,7 @@
                                                         <td class="m_8958432110786407146orderinfotd"><span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Quantity</span>{{$orders->qty}}</td>
                                                         <td class="m_8958432110786407146orderinfotd" style="text-align:right">
                                                             <span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">
-                                                                Price</span>C${{number_format($orders->price)}}</td>
+                                                                Price</span>{{moneyFormat($orders->price)}}</td>
                                                     </tr>
                                                     @endforeach
                                                
@@ -104,12 +106,6 @@
                                             <tr>
                                                 <td style="font-weight:bold!important;text-transform:uppercase!important">TOTAL</td>
                                                 <td style="text-align:right"> {{$data['amount']}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-weight:bold!important;text-transform:uppercase!important">Payment Method</td>
-                                                <td style="text-align:right">
-                                                    Online Payment
-                                                </td>
                                             </tr>
                                         </tbody></table>
 

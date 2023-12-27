@@ -101,22 +101,24 @@ class PaymentController extends Controller
             $ref = GenerateRef(10);
             Payment::create([
                 'user_id' => auth_user()->id, 
-                'order_id' => $paymentDetails['data']['metadata'], 
+                'order_id' => $order_no, 
                 'payment_ref' => $ref, 
-                'external_ref' => $order_no, 
+                'external_ref' => $paymentDetails['data']['reference'], 
                 'status' => 1, 
-                'payable' => $paymentDetails['data']['amount']
+                'payable' => ($paymentDetails['data']['amount'])/100
             ]);
             if($orders->shipping_method == 'home_delivery'){
-           event(new OrderShipment($address, $paymentDetails['data']['metadata']));
+           event(new OrderShipment($address, $order_no));
             }
            Mail::to(auth_user()->email)->send(new paymentMail([
-            'amount' => $paymentDetails['data']['amount'],
-            'order_No' => $paymentDetails['data']['metadata'],
+            'amount' => ($paymentDetails['data']['amount'])/100,
+            'order_No' => $order_no,
             'payment_ref' => $ref,
             'external_ref' => $paymentDetails['data']['reference'],
            ]));
         \Cart::destroy();
+        Session::flash('alert', 'success');
+        Session::flash('msg', 'Order completed successfully');
             return redirect(route('users.orders'));
         }else{
             Session::flash('alert', 'error');
