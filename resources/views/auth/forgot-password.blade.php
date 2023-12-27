@@ -1,36 +1,83 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{config('app.name')}} - Reset Password</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('images/'.$settings->site_fav)}}"/>
+
+    <!-- Plugin styles -->
+    <link rel="stylesheet" href="{{asset('/backend/vendors/bundle.css')}}" type="text/css">
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="{{asset('/backend/css/app.min.css')}}" type="text/css">
+</head>
+<body class="form-membership">
+
+<!-- begin::preloader-->
+<div class="preloader">
+    <div class="preloader-icon"></div>
+</div>
+<!-- end::preloader -->
+
+<div class="form-wrapper">
+
+    <!-- logo -->
+    <div id="logo">
+        <img class="logo" src="{{asset('/images/'.$settings->site_logo)}}" style="width: 150px" alt="image">
+    </div>
+    <!-- ./ logo -->
+
+    <h5>Reset password</h5>
+
+    <!-- form -->
+    
+<form method="POST" action="{{ route('password.email') }}">
+    @csrf
+        <div class="form-group">
+            <input type="text" name="email" class="form-control" placeholder=" email" required autofocus>
         </div>
+        <button class="btn btn-primary btn-block"> {{ __('Email Password Reset Link') }}</button>
+        <hr>
+        <a href="{{route('register')}}" class="btn btn-sm btn-outline-light mr-1">Register now!</a>
+        or
+        <a href="{{route('login')}}" class="btn btn-sm btn-outline-light ml-1">Login!</a>
+    </form>
+    <!-- ./ form -->
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+</div>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+<!-- Plugin scripts -->
+<script src="{{asset('backend/vendors/bundle.js')}}"></script>
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+<!-- App scripts -->
+<script src="{{asset('backend/js/app.min.js')}}"></script>
+<script type="text/javascript">
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+    let message = {!! json_encode(Session::get('msg')) !!};
+    let msg = {!! json_encode(Session::get('alert')) !!};
+    //alert(msg);
+    toastr.options = {
+            timeOut: 6000,
+            progressBar: true,
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            showDuration: 200,
+            hideDuration: 600
+        };
+    if(message != null && msg == 'success'){
+    toastr.success(message);
+    }else if(message != null && msg == 'error'){
+        toastr.error(message);
+    }        
+         </script>
+</body>
+</html>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+
+ 

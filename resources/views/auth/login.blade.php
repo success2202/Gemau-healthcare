@@ -60,7 +60,7 @@
                 <input type="checkbox" class="custom-control-input" checked="" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember me</label>
             </div>
-            <a href="recover-password.html">Reset password</a>
+            <a href="{{route('password.request')}}">Reset password</a>
         </div>
         <button class="btn btn-primary btn-block">Sign in</button>
         <hr>

@@ -1,48 +1,93 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{config('app.name')}} - Reset Password</title>
 
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('images/'.$settings->site_fav)}}"/>
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+    <!-- Plugin styles -->
+    <link rel="stylesheet" href="{{asset('/backend/vendors/bundle.css')}}" type="text/css">
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-            </div>
+    <!-- App styles -->
+    <link rel="stylesheet" href="{{asset('/backend/css/app.min.css')}}" type="text/css">
+</head>
+<body class="form-membership">
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+<!-- begin::preloader-->
+<div class="preloader">
+    <div class="preloader-icon"></div>
+</div>
+<!-- end::preloader -->
 
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
-            </div>
+<div class="form-wrapper">
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+    <!-- logo -->
+    <div id="logo">
+        <img class="logo" src="{{asset('/images/'.$settings->site_logo)}}" style="width: 150px" alt="image">
+    </div>
+    <!-- ./ logo -->
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
-            </div>
+    <h5>Reset password</h5>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Reset Password') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+    <!-- form -->
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+    <form method="POST" action="{{ route('password.update') }}">
+        @csrf
+    <input type="hidden" name="token" value="{{ $request->route('token') }}">
+        <div class="form-group">
+            <input type="text" name="email" value="{{old('email', $request->email)}}" class="form-control" placeholder=" email"  >
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Enter Password" type="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <input    type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control"  required>
+        </div>
+        <button class="btn btn-primary btn-block">  {{ __('Reset Password') }}</button>
+        <hr>
+        <a href="{{route('register')}}" class="btn btn-sm btn-outline-light mr-1">Register now!</a>
+        or
+        <a href="{{route('login')}}" class="btn btn-sm btn-outline-light ml-1">Login!</a>
+    </form>
+    <!-- ./ form -->
+
+</div>
+
+<!-- Plugin scripts -->
+<script src="{{asset('backend/vendors/bundle.js')}}"></script>
+
+<!-- App scripts -->
+<script src="{{asset('backend/js/app.min.js')}}"></script>
+<script type="text/javascript">
+
+
+    let message = {!! json_encode(Session::get('msg')) !!};
+    let msg = {!! json_encode(Session::get('alert')) !!};
+    //alert(msg);
+    toastr.options = {
+            timeOut: 6000,
+            progressBar: true,
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            showDuration: 200,
+            hideDuration: 600
+        };
+    if(message != null && msg == 'success'){
+    toastr.success(message);
+    }else if(message != null && msg == 'error'){
+        toastr.error(message);
+    }        
+         </script>
+</body>
+</html>
+
+
+ 
+
