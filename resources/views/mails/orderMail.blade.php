@@ -97,6 +97,14 @@
                                         </table>
 
 
+                                        <table style="width:100%;border:1px solid #ccc;margin-top:5px;table-layout:auto">
+                                            <tbody>
+                                          
+                                            <tr>
+                                                <td style="font-weight:bold!important;text-transform:uppercase!important">TOTAL</td>
+                                                <td style="text-align:right"> {{$data['amount']}}</td>
+                                            </tr>
+                                        </tbody></table>
 
                            
 
