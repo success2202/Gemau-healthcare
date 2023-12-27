@@ -34,7 +34,6 @@ class PaymentController extends Controller
             "metadata" => $req->orderNo
         );
 
-
         $orderCheck = Order::where(['user_id' => auth_user()->id, 'order_no' =>$req->orderNo])->first();
         if(!$orderCheck || empty($orderCheck)){
         Order::create([
@@ -94,9 +93,7 @@ class PaymentController extends Controller
         $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
         if ($paymentDetails['status'] == true) {
            $order_no =  Session::get('orders_No');
-
             $orders = Order::where('order_no', $order_no)->first();
-
             $orders->update([
                 'payment_ref'=> $paymentDetails['data']['reference'],
                 'is_paid' => 1,
@@ -123,7 +120,7 @@ class PaymentController extends Controller
             return redirect(route('users.orders'));
         }else{
             Session::flash('alert', 'error');
-            Session::flash('msg', 'he paystack token has expired. Please refresh the page and try again');
+            Session::flash('msg', 'The paystack token has expired. Please refresh the page and try again');
             return Redirect::back()->withMessage(['msg' => 'An Error occured processing your payment.', 'type' => 'error']);
         }
     }

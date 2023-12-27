@@ -88,6 +88,7 @@ class UserController extends Controller
             'user_id' => auth_user()->id,
             'name' => $req->name,
             'phone' => $req->phone,
+            'email' => $req->email,
             'address' => $req->address,
             'city' => $req->city,
             'country' => $req->country,
@@ -140,6 +141,7 @@ class UserController extends Controller
             'phone' => $req->phone,
             'address' => $req->address,
             'city' => $req->city,
+            'email' => $req->email,
             'country' => $req->country,
             'state' => $req->state,
             'is_default' => $req->is_default ?? 0
@@ -152,20 +154,24 @@ class UserController extends Controller
 
     public function AddressDelete($id)
     {
-        $id = Hashids::connection('products')->decode($id);
-        $check = ShippingAddress::where(['user_id' => auth_user()->id])->get();
-        if (count($check) > 1) {
-            $address = ShippingAddress::where(['user_id' => auth_user()->id, 'id' => $id])->first();
-            $address->delete();
-            Session::flash('alert', 'error');
-            Session::flash('msg', 'Address Deleted from Address Book');
-            return back();
-        } else {
-            Session::flash('alert', 'error');
-            Session::flash('msg', 'You Must have atleat One Address in your Address Book');
-            return back();
-        }
+       
+        Session::flash('alert', 'error');
+        Session::flash('msg', 'You cannot delete this address book');
         return back();
+        // $id = Hashids::connection('products')->decode($id);
+        // $check = ShippingAddress::where(['user_id' => auth_user()->id])->get();
+        // if (count($check) > 1) {
+        //     $address = ShippingAddress::where(['user_id' => auth_user()->id, 'id' => $id])->first();
+        //     $address->delete();
+        //     Session::flash('alert', 'error');
+        //     Session::flash('msg', 'Address Deleted from Address Book');
+        //     return back();
+        // } else {
+        //     Session::flash('alert', 'error');
+        //     Session::flash('msg', 'You Must have atleat One Address in your Address Book');
+        //     return back();
+        // }
+        // return back();
     }
 
     public function recentViews()
