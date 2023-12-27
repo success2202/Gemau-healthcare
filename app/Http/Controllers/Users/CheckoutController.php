@@ -45,6 +45,11 @@ class CheckoutController extends Controller
         $orderNo = rand(111111111,999999999);
 
         $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' =>1])->first();
+        if(!isset($address)){
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'Please add a shipping address before you can proceed');
+            return redirect()->intended(route('users.account.address'));
+        }
         $states = ShipmentLocation::where('states', 'LIKE', ucfirst($address->state))->first();
             if(isset($states)){
         if(ucfirst(strtolower($states->states)) == 'Lagos'){  
