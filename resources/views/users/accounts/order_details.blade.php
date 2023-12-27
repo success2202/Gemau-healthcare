@@ -21,13 +21,20 @@
               @include('includes.accountSidebar')
                 <div class="col-12 col-md-7 col-lg-8 mt-5" style="background: #fff; border-radius: 5px" id="pdfContent">
                     <div class="row">
+                        
                        
                         <span class="pt-5 pl-5"> <a href="#" onclick="history.back()"> {{_('<< Order Details ')}} </a>   &nbsp;  &nbsp; &nbsp;  <button  id="downloadBtn" class="btn btn-outline-info" style=" left:50px"> Download Receipt</button>   </span>  <hr style="width:100%"> </span>
                         
-                        <div class="col-12 col-md-12 "  id="userDetails" hidden>
-                            <p class=" pl-3"> First Name: {{auth_user()->first_name}} <br>
-                        Last Name: {{auth_user()->last_name}}<br>
-                    Email: {{auth_user()->email}}</p>
+                        <div class="col-12 col-md-12 "  id="userDetails"  hidden>
+                            <span style="float:right; padding-right: 20px">
+                                <img src="{{asset('images/'.$settings->site_logo)}}" width="100px" >
+                            </span>
+                           
+
+                            <p class=" pl-3" style="color:#050505"> 
+                                First Name: {{auth_user()->first_name}} <br>
+                              Last Name: {{auth_user()->last_name}}<br>
+                              Email: {{auth_user()->email}}</p>
                     <hr>
                         </div>
                        

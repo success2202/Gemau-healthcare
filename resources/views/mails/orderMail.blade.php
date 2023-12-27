@@ -1,3 +1,7 @@
+
+<!doctype html>
+<html lang="en">
+<body class="bg-white">
 <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#e4e4e4" style="font-family:'Helvetica Neue','Helvetica','Arial','sans-serif';font-size:13px">
     <tbody><tr>
         <td bgcolor="#FFFFFF" width="100%">

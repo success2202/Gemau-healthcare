@@ -1,20 +1,25 @@
+<!doctype html>
+<html lang="en">
+<body class="bg-white">
 <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#e4e4e4" style="font-family:'Helvetica Neue','Helvetica','Arial','sans-serif';font-size:13px">
     <tbody><tr>
         <td bgcolor="#FFFFFF" width="100%">
 
             <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="m_8958432110786407146tablewrapper">
-                <tbody><tr>
+                <tbody>
+                    <tr>
                     <td width="600" style="border:1px solid lightgrey">
 
                         
-                        <table class="m_8958432110786407146tableheader" width="100%" cellspacing="0" cellpadding="0" style="vertical-align:middle">
+                        <table class="m_89584" width="100%" cellspacing="0" cellpadding="0" style="vertical-align:middle">
                             <tbody>
-                                <tr bgcolor="#ffffff">
-                                  <td style="padding: 20px 20px; "><a href="#"><img src="{{asset('/images/'.$settings->site_logo)}}" alt="image"
-                                                                                    style="height: 30px; margin-left: auto; margin-right: auto; display:block;"></a>
-                                </td>
-                            </tr>
-                        </tbody></table>
+                                <tr>
+                                    <td style="padding-bottom: 20px; "><a href="#"><img src="{{asset('images/'.$settings->site_logo)}}" alt="image"
+                                                                                        style="height: 30px; margin-left: auto; margin-right: auto; display:block;"></a>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
                         <hr>
                        
                         <table class="m_8958432110786407146bodycontent" width="100%" cellspacing="0" style="padding-top:15px">
@@ -96,3 +101,6 @@
                 </tr>
             </tbody>
 </table>
+
+</body>
+</html>

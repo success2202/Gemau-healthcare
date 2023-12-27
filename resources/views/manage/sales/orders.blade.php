@@ -61,15 +61,10 @@
                                                 </td> 
                                                 <td>
                                                 <a href="#">@if($sp->is_delivered == 1) <span  class="badge badge-info">Initiated</span>
-                                                    @elseif($sp->is_delivered == 2) <span  class="badge badge-primary">Completed</span>
+                                                    @elseif($sp->is_delivered == 2) <span  class="badge badge-primary">Dispatched</span>
                                                     @elseif($sp->is_delivered == 3) <span  class="badge badge-danger">Cancelled</span>
                                                     @else <span class="badge badge-light">Pending</span> @endif</a>
-                                                </td>
-                                                <td>
-                                                <a href="#">@if($sp->dispatch_status == 1) <span  class="badge badge-primary">Dispatched</span> 
-                                                    @elseif($sp->dispatch_status == 2) <span class="badge badge-success">Delivered</span>
-                                                    @else <span  class="badge badge-light">Pending</span>@endif</a>
-                                                </td>      
+                                                </td>    
                                                   <td>
                                                     <a href="#">{{$sp->created_at->format('d/M/y')}}</a>
                                                 </td>

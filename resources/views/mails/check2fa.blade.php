@@ -1,3 +1,7 @@
+
+<!doctype html>
+<html lang="en">
+<body class="bg-white">
 <div width="100%" style="margin:0;padding:0!important;background-color:#f5f6fa">
     <span style="width:100%;background-color:#f5f6fa">
         <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#f5f6fa">
@@ -44,3 +48,6 @@
         </tbody></table>
     </span><div class="yj6qo"></div><div class="adL">
     </div></div>
+
+</body>
+</html>

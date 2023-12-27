@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang="en">
+<body class="bg-white">
 <div id=":ny" class="ii gt" jslog="20277; u014N:xr6bB; 1:WyIjdGhyZWFkLWY6MTc0NDY3OTgzOTk4NDc0ODU5NiJd; 4:WyIjbXNnLWY6MTc0NDY3OTgzOTk4NDc0ODU5NiJd"><div id=":nz" class="a3s aiL msg-7035749035098321033"><u></u>
     
     <div bgcolor="#fcfcfc" style="margin:0!important;padding:0!important;font-family:Arial,sans-serif;font-size:16px;color:#595959;word-break:break-word">
@@ -217,3 +220,6 @@
         </tbody></table>
       </div>
     
+    </body>
+      </html>
+

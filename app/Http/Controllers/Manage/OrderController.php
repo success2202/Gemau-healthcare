@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
+use App\Mail\DispatchMail;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\CartItem;
 use App\Models\ShippingAddress;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
@@ -40,14 +42,13 @@ class OrderController extends Controller
         $order = Order::where('order_no', $id)->first();
              $order->update([
                 'is_delivered' => $request->delivery,
-                'dispatch_status' => $request->dispatch,
                 'is_paid' => $request->payment
                 ]);
                 if($request->payment == 1){
                     $ref = "SFSL".rand(111111,999999);
                     $order->update(['payment_ref' => $ref]);
                 }
-                if($order->dispatch_status != 1 && $request->dispatch == 1){
+                if($request->delivery == 2){
                 $order_list = CartItem::where('Order_no', $order->order_no )->get();
                 $shipping = ShippingAddress::where('id', $order->address_id )->first();
                 //dd($shipping);
@@ -62,7 +63,7 @@ class OrderController extends Controller
                 'delivery_method' => $shipping->delivery_method,
                 'order_items' => $order_list,
                 ];
-                // $this->sendMail($datas);
+                 Mail::to(auth_user()->email)->send(new DispatchMail($datas));
                 }
                 Session::flash('alert', 'success');
                 Session::flash('message', 'Status Updated Successfully');

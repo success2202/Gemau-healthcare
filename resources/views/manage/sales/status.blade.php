@@ -19,7 +19,7 @@
                                            <option disabled> Select Option </option>
                                         <option value="0" @if($order->is_delivered == 0) selected @endif>Pending</option>
                                         <option value="1"@if($order->is_delivered == 1) selected @endif>Initiated</option>
-                                        <option value="2"@if($order->is_delivered == 2) selected @endif>Completed</option>
+                                        <option value="2"@if($order->is_delivered == 2) selected @endif>Dispatched</option>
                                         <option value="3" @if($order->is_delivered == 3) selected @endif>Cancel Order</option>
                                         </select>
                                           <small id="emailHelp" class="form-text text-muted">Delivery Status 
@@ -29,21 +29,6 @@
                                             @enderror
                                         </div>
                                          </div>
-                                       <div class="col-md-6">
-                                  <div class="custom-file">
-                                             <select name="dispatch" class="form-control" @if($order->dispatch_status == 2) readOnly @endif>
-                                          <option disabled> Select Option </option>
-                                        <option value="0" @if($order->dispatch_status == 0) selected @endif>Pending</option>
-                                        <option value="1" @if($order->dispatch_status == 1) selected @endif>Dispatched</option>
-                                        <option value="2" @if($order->dispatch_status == 2) selected @endif>Delivered</option>
-                                        </select>
-                                            <small id="emailHelp" class="form-text text-muted">Dispatech Status
-                                            </small>
-                                              @error('image')
-                                            <span class="invalid-feedback"> <small> *</small> </span>
-                                            @enderror
-                                         </div>          
-                            </div> 
                                <div class="col-md-6">
                                   <div class="custom-file">
                                              <select name="payment" class="form-control" @if($order->is_paid == 1) readOnly @endif>
