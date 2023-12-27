@@ -46,7 +46,7 @@ class OrderController extends Controller
                 ]);
                 if($request->payment == 1){
                     $ref = "SFSL".rand(111111,999999);
-                    $order->update(['payment_ref' => $ref]);
+                    $order->update(['payment_ref' => $order->payment_ref??$ref]);
                 }
                 if($request->delivery == 2){
                 $order_list = CartItem::where('Order_no', $order->order_no )->get();
