@@ -52,9 +52,15 @@ class PaymentController extends Controller
     }
 
         $addrs = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
+
+        if(!isset($addrs)){
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'Please select a default address');
+            return redirect()->back();
+        }
         try {
             $datas = [
-                'name' => auth()->user()->name,
+                'name' => auth()->user()->first_name. ' '.auth()->user()->last_name,
                 'order_No' =>  $req->orderNo,
                 'delivery_method' =>  $req->delivery,
                 'receiver_name' =>$addrs->name, 
@@ -71,6 +77,7 @@ class PaymentController extends Controller
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         } catch (\Exception $e) {
 
+            // dd($e);
             Session::flash('alert', 'error');
             Session::flash('msg', 'The paystack token has expired. Please refresh the page and try again');
             return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);

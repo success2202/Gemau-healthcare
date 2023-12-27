@@ -17,6 +17,8 @@ class ProductDetailsController extends Controller
       $product = Product::findorfail($ss[0]);
       session()->push('products.recently_viewed', $product->getKey());
       $data['latest'] = Product::where('category_id', $product->category->id)->get();
+      $product->hashid = Hashids::connection('products')->encode($product->id);
+      $product->productUrl =  trimInput($product->name);
       $data['product'] = $product;
       $products = session()->get('products.recently_viewed');
       $datas = array_slice(array_unique($products), -5, 5, true);
@@ -24,7 +26,7 @@ class ProductDetailsController extends Controller
      
       foreach($data['latest']  as $prod){
         $prod->hashid = Hashids::connection('products')->encode($prod->id);
-        $prod->productUrl =  trimInput($data['product'] ->name);
+        $prod->productUrl =  trimInput($prod->name);
       }
       return view('users.carts.products', $data);
 

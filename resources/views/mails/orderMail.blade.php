@@ -83,7 +83,7 @@
                                                             </center>
                                                         </td>
                                                         <td class="m_8958432110786407146orderinfotd"><span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Item</span>
-                                                            {{$orders->mode->name}}</td>
+                                                            {{$orders->model->name}}</td>
                                                         <td class="m_8958432110786407146orderinfotd"><span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">Quantity</span>{{$orders->qty}}</td>
                                                         <td class="m_8958432110786407146orderinfotd" style="text-align:right">
                                                             <span class="m_8958432110786407146itemlabel" style="display:none;overflow:hidden;font-size:0px">
