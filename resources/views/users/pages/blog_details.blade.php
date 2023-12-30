@@ -16,7 +16,7 @@
                             <img src="{{$blog->image}}" alt="{{asset($blog->image)}}" style="width: 200px">
                              </div>
                     <h1 class="ps-post__title">{{$blog->title}}</h1>
-                    <div class="ps-blog__meta"> <span class="ps-blog__date">{{$blog->created_at->format('d/m/y')}}</span>
+                    <div class="ps-blog__meta"> <span class="ps-blog__date">{{$blog->created_at->format('d-m-y')}}</span>
                         <a class="ps-blog__author" href="">{{_('Added by Admin')}}</a></div>
                     
                     <p class="ps-blog__text">{!! $blog->content !!}</p>

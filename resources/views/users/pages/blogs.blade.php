@@ -18,8 +18,8 @@
                           
                         </div>
                         <div class="ps-blog__content">
-                            <div class="ps-blog__meta"> <span class="ps-blog__date">{{$item->created_at->format('d/m/y')}}</span>
-                                <a class="ps-blog__author" href="{{route('blogs.details',$item->hashid)}}">{{_('Add by Admin')}}</a></div>
+                            <div class="ps-blog__meta"> <span class="ps-blog__date">Created: {{$item->created_at->format('d-m-y')}}</span>
+                                <a class="ps-blog__author" href="{{route('blogs.details',$item->hashid)}}">{{_('Added by Admin')}}</a></div>
                                 <a class="ps-blog__title" href="{{route('blogs.details',$item->hashid)}}">{{$item->title}}</a>
                         </div>
                     </div>
