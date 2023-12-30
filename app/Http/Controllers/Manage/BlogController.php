@@ -46,7 +46,7 @@ class BlogController extends Controller
        $Blog->title = $request->title;
        $Blog->content = $request->content;
        if($request->file('image')){
-        $image =  $this->UploadImage($request, 'images/blogs/');
+        $image =  $this->UploadImage($request, 'images/blogs/',400,200);
          $Blog->image = $image;
        }
        if($Blog->save()){
@@ -76,7 +76,7 @@ class BlogController extends Controller
         $Blog->title = $request->title;
         $Blog->content = $request->content;
         if($request->file('image')){
-            $image =  $this->UploadImage($request, 'images/blogs/');
+            $image =  $this->UploadImage($request, 'images/blogs/', 400,200);
              $Blog->image_path = $image;
            }
         if($Blog->save()){

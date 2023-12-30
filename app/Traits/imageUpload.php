@@ -8,7 +8,11 @@ trait imageUpload{
 
        
         $image_url = cloudinary()->upload($request->file('image')->getRealPath(), [
-            'folder' => $path
+            'folder' => $path,
+            'transformation' => [
+                'width' => $width,
+                'height' => $height
+       ]
         ])->getSecurePath();
         return  $image_url;
     }
@@ -17,7 +21,11 @@ trait imageUpload{
         $file = $request->file('images');
         foreach ($file as $image) {
             $image_url = cloudinary()->upload($image->getRealPath(), [
-                'folder' => $path
+                'folder' => $path,
+                'transformation' => [
+                    'width' =>$width,
+                    'height' => $height
+           ]
             ])->getSecurePath();
             $images[] = $image_url;
         }
