@@ -18,14 +18,14 @@ class BlogController extends Controller
         foreach($blogs as $blog){
             $blog->hashid = Hashids::connection('products')->encode($blog->id);
         }
-        return view('manage.Blog.index')
+        return view('manage.blog.index')
         ->with('bheading', 'Blog Index')
         ->with('breadcrumb', 'Index')
         ->with('blogs', $blogs);
     }
 
     public function Create(){
-        return view('manage.Blog.create')
+        return view('manage.blog.create')
         ->with('bheading', 'Create Blog')
         ->with('breadcrumb', 'Create Blog');
     }
@@ -64,7 +64,7 @@ class BlogController extends Controller
         $blogs = Blog::where('id', $id)->first();
         $blogs->hashid = Hashids::connection('products')->encode($id);
 
-        return view('manage.Blog.edit')
+        return view('manage.blog.edit')
         ->with('bheading', 'Edit Blog')
         ->with('breadcrumb', 'Edit Blog')
         ->with('blog', $blogs);
