@@ -65,6 +65,7 @@
                                     <li><a href="{{ route('PrivacyPolicy')}}">Privacy Policy</a></li>
                                     <li><a href="{{route('pages.terms')}}">Terms &amp; Conditions</a></li>
                                     <li><a href="{{ route('contactUs')}}">Contact Us</a></li>
+                                    <li><a href="{{ route('blogs.index')}}">Blogs</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -121,6 +121,15 @@ Route::prefix('manage')->group(function () {
         Route::get('prescription/all', 'Index')->name('admin.prescription');
         });
 
+        Route::controller(BlogController::class)->group(function(){
+            Route::get('/blogs', 'Index')->name('admin.blog.index');
+            Route::get('blog/create', 'Create')->name('admin.blog.create');
+            Route::post('/blog/store', 'Store')->name('admin.blog.store');
+            Route::get('/blog/edit/{id}', 'Edit')->name('admin.blog.edit');
+            Route::post('blog/update/{id}', 'Update')->name('admin.blog.update');
+            Route::post('blog/delete/{id}', 'Delete')->name('admin.blog.delete');
+        });
+
     });
 });
 });

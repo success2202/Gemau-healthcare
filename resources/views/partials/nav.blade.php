@@ -32,6 +32,7 @@
                     <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('index')}}">Home</a></li>
                     <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('AboutUs')}}">About Us</a></li>
                     <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('contactUs')}}">Contact Us</a></li>
+                    <li><a href="{{ route('blogs.index')}}">Blogs</a></li>
 
                     @forelse($site_categories->take(6) as $site_cat)
                    

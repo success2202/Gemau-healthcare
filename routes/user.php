@@ -11,6 +11,7 @@ use App\Http\Controllers\Users\PaymentController;
 use App\Http\Controllers\Users\PrescriptionController;
 use App\Http\Controllers\Users\SearchController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\Users\BlogController;
 use App\Http\Controllers\Users\UserController;
 
 Route::get('/',  [HomeController::class, '__invoke'])->name('users.index');
@@ -76,3 +77,6 @@ Route::controller(PrescriptionController::class)->group(function(){
 });
 
 Route::get('upload/sitemap', [SiteMapController::class, 'SiteMap'])->name('site.map');
+
+Route::get('blogs', [BlogController::class, 'Index'])->name('blogs.index');
+Route::get('blogs/details/{id}', [BlogController::class, 'Details'])->name('blogs.details');

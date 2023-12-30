@@ -8,7 +8,7 @@
                             <div class="d-flex justify-content-between">
                                 <h6 class="card-title">Blog</h6>
                                 <div>
-                                    <a href="{{route('admin.news.create')}}" class="btn btn-info">Create New Blog</a>
+                                    <a href="{{route('admin.blog.create')}}" class="btn btn-info">Create Blog</a>
                                     <a href="#" class="mr-3">
                                         <i class="fa fa-refresh"></i>
                                     </a>
@@ -35,15 +35,13 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                  
-                                        @if(count($news) > 0)
-                                        @foreach ($news as  $sp)
+                                        @forelse ($blogs as  $sp)
                                             <tr>
                                                 <td>
                                                     <a href="#">{{$sp->title}}</a>
                                                 </td>
                                                 <td>
-                                                    <img src="{{asset('images/news/'.$sp->image)}}" width="100px" height="100px"> 
+                                                    <img src="{{$sp->image}}" width="100px" height="100px"> 
                                                 </td>
                                                      
                                                   <td>
@@ -56,31 +54,22 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                                 <a href="{{route('admin.edit.news', encrypt($sp->id))}}" class="dropdown-item">Edit News</a>
-                                                            @if($sp->status != 1) 
-                                                            <form method="post" action="{{route('news.status', encrypt($sp->id))}}" id="form1"> 
-                                                            @csrf    
-                                                             <input type="hidden" name="status" value="1">
-                                                              <button type="submit"  class="dropdown-item" style="color:red">Disable</button>
+                                                                 <a href="{{route('admin.blog.edit', $sp->hashid)}}" class="dropdown-item">Edit Blog</a>
+                                                    
+                                                            <form method="post" action="{{route('admin.blog.delete',$sp->hashid)}}" id="form1"> 
+                                                            @csrf  
+                                                              <button type="submit" onclick="return warning('Are you sure you want to delete blog')" class="dropdown-item" style="color:red">Delete</button>
                                                              </form>
-                                                       @else
-                                                        <form method="post" action="{{route('news.status', encrypt($sp->id))}}" id="form2"> 
-                                                              @csrf  
-                                                              <input type="hidden" name="status" value="0">
-                                                              <button type="submit"  class="dropdown-item" style="color:green">Enable</button>
-                                                                 </form>
-                                                       @endif
                                                        
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
-                                              @endforeach
-                                              @else 
+                                              @empty
                                               <tr>
                                               <td> No data available </td>
                                               </tr>
-                                              @endif
+                                              @endforelse
                                             </tbody>
                                         </table>
                                     </div>

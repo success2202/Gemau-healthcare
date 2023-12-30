@@ -29,6 +29,15 @@
                 <li><a href="{{route('product.index')}}">Manage Products</a></li>
             </ul>
         </li>
+        <li>
+            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Menus"
+           data-nav-target="#dashboards">
+            <i class="fa fa-image"></i>&nbsp; Manage Blogs</a>
+            <ul>
+                <li><a href="{{route('admin.blog.create')}}">Add Blog Post</a></li>
+                <li><a href="{{route('admin.blog.index')}}">Manage Blogs</a></li>
+            </ul>
+        </li>
         <li class="navigation-divider">Manage Users</li>
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="View and Manage Sales"
