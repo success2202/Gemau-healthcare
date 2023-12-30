@@ -58,7 +58,7 @@
                                                     
                                                             <form method="post" action="{{route('admin.blog.delete',$sp->hashid)}}" id="form1"> 
                                                             @csrf  
-                                                              <button type="submit" onclick="return warning('Are you sure you want to delete blog')" class="dropdown-item" style="color:red">Delete</button>
+                                                              <button type="submit" onclick="return confirm('Are you sure you want to delete blog')" class="dropdown-item" style="color:red">Delete</button>
                                                              </form>
                                                        
                                                         </div>
