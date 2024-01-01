@@ -23,7 +23,7 @@ class HomeController extends Controller
     {
         $slider = Slider::latest()->get();
         $data['latest'] = Product::latest()->inRandomOrder()->take(6)->get();
-        $data['topProducts'] = Product::orderBy('views', 'DESC')->take(6)->get();
+        $data['topProducts1'] = Product::orderBy('views', 'DESC')->take(6)->get();
         $data['productCat1'] = Product::where('category_id', 24)->inRandomOrder()->take(9)->get();
         $data['productCat2'] = Product::where('category_id', 3)->inRandomOrder()->take(9)->get();
         $data['productCat3'] = Product::where('category_id', 1)->inRandomOrder()->take(9)->get();
