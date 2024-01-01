@@ -11,7 +11,7 @@ if(!function_exists('trimInput')){
 
 if(!function_exists('moneyFormat')){
     function moneyFormat($currency){
-        return '₦'.number_format($currency, 2);
+        return '₦'.number_format($currency);
     }
 
 if(!function_exists('auth_user')){
