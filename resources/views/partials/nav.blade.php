@@ -46,4 +46,3 @@
         <div class="ps-navigation__right">Need help?  <i class="fa fa-phone"> </i><strong>{{$settings->site_phone}}</strong></div>
     </div>
 </div>
-</header>
