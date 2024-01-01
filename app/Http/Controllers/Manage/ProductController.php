@@ -122,11 +122,11 @@ class ProductController extends Controller
             $prod->sku = 'LVPH'.rand(11111,99999);
             $prod->status = 0;
             if ($request->file('image')) {
-                $image =  $this->UploadImage($request, 'images/products/');
+                $image =  $this->UploadImage($request, 'images/products/', 500,500);
                 $prod->image_path = $image;
             }
             if ($request->file('images')) {
-                $images = $this->UploadImages($request, 'images/products/');
+                $images = $this->UploadImages($request, 'images/products/',500,500);
                 $prod->gallery = json_encode($images);
             }
             $prod->save();
@@ -206,11 +206,11 @@ class ProductController extends Controller
             $prod->sale_price = $request->cost_price * $cat->markup;
             $prod->requires_prescription = $request->requires_prescription??0;
             if ($request->file('image')) {
-                $image =  $this->UploadImage($request, 'images/products/');
+                $image =  $this->UploadImage($request, 'images/products/', 500,500);
                 $prod->image_path = $image;
             }
             if ($request->file('images')) {
-                $images = $this->UploadImages($request, 'images/products/');
+                $images = $this->UploadImages($request, 'images/products/', 500,500);
                 $prod->gallery = json_encode($images);
             }
             if ($prod->save()) {
