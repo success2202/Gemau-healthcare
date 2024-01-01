@@ -305,7 +305,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat4) > 0? $$productCat4[0]->category->name:'' }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat4) > 0? $productCat4[0]->category->name:'' }}</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($productCat4 as $prod4)
