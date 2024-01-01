@@ -75,16 +75,17 @@
         </div>
         <div class="ps-footer--bottom">
             <div class="row">
-                <div class="col-12 col-md-4">
-                    <p>{{$settings->site_copyright}}</p>
+                <div class="col-12 col-md-4" style="background: #fff">
+                    <p style="color:#000">{{$settings->site_copyright}}</p>
                 </div>
-                <div class="col-12 col-md-8 text-right">
+                <div class="col-12 col-md-8 text-right" style="background: #fff">
                     <img src="{{asset('/images/paystack_logo.png')}}"  width="70px" alt>
-                    <img class="payment-light" src="{{asset('/images/nafdac.png')}}"      width="70px"alt>
-                    <img class="payment-light" src="{{asset('/images/secure_ssl.png')}}"  width="70px" alt>
-                    <img class="payment-light" src="{{asset('/images/mastercard.png')}}"  width="70px"alt>
-                    <img class="payment-light" src="{{asset('/images/visa.png')}}"  width="70px" alt>
-                    <img class="payment-light" src="{{asset('/images/pcn.png')}}"  width="70px"alt>
+                    <img class="payment-light" src="{{asset('/images/paystack.png')}}"      width="120px"alt>
+                    <img class="payment-light" src="{{asset('/images/nafdac.png')}}"      width="120px"alt>
+                    <img class="payment-light" src="{{asset('/images/secure_ssl.png')}}"  width="120px" alt>
+                    <img class="payment-light" src="{{asset('/images/mastercard.png')}}"  width="120px"alt>
+                    <img class="payment-light" src="{{asset('/images/visa.png')}}"  width="120px" alt>
+                    <img class="payment-light" src="{{asset('/images/pcn.png')}}"  width="120px"alt>
                 </div>
             </div>
         </div>
