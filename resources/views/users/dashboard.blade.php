@@ -160,7 +160,7 @@
                 </div>
                 <section class="ps-section--featured"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ count($topProducts1) > 0?$topProducts1[0]->category->name:'' }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">Top Products</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($topProducts1 as $prods1)
