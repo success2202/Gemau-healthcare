@@ -113,7 +113,7 @@
                 </div>
             </section>
             <div class="container">
-                <div class="ps-promo ps-home__promo">
+                <div class="ps-promo ps-home__promo" style="background: #eee">
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <div class="ps-promo__item"><img class="ps-promo__banner"
