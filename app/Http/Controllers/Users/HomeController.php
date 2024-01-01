@@ -30,7 +30,7 @@ class HomeController extends Controller
         $data['productCat4'] = Product::where('category_id', 4)->inRandomOrder()->take(9)->get();
         $data['advert'] = Product::inRandomOrder()->take(3)->get();
         addHashId($data['latest']);
-        addHashId($data['topProducts']);
+        addHashId($data['topProducts1']);
         addHashId( $data['productCat1']);
         addHashId( $data['productCat2']);
         addHashId( $data['productCat3']);
