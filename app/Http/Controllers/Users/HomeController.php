@@ -24,11 +24,17 @@ class HomeController extends Controller
         $slider = Slider::latest()->get();
         $data['latest'] = Product::latest()->inRandomOrder()->take(6)->get();
         $data['topProducts'] = Product::orderBy('views', 'DESC')->take(6)->get();
-        $data['productCat'] = Product::where('category_id', 1)->inRandomOrder()->take(6)->get();
-        $data['advert'] = Product::inRandomOrder()->take(2)->get();
+        $data['productCat1'] = Product::where('category_id', 24)->inRandomOrder()->take(9)->get();
+        $data['productCat2'] = Product::where('category_id', 3)->inRandomOrder()->take(9)->get();
+        $data['productCat'] = Product::where('category_id', 1)->inRandomOrder()->take(9)->get();
+        $data['productCat'] = Product::where('category_id', 4)->inRandomOrder()->take(9)->get();
+        $data['advert'] = Product::inRandomOrder()->take(3)->get();
         addHashId($data['latest']);
         addHashId($data['topProducts']);
-        addHashId( $data['productCat']);
+        addHashId( $data['productCat1']);
+        addHashId( $data['productCat2']);
+        addHashId( $data['productCat3']);
+        addHashId( $data['productCat4']);
         addHashId($data['advert']);
         return view('users.dashboard', $data, [
             'sliders' => $slider,

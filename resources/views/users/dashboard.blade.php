@@ -115,19 +115,19 @@
             <div class="container">
                 <div class="ps-promo ps-home__promo">
                     <div class="row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-4">
                             <div class="ps-promo__item"><img class="ps-promo__banner"
                                     src="{{$advert[0]->image_path}}" alt="alt" />
                                 <div class="ps-promo__content">
                                     {{-- <h4 class="text-whte ps-promo__name">{{$advert[0]->name}}</h4> --}}
-                                    <div class="ps-promo__sale text-yellow">{{moneyFormat($advert[1]->sale_price)}}</div>
+                                    <div class="ps-promo__sale text-yellow">{{moneyFormat($advert[0]->sale_price)}}</div>
                                     
                                     <a class="ps-promo__btn"
                                         href="{{ route('users.products', [$advert[0]->hashid, $advert[0]->productUrl]) }}">Shop now</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-4">
                             <div class="ps-promo__item"><img class="ps-promo__banner"
                                     src="{{ $advert[1]->image_path }}" alt="alt" />
                                 <div class="ps-promo__content">
@@ -136,6 +136,18 @@
                                         <p class="ps-promo__price text-primary"> {{moneyFormat($advert[1]->sale_price)}}</p>
                                         <p class="ps-promo__del">{{moneyFormat($advert[1]->price)}}</p>
                                     </div><a class="ps-promo__btn" href="{{ route('users.products', [$advert[1]->hashid, $advert[1]->productUrl]) }}">Shop now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="ps-promo__item"><img class="ps-promo__banner"
+                                    src="{{ $advert[2]->image_path }}" alt="alt" />
+                                <div class="ps-promo__content">
+                                    {{-- <h4 class="ps-promo__name">{{$advert[1]->name}}</h4> --}}
+                                    <div class="ps-promo__meta d-horizontal"> from
+                                        <p class="ps-promo__price text-primary"> {{moneyFormat($advert[2]->sale_price)}}</p>
+                                        <p class="ps-promo__del">{{moneyFormat($advert[2]->price)}}</p>
+                                    </div><a class="ps-promo__btn" href="{{ route('users.products', [$advert[2]->hashid, $advert[2]->productUrl]) }}">Shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -148,37 +160,37 @@
                 </div>
                 <section class="ps-section--featured"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ count($topProducts) > 0?$topProducts[0]->category->name:'' }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">{{ count($topProducts1) > 0?$topProducts1[0]->category->name:'' }}</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
-                            @forelse ($topProducts as $prods)
+                            @forelse ($topProducts1 as $prods1)
                                 <div class="col-6 col-md-4 col-lg-2dot4 p-0">
                                     <div class="ps-section__product">
                                         <div class="ps-product ps-product--standard">
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                    href="{{ route('users.products', [$prods->hashid, $prods->productUrl]) }}">
+                                                    href="{{ route('users.products', [$prods1->hashid, $prods1->productUrl]) }}">
                                                     {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                                    <figure><img src="{{$prods->image_path }}" alt="alt" /><img
-                                                            src="{{$prods->image_path }}" alt="alt" />
+                                                    <figure><img src="{{$prods1->image_path }}" alt="alt" /><img
+                                                            src="{{$prods1->image_path }}" alt="alt" />
                                                     </figure>
                                                 </a>
                                                 <div class="ps-product__badge" style="right:20px; ">
                                                     <div class="ps-badge ps-badge--hot"
                                                         style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">
-                                                       - {{number_format($prods->discount)}}%</div>
+                                                       - {{number_format($prods1->discount)}}%</div>
                                                 </div>
                                             </div>
                                             <div class="ps-product__content">
                                                 <h5 class="ps-p"><a
-                                                        href="{{ route('users.products', [$prods->hashid, $prods->productUrl]) }}">{{ $prods->name }}</a>
+                                                        href="{{ route('users.products', [$prods1->hashid, $prods1->productUrl]) }}">{{ $prods1->name }}</a>
                                                 </h5>
                                                 <div class="ps-product__meta"><span
-                                                        class="ps-pr">{{ moneyFormat($prods->sale_price) }} <span
-                                                            style="font-size:15px"> <del>{{ moneyFormat($prods->price) }}
+                                                        class="ps-pr">{{ moneyFormat($prods1->sale_price) }} <span
+                                                            style="font-size:15px"> <del>{{ moneyFormat($prods1->price) }}
                                                             </del> </span></span></span>
                                                 </div>
                                                 <center> <a
-                                                        href="{{ route('users.products', [$prods->hashid, $prods->productUrl]) }}"
+                                                        href="{{ route('users.products', [$prods1->hashid, $prods1->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#07631d; color:#fff"> Add to
                                                         Cart</a></center>
                                             </div>
@@ -197,36 +209,36 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat) > 0? $productCat[0]->category->name:'' }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat2) > 0? $productCat2[0]->category->name:'' }}</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
-                            @forelse ($productCat as $productCats)
+                            @forelse ($productCat2 as $productCats2)
                                 <div class="col-6 col-md-4 col-lg-2dot4 p-0">
                                     <div class="ps-section__product">
                                         <div class="ps-product ps-product--standard">
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                    href="{{ route('users.products', [$productCats->hashid, $productCats->productUrl]) }}">
+                                                    href="{{ route('users.products', [$productCats2->hashid, $productCats2->productUrl]) }}">
                                         
-                                                        <figure><img src="{{$productCats->image_path}}" alt="alt" /><img src="{{$productCats->image_path}}" alt="alt" />
+                                                        <figure><img src="{{$productCats2->image_path}}" alt="alt" /><img src="{{$productCats2->image_path}}" alt="alt" />
                                                     </figure>
                                                 </a>
                                                 <div class="ps-product__badge" style="right:20px; ">
                                                     <div class="ps-badge ps-badge--hot"
                                                         style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">
-                                                        -{{ number_format($productCats->discount) }}%</div>
+                                                        -{{ number_format($productCats2->discount) }}%</div>
                                                 </div>
                                             </div>
                                             <div class="ps-product__content">
                                                 <h5 class="ps-p"><a
-                                                        href="{{ route('users.products', [$productCats->hashid, $productCats->productUrl]) }}">{{ $productCats->name }}</a>
+                                                        href="{{ route('users.products', [$productCats2->hashid, $productCats2->productUrl]) }}">{{ $productCats2->name }}</a>
                                                 </h5>
                                                 <div class="ps-product__meta"><span
-                                                        class="ps-pr">{{ moneyFormat($productCats->sale_price) }} <span
-                                                            style="font-size:15px"> <del>{{ moneyFormat($productCats->price) }}
+                                                        class="ps-pr">{{ moneyFormat($productCats2->sale_price) }} <span
+                                                            style="font-size:15px"> <del>{{ moneyFormat($productCats2->price) }}
                                                             </del> </span></span></span>
                                                 </div>
                                                 <center> <a
-                                                        href="{{ route('users.products', [$productCats->hashid, $productCats->productUrl]) }}"
+                                                        href="{{ route('users.products', [$productCats2->hashid, $productCats2->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#07631d; color:#fff"> Add to
                                                         Cart</a></center>
                                             </div>
@@ -243,18 +255,18 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ count($latest)> 0?$latest[0]->category->name:'' }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat3)> 0?$productCat3[0]->category->name:'' }}</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
-                            @forelse ($latest as $prod)
+                            @forelse ($productCat3 as $prod3)
                                 <div class="col-6 col-md-4 col-lg-2dot4 p-0">
                                     <div class="ps-section__product">
                                         <div class="ps-product ps-product--standard">
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                    href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                                    <figure><img src="{{ $prod->image_path }}"
+                                                    href="{{ route('users.products', [$prod3->hashid, $prod3->productUrl]) }}">
+                                                    <figure><img src="{{ $prod3->image_path }}"
                                                             alt="alt" /><img
-                                                            src="{{ $prod->image_path }}"
+                                                            src="{{ $prod3->image_path }}"
                                                             alt="alt" />
                                                         {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
                                                     </figure>
@@ -262,21 +274,21 @@
                                                 <div class="ps-product__badge" style="right:20px; ">
                                                     <div class="ps-badge ps-badge--hot"
                                                         style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">
-                                                        -{{ number_format($prod->discount) }}%</div>
+                                                        -{{ number_format($prod3->discount) }}%</div>
                                                 </div>
                                             </div>
                                             <div class="ps-product__content">
                                                 <h5 class="ps-p"><a
-                                                        href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">{{ $prod->name }}</a>
+                                                        href="{{ route('users.products', [$prod3->hashid, $prod3->productUrl]) }}">{{ $prod3->name }}</a>
                                                 </h5>
                                                 <div class="ps-product__meta"><span
-                                                        class="ps-pr">{{ moneyFormat($prod->sale_price) }} <span
-                                                            style="font-size:15px"> <del>{{ moneyFormat($prod->price) }}
+                                                        class="ps-pr">{{ moneyFormat($prod3->sale_price) }} <span
+                                                            style="font-size:15px"> <del>{{ moneyFormat($prod3->price) }}
                                                             </del> </span></span></span>
                                                 </div>
                                                 
                                                 <center> <a
-                                                        href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}"
+                                                        href="{{ route('users.products', [$prod3->hashid, $prod3->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#07631d; color:#fff"> Add to
                                                         Cart</a></center>
                                             </div>
@@ -293,18 +305,18 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ count($latest) > 0? $latest[0]->category->name:'' }}</p>
+                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat4) > 0? $$productCat4[0]->category->name:'' }}</p>
                     <div class="ps-section__content">
                         <div class="row m-0">
-                            @forelse ($latest as $prod)
+                            @forelse ($productCat4 as $prod4)
                                 <div class="col-6 col-md-4 col-lg-2dot4 p-0">
                                     <div class="ps-section__product">
                                         <div class="ps-product ps-product--standard">
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                    href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                                    <figure><img src="{{ $prod->image_path }}"
+                                                    href="{{ route('users.products', [$prod4->hashid, $prod4->productUrl]) }}">
+                                                    <figure><img src="{{ $prod4->image_path }}"
                                                             alt="alt" /><img
-                                                            src="{{$prod->image_path }}"
+                                                            src="{{$prod4->image_path }}"
                                                             alt="alt" />
                                                         {{-- <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" /> --}}
                                                     </figure>
@@ -312,21 +324,21 @@
                                                 <div class="ps-product__badge" style="right:20px; ">
                                                     <div class="ps-badge ps-badge--hot"
                                                         style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">
-                                                        -{{ number_format($prod->discount)}}%</div>
+                                                        -{{ number_format($prod4->discount)}}%</div>
                                                 </div>
                                             </div>
                                             <div class="ps-product__content">
                                                 <h5 class="ps-p"><a
-                                                        href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">{{ $prod->name }}</a>
+                                                        href="{{ route('users.products', [$prod4->hashid, $prod4->productUrl]) }}">{{ $prod4->name }}</a>
                                                 </h5>
                                                 <div class="ps-product__meta"><span
-                                                        class="ps-pr">{{ moneyFormat($prod->sale_price) }} <span
-                                                            style="font-size:15px"> <del>{{ moneyFormat($prod->price) }}
+                                                        class="ps-pr">{{ moneyFormat($prod4->sale_price) }} <span
+                                                            style="font-size:15px"> <del>{{ moneyFormat($prod4->price) }}
                                                             </del> </span></span></span>
                                                 </div>
                                                 
                                                 <center> <a
-                                                        href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}"
+                                                        href="{{ route('users.products', [$prod4->hashid, $prod4->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#07631d; color:#fff"> Add to
                                                         Cart</a></center>
                                             </div>
