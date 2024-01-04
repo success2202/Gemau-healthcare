@@ -9,6 +9,7 @@
             <li><a href="{{route('pages.terms')}}">Terms &amp; Conditions</a></li>
             <li><a href="{{ route('contactUs')}}">Contact Us</a></li>
             <li><a href="{{ route('blogs.index')}}">Blogs</a></li>
+            <li><a href="{{ route('faq.index')}}">Blogs</a></li>
         </ul>
     </div>
     <div class="ps-menu__footer">
