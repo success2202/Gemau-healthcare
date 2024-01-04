@@ -10,7 +10,7 @@
                 <div class="col-md-3 app-sidebar">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{route('admin.settings.faq')}}" class="badge badge-info p-2"  style="color:#fff">
+                            <a href="{{route('admin.faq.create')}}" class="badge badge-info p-2"  style="color:#fff">
                                 Add New FAQ
                             </a>
                         </div>

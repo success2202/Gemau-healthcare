@@ -12,6 +12,7 @@ use App\Http\Controllers\Users\PrescriptionController;
 use App\Http\Controllers\Users\SearchController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\Users\BlogController;
+use App\Http\Controllers\Users\FaqController;
 use App\Http\Controllers\Users\UserController;
 
 Route::get('/',  [HomeController::class, '__invoke'])->name('users.index');
@@ -80,3 +81,4 @@ Route::get('upload/sitemap', [SiteMapController::class, 'SiteMap'])->name('site.
 
 Route::get('blogs', [BlogController::class, 'Index'])->name('blogs.index');
 Route::get('blogs/details/{id}', [BlogController::class, 'Details'])->name('blogs.details');
+Route::get('/faq', [FaqController::class, '__invoke'])->name('faq.index');

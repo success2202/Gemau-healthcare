@@ -10,6 +10,7 @@ use App\Http\Controllers\Manage\Check2faController;
 use App\Http\Controllers\Manage\SettingsController;
 use App\Http\Controllers\Manage\PagesController;
 use App\Http\Controllers\Manage\BlogController;
+use App\Http\Controllers\Manage\FaqController;
 use App\Http\Controllers\Manage\OrderController;
 use App\Http\Controllers\Manage\PageController;
 use App\Http\Controllers\Manage\PrescriptionController;
@@ -81,14 +82,6 @@ Route::prefix('manage')->group(function () {
             Route::get('settings/sliders/deactivate/{id}', 'Deactivate')->name('admin.sliderDeactivate');
         });
 
-        Route::controller(BlogController::class)->group(function () {
-            Route::get('/blog/index', 'Index')->name('admin.news.index');
-            Route::get('/blog/create/', 'Create')->name('admin.news.create');
-            Route::post('/blog/store', 'Store');
-            Route::get('/blog/edit/{id}', 'Edit')->name('admin.edit.news');
-            Route::post('/blog/update/{id}', 'Update');
-            Route::post('/blog/status/{id}', 'status')->name('news.status');
-        });
 
         Route::controller(SettingsController::class)->group(function () {
             Route::get('/website/settings/index',  'Index')->name('admin.settings.index');
@@ -128,6 +121,14 @@ Route::prefix('manage')->group(function () {
             Route::get('/blog/edit/{id}', 'Edit')->name('admin.blog.edit');
             Route::post('blog/update/{id}', 'Update')->name('admin.blog.update');
             Route::post('blog/delete/{id}', 'Delete')->name('admin.blog.delete');
+        });
+
+        Route::controller(FaqController::class)->group(function (){
+            Route::get('/faq', 'Index')->name('admin.faq.index');
+            Route::get('faq/create', 'Create')->name('admin.settings.faq');
+            Route::post('faq/store', 'Store')->name('admin.settings.storeFaq');
+            Route::get('faq/edit/{id}', 'Edit')->name('admin.settings.EditFaq');
+            Route::post('faq/update', 'Update')->name('admin.settings.UpdateFaq');
         });
 
     });

@@ -17,6 +17,10 @@
         <i data-feather="image" class="mr-2 width-15 height-15"></i>
         Blogs
     </a>  --}}
+    <a href="{{route('admin.faq.index')}}" class="list-group-item">
+        <i data-feather="user" class="mr-2 width-15 height-15"></i>
+        FAQ
+    </a>
     <a href="{{route('admin.settings.aboutus')}}" class="list-group-item">
         <i data-feather="user" class="mr-2 width-15 height-15"></i>
         About us 
@@ -29,6 +33,8 @@
         <i data-feather="info" class="mr-2 width-15 height-15"></i>
         Terms and Conditions 
     </a>
+
+   
 
   
   

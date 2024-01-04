@@ -6,7 +6,6 @@
 </div>
 @endif
         <div class="container-fluid h-100">
-
             <div class="row app-block">
                 <div class="col-md-3 app-sidebar">
                     <div class="card">
@@ -19,9 +18,7 @@
                         </div>
                     </div>
                 </div>  
-              
                 <div class="col-md-9 app-content">
-                  
                     <div class="app-content-overlay"></div>
                     <div class="card card-body app-content-body">
                         <div class="app-lists">
@@ -53,16 +50,9 @@
                                         </div>
                                     </div>
                                 </li>
-
-                               
-                             
                                 <div style="float:right" class="pl-5 pt-3">
-
                                     <button type="submit" class="btn btn-primary w-20">Update FAQ</button>
                                 </div>
-                             
-                               
-                               
                             </ul>
                         </form>
                         </div>

@@ -6,7 +6,6 @@
 </div>
 @endif
         <div class="container-fluid h-100">
-
             <div class="row app-block">
                 <div class="col-md-3 app-sidebar">
                     <div class="card">
@@ -14,14 +13,12 @@
                            Website Setup
                         </div>
                         <div class="app-sidebar-menu">
-                            @include('manage.settings.sidebar')
-                           
+                            @include('manage.settings.sidebar') 
                         </div>
                     </div>
                 </div>  
               
                 <div class="col-md-9 app-content">
-                  
                     <div class="app-content-overlay"></div>
                     <div class="card card-body app-content-body">
                         <div class="app-lists">
@@ -41,7 +38,7 @@
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <textarea  id="summernote" class="@error('privacy_policy') is-invalid @enderror" name="content"></textarea>
+                                                    <textarea  id="summernote" class="@error('faq') is-invalid @enderror" name="content"></textarea>
                                            
                                                     <small id="emailHelp" class="form-text text-muted">FAQ
                                                     </small>
@@ -53,16 +50,9 @@
                                         </div>
                                     </div>
                                 </li>
-
-                               
-                             
                                 <div style="float:right" class="pl-5 pt-3">
-
                                     <button type="submit" class="btn btn-primary w-20">Submit</button>
-                                </div>
-                             
-                               
-                               
+                                </div>     
                             </ul>
                         </form>
                         </div>
@@ -75,9 +65,4 @@
             </div>
 
         </div>
-
-
-
-
-
 @endsection
