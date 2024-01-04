@@ -10,7 +10,7 @@
                 <div class="col-md-3 app-sidebar">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{route('admin.faq.create')}}" class="badge badge-info p-2"  style="color:#fff">
+                            <a href="{{route('admin.settings.faq')}}" class="badge badge-info p-2"  style="color:#fff">
                                 Add New FAQ
                             </a>
                         </div>
@@ -24,7 +24,7 @@
                     <div class="card">
                         @if ($faq )
                         <div class="card-body">
-                          <a  href="{{route('admin.settings.faqEdit', encrypt($faq->id))}}"  class=" badge badge-info "> Edit Content</a>
+                          <a  href="{{route('admin.settings.EditFaq', encrypt($faq->id))}}"  class=" badge badge-info "> Edit Content</a>
                           &nbsp; &nbsp;  <a  href="{{route('admin.settings.faqDelete', encrypt($faq->id))}}" 
                             onclick="return confirm('Are you sure, you want to delete this content')"
                              class="badge badge-danger"> Delete Content</a>

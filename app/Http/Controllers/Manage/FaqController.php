@@ -49,13 +49,11 @@ class FaqController extends Controller
     {
        
         $faq = Faq::where('id', decrypt($id))->first();
-       
-        $faq->content = $request->input('content');
-       
+        $faq->content = $request->content;
         $faq->save();
         Session::flash('alert', 'success');
         Session::flash('message', 'Faq updated Successfully');
-        return redirect()->route('admin.settings.privacyPolicy');
+        return redirect()->back();
     }
 
     public function Delete($id){

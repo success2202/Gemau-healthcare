@@ -128,7 +128,8 @@ Route::prefix('manage')->group(function () {
             Route::get('faq/create', 'Create')->name('admin.settings.faq');
             Route::post('faq/store', 'Store')->name('admin.settings.storeFaq');
             Route::get('faq/edit/{id}', 'Edit')->name('admin.settings.EditFaq');
-            Route::post('faq/update', 'Update')->name('admin.settings.UpdateFaq');
+            Route::post('faq/update/{id}', 'Update')->name('admin.settings.faqUpdate');
+            Route::get('/faq/delete/{id}', 'Delete')->name('admin.settings.faqDelete');
         });
 
     });
