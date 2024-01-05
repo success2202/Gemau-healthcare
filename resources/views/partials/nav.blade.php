@@ -35,11 +35,11 @@
                     <li><a href="{{ route('blogs.index')}}">Blogs</a></li>
                     <li><a href="{{ route('faq.index')}}">FAQ</a></li>
 
-                    @forelse($site_categories->take(6) as $site_cat)
+                    {{-- @forelse($site_categories->take(6) as $site_cat)
                    
                     <li class="has-mega-menu"><a  style="font-size:0.9em; font-weight:light" href="{{route('products.search',$site_cat->hashid)}}">{{substr(ucfirst(strtolower($site_cat->name)),0,20)}}</a></li>
                     @empty
-                    @endforelse
+                    @endforelse --}}
 
                 </ul>
             </nav>
