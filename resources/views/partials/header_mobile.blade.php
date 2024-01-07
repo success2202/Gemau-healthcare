@@ -18,7 +18,7 @@
             <form action="{{route('products.search')}}" method="get">
                 <div class="ps-search-table" style="border-radius: 5px">
                     <div class="input-group">
-                        <input class="form-control ps-input" style="border-radius: 5px" name="q" type="text" placeholder="Search for products">
+                        <input class="form-control ps-input" style="border-radius: 5px" name="q" type="text" placeholder="Eneter product name, category or items">
                         <div class="input-group-append">
                             <button class="btn " style="background:#07631d; color:#fff; padding:8px" type="submit"> 
                                 <span style="font-size: 15px"> Search </span></button></div>
