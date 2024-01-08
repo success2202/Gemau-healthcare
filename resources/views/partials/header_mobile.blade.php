@@ -1,7 +1,7 @@
 <header class="ps-header ps-header--8 ps-header--mobile">
     <div class="ps-noti">
         <div class="container">
-            <p class="m-0">{!! $announcment->content??null !!}</p>
+            <p class="m-0"> <marquee> {!! $announcment->content??null !!}</marquee> </p>
         </div><a class="ps-noti__close"><i class="icon-cross"></i></a>
     </div>
     <div class="ps-header__middle">
@@ -18,7 +18,7 @@
             <form action="{{route('products.search')}}" method="get">
                 <div class="ps-search-table" style="border-radius: 5px">
                     <div class="input-group">
-                        <input class="form-control ps-input" style="border-radius: 5px" name="q" type="text" placeholder="Eneter product name, category or items">
+                        <input class="form-control ps-input" style="border-radius: 5px" name="q" type="text" placeholder="Enter product name, category or items">
                         <div class="input-group-append">
                             <button class="btn " style="background:#07631d; color:#fff; padding:8px" type="submit"> 
                                 <span style="font-size: 15px"> Search </span></button></div>
