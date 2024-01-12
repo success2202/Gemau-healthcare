@@ -51,7 +51,7 @@
                                     @foreach ($users as $uu )
                                     <tr>
                                         <td>
-                                            {{$uu->name}}
+                                            {{$uu->first_name}}
                                         </td>
                                         <td>{{$uu->email}}</td>
                                         <td>
@@ -127,7 +127,7 @@
                                     @foreach ($new_users as $uu )
                                     <tr>
                                         <td>
-                                            {{$uu->name}}
+                                            {{$uu->first_name}}
                                         </td>
                                         <td>{{$uu->email}}</td>
                                         <td>
@@ -205,7 +205,7 @@
                                     @foreach ($recentActive as $uu )
                                     <tr>
                                         <td>
-                                            {{$uu->name}}
+                                            {{$uu->first_name}}
                                         </td>
                                         <td>{{$uu->email}}</td>
                                         <td>
@@ -285,7 +285,7 @@
                                     @foreach ($thisweek as $uu )
                                     <tr>
                                         <td>
-                                            {{$uu->name}}
+                                            {{$uu->first_name}}
                                         </td>
                                         <td>{{$uu->email}}</td>
                                         <td>
