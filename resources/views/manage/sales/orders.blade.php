@@ -54,7 +54,7 @@
                                                     <a href="#">Card</a>
                                                 </td>
                                                  <td>
-                                                    <a href="#">{{moneyFormat($sp->amount,2)}}</a>
+                                                    <a href="#">{{moneyFormat($sp->payable,2)}}</a>
                                                 </td>
                                                  <td>
                                                     @if($sp->is_paid == 1) <span  class="badge badge-success">Paid</span> @else <span type="span" class="badge badge-light">Pending</span> @endif</a>

@@ -122,7 +122,7 @@
                                                     <a href="#">{{_('card')}}</a>
                                                 </td>
                                                  <td>
-                                                    <a href="#">{{number_format($sp->amount,2)}}</a>
+                                                    <a href="#">{{number_format($sp->payable,2)}}</a>
                                                 </td>
                                                  <td>
                                                     @if($sp->is_paid == 1) <span  class="badge badge-success">Paid</span> @else <span type="span" class="badge badge-light">Pending</span> @endif</a>
