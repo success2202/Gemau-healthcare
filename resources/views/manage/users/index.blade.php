@@ -116,7 +116,7 @@
                                                     <a href="#">{{$sp->order_no}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$sp->payment_ref}}</a>
+                                                    <a href="#">{{$sp->payment_ref??"-"}}</a>
                                                 </td>
                                                 <td>
                                                     <a href="#">{{_('card')}}</a>
