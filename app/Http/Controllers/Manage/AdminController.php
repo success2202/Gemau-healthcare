@@ -109,10 +109,9 @@ class AdminController extends Controller
           }
       }
 
-  
       public function Analytical(){
-          $data['users'] = User::where('updated_at', '>=', Carbon::now()->subMinutes(20))->latest()->get();
-          $data['recentActive'] = User::where('updated_at', '>=', Carbon::now()->subMinutes(50))->latest()->get();
+          $data['users'] = User::where('updated_at', '>=', Carbon::now()->subMinutes(120))->latest()->get();
+          $data['recentActive'] = User::where('updated_at', '>=', Carbon::now()->subMinutes(150))->latest()->get();
           $data['new_users'] = User::where('created_at', '>=', today()->subHours(12))->latest()->get();
           $data['thisweek'] = User::where('created_at', '>=', today()->subDays(7))->latest()->get();
           $data['orders'] = Order::where('created_at', '>=', Carbon::now()->subHours(24))->latest()->get();
@@ -120,7 +119,6 @@ class AdminController extends Controller
           return view('manage.analytical', $data)
           ->with('bheading', 'Analytics' )
           ->with('breadcrumb', 'Analytics');
-  
       }
   
       public function adminProfile(){
