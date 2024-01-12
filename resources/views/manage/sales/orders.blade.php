@@ -45,7 +45,7 @@
                                                     <a href="#">{{substr($sp->user->email,0,15)}}..</a>
                                                 </td> 
                                                 <td>
-                                                    <a href="#">{{$sp->order_No}}</a>
+                                                    <a href="#">{{$sp->order_no}}</a>
                                                 </td>
                                                 <td>
                                                     <a href="#">{{$sp->payment_ref}}</a>
