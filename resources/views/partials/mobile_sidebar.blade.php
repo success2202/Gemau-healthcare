@@ -10,7 +10,7 @@
             <li><a href="{{ route('contactUs')}}">Contact Us</a></li>
             <li><a href="{{ route('blogs.index')}}">Blogs</a></li>
             <li><a href="{{ route('faq.index')}}">Blogs</a></li>
-            <li class="nav-item"><a  class="nav-link   pl-3" style="color:#fff; background:rgb(13, 4, 53)"  href="{{route('user.prescription')}}"> UPLOAD PRESCRIPTION</a></li>
+            <li class="nav-item"><a  class="nav-link   pl-3" style="color:#fff; background:#103178"  href="{{route('user.prescription')}}"> UPLOAD PRESCRIPTION</a></li>
         </ul>
     </div>
     <div class="ps-menu__footer">
