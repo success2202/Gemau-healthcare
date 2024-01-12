@@ -42,7 +42,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>IP </th>
-                                        <th class="text-right">Location</th>
+                                        {{-- <th class="text-right">Location</th> --}}
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -57,13 +57,13 @@
                                         <td>
                                             {{$uu->login_ip}}
                                         </td>
-                                        <td class="text-right">    
+                                        {{-- <td class="text-right">    
                                         
                                         @php $details = json_decode(file_get_contents("http://ipinfo.io/".$uu->login_ip."/json"));
                                         echo $details->city.", ".$details->country;
                                         @endphp
                                         
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                         @endforeach
                                         @endif
@@ -118,7 +118,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>IP </th>
-                                        <th class="text-right">Location</th>
+                                        {{-- <th class="text-right">Location</th> --}}
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -133,13 +133,13 @@
                                         <td>
                                             {{$uu->login_ip}}
                                         </td>
-                                        <td class="text-right">    
+                                        {{-- <td class="text-right">    
                                         
                                         @php 
                                         $details->city.", ".$details->country;
                                         @endphp
                                         
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                         @endforeach
                                         @endif
@@ -195,7 +195,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>IP </th>
-                                        <th class="text-right">Location</th>
+                                        {{-- <th class="text-right">Location</th> --}}
                                         <th> Last Login </th>
                                     </tr>
                                     </thead>
@@ -210,14 +210,14 @@
                                         <td>{{$uu->email}}</td>
                                         <td>
                                             {{$uu->login_ip}}
-                                        </td>
+                                        {{-- </td>
                                         <td class="text-right">    
                                         
                                         @php 
                                         echo $details->city.", ".$details->country;
                                         @endphp
                                         
-                                        </td>
+                                        </td> --}}
                                         <td>
                                             {{$uu->updated_at->DiffForHumans()}}
                                         </td>
@@ -274,7 +274,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>IP </th>
-                                        <th>Location</th>
+                                        {{-- <th>Location</th> --}}
                                          <th class="text-right">Joined </th>
                                         
                                     </tr>
@@ -291,13 +291,13 @@
                                         <td>
                                             {{$uu->login_ip}}
                                         </td>
-                                        <td class="text-right">    
+                                        {{-- <td class="text-right">    
                                         
                                         @php $details = json_decode(file_get_contents("http://ipinfo.io/".$uu->login_ip."/json"));
                                         echo $details->city.", ".$details->country;
                                         @endphp
                                         
-                                        </td>
+                                        </td> --}}
                                         <td> 
                                         {{$uu->created_at->DiffForHumans()}}
                                     </tr>
