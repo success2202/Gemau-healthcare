@@ -16,6 +16,13 @@
                     Payments</a></li>
             <li><a class="dropdown-item navIL" href="{{route('users.account.settings')}}"><i class="icon-cog"> </i>&nbsp; Update
                     Account</a></li>
+                    <li><a class="dropdown-item navIL" href="{{route('logout') }}" onclick="event.preventDefault() 
+                        document.getElementById('logout-form').submit()" ><i class="icon-eraser"> </i>&nbsp;
+                         Logout</a>
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                                @csrf
+                            </form> 
+                </li>
         </ul>
     </div>
 </div>

@@ -19,7 +19,7 @@
                     </ul>
                 </div>
                 <ul class="menu-top">
-                    <li class="nav-item"><a class="nav-link btn-success btn-sm pl-3" style="color:#fff"  href="{{route('user.prescription')}}">Upload Doctor's Prescription</a></li>
+                    <li class="nav-item"><a  class="nav-link   pl-3" style="color:#fff; background:rgb(13, 4, 53)"  href="{{route('user.prescription')}}"> UPLOAD PRESCRIPTION</a></li>
                 </ul>
                 {{-- <div class="ps-header__text">Need help? <strong>{{$settings->site_phone}}</strong></div> --}}
             </div>
