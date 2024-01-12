@@ -48,7 +48,7 @@
                                                     <a href="#">{{$sp->order_No}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$sp->external_ref}}</a>
+                                                    <a href="#">{{$sp->payment_ref}}</a>
                                                 </td>
                                                 <td>
                                                     <a href="#">Card</a>
