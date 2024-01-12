@@ -135,7 +135,7 @@
                                         </td>
                                         <td class="text-right">    
                                         
-                                        @php $details = json_decode(file_get_contents("http://ipinfo.io/197.210.65.32/json"));
+                                        @php 
                                         echo $details->city.", ".$details->country;
                                         @endphp
                                         
@@ -213,7 +213,7 @@
                                         </td>
                                         <td class="text-right">    
                                         
-                                        @php $details = json_decode(file_get_contents("http://ipinfo.io/197.210.65.32/json"));
+                                        @php 
                                         echo $details->city.", ".$details->country;
                                         @endphp
                                         
@@ -293,7 +293,7 @@
                                         </td>
                                         <td class="text-right">    
                                         
-                                        @php $details = json_decode(file_get_contents("http://ipinfo.io/197.210.65.32/json"));
+                                        @php 
                                         echo $details->city.", ".$details->country;
                                         @endphp
                                         
