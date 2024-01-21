@@ -175,6 +175,8 @@
 </div>
 <!-- App scripts -->
 <script src="{{asset('/backend/js/app.min.js')}}"></script>
+
+
 {{-- <script>
     BalloonEditor
             .create( document.querySelector( '#summernote' ) )
@@ -187,6 +189,10 @@
 </script> --}}
 
 <script>
+    $(document).ready(function (){
+    $('#myTable').DataTable();
+});
+
     CKEDITOR.replace( 'summernote' );
 </script>
 @yield('script')

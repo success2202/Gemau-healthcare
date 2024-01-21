@@ -35,6 +35,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <meta name="p:domain_verify" content="41e4054dd47a348a28e771a36e9e5092"/>
     @yield('styles')
 
     <!-- Google tag (gtag.js) -->
