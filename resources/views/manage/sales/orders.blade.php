@@ -32,7 +32,6 @@
                                                 <th>Amount</th>
                                                 <th>Payment Status</th>
                                                 <th>Completion Status</th>
-                                                <th>Dispatch Status</th>
                                                  <th>Created At</th>
                                                  <th> &nbsp; &nbsp; &nbsp;&nbsp; </th>
                                             </thead>

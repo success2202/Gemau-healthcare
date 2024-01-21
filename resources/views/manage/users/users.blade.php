@@ -6,7 +6,7 @@
                      <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
-                                <h6 class="card-title">Transactions</h6>
+                                <h6 class="card-title">Users</h6>
                                 <div>
                                     <a href="#" class="mr-3">
                                         <i class="fa fa-refresh"></i>
@@ -28,7 +28,7 @@
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Last Login</th>
-                                                <th>login Ip</th>
+                                                <th>Location</th>
                                                  <th>Created At</th>
                                                  <th> </th>
                                                
@@ -39,7 +39,7 @@
                                             <tr>
                                             
                                                 <td>
-                                                    <a href="#">{{$sp->name}} </a>
+                                                    <a href="#">{{$sp->first_name.' '.$sp->last_name}} </a>
                                                 </td> 
                                                 <td>
                                                     <a href="#">{{$sp->email}}</a>
@@ -51,7 +51,7 @@
                                                     <a href="#">{{$sp->last_login}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$sp->login_ip}}</a>
+                                                    <a href="#">{{$sp->city.' '.$sp->country}}</a>
                                                 </td> 
                                                 <td>
                                                     <a href="#">{{$sp->created_at->format('d/M/y h:s')}}</a>
