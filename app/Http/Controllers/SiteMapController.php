@@ -8,6 +8,6 @@ class SiteMapController extends Controller
 {
     //
     public function SiteMap(){
-       return asset('assets/sitemap.xml');
+       return asset('sitemap.xml');
     }
 }
