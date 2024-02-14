@@ -109,7 +109,7 @@
                                 </figure>
                             </a>
                             <div class="ps-product__badge" style="right:20px; ">
-                                <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-{{$prod->discount}}%</div>
+                                <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-{{number_format($prod->discount)}}%</div>
                             </div>
                         </div>
                         <div class="ps-product__content">
