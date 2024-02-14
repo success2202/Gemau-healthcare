@@ -17,7 +17,7 @@
                                   <td style="padding: 20px 20px; ">
                                     <a href="{{route('index')}}">
                                     <img src="{{ asset('/images/'.$settings->site_logo)}}" 
-                                    alt="image" style="height: 30px; margin-left: auto; margin-right: auto; display:block;">
+                                    alt="{{ asset('/images/'.$settings->site_logo)}}" style="height: 30px; margin-left: auto; margin-right: auto; display:block;">
                                 </a>
                                 </td>
                             </tr> 

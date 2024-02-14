@@ -14,7 +14,7 @@
                         <table class="m_89584" width="100%" cellspacing="0" cellpadding="0" style="vertical-align:middle">
                             <tbody>
                                 <tr>
-                                    <td style="padding-bottom: 20px; "><a href="#"><img src="{{asset('images/'.$settings->site_logo)}}" alt="image"
+                                    <td style="padding-bottom: 20px; "><a href="#"><img src="{{asset('images/'.$settings->site_logo)}}" alt="{{asset('images/'.$settings->site_logo)}}"
                                                                                         style="height: 30px; margin-left: auto; margin-right: auto; display:block;"></a>
                                     </td>
                                 </tr>

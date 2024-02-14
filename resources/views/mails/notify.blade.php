@@ -29,7 +29,7 @@
                   
                       <a href="">
                   
-                  <img alt="" src="{{asset('images/'.$settings->site_logo)}}">
+                  <img alt="{{asset('images/'.$settings->site_logo)}}" src="{{asset('images/'.$settings->site_logo)}}">
                   
                       </a>
                   

@@ -18,7 +18,7 @@
                                 align="center" valign="top">
                                 <table width="100%" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td style="padding-bottom: 20px; "><a href="#"><img src="{{asset('images/'.$settings->site_logo)}}" alt="image"
+                                        <td style="padding-bottom: 20px; "><a href="#"><img src="{{asset('images/'.$settings->site_logo)}}" alt="{{asset('images/'.$settings->site_logo)}}"
                                                                                             style="height: 30px; margin-left: auto; margin-right: auto; display:block;"></a>
                                         </td>
                                     </tr>

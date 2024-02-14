@@ -12,7 +12,7 @@
                     <button class="close ps-addcart__close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <div class="pi ps-btn--success">
                         <div class="container" style="text-align: center">
-                            <p class="m-0" style="color:#fff;"> <img src="{{$product->image_path}}" style="width:30px; height:30px" alt="alt" /> {{$product->name}} Added to Cart Successfully</p>
+                            <p class="m-0" style="color:#fff;"> <img src="{{$product->image_path}}" style="width:30px; height:30px" alt="{{$product->image_path}}" /> {{$product->name}} Added to Cart Successfully</p>
                         </div>
                     </div>
                </div>

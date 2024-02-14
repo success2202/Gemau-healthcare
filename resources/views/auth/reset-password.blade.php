@@ -29,7 +29,7 @@
 
     <!-- logo -->
     <div id="logo">
-        <img class="logo" src="{{asset('/images/'.$settings->site_logo)}}" style="width: 150px" alt="image">
+        <img class="logo" src="{{asset('/images/'.$settings->site_logo)}}" style="width: 150px" alt="{{asset('/images/'.$settings->site_logo)}}">
     </div>
     <!-- ./ logo -->
 

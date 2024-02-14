@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
+    <meta name="title" content="Shop Medicines Online at LiveHealth ePharma Store">
+    <meta name="description" content="Get your healthcare needs delivered at your doorstep from the No.1 online Pharmacy store. Get well with ease with Just a click of a button, Get your medications with convenience from the comfort of your home.">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="{{ asset('images/'.$settings->fav)}}" rel="shortcut icon" type="image/png">
     <meta name="csrf-token" content="{{ csrf_token() }}" />

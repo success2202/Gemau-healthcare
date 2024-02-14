@@ -17,8 +17,8 @@
                             <div class="col-12 col-xl-5">
                                 <div class="ps-product--gallery">
                                     <div class="ps-product__thumbnail">
-                                        <div class="slide"><img src="{{$product->image_path }}" alt="alt" /></div>
-                                        <div class="slide"><img src="{{$product->image_path }}" alt="alt" /></div>
+                                        <div class="slide"><img src="{{$product->image_path }}" alt="{{$product->image_path }}" /></div>
+                                        <div class="slide"><img src="{{$product->image_path }}" alt="{{$product->image_path }}" /></div>
                                     </div>
                                     <div class="ps-gallery--image">
                                         <div class="slide">
@@ -29,10 +29,10 @@
                                                 $images = json_decode($product->gallery);
                                             @endphp
                                             @foreach ($images as $item) 
-                                            <div class="ps-gallery__item"><img src="{{$item }}" alt="alt" /></div>
+                                            <div class="ps-gallery__item"><img src="{{$item }}" alt="{{$item }}" /></div>
                                             @endforeach
                                             @else 
-                                            <div class="slide"><img src="{{$item }}" alt="alt" /></div>
+                                            <div class="slide"><img src="{{$item }}" alt="{{$item }}" /></div>
                                             @endif
                                         </div>
                                         
@@ -144,7 +144,7 @@
                     <div class="ps-section__product">
                         <div class="ps-product ps-product--standard">
                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                        <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" />
+                                        <figure><img src="{{$prod->image_path}}" alt="{{$prod->image_path}}" /><img src="{{$prod->image_path}}" alt="alt" />
                                     </figure>
                                 </a>
                                 <div class="ps-product__badge" style="right:20px; ">

@@ -74,8 +74,8 @@
             <div>
                 <div id="navigation-logo">
                     <a href="{{route('admin.index')}}">
-                        <img class="logo" src="{{asset('images/'.$settings->site_logo)}}" height="auto" width="120px">
-                        <img class="logo-light" src="{{asset('images/'.$settings->site_logo)}}" height="auto" width="120px" alt="light logo">
+                        <img class="logo" src="{{asset('images/'.$settings->site_logo)}}" height="auto" width="120px" alt="{{asset('images/'.$settings->site_logo)}}">
+                        <img class="logo-light" src="{{asset('images/'.$settings->site_logo)}}" height="auto" width="120px" alt="{{asset('images/'.$settings->site_logo)}}">
                     </a>
                 </div>
             </div>

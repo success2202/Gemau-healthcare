@@ -17,7 +17,7 @@
                 <div class="ps-product ps-product--list" style="border:2px solid #d1d5dad4; border-radius:10px">
                     <div class="ps-product__content" style="border-right:0px">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="">
-                                <figure><img src="{{$cart->model->image_path }}" alt="alt">
+                                <figure><img src="{{$cart->model->image_path }}" alt="{{$cart->model->image_path }}">
                                 </figure>
                             </a>
                         </div>
@@ -105,11 +105,11 @@
                     <div class="ps-product ps-product--standard">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
                             {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                    <figure><img src="{{$prod->image_path}}" alt="alt" /><img src="{{$prod->image_path}}" alt="alt" />
+                                    <figure><img src="{{$prod->image_path}}" alt="{{$prod->image_path}}" /><img src="{{$prod->image_path}}" alt="{{$prod->image_path}}" />
                                 </figure>
                             </a>
                             <div class="ps-product__badge" style="right:20px; ">
-                                <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-20%</div>
+                                <div class="ps-badge ps-badge--hot" style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">-{{$prod->discount}}%</div>
                             </div>
                         </div>
                         <div class="ps-product__content">
