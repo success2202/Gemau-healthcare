@@ -12,6 +12,7 @@ class Base {
     public $method;
     public $jsonBody;
     public $apiKey;
+    //rps
 
     public function __construct($url, $method, $apiKey,  $jsonBody = [])
     {
