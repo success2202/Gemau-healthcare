@@ -20,7 +20,7 @@
     <meta name="keywords" content="pharmacy, drug, eccomerce, cosmetics, buy drugs online, online pharmacy, doctors prescription">
     <meta property="og:url" content="{{route('users.index')}}">
     <meta property="og:title" content="livehealthepharma: Online Pharmacy in Nigeria">
-    <title>{{config('app.name')}} </title>
+    <title>{{$settings->title}} </title>
     <link rel="stylesheet" href="{{asset('/frontend/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/fonts/Linearicons/Font/demo-files/demo.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com/">

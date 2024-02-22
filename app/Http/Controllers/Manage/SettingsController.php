@@ -239,6 +239,7 @@ class SettingsController extends Controller
             'site_phone' => $request->site_phone,
             'site_email' => $request->site_email,
             'address' => $request->address,
+            'title' => $request->title,
             'city' => $request->city,
             'about' => $request->about_us,
             'state' => $request->state,

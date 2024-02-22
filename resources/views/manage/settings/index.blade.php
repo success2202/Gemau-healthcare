@@ -83,9 +83,36 @@
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="site_name"  value="{{$settings->site_name}}" class="form-control @error('title') is-invalid @enderror" id="exampleInputEmail1"
+                                                    <input type="text" name="site_name"  value="{{$settings->site_name}}" class="form-control @error('name') is-invalid @enderror" id="exampleInputEmail1"
                                                            aria-describedby="emailHelp" placeholder="Change Website Name">
                                                     <small id="emailHelp" class="form-text text-muted">Update website name
+                                                    </small>
+                                                    @error('name')
+                                                    <span class="invalid-feedback"> <small> * </small> </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="flex-grow-1 min-width-0">
+                                        <div class="mb-1 d-flex justify-content-between align-items-center">
+                                            <div class="text-truncate app-list-title">Change Website Title</div>
+                                            <div class="pl-3 d-flex">
+                                                <span class="text-nowrap text-muted"></span>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="text-muted d-flex justify-content-between">
+                                            <div class="text-truncate small"></div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" name="title"  value="{{$settings->title}}" class="form-control @error('title') is-invalid @enderror" id="exampleInputEmail1"
+                                                           aria-describedby="emailHelp" placeholder="Change Website Title">
+                                                    <small id="emailHelp" class="form-text text-muted">Update website Tile
                                                     </small>
                                                     @error('title')
                                                     <span class="invalid-feedback"> <small> * </small> </span>
