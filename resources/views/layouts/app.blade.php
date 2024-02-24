@@ -17,7 +17,8 @@
     <meta name="twitter:description" content="Online Pharmacy in Nigeria">
     <meta name="twitter:image" content="{{asset('images/'.$settings->site_logo)}}">
     <meta property="og:description" content="The largest and biggest online pharmacy store in Nigeria. Easily get affordable medication and prescription drugs delivered to your doorstep. Get professional advice and consultation in real time">
-    <meta name="keywords" content="pharmacy, drug, eccomerce, cosmetics, buy drugs online, online pharmacy, doctors prescription">
+    <meta name="keywords" content="online prescription, online doctor prescription, online medicine delivery, medicine online, online medication prescription,  medical prescription, prescription doctor, medicine home delivery, medicine delivery, doctor prescription
+    chemists near me,  mail order pharmacy, dr online prescription, medical store near me,  rx doctor, rx pharmacy,  rx prescriptions, prescription medication online, medicine delivery near me, delivery pharmacy,  online medical store, rx online doctor, rx online, prescription delivery, pharmacy prescription, pharmacy, drug, eccomerce, cosmetics, buy drugs online, online pharmacy, doctors prescription">
     <meta property="og:url" content="{{route('users.index')}}">
     <meta property="og:title" content="livehealthepharma: Online Pharmacy in Nigeria">
     <title>{{$settings->title}} </title>
