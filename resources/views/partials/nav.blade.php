@@ -3,7 +3,7 @@
         <div class="ps-navigation__left">
             <nav class="ps-main-menu" >
                 <ul class="menu">
-                    <li class="has-mega-menu"><a href="{{route('products.search')}}" style="font-size:0.9em; font-weight:light"> <i class="fa fa-bars"></i>All Categories<span class="sub-toggle"></span></a>
+                    <li class="has-mega-menu"><a href="{{route('products.search')}}" style="font-size:0.9em"> <i class="fa fa-bars"></i>All Categories<span class="sub-toggle"></span></a>
                         {{-- <div class="mega-menu">
                             <div class="container">
                                 <div class="mega-menu__row">                                
@@ -29,11 +29,11 @@
                             </div>
                         </div> --}}
                     </li>
-                    <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('index')}}">Home</a></li>
-                    <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('AboutUs')}}">About Us</a></li>
-                    <li><a style="font-size:0.9em; font-weight:light"  href="{{ route('contactUs')}}">Contact Us</a></li>
-                    <li><a href="{{ route('blogs.index')}}">Blogs</a></li>
-                    <li><a href="{{ route('faq.index')}}">FAQ</a></li>
+                    <li><a style="font-size:0.9em; "  href="{{ route('index')}}">Home</a></li>
+                    <li><a style="font-size:0.9em; "  href="{{ route('AboutUs')}}">About Us</a></li>
+                    <li><a style="font-size:0.9em;"  href="{{ route('contactUs')}}">Contact Us</a></li>
+                    <li><a href="https://blog.livehealthepharma.com">Blogs</a></li>
+                    <li><a href="{{ route('faq.index')}}">Faq</a></li>
 
                     {{-- @forelse($site_categories->take(6) as $site_cat)
                    
