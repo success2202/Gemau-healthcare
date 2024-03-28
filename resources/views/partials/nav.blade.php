@@ -33,7 +33,7 @@
                     <li><a style="font-size:0.9em; "  href="{{ route('AboutUs')}}">About Us</a></li>
                     <li><a style="font-size:0.9em;"  href="{{ route('contactUs')}}">Contact Us</a></li>
                     <li><a href="https://blog.livehealthepharma.com">Blog</a></li>
-                    <li><a href="{{ route('faq.index')}}">Faq</a></li>
+                    <li><a href="{{ route('faq.index')}}">FAQ</a></li>
 
                     {{-- @forelse($site_categories->take(6) as $site_cat)
                    
