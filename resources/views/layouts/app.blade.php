@@ -19,8 +19,8 @@
     <meta property="og:description" content="The largest and biggest online pharmacy store in Nigeria. Easily get affordable medication and prescription drugs delivered to your doorstep. Get professional advice and consultation in real time">
     <meta name="keywords" content="online prescription, online doctor prescription, online medicine delivery, medicine online, online medication prescription,  medical prescription, prescription doctor, medicine home delivery, medicine delivery, doctor prescription
     chemists near me,  mail order pharmacy, dr online prescription, medical store near me,  rx doctor, rx pharmacy,  rx prescriptions, prescription medication online, medicine delivery near me, delivery pharmacy,  online medical store, rx online doctor, rx online, prescription delivery, pharmacy prescription, pharmacy, drug, eccomerce, buy drugs online, online pharmacy, doctors prescription">
-    <meta property="og:url" content="{{route('users.index')}}">
     <meta property="og:title" content="livehealthepharma: Online Pharmacy in Nigeria">
+      <meta property="og:url" content="LiveHealth ePharma">
     <title>{{$settings->title}} </title>
     <link rel="stylesheet" href="{{asset('/frontend/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/fonts/Linearicons/Font/demo-files/demo.css')}}">
@@ -40,9 +40,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <meta name="p:domain_verify" content="41e4054dd47a348a28e771a36e9e5092"/>
     @yield('styles')
+<style>
+    .textcolor{
+        color:#000;
+    }
+</style>
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11172431606"></script>
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11172431606"></script>-->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8Q4Z4SFSQ">
 </script>
@@ -52,6 +57,16 @@
   gtag('js', new Date());
 
   gtag('config', 'G-G8Q4Z4SFSQ');
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QPD7YQNP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0QPD7YQNP1');
 </script>
 </head>
 <body>

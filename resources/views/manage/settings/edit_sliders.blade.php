@@ -38,7 +38,7 @@
                                             <div class="text-muted d-flex justify-content-between">
                                                 <div class="text-truncate small"></div>
                                                 <div class="col-md-12">
-                                                    <img src="{{$slider->image_path}}" width="100px">
+                                                    <img src="{{asset('images/sliders/'.$slider->image_path)}}" width="100px">
                                                     <div class="custom-file">
                                                      
                                                         <input type="file" name="image" class="custom-file-input  @error('image') is-invalid @enderror">

@@ -125,9 +125,9 @@ class UserController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
-            'city' => 'required',
-            'country' => 'required',
-            'state' => 'required'
+            'city' => 'nullable',
+            'country' => 'nullable',
+            'state' => 'nullable'
         ]);
         if ($valid->fails()) {
             return back()->withInput($req->all())->withErrors($valid);
@@ -155,23 +155,21 @@ class UserController extends Controller
     public function AddressDelete($id)
     {
        
-        Session::flash('alert', 'error');
-        Session::flash('msg', 'You cannot delete this address book');
+      
+        $id = Hashids::connection('products')->decode($id);
+        $check = ShippingAddress::where(['user_id' => auth_user()->id])->get();
+        if (count($check) > 1) {
+            $address = ShippingAddress::where(['user_id' => auth_user()->id, 'id' => $id])->first();
+            $address->delete();
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'Address Deleted from Address Book');
+            return back();
+        } else {
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'You Must have atleat One Address in your Address Book');
+            return back();
+        }
         return back();
-        // $id = Hashids::connection('products')->decode($id);
-        // $check = ShippingAddress::where(['user_id' => auth_user()->id])->get();
-        // if (count($check) > 1) {
-        //     $address = ShippingAddress::where(['user_id' => auth_user()->id, 'id' => $id])->first();
-        //     $address->delete();
-        //     Session::flash('alert', 'error');
-        //     Session::flash('msg', 'Address Deleted from Address Book');
-        //     return back();
-        // } else {
-        //     Session::flash('alert', 'error');
-        //     Session::flash('msg', 'You Must have atleat One Address in your Address Book');
-        //     return back();
-        // }
-        // return back();
     }
 
     public function recentViews()

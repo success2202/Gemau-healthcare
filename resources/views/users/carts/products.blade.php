@@ -17,23 +17,24 @@
                             <div class="col-12 col-xl-5">
                                 <div class="ps-product--gallery">
                                     <div class="ps-product__thumbnail">
-                                        <div class="slide"><img src="{{$product->image_path }}" alt="{{$product->image_path }}" /></div>
-                                        <div class="slide"><img src="{{$product->image_path }}" alt="{{$product->image_path }}" /></div>
+                                        <div class="slide"><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{asset('images/products/'.$product->image_path)}}" /></div>
+                                        <div class="slide"><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{asset('images/products/'.$product->image_path)}}" /></div>
+                                        
                                     </div>
                                     <div class="ps-gallery--image">
                                         <div class="slide">
-                                            @if($product->gallery)
+                                            {{--   @if($product->gallery)
                                             
                                             @php 
                                            
                                                 $images = json_decode($product->gallery);
                                             @endphp
                                             @foreach ($images as $item) 
-                                            <div class="ps-gallery__item"><img src="{{$item }}" alt="{{$item }}" /></div>
+                                            <!--<div class="ps-gallery__item"><img src="{{asset('images/products/'.$item) }}" alt="{{asset('images/products/'.$item) }}" /></div>-->
                                             @endforeach
-                                            @else 
-                                            <div class="slide"><img src="{{$item }}" alt="{{$item }}" /></div>
-                                            @endif
+                                            @else   @endif --}}
+                                            <div class="slide"><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{asset('images/products/'.$product->image_path)}}" /></div>
+                                          
                                         </div>
                                         
                                     </div>
@@ -67,9 +68,9 @@
                                     <div class="ps-product__quantity">
                                         <h6>Quantity:   
 
-                                             <button  type="button" class="ps-btn--success  decrement-btn" style="width: 30px; border-radius:3px; height:30px"> - </button> 
+                                             <button  type="button" class="ps-btn--primary  decrement-btn" style="width: 30px; border-radius:3px; height:30px"> - </button> 
                                              <input type="text" value="1" name="qty" id="qty" style="border: 1px solid #8c8a8a53; height:30px; width:30px; text-align:center"> 
-                                             <button  type="button" class="ps-btn--success  increment-btn" style="width: 30px; border-radius:3px; height:30px"> + </button>  </h6>
+                                             <button  type="button" class="ps-btn--primary  increment-btn" style="width: 30px; border-radius:3px; height:30px"> + </button>  </h6>
                                      
                                             @if($product->requires_prescription == 1)
                                             <label for="precription_upload" > <span id="fileName" style="color:red" hidden> Upload file </span>
@@ -83,9 +84,13 @@
                                             
                                         <div class="d-md-flex align-items-center">
                                             <div class="def-number-input number-input safari_only">
-                                            </div><button type="button" style="border-radius:5px" class="ps-btn ps-btn--success"  id="add2cart" 
+                                            </div><button type="button" style="border-radius:5px" class="ps-btn ps-btn--primary w-50"  id="add2cart" 
                                             @if($product->status == 1)
                                             disabled @endif>Add to cart</button>
+                                            <span class="p-2"></span>
+                                            <a target="_blank" class="btn btn-primary" href="https://wa.me/+2348058885913?text=Please i need {{ $product->name }}, the  price on your website is {{ moneyFormat($product->sale_price) }} ">
+                                                             <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; padding:5px; color:#fff "> 
+                                                           Order on Whatsapp  </i> </a> 
                                         </div>
                                     </div>
                                     </form>
@@ -122,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-6">
                     <div class="ps-product--extension">
                         <div class="ps-product__delivery">
                             <div class="ps-delivery__item"><i class="icon-wallet"></i>Very secured paymenet methods</div>
@@ -144,7 +149,7 @@
                     <div class="ps-section__product">
                         <div class="ps-product ps-product--standard">
                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                        <figure><img src="{{$prod->image_path}}" alt="{{$prod->image_path}}" /><img src="{{$prod->image_path}}" alt="alt" />
+                                        <figure><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{asset('images/products/'.$prod->image_path)}}" /><img src="{{asset('images/products/'.$prod->image_path)}}" alt="alt" />
                                     </figure>
                                 </a>
                                 <div class="ps-product__badge" style="right:20px; ">
@@ -156,11 +161,15 @@
                                 <div class="ps-product__meta"><span class="ps-pr">{{moneyFormat($prod->sale_price)}}   <span style="font-size:15px"> <del> {{moneyFormat($prod->price)}}</del></span></span></span>
                                 </div>
                                 <div class="ps-product__actions ps-product__group-mobile">
-                                    {{-- <div class="ps-product__cart"> <a class="ps-btn ps-btn--warning" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a></div> --}}
+                                    {{-- <div class="ps-product__cart"> <a class="ps-btn ps-btn--primary" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a></div> --}}
                                 </div>
                                
                                 
-                               <center> <a href="{{route('users.products',[$prod->hashid, $prod->productUrl])}}" class="btn btn-success spinner-border spinner-border-sm"> Add to Cart</a></center> 
+                               <center> <a href="{{route('users.products',[$prod->hashid, $prod->productUrl])}}" class="btn btn-primary spinner-border spinner-border-sm"> Add to Cart</a>
+                                  <a target="_blank" href="https://wa.me/+2348058885913?text=Please i need {{ $prod->name }}, the  price on your website is {{ moneyFormat($prod->sale_price) }} ">
+                                                             <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#000 "> 
+                                                             </i></a> 
+                               </center> 
                             </div>
                         
                         </div>

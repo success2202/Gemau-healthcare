@@ -1,7 +1,7 @@
 <header class="ps-header ps-header--2 ps-header--8">
-    <div class="ps-noti" style="background: #125925">
+    <div class="ps-noti" style="background: #73c2fb">
         <div class="container">
-            <p class="m-0">  <marquee> {!! $announcment->content??null !!}</marquee> </p>
+            <p class="m-0" style="color:#000">  <marquee> {!! $announcment->content??null !!}</marquee> </p>
         </div><a class="ps-noti__close"><i class="icon-cross"></i></a>
     </div>
     <div class="ps-header__top">
@@ -18,9 +18,9 @@
                         <li><a class="ps-social__link linkedin" href="{{$settings->twitter}}"><i class="fa fa-twitter"></i><span class="ps-tooltip">Twitter</span></a></li>
                     </ul>
                 </div>
-                <ul class="menu-top">
-                    <li class="nav-item"><a  class="nav-link   btn pl-3" style="color:#fff; background:#103178; font-weight:500"  href="{{route('user.prescription')}}"> UPLOAD PRESCRIPTION</a></li>
-                </ul>
+                <!--<ul class="menu-top">-->
+                <!--    <li class="nav-item"><a  class="nav-link   btn pl-3" style="color:#103178; background:#fff; border:1px solid #103178; font-weight:500"  href="{{route('user.prescription')}}"> UPLOAD PRESCRIPTION</a></li>-->
+                <!--</ul>-->
                 {{-- <div class="ps-header__text">Need help? <strong>{{$settings->site_phone}}</strong></div> --}}
             </div>
         </div>
@@ -60,8 +60,8 @@
                         {{-- @csrf --}}
                         <div class="ps-search-table" style="border-radius:5px">
                             <div class="input-group">
-                                <input class="form-control ps-input" name="q" type="text" placeholder="Search for products">
-                                <div class="input-group-append"></div> <button class="btn " style="background:#07631d; color:#fff" type="submit"> <span style="font-size: 15px"> Search </span></button>
+                                <input class="form-control ps-input" value="{{old('q')}}" name="q" type="text" placeholder="Search for products">
+                                <div class="input-group-append"></div> <button class="btn " style="background:##73c2fb; color:#000" type="submit"> <span style="font-size: 15px"> Search </span></button>
                             </div>
                         </div>
                     </form>

@@ -30,7 +30,7 @@
                                             <input type="file"name="image" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Change Image</label>
                                             </div>
-                                               <img src="{{$category->image_path}}" width="50px" height="50px">
+                                               <img src="{{asset('images/category/'.$category->image_path)}}" width="50px" height="50px">
                                             <small id="emailHelp" class="form-text text-muted">Change Category Image
                                             </small>
                                               @error('image')

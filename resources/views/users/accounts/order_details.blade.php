@@ -51,7 +51,7 @@
                                 <div class="ps-product__content" style="border-right:0px">
                                     <div class="ps-product__thumbnil" style="">
                                         <a class="ps-product__image" href="#">
-                                            <figure><img src="{{$order->image}}" style="width: 100px" alt="{{$order->image}}">
+                                            <figure><img src="{{asset('/images/products/'.$order->image)}}" style="width: 100px" alt="{{asset('/images/products/'.$order->image)}}">
                                             </figure>
                                         </a>
                                     </div>

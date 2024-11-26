@@ -47,7 +47,7 @@
                                               
                                             
                                                 <td>
-                                                    <a href="#"><img src="{{$sp->image_path}}" width="50px" height="50px"></a> 
+                                                    <a href="#"><img src="{{asset('images/category/'.$sp->image_path)}}" width="50px" height="50px"></a> 
                                                 </td>  
                                                 <td>
                                                     <a href="#">{{$sp->markup}}</a> 

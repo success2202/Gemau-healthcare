@@ -27,8 +27,8 @@ class RegisterUser {
     public function UserRegister($request){
         $pass = GenerateRef(10);
         $datas = [
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+            'first_name' => $request->name,
+            'last_name' => '',
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => hash::make($pass),
@@ -41,6 +41,7 @@ class RegisterUser {
         $data['city'] = $request->city;
         $data['state'] = $request->state;
         $data['country'] = $request->country;
+          $data['email'] = $request->email;
         $data['user_id'] = $user->id;
         $data['is_default'] = 1;
         $data['name'] = $user->first_name.''.$user->last_name;

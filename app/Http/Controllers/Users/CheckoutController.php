@@ -32,11 +32,10 @@ class CheckoutController extends Controller
     }
 
     public function Index($cartSession = null){
-        if(!auth::check()){
+    if(!auth::check()){
             $check = new RegisterUser;
            return  $check->viewCheckout();
         }
-
         if(count(\Cart::content()) <= 0 || empty(\Cart::content())){
             return redirect()->intended(route('users.index'));
         }
@@ -50,44 +49,43 @@ class CheckoutController extends Controller
             Session::flash('msg', 'Please add a shipping address before you can proceed');
             return redirect()->intended(route('users.account.address'));
         }
-        $states = ShipmentLocation::where('states', 'LIKE', ucfirst($address->state))->first();
-            if(isset($states)){
-        if(ucfirst(strtolower($states->states)) == 'Lagos'){  
-            $gidi = [
-                'location_to' => $address->city
-            ];
-            $response = $this->checkGidiRates($gidi);
-            if(isset($response['data']['result'])){
-            $shipping_fee = $response['data']['result'];
-            }
-        }else{
-            $naijaship = [
-                "destination" => $states->location,
-                "weight" => 0.5
-            ];
-            $response =  $this->checkNaijaRates($naijaship);  
-            if(isset($response['data']['fee'])){
-            $shipping_fee = $response['data']['fee'];
-            }
-        }
-        if($shipping_fee <= 0){
-            Session::flash('alert', 'error');
-            Session::flash('msg', 'Could not get shipping Fee, the address provided is wrong, please edit and try again');
-        }
+    //     $states = ShipmentLocation::where('states', 'LIKE', ucfirst($address->state))->first();
+    //         if(isset($states)){
+    //     if(ucfirst(strtolower($states->states)) == 'Lagos'){  
+    //         $gidi = [
+    //             'location_to' => $address->city
+    //         ];
+    //         $response = $this->checkGidiRates($gidi);
+    //         if(isset($response['data']['result'])){
+    //         $shipping_fee = $response['data']['result'];
+    //         }
+    //     }else{
+    //         $naijaship = [
+    //             "destination" => $states->location,
+    //             "weight" => 0.5
+    //         ];
+    //         $response =  $this->checkNaijaRates($naijaship);  
+    //         if(isset($response['data']['fee'])){
+    //         $shipping_fee = $response['data']['fee'];
+    //         }
+    //     }
+    //     if($shipping_fee <= 0){
+    //         Session::flash('alert', 'Pleae proceed to checkout');
+    //         Session::flash('msg', '');
+    //     }
         
-    }else{
-        Session::flash('alert', 'error');
-        Session::flash('msg', 'Network error occured, could not get shipping fee');
-    }
-
+    // }else{
+    //     Session::flash('alert', 'success');
+    //     Session::flash('msg', 'Please proceed to checkout');
+    // }
 
         $cart = Hashids::connection('products')->decode($cartSession);
         $check = CartItem::where(['user_id' => auth_user()->id, 'cartSession' => $cart])->first();
         if(!isset($check) || empty($check)){
             event(new CartItemsEvent($carts, $orderNo, $cartSession));
         }
-         $date['start'] = Carbon::now()->addDay(3);
-         $date['end'] = Carbon::now()->addDay(6);
+         $date['start'] = Carbon::now();
+         $date['end'] = Carbon::now()->addDay(1);
 
          
         return view('users.carts.checkout', $date)
@@ -98,6 +96,17 @@ class CheckoutController extends Controller
     }
 
     public function RegisterUser(Request $request){
+         $valid = Validator::make($request->all(), [
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+        ]);
+        if ($valid->fails()) {
+            Session::flash('alert', 'error');
+            Session::flash('message', $valid->errors()->first());
+            return redirect()->back()->withErrors($valid)->withInput($request->all());
+        }
         $userck = User::where('email', $request->email)->first();
         if($userck){
             Session::flash('alert', 'error');

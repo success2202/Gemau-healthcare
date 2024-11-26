@@ -6966,13 +6966,15 @@ textarea.form-control {
 
 .ps-promo .ps-promo__btn {
   display: inline-block;
-  background-color: #103178;
-  color: white;
+  /*background-color: #103178;*/
+  background-color:#73c2fb;
+  /*color: white;*/
+  color:#000;
   padding: 0px 25px;
   font-size: 14px;
   font-weight: 600;
   border-radius: 40px;
-  border: 1px solid #103178;
+  border: 1px solid #73c2fb;
   line-height: 26px;
 }
 
@@ -8430,7 +8432,8 @@ textarea.form-control {
 }
 
 .ps-delivery .ps-delivery__text {
-  color: #12a05c;
+  /*color: #12a05c;*/
+  color:#73c2fb;
   font-size: 22px;
   line-height: 26px;
   display: inline-flex;
@@ -8443,7 +8446,8 @@ textarea.form-control {
 }
 
 .ps-delivery .ps-delivery__more {
-  background-color: #12a05c;
+  /*background-color: #12a05c;*/
+  background-color:#73c2fb;
   border: 1px solid #12a05c;
   font-size: 18px;
   font-weight: 500;
@@ -11355,7 +11359,8 @@ textarea.form-control {
 }
 
 .ps-categogy--promo .ps-promo .ps-promo__btn {
-  background-color: #FD8D27;
+  /*background-color: #FD8D27;*/
+  background-color:#73c2fb;
   border-color: #FD8D27;
   font-size: 16px;
   padding: 7px 40px;
@@ -15914,7 +15919,8 @@ textarea.form-control {
 .ps-footer--address .ps-footer__title {
   display: none;
   margin-bottom: 20px;
-  color: #103178;
+  /*color: #103178;*/
+  color:#000;
   font-weight: 600;
   font-size: 18px;
   line-height: 26px;
@@ -16232,7 +16238,7 @@ textarea.form-control {
 }
 
 .ps-footer--5 .ps-footer--listpage .ps-footer__list a {
-  color: white;
+  color: #000;
 }
 
 .ps-footer--5 .ps-footer--bottom p, .ps-footer--5 .ps-footer__title, .ps-footer--5 .ps-footer__email {
@@ -16279,7 +16285,8 @@ textarea.form-control {
 }
 
 .ps-footer--5 .ps-footer--address .ps-social__link, .ps-footer--5 .ps-footer--address p {
-  color: #9babcd;
+  /*color: #9babcd;*/
+  color:#000;
 }
 
 .ps-footer--5 .ps-footer--newsletter p {
@@ -16362,7 +16369,7 @@ textarea.form-control {
 }
 
 .ps-footer--8 .ps-footer--contact .ps-footer__title, .ps-footer--8 .ps-footer--contact .ps-footer__fax {
-  color: white;
+  color: #000;
 }
 
 .ps-footer--8 .ps-footer--contact .ps-footer__work, .ps-footer--8 .ps-footer--contact .ps-footer__email {
@@ -16374,11 +16381,11 @@ textarea.form-control {
 }
 
 .ps-footer--8 .ps-footer--block .ps-block__title {
-  color: white;
+  color: #000;
 }
 
 .ps-footer--8 .ps-footer--block .ps-block__list li a {
-  color: white;
+  color: #000;
 }
 
 .ps-footer--9 .ps-footer--address .ps-logo img {

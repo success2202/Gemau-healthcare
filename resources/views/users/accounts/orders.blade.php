@@ -27,7 +27,7 @@
                             <div class="ps-product ps-product--list" style="border:2px solid #d1d5dad4; border-radius:10px; margin-top:15px">
                                 <div class="ps-product__content" style="border-right:0px">
                                     <div class="ps-product__thumbnail"><a class="ps-product__image" href="{{route('users.orders.details',$order->Order_no)}}">
-                                            <figure><img src="{{$order->image}}" alt="{{$order->image}}">
+                                            <figure><img src="{{asset('images/products/'.$order->image)}}" alt="{{asset('images/products/'.$order->image)}}">
                                             </figure>
                                         </a>
                                     </div>

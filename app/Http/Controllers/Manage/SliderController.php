@@ -34,9 +34,13 @@ class SliderController extends Controller
         ]);
 
        //dd(request()->file('images'));
-
+          $fileName = '';
         if($request->file('image')){
-            $fileName = $this->UploadImage($request, 'images/sliders');
+           $image = $request->file('image');
+            $ext = $image->getClientOriginalExtension();
+            $name = pathinfo($image, PATHINFO_FILENAME);
+            $fileName = $name.time().'.'.$ext;
+            $image->move('images/sliders/',$fileName);
     }
         $data = [
             'image_path' =>   $fileName,
@@ -66,6 +70,7 @@ class SliderController extends Controller
         $sl = Slider::where('id', decrypt($id))->first();
         
         if($request->file('image')){
+            //  $fileName = $this->ImagesNoResize($request, 'images/sliders');
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
             $name = pathinfo($image, PATHINFO_FILENAME);

@@ -85,6 +85,7 @@
 
                                                <div class="col-md-12">
                                   <div class="custom-file">
+                                      <img src="{{asset('images/products/'.$product->image_path)}}" alt="{{asset('images/products/'.$product->image_path)}}" width="100px" height="100px"> 
                                         <input type="file"name="image" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Choose Cover Image</label>
                                             </div>
@@ -93,12 +94,12 @@
                                               @error('image')
                                             <span class="invalid-feedback"> <small> *</small> </span>
                                             @enderror
-                                            <img src="{{$product->image_path}}" width="100px" height="100px"> 
+                                            <!--<img src="{{asset('images/products/'.$product->image_path)}}" width="100px" height="100px"> -->
                                       
                                          </div>
 
                                          
-                                               <div class="col-md-12">
+                                          {{---     <div class="col-md-12">
                                                 <div class="custom-file">
                                  
                                             <input type="file" name="images[]" multiple="" class="custom-file-input  @error('images') is-invalid @enderror" id="customFile">
@@ -117,7 +118,7 @@
                                     <img src="{{$img}}" width="100px" height="100px"> 
                                   @endforeach
                                     @endif
-                                         </div>
+                                         </div> ---}}
                                          <div class="col-md-6 pt-4">
                                           <div class="custom-file">
                                             <label  for="requires_prescription">

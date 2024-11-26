@@ -246,7 +246,14 @@ class SettingsController extends Controller
             'country' => $request->country,
         ];
         if($request->file('image')){
-          $data['site_logo'] = $this->ImagesNoResize($request,'images/');
+              $file = $request->file('image');
+                $name = $file->getClientOriginalName();
+                $FileName = \pathinfo($name, PATHINFO_FILENAME);
+                $ext = $file->getClientOriginalExtension();
+                $time = time() . $FileName;
+                $fileName = $time . '.' . $ext;
+                Image::make($request->file('image'))->save('images/'.$fileName);
+          $data['site_logo'] =  $fileName;
         }
         if($request->file('fav')){
                 $file = $request->file('fav');

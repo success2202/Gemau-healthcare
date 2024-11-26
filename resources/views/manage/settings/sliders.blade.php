@@ -26,14 +26,14 @@
                             <div class="slider-for">
                                
                                 <div class="slick-slide-item">
-                                    <img src="{{$ss->image_path}}" class="img-fluid" style="width:100%"
-                                         alt="{{$ss->image_path}}">
+                                    <img src="{{asset('images/sliders/'.$ss->image_path)}}" class="img-fluid" style="width:100%"
+                                         alt="{{asset('images/sliders/'.$ss->image_path)}}">
                                 </div>
                             </div>
                             <div class="slider-nav">
                               
                                 <div class="slick-slide-item">
-                                    <img src="{{$ss->image_path}}" class="img-fluid" alt="{{$ss->image_path}}">
+                                    <img src="{{asset('images/sliders/'.$ss->image_path)}}" class="img-fluid" alt="{{asset('images/sliders/'.$ss->image_path)}}">
                                 </div>
                             </div>
                             <div data-label="Slider Title Text" class="demo-code-preview">

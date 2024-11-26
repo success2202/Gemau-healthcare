@@ -1,4 +1,4 @@
-<div class="ps-navigation">
+<div class="ps-navigation" style="background:aliceblue; border-top:1px solid #e4e8ee; border-bottom:1px solid #e4e8ee ">
     <div class="container">
         <div class="ps-navigation__left">
             <nav class="ps-main-menu" >

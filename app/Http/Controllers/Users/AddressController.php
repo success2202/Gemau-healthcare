@@ -46,13 +46,14 @@ class AddressController extends Controller
     }
 
     public function storeAddress(Request $req){
+
             $valid = Validator::make($req->all(), [
                 'name' => 'required',
                 'phone' => 'required',
                 'address' => 'required',
-                'city' => 'required',
-                'country' => 'required',
-                'state' => 'required'
+                'city' => 'nullable',
+                'country' => 'nullable',
+                'state' => 'nullable'
             ]);
             if($valid->fails()){ 
         return back()->withInput($req->all())->withErrors($valid);
