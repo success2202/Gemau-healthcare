@@ -39,8 +39,12 @@ Route::controller(AddressController::class)->group(function(){
     Route::post('/checkout/address/store', 'StoreAddress')->name('storeAddress');
 });
 
-Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('paystack.checkout');
-Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
+
+Route::get('/payment/callback', [PaymentController::class, 'handlePaystackCallback']);
+Route::post('/checkout/payment', [PaymentController::class, 'InitiatePayment'])->name('payment.checkout');
+Route::get('flutter/callback', [PaymentController::class, 'handleFlutterCallback'])->name('flutter.callback');
+
+
 
 
 Route::controller(UserController::class)->group(function(){

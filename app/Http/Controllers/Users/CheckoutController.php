@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\RegMail;
 use App\Traits\CalculateShipping;
 use Carbon\Carbon;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CheckoutController extends Controller
 {
@@ -36,10 +37,10 @@ class CheckoutController extends Controller
             $check = new RegisterUser;
            return  $check->viewCheckout();
         }
-        if(count(\Cart::content()) <= 0 || empty(\Cart::content())){
+        if(count(Cart::content()) <= 0 || empty(Cart::content())){
             return redirect()->intended(route('users.index'));
         }
-        $carts = \Cart::content();
+        $carts = Cart::content();
         $shipping_fee = 0;
         $orderNo = rand(111111111,999999999);
 
@@ -49,6 +50,7 @@ class CheckoutController extends Controller
             Session::flash('msg', 'Please add a shipping address before you can proceed');
             return redirect()->intended(route('users.account.address'));
         }
+    
     //     $states = ShipmentLocation::where('states', 'LIKE', ucfirst($address->state))->first();
     //         if(isset($states)){
     //     if(ucfirst(strtolower($states->states)) == 'Lagos'){  
@@ -87,7 +89,6 @@ class CheckoutController extends Controller
          $date['start'] = Carbon::now();
          $date['end'] = Carbon::now()->addDay(1);
 
-         
         return view('users.carts.checkout', $date)
         ->with('carts', $carts)
         ->with('address', $address)

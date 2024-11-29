@@ -42,6 +42,10 @@ return [
     'debug' => (bool) env('APP_DEBUG', false),
     'GIDIAPIKey'=> env('GIDIAPIKey'),
 
+    'Flutter_PUBLIC_KEY' => env('Flutter_PUBLIC_KEY', ''),
+    'Flutter_SECRET_KEY' => env('Flutter_SECRET_KEY', ''),
+    'Flutter_ENCRYPTION_KEY' => env('Flutter_ENCRYPTION_KEY', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL

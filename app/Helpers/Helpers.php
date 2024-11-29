@@ -1,9 +1,33 @@
 <?php
 
+use App\Models\CountryCurrency;
+use Flutterwave\Util\Currency;
 use Vinkla\Hashids\Facades\Hashids;
+use GuzzleHttp\Client;
+
+
+if(!function_exists('ClientRequest'))
+{
+    function ClientRequest($method, $url, $data,$token)
+    {
+        $client = new Client();
+        $res = $client->request($method, $url, [
+            'headers' => [
+                'Authorization' => 'Bearer '.$token,
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ],
+            $data
+        ]
+    );
+    $response = json_decode($res->getBody(), true);
+    return $response;
+    }
+}
+
+
 
 if(!function_exists('trimInput')){
-
     function trimInput($input){
         return str_replace(['/', ' ','*', '+', '=', '<', '>', '&', '^', '%', '$', '#', '@', '!', '[', ']', ], '', $input);
     }
@@ -13,6 +37,7 @@ if(!function_exists('moneyFormat')){
     function moneyFormat($currency){
         return '₦'.number_format($currency);
     }
+}
 
 if(!function_exists('auth_user')){
 
@@ -35,7 +60,7 @@ if(!function_exists('shippingBase')){
     function shippingBase($param = null){
         return 'https://api.jand2gidi.com.ng/api/v1/'.$param;
     }
-
+}
 
 if(!function_exists('moneyFormat')){
     function moneyFormat($data){
@@ -61,27 +86,72 @@ if(!function_exists('decodeHashid')){
 }
 
 if(!function_exists('convertPercent')){
-
     function convertPercent($number, $percent){
         return ($number*$percent)/100;
     }
 }
 
 
+function getUserLocationData()
+{
+// $getIP = request()->ip();  
+$getIP = '204.14.73.207';
+$url = "ipinfo.io/$getIP?token=882a5aae24fada";
+return curlRequest($url);
 }
 
 
+function updateExchangeRate()
+{
+    $url = "https://v6.exchangerate-api.com/v6/07fb10ee70b2af7ed9f0d8a9/latest/NGN";
+return curlRequest($url);
+}
+if(!function_exists('getCountryCurrency'))
+{
+  function  getCountryCurrency()
+    {
+        $currencyMap = [
+            'NG' => 'NGN',  
+            'US' => 'USD',  
+            'UG' => 'UGX',  
+            'KE' => 'KES',  
+            'ZA' => 'ZAR',  
+            'ZM' => 'ZMW',  
+            'GH' => 'GHS',  
+            'TZ' => 'TZS',  
+            'RW' => 'RWF',  
+            'CM' => 'XAF',  
+            'SN' => 'XOF',  
+            'EG' => 'EGP',  
+            'GB' => 'GBP',  
+            'FR' => 'EUR', 
+            'DE' => 'EUR'   
+        ];
+         
+        foreach($currencyMap as $ss => $value)
+        {
+            CountryCurrency::create([
+                'country' => $ss,
+                'currency' => $value
+            ]);
+        }
+       return $currencyMap;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+   function curlRequest($url)
+   {
+  
+    $curl = curl_init();
+   curl_setopt_array($curl, [
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => [
+        'Content-Type: application/json'
+    ]
+    ]);
+    $resp = curl_exec($curl);
+    $url_close = curl_close($curl);
+    $res = json_decode($resp, true);
+    return $res;
+   }
 }

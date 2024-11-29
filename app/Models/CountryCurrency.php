@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Model
+class CountryCurrency extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'user_id', 'order_id', 'payment_ref', 'external_ref', 'status', 'payable', 'channel'
+        'country','currency','exchange_rate','last_updated'
     ];
 }

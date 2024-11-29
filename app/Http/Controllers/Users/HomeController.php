@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\CountryCurrency;
 use App\Models\Product;
+use Carbon\Carbon;
 use Vinkla\Hashids\Facades\Hashids;
 
 class HomeController extends Controller
@@ -21,6 +23,20 @@ class HomeController extends Controller
      
     public function __invoke(Request $request)
     {
+
+    //     $ss =   getUserLocationData();
+    //   $sss =   updateExchangeRate();
+    //   $data = CountryCurrency::pluck('currency');
+    //   $data =  $data->toArray();
+    //   foreach($sss['conversion_rates'] as $rates => $value)
+    //   {
+    //     if(in_array($rates, $data))
+    //     {
+    //         $currency = CountryCurrency::where('currency', $rates)->first();
+    //         $currency->update(['exchange_rate' => $value, 'last_updated' => Carbon::now()]);
+    //     }
+    //   }
+    
         $slider = Slider::latest()->get();
         $data['latest'] = Product::latest()->inRandomOrder()->take(6)->get();
         $data['topProducts1'] = Product::orderBy('views', 'DESC')->take(6)->get();

@@ -31,6 +31,7 @@
                                                   <th>Payment Method</th>
                                                 <th>Amount</th>
                                                 <th>Payment Status</th>
+                                                <th>Channel</th>
                                                 <th>Completion Status</th>
                                                  <th>Created At</th>
                                                  <th> &nbsp; &nbsp; &nbsp;&nbsp; </th>
@@ -58,6 +59,9 @@
                                                  <td>
                                                     @if($sp->is_paid == 1) <span  class="badge badge-success">Paid</span> @else <span type="span" class="badge badge-light">Pending</span> @endif</a>
                                                 </td> 
+                                                <td>
+                                                    <a href="#">{{$sp->channel}}</a>
+                                                </td>
                                                 <td>
                                                 <a href="#">@if($sp->is_delivered == 1) <span  class="badge badge-info">Initiated</span>
                                                     @elseif($sp->is_delivered == 2) <span  class="badge badge-primary">Dispatched</span>
