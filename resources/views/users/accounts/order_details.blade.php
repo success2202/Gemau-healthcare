@@ -61,7 +61,6 @@
                                             <a style="color:#201c1c">Order: {{isset($order->Order_no)?$order->Order_no:null}}</a><br>
                                             <a style="color:#1c1818">QTY:  {{isset($order->qty)?$order->qty:null}}</a><br>
                                             {{isset($order->payable)?moneyFormat($order->payable,2):null}}
-                                            {{isset($order->channel)?$order->channel:null}}
                                         </p>
                                     </div>
                                 </div>
@@ -100,6 +99,8 @@
                                                 <li> <span class="ps-list__title"> </span>Delivery Fee: {{isset($delivery->fee)?moneyFormat($delivery->fee):moneyFormat('0')}}
                                             </li>
                                                 <li> <span class="ps-list__title"> </span>Payment Ref: {{isset($order->payment_ref)?$order->payment_ref:null}}
+                                            </li>
+                                            <li> <span class="ps-list__title"> </span>Payment Channel: {{isset($order->channel)?$order->channel:null}}
                                             </li>
                                             </ul>
                                         </div>

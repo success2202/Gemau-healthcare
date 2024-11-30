@@ -36,6 +36,7 @@
                                         <p class="ps-product__tite" style="font-size:16px; color:#262525">
                                             <a class="ps-product__branch" href="{{route('users.orders.details',$order->Order_no)}}">{{$order->product_name}}</a><br>
                                             <a href="{{route('users.orders.details',$order->hashid)}}" style="color:#5e5b5b">Order: {{$order->Order_no}}</a><br>
+                                            <a href="{{route('users.orders.details',$order->hashid)}}" style="color:#5e5b5b">Channel: {{$order->channel}}</a><br>
                                             {{moneyFormat($order->payable,2)}}</span> <br>
                                             @if($order->dispatch_status == 1) <span class="badge badge-success"> delivered</span>
                                             @elseif($order->dispatch_status == 0) <span class="badge badge-info"> Awaiting Confirmation</span> 
