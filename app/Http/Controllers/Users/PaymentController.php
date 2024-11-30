@@ -29,7 +29,7 @@ class PaymentController extends Controller
 
 
      public function __construct(
-        public readonly paymentInterface $paymentService
+        public readonly paymentInterface $paymentServic
      )
      {
         
@@ -37,7 +37,7 @@ class PaymentController extends Controller
 
      public function InitiatePayment(PaymentRequest $request)
      {
-        return $this->paymentService->InitiatePayment($request);
+        return $this->paymentServic->InitiatePayment($request);
      }
 
     /**
@@ -48,7 +48,7 @@ class PaymentController extends Controller
     {
         try{
         $paymentDetails = Paystack::getPaymentData();
-        $this->paymentService->HanglePaystackPayment($paymentDetails);
+        $this->paymentServic->HanglePaystackPayment($paymentDetails);
         Session::flash('alert', 'success');
         Session::flash('msg', 'Order completed successfully');
         return redirect(route('users.orders'));
@@ -64,7 +64,7 @@ class PaymentController extends Controller
     public function handleFlutterCallback(Request $request)
     {
         try{
-           $res = $this->paymentService->ProcessFlutterPayment($request);
+           $res = $this->paymentServic->ProcessFlutterPayment($request);
         Session::flash('alert', 'success');
         Session::flash('msg', 'Order completed successfully');
         return redirect(route('users.orders'));
