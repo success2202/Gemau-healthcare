@@ -92,7 +92,7 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'channel' => 'Paystack'
             ]);
             $ref = GenerateRef(10);
-            $this->storePaymentInfo($order_no, $request, $ref);
+            $this->storePaymentInfo($order_no, $request, $ref, 'Paystack');
             if($orders->shipping_method == 'home_delivery'){
            event(new OrderShipment($address, $order_no));
             }
@@ -118,7 +118,7 @@ class paymentServices extends baseFuncs implements paymentInterface
             'is_paid' => 1,
             'channel' => 'Flutterwave'
         ]);
-            $this->storePaymentInfo($order_no, $res['data'], $ref);
+            $this->storePaymentInfo($order_no, $res['data'], $ref, 'Flutterwave');
             if($orders->shipping_method == 'home_delivery'){
                 event(new OrderShipment($address, $order_no));
                  }

@@ -49,7 +49,7 @@ class baseFuncs
     }
 
 
-    public function storePaymentInfo($order_no, $request, $ref)
+    public function storePaymentInfo($order_no, $request, $ref, $channel)
     {
             
         Payment::create([
@@ -58,6 +58,7 @@ class baseFuncs
             'payment_ref' => $ref, 
             'external_ref' => $request['reference']??$request['flw_ref'], 
             'status' => 1, 
+            'channel' => $channel,
             'payable' => ($request['amount'])
         ]);
     }
