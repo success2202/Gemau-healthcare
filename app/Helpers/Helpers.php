@@ -106,6 +106,8 @@ function updateExchangeRate()
     $url = "https://v6.exchangerate-api.com/v6/07fb10ee70b2af7ed9f0d8a9/latest/NGN";
 return curlRequest($url);
 }
+
+
 if(!function_exists('getCountryCurrency'))
 {
   function  getCountryCurrency()
