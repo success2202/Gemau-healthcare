@@ -68,7 +68,7 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'title' => 'payment for services'
             ]
         ];
-        dd( $data);
+        // dd( $data);
        $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments',$data);
             if ($res['status'] === 'success') {
                 Parent::createOrder($request);
