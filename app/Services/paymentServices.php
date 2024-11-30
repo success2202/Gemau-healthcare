@@ -50,7 +50,7 @@ class paymentServices extends baseFuncs implements paymentInterface
        
         // dd($userData);
         $currency = CountryCurrency::where('country', $userData['country'])->first();
-        //  dd($currency);
+          dd($currency);
         $txRef = 'TX-' . time();
         // dd($currency->exchange_rate);
         $data = [
