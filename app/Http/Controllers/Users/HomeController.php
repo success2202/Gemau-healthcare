@@ -23,6 +23,7 @@ class HomeController extends Controller
      
     public function __invoke(Request $request)
     {
+        getCountryCurrency();
 
     //     $ss =   getUserLocationData();
     //   $sss =   updateExchangeRate();
