@@ -27,12 +27,10 @@ class PaymentController extends Controller
      * @return Url
      */
 
-
-     public function __construct(
-        public readonly paymentInterface $paymentServic
-     )
+     public $paymentServic;
+     public function __construct()
      {
-        
+        $this->paymentServic = new paymentInterface;
      }
 
      public function InitiatePayment(PaymentRequest $request)
