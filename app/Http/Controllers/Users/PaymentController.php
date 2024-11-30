@@ -28,9 +28,9 @@ class PaymentController extends Controller
      */
 
      public $paymentServic;
-     public function __construct()
+     public function __construct(paymentInterface $paymentServic)
      {
-        $this->paymentServic = new paymentInterface;
+        $this->paymentServic = $paymentServic;
      }
 
      public function InitiatePayment(PaymentRequest $request)
