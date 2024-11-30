@@ -53,7 +53,7 @@ class paymentServices extends baseFuncs implements paymentInterface
         //   dd($currency);
         $txRef = 'TX-' . time();
         // dd($currency->exchange_rate);
-        dd(request->amount*$currency->exchange_rate);
+        dd($request->amount*$currency->exchange_rate);
         $data = [
             'tx_ref' =>  $txRef,
             'amount' => number_format($request->amount*$currency->exchange_rate),
