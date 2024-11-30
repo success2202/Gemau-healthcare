@@ -25,18 +25,18 @@ class HomeController extends Controller
     {
         // getCountryCurrency();
 
-        $ss =   getUserLocationData();
-      $sss =   updateExchangeRate();
-      $data = CountryCurrency::pluck('currency');
-      $data =  $data->toArray();
-      foreach($sss['conversion_rates'] as $rates => $value)
-      {
-        if(in_array($rates, $data))
-        {
-            $currency = CountryCurrency::where('currency', $rates)->first();
-            $currency->update(['exchange_rate' => $value, 'last_updated' => Carbon::now()]);
-        }
-      }
+    //     $ss =   getUserLocationData();
+    //   $sss =   updateExchangeRate();
+    //   $data = CountryCurrency::pluck('currency');
+    //   $data =  $data->toArray();
+    //   foreach($sss['conversion_rates'] as $rates => $value)
+    //   {
+    //     if(in_array($rates, $data))
+    //     {
+    //         $currency = CountryCurrency::where('currency', $rates)->first();
+    //         $currency->update(['exchange_rate' => $value, 'last_updated' => Carbon::now()]);
+    //     }
+    //   }
     
         $slider = Slider::latest()->get();
         $data['latest'] = Product::latest()->inRandomOrder()->take(6)->get();
