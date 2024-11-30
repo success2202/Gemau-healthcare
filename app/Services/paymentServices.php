@@ -51,7 +51,7 @@ class paymentServices extends baseFuncs implements paymentInterface
         // dd($userData);
         $currency = CountryCurrency::where('country', $userData['country'])->first();
         //   dd($currency);
-        $txRef = 'TX-' . time();
+        $txRef = 'SNL-' . time();
         // dd($currency->exchange_rate);
         // dd($request->amount*$currency->exchange_rate);
         $data = [
@@ -69,10 +69,9 @@ class paymentServices extends baseFuncs implements paymentInterface
             ]
         ];
         // dd( $data);
+        Parent::createOrder($request);
        $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments',$data);
             if ($res['status'] === 'success') {
-                Parent::createOrder($request);
-        
                 Session::put('order_No', $request->orderNo);
                 Session::put('amount',$request->amount);
                 return redirect($res['data']['link'])
