@@ -47,14 +47,17 @@ class paymentServices extends baseFuncs implements paymentInterface
 
     public function initiateFlutterCheckout($request)
     {
+        try{
         $userData =   getUserLocationData();
        $settins = Setting::first();
         // dd($userData);
+
         $currency = CountryCurrency::where('country', $userData['country'])->first();
         //   dd($currency);
         $txRef = 'SNL-' . time();
         // dd($currency->exchange_rate);
         // dd($request->amount*$currency->exchange_rate);
+        
         $data = [
             'tx_ref' =>  $txRef,
             'amount' => isset($currency->exchange_rate)?$request->amount*$currency->exchange_rate:$request->amount,
@@ -75,15 +78,16 @@ class paymentServices extends baseFuncs implements paymentInterface
         Parent::createOrder($request);
        $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments',$data);
    
-            if (isset($res) && $res['status'] === 'success') {
+            // if (isset($res) && $res['status'] === 'success') {
                 Session::put('order_No', $request->orderNo);
                 Session::put('amount',$request->amount);
                 return redirect($res['data']['link'])
                 ->header('Content-Type', 'text/html');
-            }
+            }catch(\Exception $e){
             Session::flash('alert', 'error');
-            Session::flash('msg', 'Unable to initialize payment');
+            Session::flash('msg', 'Unable to initialize payment'.$e->getMessage());
             return back()->with('error', 'Unable to initialize payment');
+            }
     }
 
     public function HanglePaystackPayment($request){
