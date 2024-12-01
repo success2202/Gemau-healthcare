@@ -71,7 +71,7 @@ class paymentServices extends baseFuncs implements paymentInterface
             ],
             'customizations' => [
                 'title' => 'SANLIVE PHARMACY',
-                'logo' => $settins->site_logo
+                'logo' => 'https://sanlivepharmacy.com/images/1730996017Untitled%20design%20(2).png'
             ]
         ];
         dd( $data);
