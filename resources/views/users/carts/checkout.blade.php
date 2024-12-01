@@ -174,7 +174,7 @@
                         </div>
                         <div class="ps-shopping__row">
                             <div class="ps-shopping__label" >Delivery Fee</div>
-                            <div class="ps-shopping__price" id="fee">{{moneyFormat(0)}}</div>
+                            <div class="ps-shopping__price" id="fee">{{moneyFormat($shipping_fee)}}</div>
                             
                         </div>
                         <div class="ps-shopping__row">

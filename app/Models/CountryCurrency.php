@@ -10,6 +10,6 @@ class CountryCurrency extends Model
     use HasFactory;
 
     protected $fillable = [
-        'country','currency','exchange_rate','last_updated'
+        'country','currency','exchange_rate','last_updated', 'shipping_fee'
     ];
 }

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Services\RegisterUser;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegMail;
+use App\Models\CountryCurrency;
 use App\Traits\CalculateShipping;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -40,8 +41,10 @@ class CheckoutController extends Controller
         if(count(Cart::content()) <= 0 || empty(Cart::content())){
             return redirect()->intended(route('users.index'));
         }
+        $userData =   getUserLocationData();
+        $currency = CountryCurrency::where('country', $userData['country'])->first();
         $carts = Cart::content();
-        $shipping_fee = 0;
+        $shipping_fee = $currency['shipping_fee'];
         $orderNo = rand(111111111,999999999);
 
         $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' =>1])->first();
