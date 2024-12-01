@@ -57,9 +57,9 @@ class paymentServices extends baseFuncs implements paymentInterface
         $data = [
             'tx_ref' =>  $txRef,
             'amount' => isset($currency->exchange_rate)?$request->amount*$currency->exchange_rate:$request->amount,
-            'currency' => $currency->currency??'NGN',
-            // 'redirect_url' => url('flutter/callback'),
-            'redirect_url' => 'https://api.flutterwave.com/v3/payments',
+            'currency' => $currency->currency??'USD',
+            'redirect_url' => url('flutter/callback'),
+            // 'redirect_url' => 'https://api.flutterwave.com/v3/payments',
             'customer' => [
                 'email' => auth_user()->email,
                 'name' => auth_user()->first_name.' '.auth_user()->first_name,

@@ -43,10 +43,13 @@ class CheckoutController extends Controller
         }
         $userData =   getUserLocationData();
         $currency = CountryCurrency::where('country', $userData['country'])->first();
+        if($currency){
+            $shipping_fee = $currency['shipping_fee'];
+        }else{
+            $shipping_fee = '65000';
+        }
         $carts = Cart::content();
-        $shipping_fee = $currency['shipping_fee'];
         $orderNo = rand(111111111,999999999);
-
         $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' =>1])->first();
         if(!isset($address)){
             Session::flash('alert', 'error');
