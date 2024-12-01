@@ -94,8 +94,8 @@ if(!function_exists('convertPercent')){
 
 function getUserLocationData()
 {
-$getIP = request()->ip();  
-// $getIP = '41.210.11.223';
+// $getIP = request()->ip();  
+$getIP = '41.210.11.223';
 $url = "ipinfo.io/$getIP?token=882a5aae24fada";
 return curlRequest($url);
 }

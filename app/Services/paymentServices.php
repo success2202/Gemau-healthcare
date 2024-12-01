@@ -7,6 +7,7 @@ use App\Interfaces\paymentInterface;
 use App\Mail\OrderMail;
 use App\Models\CountryCurrency;
 use App\Models\Order;
+use App\Models\Setting;
 use App\Models\ShippingAddress;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Mail;
@@ -47,7 +48,7 @@ class paymentServices extends baseFuncs implements paymentInterface
     public function initiateFlutterCheckout($request)
     {
         $userData =   getUserLocationData();
-       
+       $settins = Setting::first();
         // dd($userData);
         $currency = CountryCurrency::where('country', $userData['country'])->first();
         //   dd($currency);
@@ -66,19 +67,22 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'phonenumber' => auth_user()->phone
             ],
             'customizations' => [
-                'title' => 'payment for services'
+                'title' => 'SANLIVE PHARMACY',
+                'logo' => $settins->site_logo
             ]
         ];
         // dd( $data);
         Parent::createOrder($request);
        $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments',$data);
    
-            if ($res['status'] === 'success') {
+            if (isset($res) && $res['status'] === 'success') {
                 Session::put('order_No', $request->orderNo);
                 Session::put('amount',$request->amount);
                 return redirect($res['data']['link'])
                 ->header('Content-Type', 'text/html');
             }
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'Unable to initialize payment');
             return back()->with('error', 'Unable to initialize payment');
     }
 
