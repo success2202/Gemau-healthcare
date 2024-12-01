@@ -83,7 +83,7 @@ class baseFuncs
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => json_encode($jsonBody),
             CURLOPT_HTTPHEADER => [
-                'Authorization: Bearer FLWSECK_TEST-2c31ca0192d3fa862de72787586c81ff-X', 
+                'Authorization: Bearer '.getenv('Flutter_SECRET_KEY'), 
                 'Content-Type: application/json'
             ]
         ]);
@@ -102,7 +102,7 @@ public function flutterwaveVerify($trnx)
         CURLOPT_URL => $url,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer FLWSECK_TEST-2c31ca0192d3fa862de72787586c81ff-X",
+            "Authorization: Bearer ".getenv('Flutter_SECRET_KEY'), 
             "Content-Type: application/json"
         ]
     ]);
