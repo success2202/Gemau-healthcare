@@ -74,7 +74,7 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'logo' => 'https://sanlivepharmacy.com/images/1730996017Untitled%20design%20(2).png'
             ]
         ];
-        dd( $data);
+        // dd( $data);
         Parent::createOrder($request);
        $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments',$data);
    
