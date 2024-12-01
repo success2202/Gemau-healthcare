@@ -74,7 +74,7 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'logo' => $settins->site_logo
             ]
         ];
-        // dd( $data);
+        dd( $data);
         Parent::createOrder($request);
        $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments',$data);
    
@@ -85,7 +85,7 @@ class paymentServices extends baseFuncs implements paymentInterface
                 ->header('Content-Type', 'text/html');
             }catch(\Exception $e){
             Session::flash('alert', 'error');
-            Session::flash('msg', 'Unable to initialize payment'.$e->getMessage());
+            Session::flash('msg', 'Unable to initialize payment '.$e->getMessage());
             return back()->with('error', 'Unable to initialize payment');
             }
     }
