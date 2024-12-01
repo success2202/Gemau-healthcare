@@ -88,6 +88,7 @@ class baseFuncs
             ]
         ]);
         $response = curl_exec($curl);
+        dd( $response);
         $error = curl_error($curl);
         curl_close($curl);
         $res = json_decode($response, true);
