@@ -162,7 +162,8 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'products_name' =>  $product_name,
                 'payment_ref' =>  $txRef,
                 'name' => $request->name,
-                'subject' => 'Order Payment Link'
+                'subject' => 'Order Payment Link',
+                'currency' => $request->currency
                 ];
                 $paymantData = (object) $paymantData;
            $payments =  $this->createPayment($request, $paymantData);
@@ -218,7 +219,7 @@ class paymentServices extends baseFuncs implements paymentInterface
             'name' => $request->name,
             'email' => $request->email,
             'amount' => $paymantData->amount,
-            'products_name' => json_encode($paymantData->products_name),
+            'products_name' => json_encode(json_encode($paymantData->products_name)),
             'payment_ref' => $paymantData->payment_ref,
             'currency' => $request->currency,
             'payment_status' => 'pending',

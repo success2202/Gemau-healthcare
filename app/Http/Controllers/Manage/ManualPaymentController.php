@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ManualPaymentEmail;
 use App\Models\CountryCurrency;
 use App\Models\ManualPayment;
 use App\Models\Product;
 use App\Services\paymentServices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class ManualPaymentController extends Controller
@@ -49,5 +51,21 @@ class ManualPaymentController extends Controller
         Session::flash('message', 'Something went wrong');
         return redirect()->intended(route('admin.create.payments'));
         
+    }
+
+    public function SendEmail(Request $request)
+    {
+        try{
+        $paymantData = ManualPayment::where('id', $request->payment_id)->first();
+        Mail::to('mikkynoble@gmail.com')->send(new ManualPaymentEmail($paymantData));
+        Session::flash('alert', 'success');
+        Session::flash('message', 'Payment Information sent to user email');
+        return back();
+        }catch(\Exception $e)
+        {
+            Session::flash('alert', 'error');
+            Session::flash('message', $e->getMessage());
+            return back();
+        }
     }
 }

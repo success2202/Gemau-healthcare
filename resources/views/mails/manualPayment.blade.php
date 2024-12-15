@@ -31,33 +31,37 @@
                                 <tr>
                                     <td width="150">Amount</td>
                                     <td width="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                                    <td>{{ $data->amount }}</td>
+                                    <td> {{$data->currency}} {{ $data->amount }}</td>
                                 </tr>
                                 <tr>
                                     <td width="150">Products</td>
                                     <td width="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
                                     <td>
-                                     @php 
-                                     if(is_array($data->products_name))
-                                     {
-                                        foreach($data->products_name as $items)
+                                     @php       
+                                     $prod = json_decode($sp->products_name,true);
+                                    $x = 1;
+                                        foreach($prod as $items)
                                         {
-                                            echo $items;
+                                            echo '<strong>'.$x.':</strong> '.$items .'<br>';
 
+                                            $x++;
                                         }
-                                     }
-                                     @endphp
-                                    </td>
+                                    
+                                    @endphp
                                 </tr>
                                 <tr>
-                                    <p>To Visit the payment link, <a href="{{$data->payment_link}}" class="btn btn-primary" target="_blank">Click Here</a> OR copy the link below and paste on a browser</p>
-                                    <p>{{$data->payment_link}}</p>
+                                    <td>  
+                                    </td>
+                                   
                                 </tr>
                     </tbody>
         </table>
+        <p>To Visit the payment link, <a href="{{$data->payment_link}}" class="btn btn-primary" target="_blank">Click Here</a> OR copy the link below and paste on a browser</p>
+                                        <p>{{$data->payment_link}}</p>
                     <table style="width:100%;max-width:620px;margin:0 auto">
 
         <tbody>
+
         <tr>
             <td style="text-align:center;padding:25px 20px 0">
                 <p style="font-size:13px">{{$settings->site_name}} © {{Date('Y')}}.</p>
