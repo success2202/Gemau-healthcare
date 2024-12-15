@@ -107,7 +107,6 @@ public function flutterwaveVerify($trnx)
             "Content-Type: application/json"
         ]
     ]);
-
     $response = curl_exec($curl);
     curl_close($curl);
     if ($response) {
@@ -118,4 +117,6 @@ public function flutterwaveVerify($trnx)
         return false;
     }
 }
+
+
 }

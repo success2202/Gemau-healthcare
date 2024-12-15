@@ -47,7 +47,14 @@
                  <li><a href="{{route('admin.orders')}}">View Orders</a></li>
              </ul>
          </li>
-
+         <li>
+            <a  href="" data-toggle="tooltip" data-placement="right" title="View and Manage Sales"
+            data-nav-target="#dashboards">
+            <i class="fa fa-line-chart"></i>&nbsp;Manual Payment</a>
+             <ul>
+                 <li><a href="{{route('admin.manual.payments')}}"> View Payments </a></li>
+             </ul>
+         </li>
          
          <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Blogs"

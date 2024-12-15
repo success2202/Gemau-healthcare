@@ -1,21 +1,26 @@
-<?php 
+<?php
 
 namespace App\Services;
 
 use App\Events\OrderShipment;
 use App\Interfaces\paymentInterface;
+use App\Mail\ManualPaymentEmail;
 use App\Mail\OrderMail;
 use App\Models\CountryCurrency;
+use App\Models\ManualPayment;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\Setting;
 use App\Models\ShippingAddress;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use stdClass;
 use Unicodeveloper\Paystack\Facades\Paystack;
 
-class paymentServices extends baseFuncs implements paymentInterface 
+class paymentServices extends baseFuncs implements paymentInterface
 {
 
     public function InitiatePayment($request)
@@ -38,78 +43,78 @@ class paymentServices extends baseFuncs implements paymentInterface
         );
         Parent::createOrder($req);
         Session::put('order_No', $req->orderNo);
-        Session::put('amount',$req->amount);
-       $shippingInfo = $this->getAddress($req);
-        Mail::to(auth()->user()->email)->send( new OrderMail($shippingInfo));
-      return Paystack::getAuthorizationUrl($data)->redirectNow();
-
+        Session::put('amount', $req->amount);
+        $shippingInfo = $this->getAddress($req);
+        Mail::to(auth()->user()->email)->send(new OrderMail($shippingInfo));
+        return Paystack::getAuthorizationUrl($data)->redirectNow();
     }
 
     public function initiateFlutterCheckout($request)
     {
-        try{
-        $userData =   getUserLocationData();
-       $settins = Setting::first();
-        // dd($userData);
+        try {
+            $userData =   getUserLocationData();
+            $settins = Setting::first();
+            // dd($userData);
 
-        $currency = CountryCurrency::where('country', $userData['country'])->first();
-        //   dd($currency);
-        $txRef = 'SNL-' . time();
-        // dd($currency->exchange_rate);
-        // dd($request->amount*$currency->exchange_rate);
-        
-        $data = [
-            'tx_ref' =>  $txRef,
-            'amount' => isset($currency->exchange_rate)?$request->amount*$currency->exchange_rate:$request->amount,
-            'currency' => $currency->currency??'USD',
-            'redirect_url' => url('flutter/callback'),
-            // 'redirect_url' => 'https://api.flutterwave.com/v3/payments',
-            'customer' => [
-                'email' => auth_user()->email,
-                'name' => auth_user()->first_name.' '.auth_user()->first_name,
-                'phonenumber' => auth_user()->phone
-            ],
-            'customizations' => [
-                'title' => 'SANLIVE PHARMACY',
-                'logo' => 'https://sanlivepharmacy.com/images/1730996017Untitled%20design%20(2).png'
-            ]
-        ];
-        // dd( $data);
-        Parent::createOrder($request);
-       $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments',$data);
-   
+            $currency = CountryCurrency::where('country', $userData['country'])->first();
+            //   dd($currency);
+            $txRef = 'SNL-' . time();
+            // dd($currency->exchange_rate);
+            // dd($request->amount*$currency->exchange_rate);
+
+            $data = [
+                'tx_ref' =>  $txRef,
+                'amount' => isset($currency->exchange_rate) ? $request->amount * $currency->exchange_rate : $request->amount,
+                'currency' => $currency->currency ?? 'USD',
+                'redirect_url' => url('flutter/callback'),
+                // 'redirect_url' => 'https://api.flutterwave.com/v3/payments',
+                'customer' => [
+                    'email' => auth_user()->email,
+                    'name' => auth_user()->first_name . ' ' . auth_user()->first_name,
+                    'phonenumber' => auth_user()->phone
+                ],
+                'customizations' => [
+                    'title' => 'SANLIVE PHARMACY',
+                    'logo' => 'https://sanlivepharmacy.com/images/1730996017Untitled%20design%20(2).png'
+                ]
+            ];
+            // dd( $data);
+            Parent::createOrder($request);
+            $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments', $data);
+
             // if (isset($res) && $res['status'] === 'success') {
-                Session::put('order_No', $request->orderNo);
-                Session::put('amount',$request->amount);
-                return redirect($res['data']['link'])
+            Session::put('order_No', $request->orderNo);
+            Session::put('amount', $request->amount);
+            return redirect($res['data']['link'])
                 ->header('Content-Type', 'text/html');
-            }catch(\Exception $e){
+        } catch (\Exception $e) {
             Session::flash('alert', 'error');
-            Session::flash('msg', 'Unable to initialize payment '.$e->getMessage());
+            Session::flash('msg', 'Unable to initialize payment ' . $e->getMessage());
             return back()->with('error', 'Unable to initialize payment');
-            }
+        }
     }
 
-    public function HanglePaystackPayment($request){
+    public function HanglePaystackPayment($request)
+    {
         $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
         if ($request['status'] == true) {
-           $order_no =  Session::get('order_No');
+            $order_no =  Session::get('order_No');
             $orders = Order::where('order_no', $order_no)->first();
-          
+
             $orders->update([
-                'external_ref'=> $request['reference'],
+                'external_ref' => $request['reference'],
                 'is_paid' => 1,
                 'channel' => 'Paystack'
             ]);
             $ref = GenerateRef(10);
             $this->storePaymentInfo($order_no, $request, $ref, 'Paystack');
-            if($orders->shipping_method == 'home_delivery'){
-           event(new OrderShipment($address, $order_no));
+            if ($orders->shipping_method == 'home_delivery') {
+                event(new OrderShipment($address, $order_no));
             }
-        $this->sendPaymentEmail($request, $order_no, $ref);
-        Cart::destroy();
+            $this->sendPaymentEmail($request, $order_no, $ref);
+            Cart::destroy();
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -117,25 +122,119 @@ class paymentServices extends baseFuncs implements paymentInterface
     public function ProcessFlutterPayment($request)
     {
         $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' => 1])->first();
-      $res =  parent::flutterwaveVerify($request['transaction_id']);
-     if($res['status'] == 'success')
-     {
-        $order_no =  Session::get('order_No');
-        $orders = Order::where('order_no', $order_no)->first();
-        $ref = GenerateRef(10);
-        $orders->update([
-            'external_ref'=> $res['data']['flw_ref'],
-            'is_paid' => 1,
-            'channel' => 'Flutterwave'
-        ]);
+        $res =  parent::flutterwaveVerify($request['transaction_id']);
+        if ($res['status'] == 'success') {
+            $order_no =  Session::get('order_No');
+            $orders = Order::where('order_no', $order_no)->first();
+            $ref = GenerateRef(10);
+            $orders->update([
+                'external_ref' => $res['data']['flw_ref'],
+                'is_paid' => 1,
+                'channel' => 'Flutterwave'
+            ]);
             $this->storePaymentInfo($order_no, $res['data'], $ref, 'Flutterwave');
-            if($orders->shipping_method == 'home_delivery'){
+            if ($orders->shipping_method == 'home_delivery') {
                 event(new OrderShipment($address, $order_no));
-                 }
+            }
             $this->sendPaymentEmail($request, $order_no, $ref);
             Cart::destroy();
-     }
-     return false;
+        }
+        return false;
     }
 
+    public function AdminInitiatePayment($request)
+    {
+
+        $valid = Validator::make($request->all(), [
+            'currency' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'product_name' => 'required'
+        ]);
+         if($valid->fails()) return false;
+        try {
+            $currency = CountryCurrency::where('currency', $request->currency)->first();
+            [$product_name, $amount] = $this->getProductPrice($request);
+            $amount = isset($currency->exchange_rate) ? $amount * $currency->exchange_rate : $amount;
+            $txRef = 'SNL-' . time();
+            $paymantData = [
+                'amount' => $amount,
+                'products_name' =>  $product_name,
+                'payment_ref' =>  $txRef,
+                'name' => $request->name,
+                'subject' => 'Order Payment Link'
+                ];
+                $paymantData = (object) $paymantData;
+           $payments =  $this->createPayment($request, $paymantData);
+           if(!$payments) return back();
+            $data = [
+                'tx_ref' =>  $txRef,
+                'amount' => $amount,
+                'currency' => $currency->currency ?? 'USD',
+                // 'redirect_url' => url('flutter/callback'),
+                'redirect_url' => 'https://api.flutterwave.com/v3/payments',
+                'customer' => [
+                    'email' => $request->email,
+                    'name' => $request->first_name . ' ' . $request->first_name,
+                    // 'phonenumber' => 
+                ],
+                'meta' => [
+                    'payment_id'  => $payments->id,
+                ],
+                'customizations' => [
+                    'title' => 'SANLIVE PHARMACY',
+                    'logo' => 'https://sanlivepharmacy.com/images/1730996017Untitled%20design%20(2).png'
+                ]
+            ];
+            $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments', $data);
+            $payments->update([
+                'payment_link' => $res['data']['link']
+            ]);
+            $paymantData->payment_link = $res['data']['link'];
+            Mail::to($request->email)->send(new ManualPaymentEmail($paymantData));
+            // dd($payments);
+            return $res['data']['link'];
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    public function getProductPrice($request)
+    {
+        $prices = [];
+        $product_name = [];
+        foreach ($request->product_name as $prod) {
+            $products = Product::where('id', $prod)->first();
+            $prices[] = $products->sale_price;
+            $product_name[] = $products->name; 
+        }
+        return [$product_name, array_sum($prices)];
+    }
+
+    private function createPayment($request, $paymantData)
+    {
+        // dd($paymantData->products_name);
+        return ManualPayment::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'amount' => $paymantData->amount,
+            'products_name' => json_encode($paymantData->products_name),
+            'payment_ref' => $paymantData->payment_ref,
+            'currency' => $request->currency,
+            'payment_status' => 'pending',
+            'date_paid',
+            'order_status' => 'pending',
+            'external_ref'
+        ]);
+    }
+
+    public function ProcessManualPayment($request)
+    {
+        $res =  parent::flutterwaveVerify($request['transaction_id']);
+        if ($res['status'] == 'success') {
+        $payment = ManualPayment::where('id');
+        }
+     
+
+    }
 }

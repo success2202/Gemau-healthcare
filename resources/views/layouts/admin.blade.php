@@ -18,6 +18,8 @@
     <!-- Vmap -->
     <link rel="stylesheet" href="{{asset('/backend/vendors/vmap/jqvmap.min.css')}}">
     <link rel="stylesheet" href="{{asset('/backend/css/app.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/backend/vendors/select2/css/select2.min.css')}}" type="text/css">
+    @yield('styles')
 </head>
 <body>
     <!-- App styles  -->
@@ -156,6 +158,7 @@
 <script src="{{asset('/backend/vendors/vmap/maps/jquery.vmap.usa.js')}}"></script>
 <script src="{{asset('/backend/js/examples/vmap.js')}}"></script>
 <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+<script src="{{asset('/backend/vendors/select2/js/select2.min.js')}}"></script>
 
 <!-- Dashboard scripts -->
 <script src="{{asset('/backend/js/examples/dashboard.js')}}"></script>
@@ -189,6 +192,9 @@
 </script> --}}
 
 <script>
+    $('.select2-example').select2({
+    placeholder: 'Select Products Customer wants to buy'
+});
     $(document).ready(function (){
     $('#myTable').DataTable();
 });

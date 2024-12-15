@@ -11,6 +11,7 @@ use App\Http\Controllers\Manage\SettingsController;
 use App\Http\Controllers\Manage\PagesController;
 use App\Http\Controllers\Manage\BlogController;
 use App\Http\Controllers\Manage\FaqController;
+use App\Http\Controllers\Manage\ManualPaymentController;
 use App\Http\Controllers\Manage\OrderController;
 use App\Http\Controllers\Manage\PageController;
 use App\Http\Controllers\Manage\PrescriptionController;
@@ -132,6 +133,15 @@ Route::prefix('manage')->group(function () {
             Route::get('/faq/delete/{id}', 'Delete')->name('admin.settings.faqDelete');
         });
 
+        Route::controller(ManualPaymentController::class)->group(function() {
+        Route::get('manual/payments', 'Index')->name('admin.manual.payments');
+        Route::get('manual/payment/create', 'Create')->name('admin.create.payments');
+        Route::post('manual/payment/store', 'AdminInitiatePayment')->name('AdminInitiatePayment.store');
+        Route::post('payment/send/email', 'SendEmail')->name('send.payment.email');
+        });
+
     });
+
+
 });
 });

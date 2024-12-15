@@ -8,4 +8,5 @@ interface paymentInterface
     public function HanglePaystackPayment($req);
     public function initiateFlutterCheckout($request);
     public function initiatePaystackCheckout($request);
+    public function AdminInitiatePayment($request);
 }
