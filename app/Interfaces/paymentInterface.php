@@ -9,4 +9,5 @@ interface paymentInterface
     public function initiateFlutterCheckout($request);
     public function initiatePaystackCheckout($request);
     public function AdminInitiatePayment($request);
+    public function ProcessManualPayment($request);
 }

@@ -68,10 +68,7 @@
                                             <td>{{$sp->currency??'-'}}</td>
                                             <td>{{number_format($sp->amount)??'-'}}</td>
                                             <td>
-                                                <a href="#">@if($sp->is_delivered == 1) <span  class="badge badge-info">Initiated</span>
-                                                    @elseif($sp->is_delivered == 2) <span  class="badge badge-primary">Dispatched</span>
-                                                    @elseif($sp->is_delivered == 3) <span  class="badge badge-danger">Cancelled</span>
-                                                    @else <span class="badge badge-light">Pending</span> @endif</a>
+                                                <a href="#">  <span  class="badge badge-info">{{$sp->payment_status}}</span></a>
                                                 </td>  
                                             <td>{{$sp->order_paid??'-'}}</td>
                                             <td>{{$sp->order_status??'-'}}</td>

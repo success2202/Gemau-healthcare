@@ -27,7 +27,7 @@
     </div>
     <div class="ps-header__middle">
         <div class="container">
-            <div class="ps-logo"><a href="{{route('users.index')}}"> <img src="{{asset('images/'.$settings->site_logo)}}" alt>
+            <div class="ps-logo"><a href="{{route('users.index')}}"> <img src="{{asset('images/'.$settings->site_logo)}}"  alt>
                 <img class="sticky-logo" src="{{asset('images/'.$settings->site_logo)}}" alt></a></div><a class="ps-menu--sticky" href="{{route('users.index')}}"><i class="fa fa-bars"></i></a>
             <div class="ps-header__right">
                 <ul class="ps-header__icons">

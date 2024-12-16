@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Manage\ManualPaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Manage\ProductController;
 /*
@@ -21,4 +22,5 @@ require __DIR__.'/user.php';
 
 
 Route::get('/process/products/names', [ProductController::class, 'processImages'])->name('processImages');
+Route::get('manual/payment/processes', [ManualPaymentController::class, 'ProcessPayment']);
 

@@ -14,7 +14,6 @@ use App\Models\Setting;
 use App\Models\ShippingAddress;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Mail;
-
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use stdClass;
@@ -219,7 +218,7 @@ class paymentServices extends baseFuncs implements paymentInterface
             'name' => $request->name,
             'email' => $request->email,
             'amount' => $paymantData->amount,
-            'products_name' => json_encode(json_encode($paymantData->products_name)),
+            'products_name' => json_encode($paymantData->products_name),
             'payment_ref' => $paymantData->payment_ref,
             'currency' => $request->currency,
             'payment_status' => 'pending',
@@ -233,9 +232,10 @@ class paymentServices extends baseFuncs implements paymentInterface
     {
         $res =  parent::flutterwaveVerify($request['transaction_id']);
         if ($res['status'] == 'success') {
-        $payment = ManualPayment::where('id');
+        $payment = ManualPayment::where('id', $res['data']['meta']['payment_id'])->first();
+        $payment->update(['payment_status' => 'completed', 'order_status' => 'paid', 'external_ref'=> $res['data']['tx_ref'], 'date_paid' => now()]);
+        return $payment;
         }
-     
-
+     return false;
     }
 }
