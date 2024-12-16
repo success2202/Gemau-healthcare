@@ -171,8 +171,8 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'tx_ref' =>  $txRef,
                 'amount' => $amount,
                 'currency' => $currency->currency ?? 'USD',
-                // 'redirect_url' => url('flutter/callback'),
-                'redirect_url' => 'https://api.flutterwave.com/v3/payments',
+                'redirect_url' => url('manual/payment/processes'),
+                // 'redirect_url' => 'https://api.flutterwave.com/v3/payments',
                 'customer' => [
                     'email' => $request->email,
                     'name' => $request->first_name . ' ' . $request->first_name,
