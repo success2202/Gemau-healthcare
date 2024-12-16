@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\paymentInterface;
 use App\Mail\ManualPaymentEmail;
 use App\Models\CountryCurrency;
 use App\Models\ManualPayment;
@@ -15,12 +16,13 @@ use Illuminate\Support\Facades\Session;
 class ManualPaymentController extends Controller
 {
     //
-    public function __construct(
-        public readonly paymentServices $generatePayment
-    )
+
+    public $generatePayment;
+    public function __construct(paymentInterface $generatePayment)
     {
-        
+       $this->generatePayment = $generatePayment;
     }
+
 
     public function Index()
     {
