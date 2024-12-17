@@ -61,7 +61,7 @@ class ManualPaymentController extends Controller
     {
         try{
         $paymantData = ManualPayment::where('id', $request->payment_id)->first();
-        Mail::to($request->email)->send(new ManualPaymentEmail($paymantData));
+        Mail::to('mikkynoble@gmail.com')->send(new ManualPaymentEmail($paymantData));
         Session::flash('alert', 'success');
         Session::flash('message', 'Payment Information sent to user email');
         return back();

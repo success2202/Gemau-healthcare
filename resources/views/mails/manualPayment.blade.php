@@ -45,11 +45,12 @@
                                             @endphp
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td> 
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <p> Click on <a href="{{$data['payment_link']}}"> Here</a> to compete your order payment or copy the code below and paste on a browser {{$data['payment_link']}}</p>
         </span>
         <div class="yj6qo">
         </div>
