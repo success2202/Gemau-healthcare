@@ -32,7 +32,8 @@
                                       
                                         <td>
                                             @php
-                                                $prod = json_decode($data->products_name, true);
+                                            
+                                                $prod = json_decode($data->products_name,true);
                                                 $x = 1;
                                                 foreach ($prod as $items) {
                                                     echo '<strong>' .
@@ -50,7 +51,9 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <p> Click on <a href="{{$data['payment_link']}}"> Here</a> to compete your order payment or copy the code below and paste on a browser {{$data['payment_link']}}</p>
+                            <div style="width:100%;max-width:620px;margin:0 auto;background-color:#ffffff; padding:10px">
+                            <p> Click on <a href="{{$data->payment_link}}"> Here</a> to compete your order payment or copy the code below and paste on a browser {{$data['payment_link']}}</p>
+                            </div>
         </span>
         <div class="yj6qo">
         </div>

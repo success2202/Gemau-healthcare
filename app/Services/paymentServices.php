@@ -166,14 +166,15 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'shipping_fee' => $currency->shipping_fee
                 ];
                 $paymantData = (object) $paymantData;
+                // dd($paymantData );
            $payments =  $this->createPayment($request, $paymantData);
            if(!$payments) return back();
             $data = [
                 'tx_ref' =>  $txRef,
                 'amount' => $amount,
                 'currency' => $currency->currency ?? 'USD',
-                // 'redirect_url' => url('manual/payment/processes'),
-                'redirect_url' => 'https://api.flutterwave.com/v3/payments',
+                'redirect_url' => url('manual/payment/processes'),
+                // 'redirect_url' => 'https://api.flutterwave.com/v3/payments',
                 'customer' => [
                     'email' => $request->email,
                     'name' => $request->first_name . ' ' . $request->first_name,
@@ -189,11 +190,10 @@ class paymentServices extends baseFuncs implements paymentInterface
             ];
             $res = parent::getFlutterPaymentLink('https://api.flutterwave.com/v3/payments', $data);
             $payments->update([
-                'payment_link' => $res['data']['link']
+                'payment_link' => $res['data']['link'],
             ]);
-            $paymantData->payment_link = $res['data']['link'];
-            Mail::to($request->email)->send(new ManualPaymentEmail($paymantData));
-            // dd($payments);
+            $payments->subject = "Order Payment Link";
+            Mail::to($request->email)->send(new ManualPaymentEmail($payments));
             return $res['data']['link'];
         } catch (\Exception $e) {
           $pay =  ManualPayment::where('email', $request->email)->latest()->first();
