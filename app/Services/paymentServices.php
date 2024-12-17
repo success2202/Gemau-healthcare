@@ -154,7 +154,7 @@ class paymentServices extends baseFuncs implements paymentInterface
         try {
             $currency = CountryCurrency::where('currency', $request->currency)->first();
             [$product_name, $amount] = $this->getProductPrice($request);
-            $amount = isset($currency->exchange_rate) ? $amount * $currency->exchange_rate : $amount;
+            $amount = isset($currency->exchange_rate) ? (($amount + $currency->shipping_fee) * $currency->exchange_rate) : $amount+$currency->shipping_fee;
             $txRef = 'SNL-' . time();
             $paymantData = [
                 'amount' => $amount,
@@ -162,7 +162,8 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'payment_ref' =>  $txRef,
                 'name' => $request->name,
                 'subject' => 'Order Payment Link',
-                'currency' => $request->currency
+                'currency' => $request->currency,
+                'shipping_fee' => $currency->shipping_fee
                 ];
                 $paymantData = (object) $paymantData;
            $payments =  $this->createPayment($request, $paymantData);
@@ -171,8 +172,8 @@ class paymentServices extends baseFuncs implements paymentInterface
                 'tx_ref' =>  $txRef,
                 'amount' => $amount,
                 'currency' => $currency->currency ?? 'USD',
-                'redirect_url' => url('manual/payment/processes'),
-                // 'redirect_url' => 'https://api.flutterwave.com/v3/payments',
+                // 'redirect_url' => url('manual/payment/processes'),
+                'redirect_url' => 'https://api.flutterwave.com/v3/payments',
                 'customer' => [
                     'email' => $request->email,
                     'name' => $request->first_name . ' ' . $request->first_name,
@@ -195,6 +196,8 @@ class paymentServices extends baseFuncs implements paymentInterface
             // dd($payments);
             return $res['data']['link'];
         } catch (\Exception $e) {
+          $pay =  ManualPayment::where('email', $request->email)->latest()->first();
+            if($pay)$pay->delete();
             return false;
         }
     }

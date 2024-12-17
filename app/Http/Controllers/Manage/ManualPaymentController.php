@@ -29,7 +29,7 @@ class ManualPaymentController extends Controller
         return view('manage.payments.index')
         ->with('bheading', 'Manual Payment')
         ->with('breadcrumb', 'Manual Payment')
-        ->with('payments', ManualPayment::get());
+        ->with('payments', ManualPayment::latest()->get());
     }
 
     public function create()
@@ -43,25 +43,24 @@ class ManualPaymentController extends Controller
 
     public function AdminInitiatePayment(Request $request)
     {
-        try{
         $generated = $this->generatePayment->AdminInitiatePayment($request);
+        // dd($generated );
+        if($generated){
             Session::flash('alert', 'success');
             Session::flash('message', 'Payment Information sent to user email');
             return redirect()->intended(route('admin.manual.payments'));
-     
-    }catch(\Exception $e)
-    {
-    Session::flash('alert', 'error');
-    Session::flash('message', $e->getMessage());
-    return redirect()->intended(route('admin.create.payments'))->withInput($request->all());
-    }
+        }
+        Session::flash('alert', 'error');
+        Session::flash('message', 'Request failed, try again');
+        return back();
+        // return redirect()->intended(route('admin.create.payments'))->withInput($request->all());
 }
 
     public function SendEmail(Request $request)
     {
         try{
         $paymantData = ManualPayment::where('id', $request->payment_id)->first();
-        Mail::to('mikkynoble@gmail.com')->send(new ManualPaymentEmail($paymantData));
+        Mail::to($paymantData->email)->send(new ManualPaymentEmail($paymantData));
         Session::flash('alert', 'success');
         Session::flash('message', 'Payment Information sent to user email');
         return back();
