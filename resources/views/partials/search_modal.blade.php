@@ -7,7 +7,7 @@
                 <div class="input-group">
                     <input class="form-control ps-input" name="q" type="text" placeholder="Search for products">
                     <div class="input-group-append">
-                        <button class="btn " style="background:#07631d; color:#fff" type="submit"> <span style="font-size: 15px"> Search </span></button></div>
+                        <button class="btn" style="background:#07631d; color:#fff" type="submit"> <span style="font-size: 15px"> Search</span></button></div>
                 </div>
             </div>
         </form>

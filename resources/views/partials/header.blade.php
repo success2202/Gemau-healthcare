@@ -61,7 +61,7 @@
                         <div class="ps-search-table" style="border-radius:5px">
                             <div class="input-group">
                                 <input class="form-control ps-input" value="{{old('q')}}" name="q" type="text" placeholder="Search for products">
-                                <div class="input-group-append"></div> <button class="btn " style="background:##73c2fb; color:#000" type="submit"> <span style="font-size: 15px"> Search </span></button>
+                                <div class="input-group-append"></div> <button class="btn " style="background:#73c2fb; color:#000" type="submit"> <span style="font-size: 15px"> Search </span></button>
                             </div>
                         </div>
                     </form>

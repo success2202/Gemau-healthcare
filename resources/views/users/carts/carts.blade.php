@@ -8,7 +8,7 @@
             <div class="row" >
                 <div class="col-12 col-md-7 col-lg-9 mt-5" style="background: #fff">
 
-                <p class="m-4">Cart ({{Cart::count()}})</p> 
+                <h1 class="m-4" style="font-size:12px">Cart ({{Cart::count()}})</h1> 
                 <div class="ps-categogy--list">
                   
                 @forelse ($carts as $cart)
@@ -23,7 +23,7 @@
                         </div>
                   
                         <div class="ps-product__info"><a class="ps-product__branch" href="#">{{$cart->model->category->name}}</a>
-                            <p class="ps-product__tite" style="font-size:16px; color:#262525"><a>{{$cart->name}}</a></p>
+                            <h3 class="ps-product__tite" style="font-size:16px; color:#262525"><a>{{$cart->name}}</a></h3>
                             <div class="ps-product__meta"><span class="ps-product__price" style="font-size:15px">{{moneyFormat($cart->model->sale_price)}}
                                 <span class="ps-product__del" style="font-size:15px">{{moneyFormat($cart->model->price)}}</span>
                             </div>
@@ -96,10 +96,9 @@
 <div style="height: 2em; background:#eee"></div>
 <section class="ps-section--latest" style="margin-top:5px">
     <div class="container" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-        <p class="" style="font-size: 20px; color:#000;">Latest products</p>
+        <h1 class="" style="font-size: 20px; color:#000;">Latest Products</h1>
         <div class="ps-section__carousel">
             <div class="owl-carousel" data-owl-auto="false" data-owl-loop="true" data-owl-speed="13000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5" data-owl-item-xl="5" data-owl-duration="1000" data-owl-mousedrag="on">
-           
                 @forelse ($latest as $prod)
                 <div class="ps-section__product">
                     <div class="ps-product ps-product--standard">
