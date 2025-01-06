@@ -1,6 +1,3 @@
-RewriteCond %{HTTP_HOST} ^www\.sanlivepharmacy\.com$
-RewriteRule ^/?$ "http\:\/\/sanlivepharmacy\.com\/" [R=301,L]
-
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
@@ -22,3 +19,7 @@ RewriteRule ^/?$ "http\:\/\/sanlivepharmacy\.com\/" [R=301,L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+RewriteCond %{HTTP_HOST} ^livehealthepharma\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.livehealthepharma\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.sanlivepharmacy\.com$
+RewriteRule ^(.*)$ "https\:\/\/sanlivepharmacy\.com\/$1" [R=301,L]
