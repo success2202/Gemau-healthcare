@@ -60,8 +60,6 @@
   gtag('config', 'G-G8Q4Z4SFSQ');
 </script>
 
-
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QPD7YQNP1"></script>
 <script>
