@@ -69,7 +69,7 @@
                 
                 <section class="ps-section--latest" style="margin-top:5px">
                 <div class="container" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">Shop by Category</p>
+                    <h1 class="" style="font-size: 20px; color:#545252;">Shop by Category</h1>
                     <div class="ps-section__carousel">
                         <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="13000"
                             data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="2"
@@ -118,7 +118,7 @@
             </div>
             <section class="ps-section--latest" style="margin-top:5px">
                 <div class="container" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">Latest products</p>
+                    <h1 class="" style="font-size: 20px; color:#545252;">Latest products</h1>
                     <div class="ps-section__carousel">
                         <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="13000"
                             data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="2"
@@ -212,7 +212,7 @@
                 </div>
                 <section class="ps-section--featured"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">Top Products</p>
+                    <h1 class="" style="font-size: 20px; color:#545252;">Top Products</h1>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($topProducts1 as $prods1)
@@ -265,7 +265,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat2) > 0? $productCat2[0]->category->name:'' }}</p>
+                    <h1 class="" style="font-size: 20px; color:#545252;">{{ count($productCat2) > 0? $productCat2[0]->category->name:'' }}</h1>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($productCat2 as $productCats2)
@@ -315,7 +315,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat3)> 0?$productCat3[0]->category->name:'' }}</p>
+                    <h1 class="" style="font-size: 20px; color:#545252;">{{ count($productCat3)> 0?$productCat3[0]->category->name:'' }}</h1>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($productCat3 as $prod3)
@@ -371,7 +371,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <p class="" style="font-size: 20px; color:#000;">{{ count($productCat4) > 0? $productCat4[0]->category->name:'' }}</p>
+                    <h1 class="" style="font-size: 20px; color:#545252;">{{ count($productCat4) > 0? $productCat4[0]->category->name:'' }}</h1>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($productCat4 as $prod4)
