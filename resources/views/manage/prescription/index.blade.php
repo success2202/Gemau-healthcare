@@ -61,7 +61,7 @@
                                                     <a href="#">{{$sp->state}}</a> 
                                                 </td>  
                                                 <td>
-                                                    <a href="{{$sp->image}}" target="_blank"><img src="{{$sp->image}}" width="50px" height="50px">
+                                                    <a href="{{$sp->image}}" target="_blank" rel="noopener noreferrer"><img src="{{$sp->image}}" width="50px" height="50px">
                                                    <br> Download</a> 
                                                 </td>  
                                                   <td>

@@ -59,7 +59,7 @@
                                                         href="{{ route('users.products', [$prods->hashid, $prods->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
                                                     Cart <i class="fa fa-shopping-basket"></i></a>
-                                                       <a target="_blank" href="https://wa.me/+2348058885913?text=Please i need {{ $prods->name }}, the  price on your website is {{ moneyFormat($prods->sale_price) }} ">
+                                                       <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $prods->name }}, the  price on your website is {{ moneyFormat($prods->sale_price) }} ">
                                                              <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> 
                                                              </i></a> 
                                                     </center>

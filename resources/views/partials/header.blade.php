@@ -47,7 +47,6 @@
                         <a href="" class="ps-btn " style="font-size: 20px; background-color:none; color:#000; text-align:left"> Orders </a>
                         </div> --}}
                     </li>
-
                     @endauth
                     <li ><a   class="ps-header__item" style="width:80px; font-size:1em; border:1px solid #eeeeee5f; color:#5b6c8f"  href="#" > 
                         <i class="icon-question" style="font-size:14px; margin-right:2px; border:2px solid #5b6c8f; border-radius:50px; padding:2px; font-weight:bolder" ></i> Help</a>

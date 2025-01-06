@@ -88,7 +88,7 @@
                                             @if($product->status == 1)
                                             disabled @endif>Add to cart</button>
                                             <span class="p-2"></span>
-                                            <a target="_blank" class="btn btn-primary" href="https://wa.me/+2348058885913?text=Please i need {{ $product->name }}, the  price on your website is {{ moneyFormat($product->sale_price) }} ">
+                                            <a target="_blank" class="btn btn-primary" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $product->name }}, the  price on your website is {{ moneyFormat($product->sale_price) }} ">
                                                              <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; padding:5px; color:#fff "> 
                                                            Order on Whatsapp  </i> </a> 
                                         </div>
@@ -97,9 +97,9 @@
                                     <div class="ps-product__social">
                                         <ul class="ps-social ps-social--color">
                                         Share this Product
-                                            <li><a class="ps-social__link facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ route('users.products', [$product->hashid, $product->productUrl]) }}"><i class="fa fa-facebook"> </i><span class="ps-tooltip">Facebook</span></a></li>
-                                            <li><a class="ps-social__link twitter"  target="_blank" href="https://twitter.com/share?url={{ route('users.products', [$product->hashid, $product->productUrl]) }}"><i class="fa fa-twitter"></i><span class="ps-tooltip">Twitter</span></a></li>
-                                            <li ><a class="ps-social__link whatsapp" target="_blank"  data-action="share/whatsapp/share"  href="https://api.whatsapp.com/send?text={{ route('users.products', [$product->hashid, $product->productUrl]) }}"><i class="fa fa-whatsapp"></i><span class="ps-tooltip">WhatsApp</span></a></li>
+                                            <li><a class="ps-social__link facebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u={{ route('users.products', [$product->hashid, $product->productUrl]) }}"><i class="fa fa-facebook"> </i><span class="ps-tooltip">Facebook</span></a></li>
+                                            <li><a class="ps-social__link twitter"  target="_blank" rel="noopener noreferrer" href="https://twitter.com/share?url={{ route('users.products', [$product->hashid, $product->productUrl]) }}"><i class="fa fa-twitter"></i><span class="ps-tooltip">Twitter</span></a></li>
+                                            <li ><a class="ps-social__link whatsapp" target="_blank"  rel="noopener noreferrer" data-action="share/whatsapp/share"  href="https://api.whatsapp.com/send?text={{ route('users.products', [$product->hashid, $product->productUrl]) }}"><i class="fa fa-whatsapp"></i><span class="ps-tooltip">WhatsApp</span></a></li>
 
                                         </ul>
                                     </div>
@@ -166,7 +166,7 @@
                                
                                 
                                <center> <a href="{{route('users.products',[$prod->hashid, $prod->productUrl])}}" class="btn btn-primary spinner-border spinner-border-sm"> Add to Cart</a>
-                                  <a target="_blank" href="https://wa.me/+2348058885913?text=Please i need {{ $prod->name }}, the  price on your website is {{ moneyFormat($prod->sale_price) }} ">
+                                  <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $prod->name }}, the  price on your website is {{ moneyFormat($prod->sale_price) }} ">
                                                              <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#000 "> 
                                                              </i></a> 
                                </center> 

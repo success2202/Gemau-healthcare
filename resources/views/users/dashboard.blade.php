@@ -152,7 +152,7 @@
                                                     href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}"
                                                     class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
                                                     Cart <i class="fa fa-shopping-basket"></i></a>
-                                                      <a target="_blank" href="https://wa.me/+2348058885913?text=Please i need {{ $prod->name }}, the  price on your website is {{ moneyFormat($prod->sale_price) }} "><i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> </i></a> 
+                                                      <a target="_blank"  rel="noopener noreferrer"href="https://wa.me/+2348058885913?text=Please i need {{ $prod->name }}, the  price on your website is {{ moneyFormat($prod->sale_price) }} "><i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> </i></a> 
                                                     </center>
                                           
                                         </div>
@@ -245,7 +245,7 @@
                                                         href="{{ route('users.products', [$prods1->hashid, $prods1->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
                                                     Cart <i class="fa fa-shopping-basket"></i></a>
-                                                         <a target="_blank" href="https://wa.me/+2348058885913?text=Please i need {{ $prods1->name }}, the  price on your website is {{ moneyFormat($prods1->sale_price) }} ">
+                                                         <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $prods1->name }}, the  price on your website is {{ moneyFormat($prods1->sale_price) }} ">
                                                              <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> 
                                                              </i></a> 
                                                     </center>
@@ -297,7 +297,7 @@
                                                         href="{{ route('users.products', [$productCats2->hashid, $productCats2->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
                                                     Cart <i class="fa fa-shopping-basket"></i></a>
-                                                       <a target="_blank" href="https://wa.me/+2348058885913?text=Please i need {{ $productCats2->name }}, the  price on your website is {{ moneyFormat($productCats2->sale_price) }} ">
+                                                       <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $productCats2->name }}, the  price on your website is {{ moneyFormat($productCats2->sale_price) }} ">
                                                              <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> 
                                                              </i></a> 
                                                     </center>
@@ -351,7 +351,7 @@
                                                         href="{{ route('users.products', [$prod3->hashid, $prod3->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
                                                     Cart <i class="fa fa-shopping-basket"></i></a>
-                                                     <a target="_blank" href="https://wa.me/+2348058885913?text=Please i need {{ $prod3->name }}, the  price on your website is {{ moneyFormat($prod3->sale_price) }} ">
+                                                     <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $prod3->name }}, the  price on your website is {{ moneyFormat($prod3->sale_price) }} ">
                                                              <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> 
                                                              </i></a> 
                                                     </center>
@@ -407,7 +407,7 @@
                                                         href="{{ route('users.products', [$prod4->hashid, $prod4->productUrl]) }}"
                                                         class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
                                                     Cart <i class="fa fa-shopping-basket"></i></a>
-                                                       <a target="_blank" href="https://wa.me/+2348058885913?text=Please i need {{ $prod4->name }}, the  price on your website is {{ moneyFormat($prod4->sale_price) }} ">
+                                                       <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $prod4->name }}, the  price on your website is {{ moneyFormat($prod4->sale_price) }} ">
                                                              <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> 
                                                              </i></a> 
                                                     </center>
