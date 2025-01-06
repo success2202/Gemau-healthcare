@@ -1,4 +1,5 @@
-
+RewriteCond %{HTTP_HOST} ^www\.sanlivepharmacy\.com$
+RewriteRule ^/?$ "http\:\/\/sanlivepharmacy\.com\/" [R=301,L]
 
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
