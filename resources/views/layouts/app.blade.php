@@ -39,7 +39,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <meta name="p:domain_verify" content="41e4054dd47a348a28e771a36e9e5092"/>
+    @yield('head')
     @yield('styles')
+ 
 <style>
     .textcolor{
         color:#000;
