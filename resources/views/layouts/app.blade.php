@@ -50,6 +50,7 @@
 <!--<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11172431606"></script>-->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8Q4Z4SFSQ">
+    google-site-verification=C_cQyxouQa2uttVZE64GP2PeP7YnVzPWoonTiyvsebE
 </script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -58,6 +59,8 @@
 
   gtag('config', 'G-G8Q4Z4SFSQ');
 </script>
+
+
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QPD7YQNP1"></script>
