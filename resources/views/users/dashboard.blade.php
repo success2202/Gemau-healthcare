@@ -32,7 +32,7 @@
                                         </div>
                                          <div class="ps-banner__thumnail ps-banner__fluid">
                                              <a style="position:inherit" href="{{route('products.search')}}">
-                                           <img class="ps-banner__image" src="{{asset('images/sliders/'.$slider->image_path) }}" alt="{{asset('images/sliders/'.$slider->image_path) }}" />
+                                           <img class="ps-banner__image" src="{{asset('images/sliders/'.$slider->image_path) }}" alt="{{$slider->name}}" />
                                              </a>
                                         </div>
                                   
@@ -81,8 +81,8 @@
                                     <div class="ps-product ps-product--standard">
                                         <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                 href="{{ route('products.search', $cat->hashid) }}">
-                                                <figure><img src="{{asset('images/category/'.$cat->image_path)}}" alt="{{asset('images/category/'. $cat->image_path)}}" /><img
-                                                        src="{{asset('images/category/'.$cat->image_path)}}" alt="{{asset('images/category/'. $cat->image_path)}}" />
+                                                <figure><img src="{{asset('images/category/'.$cat->image_path)}}" alt="{{$cat->name}}" /><img
+                                                        src="{{asset('images/category/'.$cat->image_path)}}" alt="{{$cat->name}}" />
                                                 </figure>
                                             </a>
                                         </div>
@@ -131,8 +131,8 @@
                                         <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                 href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
                                                 {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                                <figure><img src="{{ asset('images/products/'.$prod->image_path) }}" alt="{{ asset('images/products/'.$prod->image_path) }}" /><img
-                                                        src="{{ asset('images/products/'.$prod->image_path) }}" alt="{{ asset('images/products/'.$prod->image_path) }}" />
+                                                <figure><img src="{{ asset('images/products/'.$prod->image_path) }}" alt="{{$prod->name }}" /><img
+                                                        src="{{ asset('images/products/'.$prod->image_path) }}" alt="{{ $prod->name }}" />
                                                 </figure>
                                             </a>
                                             <div class="ps-product__badge" style="right:20px; ">
@@ -170,7 +170,7 @@
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <div class="ps-promo__item"><img class="ps-promo__banner"
-                                    src="{{asset('/images/products/'.$advert[0]->image_path)}}" alt="{{asset('/images/products/'.$advert[0]->image_path)}}" />
+                                    src="{{asset('/images/products/'.$advert[0]->image_path)}}" alt="{{$advert[0]->name}}" />
                                 <div class="ps-promo__content">
                                     {{-- <h4 class="text-whte ps-promo__name">{{$advert[0]->name}}</h4> --}}
                                     <div class="ps-promo__sale ps-promo__btn">from {{moneyFormat($advert[0]->sale_price)}}</div>
@@ -182,7 +182,7 @@
                         </div>
                         <div class="col-12 col-md-4">
                             <div class="ps-promo__item"><img class="ps-promo__banner"
-                                    src="{{asset('/images/products/'.$advert[1]->image_path) }}" alt="{{asset('/images/products/'.$advert[1]->image_path) }}" />
+                                    src="{{asset('/images/products/'.$advert[1]->image_path) }}" alt="{{$advert[1]->name }}" />
                                 <div class="ps-promo__content">
                                     {{-- <h4 class="ps-promo__name">{{$advert[1]->name}}</h4> --}}
                                     <div class="ps-promo__meta d-horizontal"> 
@@ -194,7 +194,7 @@
                         </div>
                         <div class="col-12 col-md-4">
                             <div class="ps-promo__item"><img class="ps-promo__banner"
-                                    src="{{asset('/images/products/'.$advert[2]->image_path) }}" alt="{{asset('/images/products/'. $advert[2]->image_path)}}" />
+                                    src="{{asset('/images/products/'.$advert[2]->image_path) }}" alt="{{$advert[2]->name}}" />
                                 <div class="ps-promo__content">
                                     {{-- <h4 class="ps-promo__name">{{$advert[1]->name}}</h4> --}}
                                     <div class="ps-promo__meta d-horizontal"> 
@@ -222,8 +222,8 @@
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                     href="{{ route('users.products', [$prods1->hashid, $prods1->productUrl]) }}">
                                                     {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                                    <figure><img src="{{asset('/images/products/'.$prods1->image_path) }}" alt="{{asset('/images/products/'.$prods1->image_path) }}" /><img
-                                                            src="{{asset('/images/products/'.$prods1->image_path) }}" alt="{{asset('/images/products/'.$prods1->image_path) }}" />
+                                                    <figure><img src="{{asset('/images/products/'.$prods1->image_path) }}" alt="{{$prods1->name }}" /><img
+                                                            src="{{asset('/images/products/'.$prods1->image_path) }}" alt="{{$prods1->name }}" />
                                                     </figure>
                                                 </a>
                                                 <div class="ps-product__badge" style="right:20px; ">
@@ -275,7 +275,7 @@
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                     href="{{ route('users.products', [$productCats2->hashid, $productCats2->productUrl]) }}">
                                         
-                                                        <figure><img src="{{asset('/images/products/'.$productCats2->image_path)}}" alt="{{asset('/images/products/'.$productCats2->image_path)}}" /><img src="{{asset('/images/products/'.$productCats2->image_path)}}" alt="alt" />
+                                                        <figure><img src="{{asset('/images/products/'.$productCats2->image_path)}}" alt="{{$productCats2->name}}" /><img src="{{asset('/images/products/'.$productCats2->image_path)}}" alt="{{$productCats2->name}}" />
                                                     </figure>
                                                 </a>
                                                 <div class="ps-product__badge" style="right:20px; ">

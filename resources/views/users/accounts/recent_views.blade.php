@@ -31,7 +31,7 @@
                             <div class="col-6 col-lg-4 col-xl-3 p-0">
                                 <div class="ps-product ps-product--standard">
                                     <div class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
-                                            <figure><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{asset('images/products/'.$product->image_path)}}">
+                                            <figure><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{$product->name}}">
                                             </figure>
                                         </a>
                                         <div class="ps-product__badge">

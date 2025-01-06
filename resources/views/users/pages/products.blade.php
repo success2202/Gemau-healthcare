@@ -41,8 +41,8 @@
                             <div class="col-6 col-lg-4 col-xl-3 p-0">
                                 <div class="ps-product ps-product--standard">
                                     <div class="ps-product__thumbnail"><a class="ps-product__image" href="{{route('users.products',[$prods->hashid, $prods->productUrl])}}">
-                                            <!--<figure><img src="{{$prods->image_path}}" alt="{{$prods->image_path}}"><img src="{{$prods->image_path }}" alt="{{$prods->image_path }}">-->
-                                                   <figure><img src="{{asset('images/products/'.$prods->image_path)}}" alt="alt" /><img src="{{asset('images/products/'.$prods->image_path)}}" alt="alt" /> 
+                                            <!--<figure><img src="{{$prods->image_path}}" alt="{{$prods->image_path}}"><img src="{{$prods->image_path }}" alt="{{$prods->name }}">-->
+                                                   <figure><img src="{{asset('images/products/'.$prods->image_path)}}" alt="{{$prods->name }}" /><img src="{{asset('images/products/'.$prods->image_path)}}" alt="{{$prods->name }}" /> 
                                             </figure>
                                         </a>
                                         <div class="ps-product__badge">

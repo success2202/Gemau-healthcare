@@ -17,8 +17,8 @@
                             <div class="col-12 col-xl-5">
                                 <div class="ps-product--gallery">
                                     <div class="ps-product__thumbnail">
-                                        <div class="slide"><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{asset('images/products/'.$product->image_path)}}" /></div>
-                                        <div class="slide"><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{asset('images/products/'.$product->image_path)}}" /></div>
+                                        <div class="slide"><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{$product->name}}" /></div>
+                                        <div class="slide"><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{$product->name}}" /></div>
                                         
                                     </div>
                                     <div class="ps-gallery--image">
@@ -33,7 +33,7 @@
                                             <!--<div class="ps-gallery__item"><img src="{{asset('images/products/'.$item) }}" alt="{{asset('images/products/'.$item) }}" /></div>-->
                                             @endforeach
                                             @else   @endif --}}
-                                            <div class="slide"><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{asset('images/products/'.$product->image_path)}}" /></div>
+                                            <div class="slide"><img src="{{asset('images/products/'.$product->image_path)}}" alt="{{$product->name}}" /></div>
                                           
                                         </div>
                                         
@@ -149,7 +149,7 @@
                     <div class="ps-section__product">
                         <div class="ps-product ps-product--standard">
                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                        <figure><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{asset('images/products/'.$prod->image_path)}}" /><img src="{{asset('images/products/'.$prod->image_path)}}" alt="alt" />
+                                        <figure><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{$prod->name}}" /><img src="{{asset('images/products/'.$prod->image_path)}}" alt="alt" />
                                     </figure>
                                 </a>
                                 <div class="ps-product__badge" style="right:20px; ">

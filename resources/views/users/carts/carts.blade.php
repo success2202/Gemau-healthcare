@@ -17,7 +17,7 @@
                 <div class="ps-product ps-product--list" style="border:2px solid #d1d5dad4; border-radius:10px">
                     <div class="ps-product__content" style="border-right:0px">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="">
-                                <figure><img src="{{asset('images/products/'.$cart->model->image_path) }}" alt="{{asset('images/products/'.$cart->model->image_path) }}">
+                                <figure><img src="{{asset('images/products/'.$cart->model->image_path) }}" alt="{{$cart->model->name }}">
                                 </figure>
                             </a>
                         </div>
@@ -105,7 +105,7 @@
                     <div class="ps-product ps-product--standard">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="product1.html">
                             {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                    <figure><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{asset('images/products/'.$prod->image_path)}}" /><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{asset('images/products/'.$prod->image_path)}}" />
+                                    <figure><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{$prod->name}}" /><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{$prod->name}}" />
                                 </figure>
                             </a>
                             <div class="ps-product__badge" style="right:20px; ">
