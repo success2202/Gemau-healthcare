@@ -85,7 +85,7 @@
 
                                                <div class="col-md-12">
                                   <div class="custom-file">
-                                      <img src="{{asset('images/products/'.$product->image_path)}}" alt="{{asset('images/products/'.$product->image_path)}}" width="100px" height="100px"> 
+                                      <img src="{{asset('images/products/'.$product->image_path)}}" alt="{{$product->name}}" width="100px" height="100px"> 
                                         <input type="file"name="image" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Choose Cover Image</label>
                                             </div>

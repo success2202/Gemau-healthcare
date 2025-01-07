@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-12 col-md-9">
                     <div class="ps-blog__banner">
-                            <img src="{{$blog->image}}" alt="{{asset($blog->image)}}" style="width: 400px">
+                            <img src="{{$blog->image}}" alt="{{asset($blog->title)}}" style="width: 400px">
                              </div>
                     <h1 class="ps-post__title">{{$blog->title}}</h1>
                     <div class="ps-blog__meta"> <span class="ps-blog__date">Created: {{$blog->created_at->format('M d, Y')}}.</span>
@@ -32,7 +32,7 @@
                                     <div class="ps-product ps-product--standard">
                                         <div class="ps-product__thumbnail">
                                             <a class="ps-product__image" href="{{route('blogs.details',$item->hashid)}}">
-                                                <figure><img src="{{$item->image}}" alt="{{$item->image}}"><img src="{{$item->image}}" alt="{{$item->image}}">
+                                                <figure><img src="{{$item->image}}" alt="{{$item->title}}"><img src="{{$item->image}}" alt="{{$item->title}}">
                                                 </figure>
                                             </a>
                                         </div>

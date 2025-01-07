@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('head')
+
+<link rel="canonical" href="{{ url()->current() }}">
+@endsection
 @section('content')
 
 

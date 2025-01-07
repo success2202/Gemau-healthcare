@@ -119,7 +119,7 @@
                                 <div class="tab-pane fade show active" id="description-content" role="tabpanel" aria-labelledby="description-tab">
                                     <div class="ps-document">
                                         <div class="row row-reverse">
-                                            <div class="col-12 col-md-6"><img class="ps-thumbnail" src="img/products/pressure-tab-content.jpg" alt></div>
+                                            <div class="col-12 col-md-6"><img class="ps-thumbnail" src="img/products/pressure-tab-content.jpg" alt="{{$product->name}}"></div>
                                             <div class="col-12 col-md-6">
                                                 <h2 class="ps-title">{{$product->name}}</h2>
                                                 <div class="ps-subtitle">{{$product->title??null}}</div>
@@ -154,7 +154,7 @@
                     <div class="ps-section__product">
                         <div class="ps-product ps-product--standard">
                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                        <figure><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{$prod->name}}" /><img src="{{asset('images/products/'.$prod->image_path)}}" alt="alt" />
+                                        <figure><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{$prod->name}}" /><img src="{{asset('images/products/'.$prod->image_path)}}" alt="{{$prod->name}}" />
                                     </figure>
                                 </a>
                                 <div class="ps-product__badge" style="right:20px; ">

@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-body text-center">
                     <figure class="avatar avatar-lg m-b-20">
-                        <img src="{{asset('assets/logo.png')}}" class="rounded-circle" alt="...">
+                        <img src="{{asset('assets/logo.png')}}" class="rounded-circle" alt="image">
                     </figure>
                     <h5 class="mb-1">{{$user->name}}</h5>
                     <p class="text-muted small">Administrator</p>

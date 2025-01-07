@@ -118,7 +118,7 @@
             </div>
             <section class="ps-section--latest" style="margin-top:5px">
                 <div class="container" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h1 class="" style="font-size: 20px; color:#545252;">Latest products</h1>
+                    <h2 class="" style="font-size: 20px; color:#545252;">Latest products</h2>
                     <div class="ps-section__carousel">
                         <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="13000"
                             data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="2"
@@ -212,7 +212,7 @@
                 </div>
                 <section class="ps-section--featured"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h1 class="" style="font-size: 20px; color:#545252;">Top Products</h1>
+                    <h3 class="" style="font-size: 20px; color:#545252;">Top Products</h3>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($topProducts1 as $prods1)
@@ -265,7 +265,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h1 class="" style="font-size: 20px; color:#545252;">{{ count($productCat2) > 0? $productCat2[0]->category->name:'' }}</h1>
+                    <h4 class="" style="font-size: 20px; color:#545252;">{{ count($productCat2) > 0? $productCat2[0]->category->name:'' }}</h4>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($productCat2 as $productCats2)
@@ -315,7 +315,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h1 class="" style="font-size: 20px; color:#545252;">{{ count($productCat3)> 0?$productCat3[0]->category->name:'' }}</h1>
+                    <h6 class="" style="font-size: 20px; color:#545252;">{{ count($productCat3)> 0?$productCat3[0]->category->name:'' }}</h6>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($productCat3 as $prod3)
@@ -325,9 +325,9 @@
                                             <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                     href="{{ route('users.products', [$prod3->hashid, $prod3->productUrl]) }}">
                                                     <figure><img src="{{asset('/images/products/'. $prod3->image_path)}}"
-                                                            alt="{{asset('/images/products/'.$prod3->image_path) }}" /><img
+                                                            alt="{{$prod3->name}}" /><img
                                                             src="{{asset('/images/products/'.$prod3->image_path) }}"
-                                                            alt="{{asset('/images/products/'.$prod3->image_path) }}" />
+                                                            alt="{{$prod3->name}}" />
                                                         {{-- <figure><img src="{{asset('images/products/'.$prod->image_path)}}" alt="alt" /><img src="{{asset('images/products/'.$prod->image_path)}}" alt="alt" /> --}}
                                                     </figure>
                                                 </a>
@@ -371,7 +371,7 @@
 
                 <section class="ps-section--featured mt-5"
                     style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h1 class="" style="font-size: 20px; color:#545252;">{{ count($productCat4) > 0? $productCat4[0]->category->name:'' }}</h1>
+                    <h2 class="" style="font-size: 20px; color:#545252;">{{ count($productCat4) > 0? $productCat4[0]->category->name:'' }}</h2>
                     <div class="ps-section__content">
                         <div class="row m-0">
                             @forelse ($productCat4 as $prod4)
@@ -384,7 +384,7 @@
                                                     <!--        alt="{{$prod4->image_path }}" /><img-->
                                                     <!--        src="{{$prod4->image_path }}"-->
                                                     <!--        alt="{{$prod4->image_path }}" />-->
-                                                     <figure><img src="{{asset('images/products/'.$prod4->image_path)}}" alt="alt" /><img src="{{asset('images/products/'.$prod4->image_path)}}" alt="alt" /> 
+                                                     <figure><img src="{{asset('images/products/'.$prod4->image_path)}}" alt="{{$prod4->name}}" /><img src="{{asset('images/products/'.$prod4->image_path)}}" alt="{{$prod4->name}}" /> 
                                                     </figure>
                                                 </a>
                                                 <div class="ps-product__badge" style="right:20px; ">

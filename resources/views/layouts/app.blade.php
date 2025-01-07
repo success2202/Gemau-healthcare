@@ -5,22 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    <meta name="title" content="Shop Medicines Online at sanlivepharmacy Store">
-    <meta name="description" content="Shop for injections and other medications at Sanlive Pharmacy. Fast delivery, affordable prices, and trusted healthcare products online, Get your healthcare needs delivered at your doorstep from the No.1 online Pharmacy store. Get well with ease with Just a click of a button, Get your medications with convenience from the comfort of your home.">
+    <meta name="title" content="sanlive pharmacy Online Health Store, Medicines, Vitamins etc ">
+    <meta name="description" content="Get your healthcare needs delivered at your doorstep from the No one online Pharmacy store  Sanlive Pharmacy. Fast delivery, affordable prices ">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="{{ asset('images/'.$settings->fav)}}" rel="shortcut icon" type="image/png">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="author" content="Live Health epharm">
-    <meta name="application-name" content="sanlivepharmacy Web-App">
-    <meta property="og:site_name" content="sanlivepharmacy: Online Pharmacy in Nigeria">
+    <meta name="author" content="sanlive pharmacy ">
+    <meta name="application-name" content="sanlive pharmacy Web-App">
+    <meta property="og:site_name" content="sanlive pharmacy: Online Pharmacy in Nigeria">
     <meta property="og:image" content="{{asset('images/'.$settings->site_logo)}}">
     <meta name="twitter:description" content="Online Pharmacy in Nigeria">
     <meta name="twitter:image" content="{{asset('images/'.$settings->site_logo)}}">
-    <meta property="og:description" content="sanlivepharmacy is a wholesale, retail, and dispensing healthcare platform established for the distribution and retailing of locally manufactured and imported drugs, Easily get affordable medication and prescription drugs delivered to your doorstep.">
-    <meta name="keywords" content="online prescription, online doctor prescription, online medicine delivery, medicine online, online medication prescription,  medical prescription, prescription doctor, medicine home delivery, medicine delivery, doctor prescription
+    <meta property="og:description" content="sanlive pharmacy is a wholesale, retail, and dispensing healthcare platform established for the distribution and retailing of locally manufactured and imported drugs, Easily get affordable medication and prescription drugs delivered to your doorstep.">
+    <meta name="keywords" content="Shop wellness tablets, injections, and health essentials online. Add to cart now for reliable healthcare solutions. Your trusted health and wellness shop, online doctor prescription, online medicine delivery, medicine online, online medication prescription,  medical prescription, prescription doctor, medicine home delivery, medicine delivery, doctor prescription
     chemists near me,  mail order pharmacy, dr online prescription, medical store near me,  rx doctor, rx pharmacy,  rx prescriptions, prescription medication online, medicine delivery near me, delivery pharmacy,  online medical store, rx online doctor, rx online, prescription delivery, pharmacy prescription, pharmacy, drug, eccomerce, buy drugs online, online pharmacy, doctors prescription">
-    <meta property="og:title" content="sanlivepharmacy: Online Pharmacy in Nigeria">
-      <meta property="og:url" content="LiveHealth ePharma">
+    <meta property="og:title" content="sanlive pharmacy: Online Pharmacy in Nigeria">
+      <meta property="og:url" content=" sanlive pharmacy">
     <title>{{$settings->title}} </title>
     <link rel="stylesheet" href="{{asset('/frontend/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/fonts/Linearicons/Font/demo-files/demo.css')}}">
