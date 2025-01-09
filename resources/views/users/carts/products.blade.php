@@ -1,9 +1,11 @@
 @extends('layouts.app')
-
-@section('head')
-
-<link rel="canonical" href="{{ url()->current() }}">
+@section('title')
+<title> {{$product->name}} - Sanlive Pharmacy  </title>
 @endsection
+@section('head')
+<link rel="canonical" href="{{ url('products/'.Str::slug($product->name)) }}">
+@endsection
+
 @section('content')
 
 <div class="ps-page--product ps-page--product1">

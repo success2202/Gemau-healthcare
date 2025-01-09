@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @yield('title')
     <meta name="format-detection" content="telephone=no">
     <meta name="title" content="sanlive pharmacy Online Health Store, Medicines, Vitamins etc ">
     <meta name="description" content="Get your healthcare needs delivered at your doorstep from the No one online Pharmacy store  Sanlive Pharmacy. Fast delivery, affordable prices ">
@@ -21,7 +22,6 @@
     chemists near me,  mail order pharmacy, dr online prescription, medical store near me,  rx doctor, rx pharmacy,  rx prescriptions, prescription medication online, medicine delivery near me, delivery pharmacy,  online medical store, rx online doctor, rx online, prescription delivery, pharmacy prescription, pharmacy, drug, eccomerce, buy drugs online, online pharmacy, doctors prescription">
     <meta property="og:title" content="sanlive pharmacy: Online Pharmacy in Nigeria">
       <meta property="og:url" content=" sanlive pharmacy">
-    <title>{{$settings->title}} </title>
     <link rel="stylesheet" href="{{asset('/frontend/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/fonts/Linearicons/Font/demo-files/demo.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com/">

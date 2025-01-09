@@ -1,7 +1,9 @@
 @extends('layouts.app')
+@section('title')
+<title> Products - Sanlive Pharmacy  </title>
+@endsection
 @section('head')
-
-<link rel="canonical" href="{{ url()->current() }}">
+<link rel="canonical" href="{{ url('catalogs/'.Str::slug($products[0]?->category?->name)) }}">
 @endsection
 @section('content')
 

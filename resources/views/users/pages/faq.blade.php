@@ -1,4 +1,10 @@
 @extends('layouts.app')
+@section('title')
+<title> FAQ - Sanlive Pharmacy  </title>
+@endsection
+@section('head')
+<link rel="canonical" href="{{ url()->current() }}">
+@endsection
 @section('content')
 
 <div class="ps-about">

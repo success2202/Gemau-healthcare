@@ -1,5 +1,11 @@
 @extends('layouts.app')
+@section('title')
+<title> My Payments | Sanlive Pharmarcy</title>
+@endsection
+@section('head')
 
+<link rel="canonical" href="{{ url()->current() }}">
+@endsection
 @section('content')
 @section('styles')
     <style>

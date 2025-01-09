@@ -7,9 +7,7 @@
            data-nav-target="#dashboards">
            <i class="fa fa-home"></i> &nbsp;Dashboard</a>
         </li>
-
          <li class="navigation-divider">Manage Website</li>
-
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Categories"
             data-nav-target="#dashboards">
