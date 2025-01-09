@@ -9,6 +9,7 @@
     <meta name="title" content="sanlive pharmacy Online Health Store, Medicines, Vitamins etc ">
     <meta name="description" content="Get your healthcare needs delivered at your doorstep from the No one online Pharmacy store  Sanlive Pharmacy. Fast delivery, affordable prices ">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="robots" content="index, follow">
     <link href="{{ asset('images/'.$settings->fav)}}" rel="shortcut icon" type="image/png">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="author" content="sanlive pharmacy ">
