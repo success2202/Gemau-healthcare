@@ -57,6 +57,16 @@
     <!-- End Google Tag Manager -->
 
     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EBDQSBKBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0EBDQSBKBC');
+</script>
+
+    <!-- Google tag (gtag.js) -->
 <!--<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11172431606"></script>-->
 <!-- Google tag (gtag.js) -->
 {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8Q4Z4SFSQ">
