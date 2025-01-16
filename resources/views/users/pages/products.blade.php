@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title> Products - Sanlive Pharmacy  </title>
+<title> {{$products[0]?->category?->name }}</title>
 @endsection
 @section('head')
 <link rel="canonical" href="{{ url('catalogs/'.Str::slug($products[0]?->category?->name)) }}">
