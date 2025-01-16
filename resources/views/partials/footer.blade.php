@@ -75,10 +75,10 @@
         </div>
         <div class="ps-footer--bottom">
             <div class="row">
-                <div class="col-12 col-md-4" style="background: #">
+                <div class="col-12 col-md-5" style="background: #">
                     <p style="color:#000">{{$settings->site_copyright}}</p>
                 </div>
-                <div class="col-12 col-md-8 text-right" style="background: #">
+                <div class="col-12 col-md-7 text-right" style="background: #">
                     <img src="{{asset('/images/paystack_logo.png')}}"  width="50px" alt>
                     <img class="payment-light" src="{{asset('/images/paystack.png')}}"      width="50px"alt>
                     <img class="payment-light" src="{{asset('/images/nafdac.png')}}"      width="50px"alt>
