@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('title')
-<title> {{$product->name}} - Sanlive Pharmacy  </title>
+<title> {{$product->name}} </title>
 @endsection
 @section('head')
-<link rel="canonical" href="{{ url('products/'.Str::slug($product->name)) }}">
+<link rel="canonical" href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
 @endsection
 
 @section('content')
