@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title> My Carts | Sanlive Pharmarcy</title>
+<title> {{$cart->model->name}}</title>
 @endsection
 @section('head')
 

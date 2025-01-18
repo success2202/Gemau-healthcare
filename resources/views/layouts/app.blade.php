@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @yield('title')
+    <link href="{{ asset('images/'.$settings->fav)}}" rel="shortcut icon" type="image/png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @yield('title')
+
     <meta name="format-detection" content="telephone=no">
-    <meta name="title" content="Sanlive pharmacy Online Health Store, Medicines, Vitamins etc ">
-    <meta name="description" content="Get your healthcare needs delivered at your doorstep from the No one online Pharmacy store  Sanlive Pharmacy. Fast delivery, affordable prices ">
+    <meta name="title" content=" {{isset($metaTitle)?$metaTitle:__('Sanlive pharmacy Online Health Store, Medicines, Vitamins')}} ">
+    <meta name="description" content="{{isset($metaDescription)?$metaDescription: __('Get your healthcare needs delivered at your doorstep from the No one online Pharmacy store  Sanlive Pharmacy. Fast delivery, affordable prices')}}">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="robots" content="index, follow">
-    <link href="{{ asset('images/'.$settings->fav)}}" rel="shortcut icon" type="image/png">
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="author" content="Sanlive pharmacy ">
-    <meta name="application-name" content="Sanlive pharmacy Web-App">
-    <meta property="og:site_name" content="Sanlive pharmacy: Online Pharmacy in Nigeria">
-    <meta property="og:image" content="{{asset('images/'.$settings->site_logo)}}">
-    <meta name="twitter:description" content="Online Pharmacy in Nigeria">
-    <meta name="twitter:image" content="{{asset('images/'.$settings->site_logo)}}">
-    <meta property="og:description" content="Sanlive pharmacy is a wholesale, retail, and dispensing healthcare platform established for the distribution and retailing of locally manufactured and imported drugs, Easily get affordable medication and prescription drugs delivered to your doorstep.">
-    <meta name="keywords" content="Shop wellness tablets, injections, and health essentials online. Add to cart now for reliable healthcare solutions. Your trusted health and wellness shop, online doctor prescription, online medicine delivery, medicine online, online medication prescription,  medical prescription, prescription doctor, medicine home delivery, medicine delivery, doctor prescription
-    chemists near me,  mail order pharmacy, dr online prescription, medical store near me,  rx doctor, rx pharmacy,  rx prescriptions, prescription medication online, medicine delivery near me, delivery pharmacy,  online medical store, rx online doctor, rx online, prescription delivery, pharmacy prescription, pharmacy, drug, eccomerce, buy drugs online, online pharmacy, doctors prescription">
-    <meta property="og:title" content="Sanlive pharmacy: Online Pharmacy in Nigeria">
-      <meta property="og:url" content=" Sanlive pharmacy">
+    <meta name="application-name" content="https://sanlivepharmacy.com">
+
+      <!-- Open Graph -->
+      <meta property="og:site_name" content="Sanlive Pharmacy: Online Pharmacy in Nigeria">
+      <meta property="og:title" content="{{isset($ogTitle)?$ogTitle:__('Sanlive Pharmacy: Online Pharmacy in Nigeria')}}">
+      <meta property="og:description" content="{{isset($ogDescription)?$ogDescription: __('Sanlive Pharmacy is a wholesale, retail, and dispensing healthcare platform established for the distribution and retailing of locally manufactured and imported drugs. Easily get affordable medication and prescription drugs delivered to your doorstep.')}}">
+      <meta property="og:image" content="{{ isset($ogImage)?$ogImage:asset('images/'.$settings->site_logo) }}">
+      <meta property="og:url" content="https://sanlivepharmacy.com">
+      
+   <!-- Twitter -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="{{isset($twitterTitle)?$twitterTitle: __('Sanlive Pharmacy | Online Pharmacy in Nigeria')}} ">
+   <meta name="twitter:description" content="{{isset($twitterDescription)?$twitterDescription:__('Online Pharmacy in Nigeria')}}">
+   <meta name="twitter:image" content="{{isset($twitterImage)?$twitterImage: asset('images/'.$settings->site_logo) }}">
+   
+    <!-- Keywords -->
+  <meta name="keywords" content="online pharmacy, medicine delivery, health store, wellness tablets, medical prescription, buy drugs online, ecommerce pharmacy">
+    
+
+   
     <link rel="stylesheet" href="{{asset('/frontend/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/fonts/Linearicons/Font/demo-files/demo.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com/">
@@ -39,7 +51,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+
+
     <meta name="p:domain_verify" content="41e4054dd47a348a28e771a36e9e5092"/>
+
+
     @yield('head')
     @yield('styles')
  

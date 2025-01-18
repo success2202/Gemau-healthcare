@@ -3,7 +3,7 @@
 <title> {{$product->name}} </title>
 @endsection
 @section('head')
-<link rel="canonical" href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
+<link rel="canonical" href="{{ route('users.products', [$product->hashid, $product->productUrl]) }}">
 @endsection
 
 @section('content')

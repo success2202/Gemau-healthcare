@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Product;
 use Facade\FlareClient\View;
+use stdClass;
 use Vinkla\Hashids\Facades\Hashids;
 
 class SearchController extends Controller
@@ -23,20 +25,23 @@ class SearchController extends Controller
             addHashId($products);
         }elseif(isset($id)){
             $products = Product::where('category_id', decodeHashid($id))->get();
-            $data['searchterm'] = "Showing Resuls for ".ucfirst(strtolower($cat->name));
+            $data['searchterm'] = "Showing Results for ".ucfirst(strtolower($cat->name));
             addHashId($products);
         }else{
             $products = Product::latest()->take(20)->get();
             addHashId($products);
         }
         $categories = Category::latest()->get();
-        foreach($categories as $cat){
-            addHashId($cat->products);
+        foreach($categories as $cats){
+            addHashId($cats->products);
         }
         addHashId($categories);
         return view('users.pages.products',$data, [
             'products' => $products,
             'categories' => $categories,
-        ]);
+        ])
+        ->with('metaTitle', Str::slug($cat->name??' ', ' '). ' | Sanlive Pharmacy: Online Pharmacy in Nigeria')
+        ->with('ogTitle', Str::slug($cat->name?? '', ' ') . ' | Sanlive Pharmacy: Online Pharmacy in Nigeria')
+        ->with('twitterTitle', Str::slug($cat->name?? '', '') .' | Sanlive Pharmacy: Online Pharmacy in Nigeria');
     }
 }

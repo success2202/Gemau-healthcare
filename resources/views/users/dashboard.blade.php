@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title>  sanlive pharmacy Online Health Store </title>
+<title>  Sanlive pharmacy Online Health Store </title>
 @endsection
 @section('head')
 <link rel="canonical" href="https://sanlivepharmacy.com/">
