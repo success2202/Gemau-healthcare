@@ -20,7 +20,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="ps-blog--latset">
                         <div class="ps-blog__thumbnail"><a href="{{route('blogs.details',$item->hashid)}}">
-                            <img src="{{$item->image}}" alt="{{$item->title}}"></a>
+                            <img src="{{asset('images/blog/'.$item->image)}}" alt="{{$item->title}}"></a>
                           
                         </div>
                         <div class="ps-blog__content">

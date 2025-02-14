@@ -8,7 +8,7 @@
             <li><a href="{{ route('PrivacyPolicy')}}">Privacy Policy</a></li>
             <li><a href="{{route('pages.terms')}}">Terms &amp; Conditions</a></li>
             <li><a href="{{ route('contactUs')}}">Contact Us</a></li>
-            <li><a href="https://blog.livehealthepharma.com">Blog</a></li>
+            <li><a href="https://sanlivepharmacy.com/blogs">Blog</a></li>
             <li><a href="{{ route('faq.index')}}">FAQ</a></li>
             <li class="nav-item"><a  class="nav-link   pl-3" style="color:#fff; background:#103178"  href="{{route('user.prescription')}}"> UPLOAD PRESCRIPTION</a></li>
         </ul>

@@ -14,7 +14,7 @@ class BlogController extends Controller
 {
     use imageUpload;
     public function Index(){
-        $blogs = Blog::latest()->simplePaginate(10);
+        $blogs = Blog::latest()->simplePaginate(100);
         foreach($blogs as $blog){
             $blog->hashid = Hashids::connection('products')->encode($blog->id);
         }
@@ -38,16 +38,21 @@ class BlogController extends Controller
         ]); 
   
         if($valid->fails()){
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Some field are missing');
+        Session::flash('alert', 'error');
+        Session::flash('message','Some field are missing');
         return back()->withInput($request->all());
         }
        $Blog = new Blog;
        $Blog->title = $request->title;
        $Blog->content = $request->content;
        if($request->file('image')){
-        $image =  $this->UploadImage($request, 'images/blogs/',400,300);
-         $Blog->image = $image;
+        //$image =  $this->UploadImage($request, 'images/blogs/',400,300);
+        $uploadedFile = $request->file('image');
+         $destinationPath = public_path('images/blog'); // Destination directory
+             $fileName = time() . '-' . $uploadedFile->getClientOriginalName(); // Create a unique name
+            $uploadedFile->move($destinationPath, $fileName); // Move the file
+            
+             $Blog->image =  $fileName;
        }
        if($Blog->save()){
        Session::flash('alert', 'success');
@@ -76,8 +81,13 @@ class BlogController extends Controller
         $Blog->title = $request->title;
         $Blog->content = $request->content;
         if($request->file('image')){
-            $image =  $this->UploadImage($request, 'images/blogs/', 400,300);
-             $Blog->image = $image;
+            //$image =  $this->UploadImage($request, 'images/blogs/', 400,300);
+            $uploadedFile = $request->file('image');
+            $destinationPath = public_path('images/blog'); // Destination directory
+             $fileName = time() . '-' . $uploadedFile->getClientOriginalName(); // Create a unique name
+            $uploadedFile->move($destinationPath, $fileName); // Move the file
+            
+             $Blog->image =  $fileName;
            }
         if($Blog->save()){
         Session::flash('alert', 'success');

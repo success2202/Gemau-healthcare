@@ -41,7 +41,7 @@
                                                     <a href="#">{{$sp->title}}</a>
                                                 </td>
                                                 <td>
-                                                    <img src="{{$sp->image}}" width="100px" height="100px"> 
+                                                    <img src="{{asset('images/blog/'.$sp->image)}}" width="100px" height="100px"> 
                                                 </td>
                                                      
                                                   <td>
