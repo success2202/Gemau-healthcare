@@ -83,10 +83,8 @@
                   </div>
 
 @endsection
-
 @section('script')
 <script>
-
 $('.clockpicker-example').clockpicker({
     autoclose: true
 });

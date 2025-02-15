@@ -48,10 +48,9 @@ class BlogController extends Controller
        if($request->file('image')){
         //$image =  $this->UploadImage($request, 'images/blogs/',400,300);
         $uploadedFile = $request->file('image');
-         $destinationPath = public_path('images/blog'); // Destination directory
-             $fileName = time() . '-' . $uploadedFile->getClientOriginalName(); // Create a unique name
-            $uploadedFile->move($destinationPath, $fileName); // Move the file
-            
+         $destinationPath = public_path('images/blog'); 
+             $fileName = time() . '-' . $uploadedFile->getClientOriginalName(); 
+            $uploadedFile->move($destinationPath, $fileName); 
              $Blog->image =  $fileName;
        }
        if($Blog->save()){
@@ -83,9 +82,9 @@ class BlogController extends Controller
         if($request->file('image')){
             //$image =  $this->UploadImage($request, 'images/blogs/', 400,300);
             $uploadedFile = $request->file('image');
-            $destinationPath = public_path('images/blog'); // Destination directory
-             $fileName = time() . '-' . $uploadedFile->getClientOriginalName(); // Create a unique name
-            $uploadedFile->move($destinationPath, $fileName); // Move the file
+            $destinationPath = public_path('images/blog');
+             $fileName = time() . '-' . $uploadedFile->getClientOriginalName(); 
+            $uploadedFile->move($destinationPath, $fileName); 
             
              $Blog->image =  $fileName;
            }
