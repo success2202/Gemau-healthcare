@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title> {{!empty($carts)?$carts[0]->model->name:'carts index'}}</title>
+<title> {{!empty($carts)?$carts->model->name:'carts index'}}</title>
 @endsection
 @section('head')
 
