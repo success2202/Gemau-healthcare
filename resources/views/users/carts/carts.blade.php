@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title> {{dd($carts)}}</title>
+<title> Carts Index </title>
 @endsection
 @section('head')
 
