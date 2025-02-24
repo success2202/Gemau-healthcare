@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\Services\RegisterUser;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use App\Mail\RegMail;
 use App\Models\CountryCurrency;
 use App\Traits\CalculateShipping;
@@ -43,14 +44,20 @@ class CheckoutController extends Controller
         }
         $userData =   getUserLocationData();
         $currency = CountryCurrency::where('country', $userData['country'])->first();
+        $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' =>1])->first();
         if($currency){
-            $shipping_fee = $currency['shipping_fee'];
-        }else{
-            $shipping_fee = '65000';
+            if($currency['country'] == "NG" && Str::contains(strtolower($address->address), 'lagos')){
+                $shipping_fee = '8000';
+            }else{
+                $shipping_fee = $currency['shipping_fee']; 
+          }
         }
+        else {
+            $shipping_fee = '5000';
+          }
         $carts = Cart::content();
         $orderNo = rand(111111111,999999999);
-        $address = ShippingAddress::where(['user_id' => auth_user()->id, 'is_default' =>1])->first();
+  
         if(!isset($address)){
             Session::flash('alert', 'error');
             Session::flash('msg', 'Please add a shipping address before you can proceed');
