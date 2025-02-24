@@ -51,9 +51,8 @@ class CheckoutController extends Controller
             }else{
                 $shipping_fee = $currency['shipping_fee']; 
           }
-        }
-        else {
-            $shipping_fee = '5000';
+        }else {
+            $shipping_fee = '6500';
           }
         $carts = Cart::content();
         $orderNo = rand(111111111,999999999);
