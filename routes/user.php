@@ -11,7 +11,7 @@ use App\Http\Controllers\Users\PaymentController;
 use App\Http\Controllers\Users\PrescriptionController;
 use App\Http\Controllers\Users\SearchController;
 use App\Http\Controllers\SiteMapController;
-use App\Http\Controllers\Users\BlogController;
+use App\Http\Controllers\Users\BlogController; 
 use App\Http\Controllers\Users\FaqController;
 use App\Http\Controllers\Users\UserController;
 

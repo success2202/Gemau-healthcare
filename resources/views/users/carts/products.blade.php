@@ -7,7 +7,6 @@
 @endsection
 
 @section('content')
-
 <div class="ps-page--product ps-page--product1">
     <div class="container">
         <ul class="ps-breadcrumb">
@@ -74,7 +73,6 @@
                                         @csrf
                                     <div class="ps-product__quantity">
                                         <h6>Quantity:   
-
                                              <button  type="button" class="ps-btn--primary  decrement-btn" style="width: 30px; border-radius:3px; height:30px"> - </button> 
                                              <input type="text" value="1" name="qty" id="qty" style="border: 1px solid #8c8a8a53; height:30px; width:30px; text-align:center"> 
                                              <button  type="button" class="ps-btn--primary  increment-btn" style="width: 30px; border-radius:3px; height:30px"> + </button>  </h6>
