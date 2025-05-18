@@ -2,9 +2,9 @@
     <div class="footer-primary">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-3">
+          <div class="col-sm-12 col-md-12 col-lg-2">
             <div class="footer-widget-about">
-                <a href="{{route('index')}}"><img src="{{asset('assets/whitelogo.png')}}"  alt=""  width="150px"/></a>
+                <a href="{{route('index')}}"><img src="{{asset('images/'.$settings->site_logo)}}"  alt=""  width="150px"/></a>
               <p class="color-gray">{!!substr($settings->about, 0,100) !!}
               </p>
             
@@ -30,15 +30,11 @@
             <div class="footer-widget-nav">
               <h6 class="footer-widget__title">Links</h6>
               <nav>
-                <ul class="list-unstyled">
-                    @forelse ($site_menu as $menu )
-                    <li > 
-                    @if($menu->name == 'Home') <a style="color:#d6d2d2" href="{{route('index')}}">{{$menu->name}}</a>
-                     @else <a style="color:#d6d2d2" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
-                   </li>
-                   @empty
-                    @endforelse
-                </ul>
+                  <ul class="list-unstyled">
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookies</a></li>
+              </ul>
               </nav>
             </div><!-- /.footer-widget__content -->
           </div><!-- /.col-lg-2 -->
@@ -64,25 +60,8 @@
           </div><!-- /.col-lg-2 -->
         </div><!-- /.row -->
       </div><!-- /.container -->
+       <div style="color:#fff; text-align:center"> {{$settings->site_copyright}} </div>
     </div><!-- /.footer-primary -->
-    <div class="footer-secondary">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <span class="fz-14">  {{$settings->site_copyright}}</span>
-          </div><!-- /.col-lg-6 -->
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <nav>
-              <ul class="list-unstyled footer__copyright-links d-flex flex-wrap justify-content-end mb-0">
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Cookies</a></li>
-              </ul>
-            </nav>
-          </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </div><!-- /.footer-secondary -->
   </footer><!-- /.Footer -->
 
   @include('layouts.js')

@@ -61,10 +61,10 @@
                             <div class="ps-footer--block">
                                 <h5 class="ps-block__title" style="color:#000">Help Links</h5>
                                 <ul class="ps-block__list">
-                                    <li><a href="{{ route('AboutUs')}}">About Us</a></li>
+                                    {{-- <li><a href="{{ route('AboutUs')}}">About Us</a></li> --}}
                                     <li><a href="{{ route('PrivacyPolicy')}}">Privacy Policy</a></li>
                                     <li><a href="{{route('pages.terms')}}">Terms &amp; Conditions</a></li>
-                                    <li><a href="{{ route('contactUs')}}">Contact Us</a></li>
+                                    {{-- <li><a href="{{ route('contactUs')}}">Contact Us</a></li> --}}
                                     <li><a href="{{ route('blogs.index')}}">Blogs</a></li>
                                 </ul>
                             </div>

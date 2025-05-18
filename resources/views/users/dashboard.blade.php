@@ -1,437 +1,247 @@
 @extends('layouts.app')
 @section('title')
-<title>  Sanlive pharmacy Online Health Store </title>
+<title>  Roisolar NG </title>
 @endsection
 @section('head')
 <link rel="canonical" href="https://sanlivepharmacy.com/">
 @endsection
 @section('content')
-    <div class="ps-home ps-home--8">
-        <div class="ps-home__content">
-            <div class="container">
-                {{-- <div class="ps-promo"><a class="ps-promo__item" href="{{route('products.search')}}"><img class="ps-promo__text"
-                            src="{{ asset('/frontend/img/' . $advert_top->image_path) }}" alt><img class="ps-promo__banner"
-                            src="{{ asset('/frontend/img/' . $advert_top->txt) }}" alt></a></div> --}}
-                {{-- <div class="ps-promo mobile"><a class="ps-promo__item" href="#"><img class="ps-promo__text" src="{{asset('/frontend/img/'.$advert_top->txt)}}" alt><img class="ps-promo__banner" src="{{asset('/frontend/img/'.$advert_top->image_path)}}" alt></a></div> --}}
-                <section class="ps-section--banner ps-banner--container">
-                    <div class="ps-section__overlay">
-                        <div class="ps-section__loading"></div>
-                    </div>
-                    <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="4000"
-                        data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1"
-                        data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000"
-                        data-owl-mousedrag="on">
-                        @forelse ($sliders as $slider)
-                            <div class="ps-banner" style="background:#306A53;">
-                                <div class="container-no-round">
-                                    <div class="ps-banner__block">
-                                        <div class="ps-banner__content">
-                                            {{-- <h2 class="ps-banner__title text-white">{{ $slider->title }}</h2>
-                                            <div class="ps-banner__desc text-white">{{ $slider->content }}</div>
-                                            <div class="ps-banner__btn-group">
-                                            </div> --}}
-                                            
-                                    {{-- <div class="ps-banner__persen bg-warning ps-left">
-                                       
-                                    </div> --}}
-                                        </div>
-                                         <div class="ps-banner__thumnail ps-banner__fluid">
-                                             <a style="position:inherit" href="{{route('products.search')}}">
-                                           <img class="ps-banner__image" src="{{asset('images/sliders/'.$slider->image_path) }}" alt="{{$slider->name}}" />
-                                             </a>
-                                        </div>
-                                  
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                        @endforelse
 
-                    </div>
-                </section>
-                <!--<section class="ps-section--category ps-category--image">-->
-                <!--    {{-- <h3 class="ps-section__title">Check out the most popular categories</h3> --}}-->
-                <!--    <div class="ps-section__content">-->
-                <!--        <div class="row" style="background: #eae7e73f; padding:10px; border:5px solid #ede8e836">-->
-                <!--            @forelse ($site_categories->take(10) as  $cat)-->
-                <!--                <div class="col-6 col-md-4"  style="background:url('{{ $cat->image_path}}'); z-index:1000" >-->
-                <!--                    <div class="ps-category__thumbnail"> -->
-                <!--                        <a class="ps-category__image" href="{{ route('products.search', $cat->hashid) }}">-->
-                <!--                            <img src="{{ $cat->image_path}}" alt="{{ $cat->image_path}}">-->
-                <!--                        </a>-->
-                <!--                        <div class="ps-category__content">-->
-                <!--                            <a class="ps-category" href="{{route('products.search', $cat->hashid)}}"> <span class="ps-category__more">{{ $cat->name }}</span></a> <br>-->
-                <!--                            {{-- <a class="ps-category__more" href="{{route('products.search', $cat->hashid)}}"></a> --}}-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--            @empty-->
-                <!--            @endforelse-->
-                <!--        </div>-->
-                <!--    </div>-->
-                <!--</section>-->
-                
-                
-                <section class="ps-section--latest" style="margin-top:5px">
-                <div class="container" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h1 class="" style="font-size: 20px; color:#545252;">Shop by Category</h1>
-                    <div class="ps-section__carousel">
-                        <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="13000"
-                            data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="2"
-                            data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5" data-owl-item-xl="5"
-                            data-owl-duration="1000" data-owl-mousedrag="on">
 
-                            @forelse ($site_categories as  $cat)
-                                <div class="ps-section__product">
-                                    <div class="ps-product ps-product--standard">
-                                        <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                href="{{ route('products.search', $cat->hashid) }}">
-                                                <figure><img src="{{asset('images/category/'.$cat->image_path)}}" alt="{{$cat->name}}" /><img
-                                                        src="{{asset('images/category/'.$cat->image_path)}}" alt="{{$cat->name}}" />
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <div class="ps-product__content">
-                                            <!--<h5 class="ps-p"><a href="{{ route('products.search', $cat->hashid) }}">{{ $cat->name }}</a></h5>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                            @endforelse
-                       
-                        </div>
-                         
-                    </div>
-                    <center>
-                     <div class="row ">
-                           <div class="col-md-3 p-5">
-                         </div>
-                         <div class="col-md-3 p-4">
-                             <a href="{{route('products.search')}}" class="btn-primary p-3 " style="border-radius:5px"> View All Categories</a>
-                         </div>
-                         <div class="col-md-3 p-4">
-                             <a href="{{ route('contactUs')}}" class="btn-primary p-3"style="border-radius:5px"> Special Medication Request </a>
-                         </div>
-                          <div class="col-md-3 p-4">
-                             <a href="{{route('user.prescription')}}" class="btn-primary p-3"style="border-radius:5px"> Upload Doctor's Prescription </a>
-                         </div>
-                     </div>
+@include('users.slider')
+
+
+ <section class="team-layout1 pb-80">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+            <div class="heading text-center mb-40">
+              <h3 class="heading__title">Our Solutions</h3>
+              <p class="heading__desc">
+                At ROISOLAR, we deliver customized solar energy systems designed to help you reduce electricity costs, achieve energy independence, and meet your sustainability goals. Whatever your energy needs, we provide smart, scalable solutions built for long-term performance
+              </p>
+            </div><!-- /.heading -->
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="slick-carousel"
+              data-slick='{"slidesToShow": 2, "slidesToScroll": 1, "autoplay": true, "arrows": false, "dots": false, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 1}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
+              <!-- Member #1 -->
+              <div class="member">
+                  <img src="{{asset('/frontend/picture1.png')}}" alt="member img">
+                <div class="member__info">
+                  <h5 class="member__name">Roof Top Solar Solutions</h5>
+                  <p class="member__desc">Whether you have an aluminum sheet, corrugated iron, concrete slab, or traditional tile roof, we engineer smart, site-specific solar systems built for Nigeria’s climate and structures. Our customized designs maximize available space, enhance energy output, and deliver strong, reliable returns for years to come</p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
+              <!-- Member #2 -->
+              <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('/frontend/picture2.png')}}" alt="member img">
                 </div>
-                </center>
-              
-            </section>
+                <div class="member__info">
+                  <h5 class="member__name">Ground-Mounted Solar Solutions</h5>
+                  <p class="member__desc">We deliver end-to-end execution for ground-mounted solar projects — from intelligent design and precision installation to seamless operations and maintenance.
+                    Whether for open industrial spaces, farms, estates, or remote sites across Nigeria, our ground-mounted systems are engineered for maximum efficiency, durability, and energy yield across the full project lifecycle.
+                    Transform your parking areas into clean energy hubs with ROISOLAR’s smart solar car park systems.
+                    Our designs not only harness solar energy efficiently but also provide valuable shade and protection for vehicles and assets — turning unused spaces into high-performing energy generators with dual-purpose benefits.</p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                  
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
+              <!-- Member #3 -->
+              <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('/frontend/picture3.png')}}" alt="member img">
+                  <ul class="social-icons list-unstyled mb-0">
+                </div><!-- /.member-img -->
+                <div class="member__info">
+                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Solar Car Park Solutions</a></h5>
+                  <p class="member__desc">Transform your parking areas into clean energy hubs with ROISOLAR’s smart solar car park systems.
+                    Our designs not only harness solar energy efficiently but also provide valuable shade and protection for vehicles and assets — turning unused spaces into high-performing energy generators with dual-purpose benefits.</p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                    
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
+              <!-- Member #4 -->
+              <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('/frontend/picture4.png')}}" alt="member img">
+                </div><!-- /.member-img -->
+                <div class="member__info">
+                  <h5 class="member__name">Micro-Grid & Energy Storage Solutions</h5>
+                  <p class="member__desc">ROISOLAR’s micro-grid and storage solutions integrate seamlessly with multiple energy sources—solar, batteries, grid power, and diesel generators—to deliver cost-effective and uninterrupted power. Designed for efficiency and energy independence, our systems reduce reliance on diesel, cut electricity costs, and provide critical backup power during grid failures or blackouts</p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
+            </div><!-- /.carousel -->
+          </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.Team -->
+
+
+  <section class="banner-layout1 py-0">
+      <div class="bg-img"><img src="{{asset('/frontend/images/backgrounds/8.jpg')}}" alt="backgrounds"></div>
+      <div class="top-banner bg-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <p class="font-weight-bold mb-0">Roisolar is not just about energy.
+                    We are about empowering Africa — sustainably, reliably, and innovatively.
+                <a href="#" class="color-secondary">
+                  <span>Contact Us For More Information</span> <i class="icon-arrow-right"></i>
+                </a>
+              </p>
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </div><!-- /.top-banner -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="banner-text">
+              <div class="heading-layout2 heading-light">
+                <h2 class="heading__title">About Us</h2>
+                <p class="heading__desc mb-40">At Roisolar, we are driving Africa’s transition toward a cleaner, more sustainable energy future. As a specialist engineering, procurement, and project management (EPCM) company, we deliver innovative, high-performance solar and energy storage solutions tailored for the Commercial and Industrial (C&I) sectors.
+                </p>
+              </div>
+              <ul class="list-items list-items-layout2 list-items-light list-horizontal list-unstyled mb-50">
+                <li>End-to-End Expertise</li>
+                <li>Technical Excellence</li>
+                <li>Client-Centric Approach</li>
+                <li>Sustainability Commitment</li>
+              </ul>
+            </div><!-- /.banner-text -->
+            <div class="fancybox-layout3">
+              <!-- fancybox item #1 -->
+              <div class="fancybox-item d-flex">
+
+            <p> <span style="font-weight: bolder">
+              Our seasoned team of engineers and energy specialists ensures every project meets the highest standards of quality, safety, and performance.
+              </div><!-- /.fancybox-item -->
+              <!-- fancybox item #2 -->
+                 <div class="fancybox-item d-flex">
+            From project development, design, and engineering to installation and ongoing operation and maintenance, we provide complete, in-house solar solutions.
+                 </div>
+            </div><!-- /.fancybox-layout3 -->
+          </div><!-- /.col-lg-6 -->
+          <div class="col-sm-12 col-md-12 col-lg-6 banner-img">
+            <div class="bg-img">
+              <img src="{{asset('frontend/images/banners/8.jpg')}}" alt="backgrounds">
             </div>
-            <section class="ps-section--latest" style="margin-top:5px">
-                <div class="container" style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h2 class="" style="font-size: 20px; color:#545252;">Latest products</h2>
-                    <div class="ps-section__carousel">
-                        <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="13000"
-                            data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="2"
-                            data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5" data-owl-item-xl="5"
-                            data-owl-duration="1000" data-owl-mousedrag="on">
-
-                            @forelse ($latest as $prod)
-                                <div class="ps-section__product">
-                                    <div class="ps-product ps-product--standard">
-                                        <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">
-                                                {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                                <figure><img src="{{ asset('images/products/'.$prod->image_path) }}" alt="{{$prod->name }}" /><img
-                                                        src="{{ asset('images/products/'.$prod->image_path) }}" alt="{{ $prod->name }}" />
-                                                </figure>
-                                            </a>
-                                            <div class="ps-product__badge" style="right:20px; ">
-                                                <div class="ps-badge ps-badge--hot"
-                                                    style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">
-                                                    -{{number_format($prod->discount)}}%</div>
-                                            </div>
-                                        </div>
-                                        <div class="ps-product__content">
-                                            <h5 class="ps-p"><a href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}">{{ $prod->name }}</a></h5>
-                                            <div class="ps-product__meta"><span
-                                                    class="ps-pr">{{ moneyFormat($prod->sale_price) }} <span
-                                                        style="font-size:15px"> <del>{{ moneyFormat($prod->price) }}
-                                                        </del></span></span></span>
-                                            </div>
-                                            <center> <a
-                                                    href="{{ route('users.products', [$prod->hashid, $prod->productUrl]) }}"
-                                                    class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
-                                                    Cart <i class="fa fa-shopping-basket"></i></a>
-                                                      <a target="_blank"  rel="noopener noreferrer"href="https://wa.me/+2348058885913?text=Please i need {{ $prod->name }}, the  price on your website is {{ moneyFormat($prod->sale_price) }} "><i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> </i></a> 
-                                                    </center>
-                                          
-                                        </div>
-
-                                    </div>
-                                </div>
-                            @empty
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="container">
-                <div class="ps-promo ps-home__promo" style="background: #eee">
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <div class="ps-promo__item"><img class="ps-promo__banner"
-                                    src="{{asset('/images/products/'.$advert[0]->image_path)}}" alt="{{$advert[0]->name}}" />
-                                <div class="ps-promo__content">
-                                    {{-- <h4 class="text-whte ps-promo__name">{{$advert[0]->name}}</h4> --}}
-                                    <div class="ps-promo__sale ps-promo__btn">from {{moneyFormat($advert[0]->sale_price)}}</div>
-                                    
-                                    <a class="ps-promo__btn"
-                                        href="{{ route('users.products', [$advert[0]->hashid, $advert[0]->productUrl]) }}">Shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="ps-promo__item"><img class="ps-promo__banner"
-                                    src="{{asset('/images/products/'.$advert[1]->image_path) }}" alt="{{$advert[1]->name }}" />
-                                <div class="ps-promo__content">
-                                    {{-- <h4 class="ps-promo__name">{{$advert[1]->name}}</h4> --}}
-                                    <div class="ps-promo__meta d-horizontal"> 
-                                        <p class="ps-promo__price  ps-promo__btn">from {{moneyFormat($advert[1]->sale_price)}}</p>
-              
-                                    </div><a class="ps-promo__btn" href="{{ route('users.products', [$advert[1]->hashid, $advert[1]->productUrl]) }}">Shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="ps-promo__item"><img class="ps-promo__banner"
-                                    src="{{asset('/images/products/'.$advert[2]->image_path) }}" alt="{{$advert[2]->name}}" />
-                                <div class="ps-promo__content">
-                                    {{-- <h4 class="ps-promo__name">{{$advert[1]->name}}</h4> --}}
-                                    <div class="ps-promo__meta d-horizontal"> 
-                                        <p class="ps-promo__price  ps-promo__btn"> from {{moneyFormat($advert[2]->sale_price)}}</p>
-                                    </div><a class="ps-promo__btn" href="{{ route('users.products', [$advert[2]->hashid, $advert[2]->productUrl]) }}">Shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ps-delivery" data-background="{{asset('/img/promotion/banner-delivery-2.jpg')}}" style="background-image: url(&quot;img/promotion/banner-delivery-2.jpg&quot;);">
-                    <div class="ps-delivery__content">
-                        <div class="ps-delivery__text" style="color:#73c2fb"> <i class="icon-shield-check"></i><span> <strong>100% Secure delivery, </strong>100% Secured payment options</span></div><a class="ps-delivery__more" href="{{route('products.search')}}">Shop Now</a>
-                    </div>
-                </div>
-                <section class="ps-section--featured"
-                    style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h3 class="" style="font-size: 20px; color:#545252;">Top Products</h3>
-                    <div class="ps-section__content">
-                        <div class="row m-0">
-                            @forelse ($topProducts1 as $prods1)
-                                <div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                                    <div class="ps-section__product">
-                                        <div class="ps-product ps-product--standard">
-                                            <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                    href="{{ route('users.products', [$prods1->hashid, $prods1->productUrl]) }}">
-                                                    {{-- <figure><img src="{{asset('/frontend/img/products/016.jpg')}}" alt="alt" /><img src="{{asset('/frontend/img/products/021.jpg')}}" alt="alt" /> --}}
-                                                    <figure><img src="{{asset('/images/products/'.$prods1->image_path) }}" alt="{{$prods1->name }}" /><img
-                                                            src="{{asset('/images/products/'.$prods1->image_path) }}" alt="{{$prods1->name }}" />
-                                                    </figure>
-                                                </a>
-                                                <div class="ps-product__badge" style="right:20px; ">
-                                                    <div class="ps-badge ps-badge--hot"
-                                                        style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">
-                                                       - {{number_format($prods1->discount)}}%</div>
-                                                </div>
-                                            </div>
-                                            <div class="ps-product__content">
-                                                <h5 class="ps-p"><a
-                                                        href="{{ route('users.products', [$prods1->hashid, $prods1->productUrl]) }}">{{ $prods1->name }}</a>
-                                                </h5>
-                                                <div class="ps-product__meta"><span
-                                                        class="ps-pr">{{ moneyFormat($prods1->sale_price) }} <span
-                                                            style="font-size:15px"> <del>{{ moneyFormat($prods1->price) }}
-                                                            </del> </span></span></span>
-                                                </div>
-                                                <center> <a
-                                                        href="{{ route('users.products', [$prods1->hashid, $prods1->productUrl]) }}"
-                                                        class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
-                                                    Cart <i class="fa fa-shopping-basket"></i></a>
-                                                         <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $prods1->name }}, the  price on your website is {{ moneyFormat($prods1->sale_price) }} ">
-                                                             <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> 
-                                                             </i></a> 
-                                                    </center>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                            @endforelse
-
-                        </div>
-
-                    </div>
-                </section>
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.Banner Layout 1 -->
 
 
-                <section class="ps-section--featured mt-5"
-                    style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h4 class="" style="font-size: 20px; color:#545252;">{{ count($productCat2) > 0? $productCat2[0]->category->name:'' }}</h4>
-                    <div class="ps-section__content">
-                        <div class="row m-0">
-                            @forelse ($productCat2 as $productCats2)
-                                <div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                                    <div class="ps-section__product">
-                                        <div class="ps-product ps-product--standard">
-                                            <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                    href="{{ route('users.products', [$productCats2->hashid, $productCats2->productUrl]) }}">
-                                        
-                                                        <figure><img src="{{asset('/images/products/'.$productCats2->image_path)}}" alt="{{$productCats2->name}}" /><img src="{{asset('/images/products/'.$productCats2->image_path)}}" alt="{{$productCats2->name}}" />
-                                                    </figure>
-                                                </a>
-                                                <div class="ps-product__badge" style="right:20px; ">
-                                                    <div class="ps-badge ps-badge--hot"
-                                                        style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">
-                                                        -{{ number_format($productCats2->discount) }}%</div>
-                                                </div>
-                                            </div>
-                                            <div class="ps-product__content">
-                                                <h5 class="ps-p"><a
-                                                        href="{{ route('users.products', [$productCats2->hashid, $productCats2->productUrl]) }}">{{ $productCats2->name }}</a>
-                                                </h5>
-                                                <div class="ps-product__meta"><span
-                                                        class="ps-pr">{{ moneyFormat($productCats2->sale_price) }} <span
-                                                            style="font-size:15px"> <del>{{ moneyFormat($productCats2->price) }}
-                                                            </del> </span></span></span>
-                                                </div>
-                                                <center> <a
-                                                        href="{{ route('users.products', [$productCats2->hashid, $productCats2->productUrl]) }}"
-                                                        class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
-                                                    Cart <i class="fa fa-shopping-basket"></i></a>
-                                                       <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $productCats2->name }}, the  price on your website is {{ moneyFormat($productCats2->sale_price) }} ">
-                                                             <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> 
-                                                             </i></a> 
-                                                    </center>
-                                            </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                            @endforelse
 
-                        </div>
-                    </div>
-                </section>
 
-                <section class="ps-section--featured mt-5"
-                    style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h6 class="" style="font-size: 20px; color:#545252;">{{ count($productCat3)> 0?$productCat3[0]->category->name:'' }}</h6>
-                    <div class="ps-section__content">
-                        <div class="row m-0">
-                            @forelse ($productCat3 as $prod3)
-                                <div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                                    <div class="ps-section__product">
-                                        <div class="ps-product ps-product--standard">
-                                            <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                    href="{{ route('users.products', [$prod3->hashid, $prod3->productUrl]) }}">
-                                                    <figure><img src="{{asset('/images/products/'. $prod3->image_path)}}"
-                                                            alt="{{$prod3->name}}" /><img
-                                                            src="{{asset('/images/products/'.$prod3->image_path) }}"
-                                                            alt="{{$prod3->name}}" />
-                                                        {{-- <figure><img src="{{asset('images/products/'.$prod->image_path)}}" alt="alt" /><img src="{{asset('images/products/'.$prod->image_path)}}" alt="alt" /> --}}
-                                                    </figure>
-                                                </a>
-                                                <div class="ps-product__badge" style="right:20px; ">
-                                                    <div class="ps-badge ps-badge--hot"
-                                                        style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">
-                                                        -{{ number_format($prod3->discount) }}%</div>
-                                                </div>
-                                            </div>
-                                            <div class="ps-product__content">
-                                                <h5 class="ps-p"><a
-                                                        href="{{ route('users.products', [$prod3->hashid, $prod3->productUrl]) }}">{{ $prod3->name }}</a>
-                                                </h5>
-                                                <div class="ps-product__meta"><span
-                                                        class="ps-pr">{{ moneyFormat($prod3->sale_price) }} <span
-                                                            style="font-size:15px"> <del>{{ moneyFormat($prod3->price) }}
-                                                            </del> </span></span></span>
-                                                </div>
-                                                
-                                                <center> <a
-                                                        href="{{ route('users.products', [$prod3->hashid, $prod3->productUrl]) }}"
-                                                        class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
-                                                    Cart <i class="fa fa-shopping-basket"></i></a>
-                                                     <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $prod3->name }}, the  price on your website is {{ moneyFormat($prod3->sale_price) }} ">
-                                                             <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> 
-                                                             </i></a> 
-                                                    </center>
-                                            </div>
+        <section class="team-layout2 pb-80">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+            <div class="heading text-center mb-40">
+              <h3 class="heading__title">Meet Our Team</h3>
+              <p class="heading__desc">Our seasoned team of engineers and energy specialists ensures every project meets the highest standards of quality, safety, and performance.
+              </p>
+            </div><!-- /.heading -->
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="slick-carousel"
+              data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "autoplay": true, "arrows": false, "dots": false, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 1}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
+          
 
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                            @endforelse
+              <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('/frontend/picture5.png')}}" alt="member img">
+                </div><!-- /.member-img -->
+                <div class="member__info">
+                  <h5 class="member__name"><a href="#">Felix Udanyi</a></h5>
+                  <p class="member__job">Chief Executive Officer & Founder</p>
+                  <p class="member__desc">Felix Udanyi is a dynamic and results-driven professional whose career spans over 20 years across multiple industries, marked by a steadfast commitment to excellence, innovation, and strategic leadership.
+                    He holds a Master’s Degree from the University of Liverpool, United Kingdom, and a Bachelor of Engineering in Electrical and Computer Engineering from the Federal University of Technology, Minna, Nigeria.
+                  </p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                    <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Read More</span>
+                      <i class="icon-arrow-right"></i>
+                    </a>
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
 
-                        </div>
-                    </div>
-                </section>
-                
-              
 
-                <section class="ps-section--featured mt-5"
-                    style="background: #f4f3f33f; padding:10px; border:5px solid #ede8e836">
-                    <h2 class="" style="font-size: 20px; color:#545252;">{{ count($productCat4) > 0? $productCat4[0]->category->name:'' }}</h2>
-                    <div class="ps-section__content">
-                        <div class="row m-0">
-                            @forelse ($productCat4 as $prod4)
-                                <div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                                    <div class="ps-section__product">
-                                        <div class="ps-product ps-product--standard">
-                                            <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                    href="{{ route('users.products', [$prod4->hashid, $prod4->productUrl]) }}">
-                                                    <!--<figure><img src="{{ $prod4->image_path }}"-->
-                                                    <!--        alt="{{$prod4->image_path }}" /><img-->
-                                                    <!--        src="{{$prod4->image_path }}"-->
-                                                    <!--        alt="{{$prod4->image_path }}" />-->
-                                                     <figure><img src="{{asset('images/products/'.$prod4->image_path)}}" alt="{{$prod4->name}}" /><img src="{{asset('images/products/'.$prod4->image_path)}}" alt="{{$prod4->name}}" /> 
-                                                    </figure>
-                                                </a>
-                                                <div class="ps-product__badge" style="right:20px; ">
-                                                    <div class="ps-badge ps-badge--hot"
-                                                        style="background: rgb(225, 136, 136); border-radius:3px; padding:0 0;">
-                                                        -{{ number_format($prod4->discount)}}%</div>
-                                                </div>
-                                            </div>
-                                            <div class="ps-product__content">
-                                                <h5 class="ps-p"><a
-                                                        href="{{ route('users.products', [$prod4->hashid, $prod4->productUrl]) }}">{{ $prod4->name }}</a>
-                                                </h5>
-                                                <div class="ps-product__meta"><span
-                                                        class="ps-pr">{{ moneyFormat($prod4->sale_price) }} <span
-                                                            style="font-size:15px"> <del>{{ moneyFormat($prod4->price) }}
-                                                            </del> </span></span></span>
-                                                </div>
-                                                
-                                                <center> <a
-                                                        href="{{ route('users.products', [$prod4->hashid, $prod4->productUrl]) }}"
-                                                        class="btn  btn-lg" style="background:#fff; color:#73c2fb; border:1px solid #73c2fb; width:100px"> Add to
-                                                    Cart <i class="fa fa-shopping-basket"></i></a>
-                                                       <a target="_blank" rel="noopener noreferrer" href="https://wa.me/+2348058885913?text=Please i need {{ $prod4->name }}, the  price on your website is {{ moneyFormat($prod4->sale_price) }} ">
-                                                             <i class="fa fa-whatsapp" aria-hidden="true" style="font-size:20px; border:1px solid #eee; padding:5px; color:#73c2fb "> 
-                                                             </i></a> 
-                                                    </center>
-                                            </div>
+                <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('/frontend/picture6.png')}}" alt="member img">
+                </div><!-- /.member-img -->
+                <div class="member__info">
+                  <h5 class="member__name"><a href="#">Dr Zaiming Fan</a></h5>
+                  <p class="member__job">Technical Partner</p>
+                  <p class="member__desc">Dr. Zaiming Fan is an experienced R&D Director at Shenzhen Zhongnuo Communication Technology Co., Ltd., leading over 1,600 staff across communication, electronics, renewable energy, and UAV systems. With a Ph.D. from Lancaster University and 20+ years of experience, he specializes in ODM R&D management, wireless communication, renewable energy, and embedded systems.</p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                    <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Read More</span>
+                      <i class="icon-arrow-right"></i>
+                    </a>
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
+   
+               <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('/frontend/picture7.png')}}" alt="member img">
+                </div><!-- /.member-img -->
+                <div class="member__info">
+                  <h5 class="member__name"><a href="#">Peter Yuan Liu</a></h5>
+                  <p class="member__job">Technical Partner</p>
+                  <p class="member__desc">A seasoned Renewable Energy Engineer with over 15 years of experience in solar technology, product development, and R&D leadership. Since 2012, he has led innovation at Shenzhen Jiapu Solar Energy Co., LTD, as General Manger ,developing high-efficiency solar systems, advanced absorption coatings, and a range of industry-leading microinverters.</p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                    <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Read More</span>
+                      <i class="icon-arrow-right"></i>
+                    </a>
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
 
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                            @endforelse
+                <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('/frontend/picture7.png')}}" alt="member img">
+                </div><!-- /.member-img -->
+                <div class="member__info">
+                  <h5 class="member__name"><a href="#">Abel Dangana</a></h5>
+                  <p class="member__job">Strategic Relationship Executive</p>
+                  <p class="member__desc">With over 25 years of experience in operations management and supply chain optimization, the SRO drives key partnerships, ensures operational efficiency, and supports the seamless execution of solar and energy storage projects.</p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                    <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Read More</span>
+                      <i class="icon-arrow-right"></i>
+                    </a>
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
 
-                        </div>
-                    </div>
-                </section>
-             
 
-            </div>
-            <div class="ps-home__line"></div>
 
-        </div>
-    </div>
+
+            </div><!-- /.carousel -->
+          </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.Team -->
+
+
+
 @endsection

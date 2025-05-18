@@ -33,6 +33,8 @@ class SliderController extends Controller
             'image' => 'required',
         ]);
 
+       
+
        //dd(request()->file('images'));
           $fileName = '';
         if($request->file('image')){
@@ -50,7 +52,8 @@ class SliderController extends Controller
         ];
 
        //dd($data);
-        Slider::create($data);
+       $ff = Slider::create($data);
+        // dd($ff);
         Session::flash('alert', 'success');
         Session::flash('msg', 'Slider Added Successfully');
         return back();

@@ -26,7 +26,6 @@
 <div class="preloader">
     {{-- <div class="preloader-icon"></div> --}}
 </div>
-@include('layouts.header')
 <div id="main">
     <!-- begin::navigation -->
     <div class="navigation">

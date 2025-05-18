@@ -27,22 +27,17 @@
               @endif
             </li><!-- /.nav-item -->
             @else 
-            <li class="nav__item"> <a class="nav__item-link" href="{{route($menu->slug)}}">{{$menu->name}}</a>@endif
+            <li class="nav__item"> <a class="nav__item-link" href="#">{{$menu->name}}</a>@endif
             @empty 
             @endforelse
           </ul><!-- /.navbar-nav -->
           <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
         </div><!-- /.navbar-collapse -->
+    
         <div class="d-none d-xl-flex align-items-center position-relative ml-30">
-          <a href="" class="btn btn__primary btn__rounded">
-            <i class="icon-calendar"></i>
-            <span>Contact Us</span>
-          </a>
-        </div>
-        <div class="d-none d-xl-flex align-items-center position-relative ml-30">
-            <a href="" class="btn btn__secondary btn__rounded">
-              <i class="icon-calendar"></i>
-              <span>Register with Us</span>
+            <a href="" class=" btn-sm">
+              <i class="icon-user"></i>
+              <span>Get Started</span>
             </a>
           </div>
         {{-- <button class="action__btn-search ml-30"><i class="fa fa-search"></i></button> --}}

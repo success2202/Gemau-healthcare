@@ -17,7 +17,7 @@ use App\Http\Controllers\Users\UserController;
 
 Route::get('/',  [HomeController::class, '__invoke'])->name('users.index');
 Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('index');
-Route::get('/products/{id}/{url}', [ProductDetailsController::class, '__invoke'])->name('users.products');
+Route::get('/products', [ProductDetailsController::class, '__invoke'])->name('users.products');
 
 Route::controller(CartsController::class)->group( function(){
 Route::post('/cart/{id}',  'add')->name('carts.add');
@@ -68,10 +68,11 @@ Route::controller(SearchController::class)->group(function(){
 });
 
 Route::controller(PageController::class)->group(function(){
-Route::get('/pages/about', 'AboutUs')->name('AboutUs');
+Route::get('/pages', 'AboutUs')->name('pages');
+Route::get('/pages/about', 'AboutUs')->name('about-us');
 Route::get('/pages/terms', 'Terms')->name('pages.terms');
 Route::get('/pages/privacypolicy', 'PrivacyPolicy')->name('PrivacyPolicy');
-Route::get('/pages/contactus', 'ContactUs')->name('contactUs');
+Route::get('/pages/contactus', 'ContactUs')->name('contact-us');
 });
 
 Route::controller(PrescriptionController::class)->group(function(){
