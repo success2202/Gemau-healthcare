@@ -134,7 +134,7 @@
           </div><!-- /.col-lg-6 -->
           <div class="col-sm-12 col-md-12 col-lg-6 banner-img">
             <div class="bg-img">
-              <img src="{{asset('frontend/images/banners/8.jpg')}}" alt="backgrounds">
+              <img src="{{asset('/images/11.webp')}}" alt="backgrounds">
             </div>
           </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
