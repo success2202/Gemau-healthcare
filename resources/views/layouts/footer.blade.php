@@ -17,7 +17,8 @@
                 <ul class="list-unstyled">
                     @forelse ($site_menu as $menu )
                     <li > 
-                    @if($menu->name == 'Home') <a style="color:#d6d2d2" href="{{route('index')}}">{{$menu->name}}</a>
+                    @if($menu->name == 'Home') 
+                    <a style="color:#d6d2d2" href="{{route('index')}}">{{$menu->name}}</a>
                      @else <a style="color:#d6d2d2" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
                    </li>
                      @empty
