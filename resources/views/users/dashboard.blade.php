@@ -29,7 +29,7 @@
               data-slick='{"slidesToShow": 2, "slidesToScroll": 1, "autoplay": true, "arrows": false, "dots": false, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 1}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
               <!-- Member #1 -->
               <div class="member">
-                  <img src="{{asset('/images/picture1.png')}}" alt="member img">
+                  <img src="{{asset('images/picture1.png')}}" alt="member img">
                 <div class="member__info">
                   <h5 class="member__name">Roof Top Solar Solutions</h5>
                   <p class="member__desc">Whether you have an aluminum sheet, corrugated iron, concrete slab, or traditional tile roof, we engineer smart, site-specific solar systems built for Nigeria’s climate and structures. Our customized designs maximize available space, enhance energy output, and deliver strong, reliable returns for years to come</p>
@@ -40,7 +40,7 @@
               <!-- Member #2 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('/images/picture2.png')}}" alt="member img">
+                  <img src="{{asset('images/picture2.png')}}" alt="member img">
                 </div>
                 <div class="member__info">
                   <h5 class="member__name">Ground-Mounted Solar Solutions</h5>
@@ -56,7 +56,7 @@
               <!-- Member #3 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('/images/picture3.png')}}" alt="member img">
+                  <img src="{{asset('images/picture3.png')}}" alt="member img">
                   <ul class="social-icons list-unstyled mb-0">
                 </div><!-- /.member-img -->
                 <div class="member__info">
@@ -71,7 +71,7 @@
               <!-- Member #4 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('/images/picture4.png')}}" alt="member img">
+                  <img src="{{asset('images/picture4.png')}}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
                   <h5 class="member__name">Micro-Grid & Energy Storage Solutions</h5>
@@ -88,7 +88,7 @@
 
 
   <section class="banner-layout1 py-0">
-      <div class="bg-img"><img src="{{asset('/frontend/images/backgrounds/8.jpg')}}" alt="backgrounds"></div>
+      <div class="bg-img"><img src="{{asset('frontend/images/backgrounds/8.jpg')}}" alt="backgrounds"></div>
       <div class="top-banner bg-white">
         <div class="container">
           <div class="row">
@@ -134,7 +134,7 @@
           </div><!-- /.col-lg-6 -->
           <div class="col-sm-12 col-md-12 col-lg-6 banner-img">
             <div class="bg-img">
-              <img src="{{asset('/images/11.webp')}}" alt="backgrounds">
+              <img src="{{asset('images/11.webp')}}" alt="backgrounds">
             </div>
           </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
@@ -164,7 +164,7 @@
 
               <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('/images/picture5.png')}}" alt="member img">
+                  <img src="{{asset('images/picture5.png')}}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
                   <h5 class="member__name"><a href="#">Felix Udanyi</a></h5>
@@ -184,7 +184,7 @@
 
                 <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('/images/picture6.png')}}" alt="member img">
+                  <img src="{{asset('images/picture6.png')}}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
                   <h5 class="member__name"><a href="#">Dr Zaiming Fan</a></h5>
@@ -201,7 +201,7 @@
    
                <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('/images/picture7.png')}}" alt="member img">
+                  <img src="{{asset('images/picture7.png')}}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
                   <h5 class="member__name"><a href="#">Peter Yuan Liu</a></h5>
@@ -218,7 +218,7 @@
 
                 <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('/images/picture7.png')}}" alt="member img">
+                  <img src="{{asset('images/picture7.png')}}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
                   <h5 class="member__name"><a href="#">Abel Dangana</a></h5>
