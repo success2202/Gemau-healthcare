@@ -18,7 +18,7 @@
 }
 </style>
 @endsection
-<div class="ps-shopping" style="background: #eee">
+ <div class="ps-shopping" style="background: #eee">
     <form action="{{route('payment.checkout')}}" method="post">
         @csrf
     <div class="container">

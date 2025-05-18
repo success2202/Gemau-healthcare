@@ -1,72 +1,51 @@
-<div class="header">
-    <div>
-          <ul class="navbar-nav">
-              <li class="nav-item navigation-toggler mobile-toggler">
-                  <a href="#" class="nav-link" title="Show navigation">
-                      <i data-feather="menu"></i>
-                  </a>
-              </li>
-          </ul>
-      </div>
-      <div>
-          <ul class="navbar-nav">
-                 <li class="nav-item dropdown">
-                  <a href="#" class="nav-link nav-link-notify" title="Notifications" data-toggle="dropdown">
-                      <i data-feather="bell"></i> <span style="color:red"> {{count($unread_notify)}}</span>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
-                      <div class="p-4 text-center d-flex justify-content-between"
-                           data-backround-image="assets/media/image/image1.jpg">
-                          <h6 class="mb-0">Notifications</h6>
-                          <small class="font-size-11 opacity-7">{{count($unread_notify)}} unread notifications</small>
-                      </div>
-                      <div>
-                          <ul class="list-group list-group-flush">
-                          @if(count($unread_notify) > 0)
-                           @foreach ($unread_notify as $noti )
-                              <li>
-                                  <a href="" class="list-group-item d-flex hide-show-toggler">
-                                      <div>
-                                          <figure class="avatar avatar-sm m-r-15">
-                                                  <span class="avatar-title bg-success-bright text-success rounded-circle">
-                                                      <i class="ti-bell"></i>
-                                                  </span>
-                                          </figure>
-                                      </div>
-                                      <div class="flex-grow-1">
-                                          <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                              {{$noti->message}}
-                                              <i title="Mark as read" data-toggle="tooltip"
-                                                 class="hide-show-toggler-item fa fa-circle-o font-size-11"></i>
-                                          </p>
-                                          <span class="text-muted small">{{$noti->created_at->DiffForHumans()}}</span>
-                                      </div>
-                                   
-                                  </a>
-                              </li>
-                            @endforeach
-                            @endif
-                              </li>
-                          </ul>
-                      </div>
-                   
-                  </div>
-              </li>
-              <li class="nav-item dropdown">
-                  <a href="" class="nav-link" title="User menu" >
-                      <i data-feather="settings"></i>
-                  </a>
-              </li>
-              <!-- end::user menu -->
-          </ul>
-          <!-- begin::mobile header toggler -->
-          <ul class="navbar-nav d-flex align-items-center">
-              <li class="nav-item header-toggler">
-                  <a href="#" class="nav-link">
-                      <i data-feather="arrow-down"></i>
-                  </a>
-              </li>
-          </ul>
-          <!-- end::mobile header toggler -->
-      </div>
-  </div>
+<header class="header header-layout2">
+    <nav class="navbar navbar-expand-lg sticky-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{route('index')}}">
+          {{-- <img src="" class="logo-light" alt="logo"> --}}
+          <img src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" width="120px" alt="logo">
+          {{-- <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="{{$settings->site_name}}" class="logo-dark" width="120px"></a> --}}
+        </a>
+        <button class="navbar-toggler" type="button">
+          <span class="menu-lines"><span></span></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <ul class="navbar-nav ml-auto">
+            @forelse ($site_menu as $menu)
+            @if($menu->has_child)
+            <li class="nav__item has-dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">{{$menu->name}}</a>
+              @if(count($menu->subMenu) > 0)
+              <ul class="dropdown-menu">
+                @forelse ($menu->subMenu as $sub) 
+                <li class="nav__item">
+                  <a href="{{route($sub->slug, $sub->hashid)}}" class="nav__item-link">{{$sub->name}}</a>
+                </li>
+                @empty
+                @endforelse
+              </ul>
+              @endif
+            </li><!-- /.nav-item -->
+            @else 
+            <li class="nav__item"> <a class="nav__item-link" href="{{route($menu->slug)}}">{{$menu->name}}</a>@endif
+            @empty 
+            @endforelse
+          </ul><!-- /.navbar-nav -->
+          <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
+        </div><!-- /.navbar-collapse -->
+        <div class="d-none d-xl-flex align-items-center position-relative ml-30">
+          <a href="" class="btn btn__primary btn__rounded">
+            <i class="icon-calendar"></i>
+            <span>Contact Us</span>
+          </a>
+        </div>
+        <div class="d-none d-xl-flex align-items-center position-relative ml-30">
+            <a href="" class="btn btn__secondary btn__rounded">
+              <i class="icon-calendar"></i>
+              <span>Register with Us</span>
+            </a>
+          </div>
+        {{-- <button class="action__btn-search ml-30"><i class="fa fa-search"></i></button> --}}
+      </div><!-- /.container -->
+    </nav><!-- /.navabr -->
+  </header><!-- /.Header -->

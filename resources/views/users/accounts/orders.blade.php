@@ -9,12 +9,13 @@
 @section('content')
 @section('styles')
     <style>
-        .navIL {
+        .navIL 
+        {
             padding: 15px;
             padding-left: 10px
         }
-
-        .dropdown-item:hover {
+        .dropdown-item:hover 
+        {
             background: rgb(219, 218, 218);
         }
     </style>

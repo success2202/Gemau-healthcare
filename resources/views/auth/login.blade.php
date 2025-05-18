@@ -26,10 +26,9 @@
 <div class="preloader">
     <div class="preloader-icon"></div>
 </div>
-<!-- end::preloader -->
+<!-- end::preloader --> 
 
 <div class="form-wrapper">
-
     <!-- logo -->
     <div id="logo">
         <img class="logo" src="{{asset('/images/'.$settings->site_logo)}}" alt="{{asset('/images/'.$settings->site_logo)}}" width="200px">
