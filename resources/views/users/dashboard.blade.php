@@ -217,7 +217,7 @@
 
                 <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('images/Picture7.png')}}" alt="member img">
+                  <img src="{{asset('images/Picture8.png')}}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
                   <h5 class="member__name"><a href="#">Abel Dangana</a></h5>
