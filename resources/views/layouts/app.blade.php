@@ -20,6 +20,7 @@ href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&am
       {{-- <div class="preloader">
         <div class="loading"><span></span><span></span><span></span><span></span></div>
       </div><!-- /.preloader --> --}}
+      @include('layouts.header_top')
    @include('layouts.header')
     @yield('content')
 

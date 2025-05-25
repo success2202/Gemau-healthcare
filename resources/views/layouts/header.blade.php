@@ -14,7 +14,7 @@
             @forelse ($site_menu as $menu)
             @if($menu->has_child)
             <li class="nav__item has-dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">{{$menu->name}}</a>
+              <a href="{{route($menu->slug)}}" data-toggle="dropdown" class="dropdown-toggle nav__item-link">{{$menu->name}}</a>
               @if(count($menu->subMenu) > 0)
               <ul class="dropdown-menu">
                 @forelse ($menu->subMenu as $sub) 
@@ -27,7 +27,7 @@
               @endif
             </li><!-- /.nav-item -->
             @else 
-            <li class="nav__item"> <a class="nav__item-link" href="#">{{$menu->name}}</a>@endif
+            <li class="nav__item"> <a class="nav__item-link" href="{{route($menu->slug)}}">{{$menu->name}}</a>@endif
             @empty 
             @endforelse
           </ul><!-- /.navbar-nav -->

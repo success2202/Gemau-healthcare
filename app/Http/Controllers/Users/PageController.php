@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Users;
 
-use App\Models\Privacypolicy;
-use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\AboutUs;
+use App\Models\Product;
+use App\Models\Services;
+use App\Models\Privacypolicy;
 use App\Models\TermsCondition;
+use App\Http\Controllers\Controller;
 
 
 class PageController extends Controller
@@ -30,5 +33,22 @@ class PageController extends Controller
     public function contactUs(){
         return view('users.pages.contactUs');
     }
+
+    public function products(){
+        return view('users.pages.products');
+        // ->with('products', Product::latest()->first());
+    }
+
+    public function services(){
+        return view('users.pages.services')
+        ->with('services', Services::latest()->first());
+        // ->with('settings', Settings::first());
+    }
+
+    // public function blogs(){
+    //     return view('users.pages.blogs')
+    //     ->with('blogs', Blog::latest()->first());
+    //     // ->with('settings', Settings::first());
+    // }
 
 }

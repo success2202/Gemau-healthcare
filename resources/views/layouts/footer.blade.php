@@ -32,7 +32,7 @@
               <h6 class="footer-widget__title">Links</h6>
               <nav>
                   <ul class="list-unstyled">
-                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="{{ route('pages.terms') }}">Terms & Conditions</a></li>
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Cookies</a></li>
               </ul>
