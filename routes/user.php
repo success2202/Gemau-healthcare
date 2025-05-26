@@ -74,9 +74,11 @@ Route::get('/pages/terms', 'Terms')->name('pages.terms');
 Route::get('/pages/privacypolicy', 'PrivacyPolicy')->name('PrivacyPolicy');
 Route::get('/pages/contactus', 'ContactUs')->name('contact-us');
 Route::get('/pages/products', 'Products')->name('users.products');
+Route::get('/pages/products/details/{id}', 'Details')->name('product.details');
 Route::get('/pages/services', 'Services')->name('users.services');
 // Route::get('/pages/blogs', 'Blogs')->name('users.blogs');
 });
+
 
 Route::controller(PrescriptionController::class)->group(function(){
 

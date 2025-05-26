@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('title')
-{{-- <title> {{$products[0]?->category?->name }}</title> --}}
+<title> {{$product[0]?->category?->name }}</title>
 @endsection
 @section('head')
-{{-- <link rel="canonical" href="{{ url('catalogs/'.Str::slug($products[0]?->category?->name)) }}"> --}}
+<link rel="canonical" href="{{ url('catalogs/'.Str::slug($product[0]?->category?->name)) }}">
 @endsection
 @section('content')
 
@@ -161,6 +161,7 @@
               </div>
               <div class="row">
                 <!-- Product item #1 -->
+                @forelse ($product as $prod)
                 <div class="col-sm-6 col-md-6 col-lg-4">
                   <div class="product-item">
                     <div class="product__img">
@@ -172,147 +173,16 @@
                       </div><!-- /.product-action -->
                     </div><!-- /.product-img -->
                     <div class="product__info">
-                      <h4 class="product__title"><a href="#">Calming Herps</a></h4>
-                      <span class="product__price">$18.99</span>
+                      <h4 class="product__title"><a href="">{{ $prod->name }}</a></h4>
+                      <span class="product__price">{{ $prod->price }}</span>
                     </div><!-- /.product-content -->
                   </div><!-- /.product-item -->
                 </div><!-- /.col-lg-4 -->
-                <!-- Product item #2 -->
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="{{asset('frontend/images/blog/grid/pp.jpg')}}" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Biotin Complex</a></h4>
-                      <span class="product__price">$12,99</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-4 -->
-                <!-- Product item #3 -->
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Facial Serum</a></h4>
-                      <span class="product__price">$19,99</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-4 -->
-                <!-- Product item #4 -->
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="{{ asset('frontend/images/products/4.jpg') }}" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Calming Herps</a></h4>
-                      <span class="product__price">$33.00</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-4 -->
-                <!-- Product item #5 -->
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="{{ asset('frontend/images/products/5.jpg') }}" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Essential Oil</a></h4>
-                      <span class="product__price">$63.00</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-4 -->
-                <!-- Product item #6 -->
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="{{ asset('frontend/images/products/6.jpg') }}" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Natural Cacao Powder</a></h4>
-                      <span class="product__price">$12,99</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-4 -->
-                <!-- Product item #7 -->
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="{{ asset('frontend/images/products/7.jpg') }}" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Natural Gel</a></h4>
-                      <span class="product__price">$38,00</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-4 -->
-                <!-- Product item #8 -->
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="{{ asset('frontend/images/products/8.jpg') }}" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Goji Powder</a></h4>
-                      <span class="product__price">$16,00</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-4 -->
-                <!-- Product item #9 -->
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="{{ asset('frontend/images/products/9.jpg') }}" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Blood Pressure</a></h4>
-                      <span class="product__price">$18.99</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-4 -->
+
+                @empty
+                    
+                @endforelse
+               
               </div><!-- /.row -->
               <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center">

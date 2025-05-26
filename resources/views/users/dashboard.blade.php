@@ -11,7 +11,7 @@
 @include('users.slider')
 
 
- <section class="team-layout1 pb-80">
+ {{-- <section class="team-layout1 pb-80">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
@@ -83,7 +83,194 @@
           </div><!-- /.col-12 -->
         </div><!-- /.row -->
       </div><!-- /.container -->
+    </section><!-- /.Team --> --}}
+
+    <section class="team-layout1 pb-80">
+  
+        <div class="row">
+          <div class="col-12">
+            <div class="slick-carousel"
+              data-slick='{"slidesToShow": 2, "slidesToScroll": 1, "autoplay": true, "arrows": false, "dots": false, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 1}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
+              <!-- Member #1 -->
+              <div class="member">
+                  <img src="{{asset('images/s4.jpg')}}" alt="member img">
+                  
+              </div><!-- /.member -->
+              <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('images/s4.jpg')}}" alt="member img">
+                </div>
+             
+              </div><!-- /.member -->
+              <!-- Member #3 -->
+              <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('images/s3.jpg')}}" alt="member img">
+                  <ul class="social-icons list-unstyled mb-0">
+                </div><!-- /.member-img -->
+              
+              </div><!-- /.member -->
+              <!-- Member #4 -->
+              <div class="member">
+                <div class="member__img">
+                  <img src="{{asset('images/s3.jpg')}}" alt="member img">
+                </div><!-- /.member-img -->
+                
+                
+              </div><!-- /.member -->
+            </div><!-- /.carousel -->
+          </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
     </section><!-- /.Team -->
+
+  <!-- ========================
+          Services Layout 1
+      =========================== -->
+      <section class="services-layout1 pt-130">
+        <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/2.jpg') }}" alt="background"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+              <div class="heading text-center mb-60">
+                <h2 class="heading__title ">Our Solutions</h2>
+                <h3 class="heading__subtitle"><p>At ROISOLAR, we deliver customized solar energy systems designed to help you reduce electricity costs, achieve energy independence, and meet your sustainability goals. Whatever your energy needs, we provide smart, scalable solutions built for long-term performance
+                </p>.</h3>
+              </div><!-- /.heading -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+          <div class="row">
+            <!-- service item #1 -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="service-item">
+                <div class="service__icon">
+                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
+                </div><!-- /.service__icon -->
+                <div class="service__content">
+                  <h4 class="service__title">Roof Top Solar Solutions</h4>
+                  <p class="service__desc">Whether you have an aluminum sheet, corrugated iron, concrete slab, or traditional tile roof, we engineer smart, site-specific solar systems built for Nigeria’s climate and structures. Our customized designs maximize available space, enhance energy output, and deliver strong, reliable returns for years to come
+                  </p>
+                 
+                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
+                    <span>Read More</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div><!-- /.service__content -->
+              </div><!-- /.service-item -->
+            </div><!-- /.col-lg-4 -->
+            <!-- service item #2 -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="service-item">
+                <div class="service__icon">
+                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
+                </div><!-- /.service__icon -->
+                <div class="service__content">
+                  <h4 class="service__title">Ground-Mounted Solar Solutions</h4>
+                  <p class="service__desc">We deliver end-to-end execution for ground-mounted solar projects — from intelligent design and precision installation to seamless operations and maintenance.
+                    Whether for open industrial spaces, farms, estates, or remote sites across Nigeria, our ground-mounted systems are engineered for maximum efficiency, durability, and energy yield across the full project lifecycle.
+                    
+                  </p>
+                
+                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
+                    <span>Read More</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div><!-- /.service__content -->
+              </div><!-- /.service-item -->
+            </div><!-- /.col-lg-4 -->
+            <!-- service item #3 -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="service-item">
+                <div class="service__icon">
+                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
+                </div><!-- /.service__icon -->
+                <div class="service__content">
+                  <h4 class="service__title">Solar Car Park Solutions</h4>
+                  <p class="service__desc">Transform your parking areas into clean energy hubs with ROISOLAR’s smart solar car park systems.
+                    Our designs not only harness solar energy efficiently but also provide valuable shade and protection for vehicles and assets — turning unused spaces into high-performing energy generators with dual-purpose benefits
+                  </p>
+                  
+                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
+                    <span>Read More</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div><!-- /.service__content -->
+              </div><!-- /.service-item -->
+            </div><!-- /.col-lg-4 -->
+            <!-- service item #4 -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="service-item">
+                <div class="service__icon">
+                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
+                  <i class="icon-dropper"></i>
+                </div><!-- /.service__icon -->
+                <div class="service__content">
+                  <h4 class="service__title">Micro-Grid & Energy Storage Solutions</h4>
+                  <p class="service__desc">We deliver end-to-end execution for ground-mounted solar projects — from intelligent design and precision installation to seamless operations and maintenance.
+                    Whether for open industrial spaces, farms, estates, or remote sites across Nigeria, our ground-mounted systems are engineered for maximum efficiency, durability, and energy yield across the full project lifecycle.
+                    
+                  </p>
+                 
+                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
+                    <span>Read More</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div><!-- /.service__content -->
+              </div><!-- /.service-item -->
+            </div><!-- /.col-lg-4 -->
+            <!-- service item #5 -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="service-item">
+                <div class="service__icon">
+                  <i class="icon-heart3"></i>
+                  <i class="icon-heart3"></i>
+                </div><!-- /.service__icon -->
+                <div class="service__content">
+                  <h4 class="service__title">Pediatric Clinic</h4>
+                  <p class="service__desc">Pediatric providers see patients from birth into early adulthood to make sure
+                    children achieve stay healthy. Our care includes preventive health checkups.
+                  </p>
+                  <ul class="list-items list-items-layout1 list-unstyled">
+                    <li>Clinical laboratory</li>
+                    <li>Research Analyst</li>
+                    <li>Quality Assurance</li>
+                  </ul>
+                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
+                    <span>Read More</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div><!-- /.service__content -->
+              </div><!-- /.service-item -->
+            </div><!-- /.col-lg-4 -->
+            <!-- service item #6 -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="service-item">
+                <div class="service__icon">
+                  <i class="icon-heart2"></i>
+                  <i class="icon-heart2"></i>
+                </div><!-- /.service__icon -->
+                <div class="service__content">
+                  <h4 class="service__title">Cardiac Clinic</h4>
+                  <p class="service__desc">For people requiring additional follow up, the Cardiac Clinic provides rapid
+                    access to professionals specialized in diagnosing and treating heart disease.
+                  </p>
+                  <ul class="list-items list-items-layout1 list-unstyled">
+                    <li>Macular degeneration</li>
+                    <li>Diabetic retinopathy</li>
+                    <li>Excessive tearing</li>
+                  </ul>
+                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
+                    <span>Read More</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div><!-- /.service__content -->
+              </div><!-- /.service-item -->
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.Services Layout 1 -->
+
+
 
 
   <section class="banner-layout1 py-0">

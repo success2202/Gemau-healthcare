@@ -49,8 +49,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
               <div class="service-item">
                 <div class="service__icon">
-                  <i class="icon-head"></i>
-                  <i class="icon-head"></i>
+                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
                 </div><!-- /.service__icon -->
                 <div class="service__content">
                   <h4 class="service__title">Neurology Clinic</h4>
@@ -58,11 +57,7 @@
                     of
                     the fields, these training programs are called fellowships, and are one to two years.
                   </p>
-                  <ul class="list-items list-items-layout1 list-unstyled">
-                    <li>Neurocritical Care</li>
-                    <li>Neuro Oncology</li>
-                    <li>Geriatric Neurology</li>
-                  </ul>
+                 
                   <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
                     <span>Read More</span>
                     <i class="icon-arrow-right"></i>
@@ -74,19 +69,14 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
               <div class="service-item">
                 <div class="service__icon">
-                  <i class="icon-heart"></i>
-                  <i class="icon-heart"></i>
+                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
                 </div><!-- /.service__icon -->
                 <div class="service__content">
                   <h4 class="service__title">Cardiology Clinic</h4>
                   <p class="service__desc">All cardiologists study the disorders of the heart, but the study of adult and
                     child heart disorders are trained to take care of small children and adult heart disease.
                   </p>
-                  <ul class="list-items list-items-layout1 list-unstyled">
-                    <li>Neurocritical Care</li>
-                    <li>Neuro Oncology</li>
-                    <li>Geriatric Neurology</li>
-                  </ul>
+                
                   <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
                     <span>Read More</span>
                     <i class="icon-arrow-right"></i>
@@ -98,8 +88,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
               <div class="service-item">
                 <div class="service__icon">
-                  <i class="icon-microscope"></i>
-                  <i class="icon-microscope"></i>
+                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
                 </div><!-- /.service__icon -->
                 <div class="service__content">
                   <h4 class="service__title">Pathology Clinic</h4>
@@ -107,11 +96,7 @@
                     medicine.
                     Also it underpins every aspect of patient care, from diagnostic testing and treatment.
                   </p>
-                  <ul class="list-items list-items-layout1 list-unstyled">
-                    <li>Surgical Pathology</li>
-                    <li>Histopathology</li>
-                    <li>Cytopathology </li>
-                  </ul>
+                  
                   <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
                     <span>Read More</span>
                     <i class="icon-arrow-right"></i>
