@@ -7,28 +7,30 @@
 @endsection
 @section('content')
 
- <!-- ========================
+  <!-- ========================
        page title 
     =========================== -->
-    <section class="page-title pt-30 pb-30 text-center">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-12">
-              <nav>
-                <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                  <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">6 Tips to Protect Your Mental Health When You’re
-                    Sick</li>
-                </ol>
-              </nav>
-            </div><!-- /.col-12 -->
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </section><!-- /.page-title -->
+    <section class="page-title page-title-layout5 text-center">
+      <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/6.jpg') }}" alt="background"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="pagetitle__heading">About Us</h1>
+            <nav>
+              <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+              </ol>
+            </nav>
+          </div><!-- /.col-xl-6 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.page-title -->
+
+
     <section class="about-layout1 pb-0">
       <div class="container">     
-        <div class="row" style="margin-top:0px!important">
+        <div class="row" >
           <div class="col-sm-14 col-md-14 col-lg-6">
             <div class="about__Text">
               <p class="mb-30">{!! $aboutUs->content !!}</p>

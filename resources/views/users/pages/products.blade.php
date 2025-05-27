@@ -127,7 +127,7 @@
        page title 
     =========================== -->
     <section class="page-title page-title-layout5 text-center">
-        <div class="bg-img"><img src="assets/images/backgrounds/6.jpg" alt="background"></div>
+        <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/6.jpg') }}" alt="background"></div>
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -135,7 +135,7 @@
               <nav>
                 <ol class="breadcrumb justify-content-center mb-0">
                   <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">shop</li>
+                  <li class="breadcrumb-item active" aria-current="page">Product</li>
                 </ol>
               </nav>
             </div><!-- /.col-xl-6 -->
@@ -165,7 +165,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4">
                   <div class="product-item">
                     <div class="product__img">
-                      <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
+                      <img src="{{asset('images/pn1.jpg')}}" alt="Product" loading="lazy">
                       <div class="product__action">
                         <a href="#" class="btn btn__primary btn__rounded">
                           <i class="icon-cart"></i> <span>Add To Cart</span>
@@ -173,8 +173,8 @@
                       </div><!-- /.product-action -->
                     </div><!-- /.product-img -->
                     <div class="product__info">
-                      <h4 class="product__title"><a href="">{{ $prod->name }}</a></h4>
-                      <span class="product__price">{{ $prod->price }}</span>
+                      <h4 class="product__title"><a href="{{ route('product.details',encrypt($prod->id)) }}">{{ $prod->name }}</a></h4>
+                      <span class="product__price">${{ $prod->price }}</span>
                     </div><!-- /.product-content -->
                   </div><!-- /.product-item -->
                 </div><!-- /.col-lg-4 -->
@@ -207,7 +207,7 @@
                     </form>
                   </div><!-- /.widget-content -->
                 </div><!-- /.widget-search -->
-                <div class="widget widget-poducts">
+                {{-- <div class="widget widget-poducts">
                   <h5 class="widget__title">Best Sellers</h5>
                   <div class="widget__content">
                     <!-- product item #1 -->
@@ -241,17 +241,23 @@
                       </div><!-- /.widget-product-content -->
                     </div><!-- /.widget-product-item -->
                   </div><!-- /.widget-content -->
-                </div><!-- /.widget-poducts -->
+                </div><!-- /.widget-poducts --> --}}
+
                 <div class="widget widget-categories">
                   <h5 class="widget__title">Categories</h5>
                   <div class="widget-content">
                     <ul class="list-unstyled mb-0">
-                      <li><a href="#"><span class="cat-count">4</span><span>Neurology</span></a></li>
-                      <li><a href="#"><span class="cat-count">0</span><span>Cardiology</span></a></li>
+                        @forelse ($categories as $item)
+                        <li><a href="#"><span class="cat-count">></span><span>{{ $item->name }}</span></a></li>
+                        @empty
+                            
+                        @endforelse
+                      
+                      {{-- <li><a href="#"><span class="cat-count">0</span><span>Cardiology</span></a></li>
                       <li><a href="#"><span class="cat-count">3</span><span>Pathology</span></a></li>
                       <li><a href="#"><span class="cat-count">2</span><span>Laboratory</span></a></li>
                       <li><a href="#"><span class="cat-count">4</span><span>Pediatric</span></a></li>
-                      <li><a href="#"><span class="cat-count">1</span><span>Cardiac Clinic</span></a></li>
+                      <li><a href="#"><span class="cat-count">1</span><span>Cardiac Clinic</span></a></li> --}}
                     </ul>
                   </div><!-- /.widget-content -->
                 </div><!-- /.widget-categories -->

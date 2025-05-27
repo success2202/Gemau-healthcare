@@ -50,24 +50,22 @@
 
 
  
- <!-- ========================
-       page title 
-    =========================== -->
-    <section class="page-title pt-30 pb-30 text-center">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-12">
-              <nav>
-                <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Home</a></li>
-                  <li class="breadcrumb-item"><a href="{{ route('users.blogs') }}">Blog</a></li>
-                 
-                </ol>
-              </nav>
-            </div><!-- /.col-12 -->
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </section><!-- /.page-title -->
+<section class="page-title page-title-layout5 text-center">
+  <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/6.jpg') }}" alt="background"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="pagetitle__heading">Our Blogs</h1>
+        <nav>
+          <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">blog</li>
+          </ol>
+        </nav>
+      </div><!-- /.col-xl-6 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.page-title -->
   
       <!-- ======================
         Blog Grid

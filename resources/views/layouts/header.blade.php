@@ -40,6 +40,13 @@
               <span>Get Started</span>
             </a>
           </div>
+
+          <div class="d-none d-xl-flex align-items-center position-relative ml-30">
+            <a href="" class=" btn-sm">
+              <i class="icon-cart"></i>
+              <span>MyCart</span>
+            </a>
+          </div>
         {{-- <button class="action__btn-search ml-30"><i class="fa fa-search"></i></button> --}}
       </div><!-- /.container -->
     </nav><!-- /.navabr -->

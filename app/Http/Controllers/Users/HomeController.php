@@ -7,6 +7,7 @@ use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Setting;
 use App\Models\Category;
+use App\Models\Services;
 use Illuminate\Http\Request;
 use App\Models\CountryCurrency;
 use Vinkla\Hashids\Facades\Hashids;
@@ -40,7 +41,9 @@ class HomeController extends Controller
     //   }
     
         $slider = Slider::latest()->get();
-       
+        $category = Category::latest()->simplePaginate(10);
+        $product = Product::latest()->simplePaginate(9);
+        $services = Services::latest()->simplePaginate(6);
         $data['latest'] = Product::latest()->inRandomOrder()->take(6)->get();
         $data['topProducts1'] = Product::orderBy('views', 'DESC')->take(6)->get();
         $data['productCat1'] = Product::where('category_id', 24)->inRandomOrder()->take(9)->get();
@@ -57,6 +60,9 @@ class HomeController extends Controller
         addHashId($data['advert']);
         return view('users.dashboard', $data, [
             'sliders' => $slider,
+            'categories' => $category,
+            'products' => $product,
+            'service' => $services,
             
         ]);
     }

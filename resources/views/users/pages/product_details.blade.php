@@ -39,11 +39,11 @@
               <div class="row product-item-single">
                 <div class="col-sm-6">
                   <div class="product__img">
-                    <img src="assets/images/products/2.jpg" class="zoomin" alt="product" loading="lazy">
+                    <img src="{{ asset('/images/pn1.jpg') }}" class="zoomin" alt="product" loading="lazy">
                   </div><!-- /.product-img -->
                 </div>
                 <div class="col-sm-6">
-                  <h1 class="product__title">Green Tea</h1>
+                  <h1 class="product__title">{{ $product->name }}</h1>
                   <div class="product__meta-review mb-20">
                     <span class="product__rating">
                       <i class="fa fa-star active"></i>
@@ -55,13 +55,13 @@
                     <span>4 Review(s)</span>
                     <a href="#">Add Review</a>
                   </div><!-- /.product-meta-review -->
-                  <span class="product__price mb-20">$ 14.00</span>
-                  <div class="product__desc">
+                  <span class="product__price mb-20">$ {{ $product->price }}</span>
+                  {{-- <div class="product__desc">
                     <p>EGCG is one of the most powerful compounds in green tea. Research has tested its ability to help
                       treat various diseases. It appears to be one of the main compounds that gives green tea its
                       medicinal properties (2
                     </p>
-                  </div><!-- /.product-desc -->
+                  </div><!-- /.product-desc --> --}}
                   <div class="product__quantity d-flex mb-30">
                     <div class="quantity__input-wrap mr-20">
                       <i class="decrease-qty fa fa-minus"></i>
@@ -87,19 +87,14 @@
               <div class="product__details mt-100">
                 <nav class="nav nav-tabs">
                   <a class="nav__link active" data-toggle="tab" href="#Description">Description</a>
-                  <a class="nav__link" data-toggle="tab" href="#Details">Details</a>
+                  {{-- <a class="nav__link" data-toggle="tab" href="#Details">Details</a> --}}
                   <a class="nav__link" data-toggle="tab" href="#Reviews">Reviews (3)</a>
                 </nav>
                 <div class="tab-content mb-50" id="nav-tabContent">
                   <div class="tab-pane fade show active" id="Description">
-                    <p>It doesn’t contain as much as coffee, but enough to produce a response without causing the jittery
-                      effects associated with taking in too much caffeine. Caffeine affects the brain by blocking an
-                      inhibitory neurotransmitter called adenosine. This way, it increases the firing of neurons and the
-                      concentration of neurotransmitters like dopamine and norepinephrine (4Trusted Source, 5). Research
-                      has consistently shown that caffeine can improve various aspects of brain function, including mood,
-                      vigilance, reaction time, and memory (6).</p>
+                    <p>{{!!$product->description!!}}.</p>
                   </div><!-- /.desc-tab -->
-                  <div class="tab-pane fade" id="Details">
+                  {{-- <div class="tab-pane fade" id="Details">
                     <p>Yorks is not just about graphic design; it's more than that. We offer integral communication
                       services, and we're responsible for our process and results. We thank each of our clients and their
                       portfolios; thanks to them we have grown and built what we are today! After all</p>
@@ -108,7 +103,7 @@
                       around us. On top of that, pleasing images create a better user experience.
                       At League Agency, we shows only the best websites and portfolios built completely with passion,
                       simplicity & creativity !</p>
-                  </div><!-- /.details-tab -->
+                  </div><!-- /.details-tab --> --}}
                   <div class="tab-pane fade" id="Reviews">
                     <form class="reviews__form">
                       <div class="form-group">
@@ -128,10 +123,13 @@
               <h6 class="related__products-title text-center-xs mb-25">Related Products</h6>
               <div class="row">
                 <!-- Product item #1 -->
+                @forelse ($products as $item)
+                    
+               
                 <div class="col-sm-6 col-md-6 col-lg-3">
                   <div class="product-item">
                     <div class="product__img">
-                      <img src="assets/images/products/2.jpg" alt="Product" loading="lazy">
+                      <img src="{{ asset('images/pn2.jpg') }}" alt="Product" loading="lazy">
                       <div class="product__action">
                         <a href="#" class="btn btn__primary btn__rounded">
                           <i class="icon-cart"></i> <span>Add To Cart</span>
@@ -139,62 +137,15 @@
                       </div><!-- /.product-action -->
                     </div><!-- /.product-img -->
                     <div class="product__info">
-                      <h4 class="product__title"><a href="#">Biotin Complex</a></h4>
-                      <span class="product__price">$12,99</span>
+                      <h4 class="product__title"><a href="{{ route('product.details',encrypt($item->id)) }}">{{ $item->name }}</a></h4>
+                      <span class="product__price">${{ $item->price }}</span>
                     </div><!-- /.product-content -->
                   </div><!-- /.product-item -->
                 </div><!-- /.col-lg-3 -->
-                <!-- Product item #2 -->
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="assets/images/products/3.jpg" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Facial Serum</a></h4>
-                      <span class="product__price">$19,99</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-3 -->
-                <!-- Product item #3 -->
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="assets/images/products/4.jpg" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Calming Herps</a></h4>
-                      <span class="product__price">$33.00</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-3 -->
-                <!-- Product item #4 -->
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                  <div class="product-item">
-                    <div class="product__img">
-                      <img src="assets/images/products/5.jpg" alt="Product" loading="lazy">
-                      <div class="product__action">
-                        <a href="#" class="btn btn__primary btn__rounded">
-                          <i class="icon-cart"></i> <span>Add To Cart</span>
-                        </a>
-                      </div><!-- /.product-action -->
-                    </div><!-- /.product-img -->
-                    <div class="product__info">
-                      <h4 class="product__title"><a href="#">Essential Oil</a></h4>
-                      <span class="product__price">$63.00</span>
-                    </div><!-- /.product-content -->
-                  </div><!-- /.product-item -->
-                </div><!-- /.col-lg-3 -->
+                @empty
+                    
+                @endforelse
+    
               </div><!-- /.row -->
             </div><!-- /.col-12 -->
           </div><!-- /.row -->

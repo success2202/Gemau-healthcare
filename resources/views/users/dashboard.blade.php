@@ -141,131 +141,28 @@
           </div><!-- /.row -->
           <div class="row">
             <!-- service item #1 -->
+            @forelse ($service as $serv)
             <div class="col-sm-12 col-md-6 col-lg-4">
               <div class="service-item">
                 <div class="service__icon">
                   <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
                 </div><!-- /.service__icon -->
                 <div class="service__content">
-                  <h4 class="service__title">Roof Top Solar Solutions</h4>
-                  <p class="service__desc">Whether you have an aluminum sheet, corrugated iron, concrete slab, or traditional tile roof, we engineer smart, site-specific solar systems built for Nigeria’s climate and structures. Our customized designs maximize available space, enhance energy output, and deliver strong, reliable returns for years to come
+                  <h4 class="service__title">{{ $serv->title }}</h4>
+                  <p class="service__desc">{{ $serv->contents }}
                   </p>
                  
-                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
+                  <a href="{{ route('service.details',encrypt($serv->id)) }}" class="btn btn__secondary btn__outlined btn__rounded">
                     <span>Read More</span>
                     <i class="icon-arrow-right"></i>
                   </a>
                 </div><!-- /.service__content -->
               </div><!-- /.service-item -->
             </div><!-- /.col-lg-4 -->
-            <!-- service item #2 -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="service-item">
-                <div class="service__icon">
-                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
-                </div><!-- /.service__icon -->
-                <div class="service__content">
-                  <h4 class="service__title">Ground-Mounted Solar Solutions</h4>
-                  <p class="service__desc">We deliver end-to-end execution for ground-mounted solar projects — from intelligent design and precision installation to seamless operations and maintenance.
-                    Whether for open industrial spaces, farms, estates, or remote sites across Nigeria, our ground-mounted systems are engineered for maximum efficiency, durability, and energy yield across the full project lifecycle.
-                    
-                  </p>
+            @empty
                 
-                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
-                    <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
-                  </a>
-                </div><!-- /.service__content -->
-              </div><!-- /.service-item -->
-            </div><!-- /.col-lg-4 -->
-            <!-- service item #3 -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="service-item">
-                <div class="service__icon">
-                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
-                </div><!-- /.service__icon -->
-                <div class="service__content">
-                  <h4 class="service__title">Solar Car Park Solutions</h4>
-                  <p class="service__desc">Transform your parking areas into clean energy hubs with ROISOLAR’s smart solar car park systems.
-                    Our designs not only harness solar energy efficiently but also provide valuable shade and protection for vehicles and assets — turning unused spaces into high-performing energy generators with dual-purpose benefits
-                  </p>
-                  
-                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
-                    <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
-                  </a>
-                </div><!-- /.service__content -->
-              </div><!-- /.service-item -->
-            </div><!-- /.col-lg-4 -->
-            <!-- service item #4 -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="service-item">
-                <div class="service__icon">
-                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
-                  <i class="icon-dropper"></i>
-                </div><!-- /.service__icon -->
-                <div class="service__content">
-                  <h4 class="service__title">Micro-Grid & Energy Storage Solutions</h4>
-                  <p class="service__desc">We deliver end-to-end execution for ground-mounted solar projects — from intelligent design and precision installation to seamless operations and maintenance.
-                    Whether for open industrial spaces, farms, estates, or remote sites across Nigeria, our ground-mounted systems are engineered for maximum efficiency, durability, and energy yield across the full project lifecycle.
-                    
-                  </p>
-                 
-                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
-                    <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
-                  </a>
-                </div><!-- /.service__content -->
-              </div><!-- /.service-item -->
-            </div><!-- /.col-lg-4 -->
-            <!-- service item #5 -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="service-item">
-                <div class="service__icon">
-                  <i class="icon-heart3"></i>
-                  <i class="icon-heart3"></i>
-                </div><!-- /.service__icon -->
-                <div class="service__content">
-                  <h4 class="service__title">Pediatric Clinic</h4>
-                  <p class="service__desc">Pediatric providers see patients from birth into early adulthood to make sure
-                    children achieve stay healthy. Our care includes preventive health checkups.
-                  </p>
-                  <ul class="list-items list-items-layout1 list-unstyled">
-                    <li>Clinical laboratory</li>
-                    <li>Research Analyst</li>
-                    <li>Quality Assurance</li>
-                  </ul>
-                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
-                    <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
-                  </a>
-                </div><!-- /.service__content -->
-              </div><!-- /.service-item -->
-            </div><!-- /.col-lg-4 -->
-            <!-- service item #6 -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="service-item">
-                <div class="service__icon">
-                  <i class="icon-heart2"></i>
-                  <i class="icon-heart2"></i>
-                </div><!-- /.service__icon -->
-                <div class="service__content">
-                  <h4 class="service__title">Cardiac Clinic</h4>
-                  <p class="service__desc">For people requiring additional follow up, the Cardiac Clinic provides rapid
-                    access to professionals specialized in diagnosing and treating heart disease.
-                  </p>
-                  <ul class="list-items list-items-layout1 list-unstyled">
-                    <li>Macular degeneration</li>
-                    <li>Diabetic retinopathy</li>
-                    <li>Excessive tearing</li>
-                  </ul>
-                  <a href="services-single.html" class="btn btn__secondary btn__outlined btn__rounded">
-                    <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
-                  </a>
-                </div><!-- /.service__content -->
-              </div><!-- /.service-item -->
-            </div><!-- /.col-lg-4 -->
+            @endforelse
+          
           </div><!-- /.row -->
         </div><!-- /.container -->
       </section><!-- /.Services Layout 1 -->
@@ -277,16 +174,16 @@
       <div class="bg-img"><img src="{{asset('frontend/images/backgrounds/8.jpg')}}" alt="backgrounds"></div>
       <div class="top-banner bg-white">
         <div class="container">
-          <div class="row">
+          {{-- <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6">
-              <p class="font-weight-bold mb-0">Roisolar is not just about energy.
-                    We are about empowering Africa — sustainably, reliably, and innovatively.
+              <p class="font-weight-bold mb-0"><h3>Roisolar is not just about energy.
+                We are about empowering Africa — sustainably, reliably, and innovatively.</h3>
                 <a href="#" class="color-secondary">
                   <span>Contact Us For More Information</span> <i class="icon-arrow-right"></i>
                 </a>
               </p>
             </div><!-- /.col-lg-6 -->
-          </div><!-- /.row -->
+          </div><!-- /.row --> --}}
         </div><!-- /.container -->
       </div><!-- /.top-banner -->
       <div class="container">
@@ -363,10 +260,11 @@
             </div>
             <div class="row">
               <!-- Product item #1 -->
+              @forelse ($products as $prods)
               <div class="col-sm-6 col-md-6 col-lg-4">
                 <div class="product-item">
                   <div class="product__img">
-                    <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
+                    <img src="{{asset('frontend/images/blog/grid/Picture2.png')}}" alt="Product" loading="lazy">
                     <div class="product__action">
                       <a href="#" class="btn btn__primary btn__rounded">
                         <i class="icon-cart"></i> <span>Add To Cart</span>
@@ -374,11 +272,15 @@
                     </div><!-- /.product-action -->
                   </div><!-- /.product-img -->
                   <div class="product__info">
-                    <h4 class="product__title"><a href="#">Calming Herps</a></h4>
-                    <span class="product__price">$18.99</span>
+                    <h4 class="product__title"><a href="{{ route('product.details',encrypt($prods->id)) }}">{{ $prods->name }}</a></h4>
+                    <span class="product__price">${{ $prods->price }}</span>
                   </div><!-- /.product-content -->
                 </div><!-- /.product-item -->
               </div><!-- /.col-lg-4 -->
+              @empty
+                  
+              @endforelse
+              
               <!-- Product item #2 -->
               <div class="col-sm-6 col-md-6 col-lg-4">
                 <div class="product-item">
@@ -414,7 +316,7 @@
                 </div><!-- /.product-item -->
               </div><!-- /.col-lg-4 -->
               <!-- Product item #4 -->
-              <div class="col-sm-6 col-md-6 col-lg-4">
+              {{-- <div class="col-sm-6 col-md-6 col-lg-4">
                 <div class="product-item">
                   <div class="product__img">
                     <img src="{{ asset('frontend/images/products/4.jpg') }}" alt="Product" loading="lazy">
@@ -514,7 +416,7 @@
                     <span class="product__price">$18.99</span>
                   </div><!-- /.product-content -->
                 </div><!-- /.product-item -->
-              </div><!-- /.col-lg-4 -->
+              </div><!-- /.col-lg-4 --> --}}
             </div><!-- /.row -->
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12 text-center">
@@ -539,7 +441,7 @@
                   </form>
                 </div><!-- /.widget-content -->
               </div><!-- /.widget-search -->
-              <div class="widget widget-poducts">
+              {{-- <div class="widget widget-poducts">
                 <h5 class="widget__title">Best Sellers</h5>
                 <div class="widget__content">
                   <!-- product item #1 -->
@@ -573,17 +475,18 @@
                     </div><!-- /.widget-product-content -->
                   </div><!-- /.widget-product-item -->
                 </div><!-- /.widget-content -->
-              </div><!-- /.widget-poducts -->
+              </div><!-- /.widget-poducts --> --}}
               <div class="widget widget-categories">
                 <h5 class="widget__title">Categories</h5>
                 <div class="widget-content">
                   <ul class="list-unstyled mb-0">
-                    <li><a href="#"><span class="cat-count">4</span><span>Neurology</span></a></li>
-                    <li><a href="#"><span class="cat-count">0</span><span>Cardiology</span></a></li>
-                    <li><a href="#"><span class="cat-count">3</span><span>Pathology</span></a></li>
-                    <li><a href="#"><span class="cat-count">2</span><span>Laboratory</span></a></li>
-                    <li><a href="#"><span class="cat-count">4</span><span>Pediatric</span></a></li>
-                    <li><a href="#"><span class="cat-count">1</span><span>Cardiac Clinic</span></a></li>
+                    @forelse ($categories as $item)
+                    <li><a href="#"><span class="cat-count">-</span><span>{{ $item->name }}</span></a></li>
+
+                    @empty
+                        
+                    @endforelse
+                    
                   </ul>
                 </div><!-- /.widget-content -->
               </div><!-- /.widget-categories -->

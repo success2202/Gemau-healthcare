@@ -38,33 +38,38 @@ class PageController extends Controller
 
     public function products(){
         $products =  Product::latest()->simplePaginate(6);
-        
-        return view('users.pages.products')->with('product',$products);
+        $category = Category::latest()->simplePaginate(10);
+        return view('users.pages.products')
+        ->with('product',$products)
+        ->with('categories', $category);
     }
 
-    public function Details($id){
-        $latest =  Product::latest()->simplePaginate(6);
-        foreach($latest as $bb){
-            $bb->hashid = Hashids::connection('category')->encode($bb->id);
-        }
-        $id = Hashids::connection('category')->decode($id);
-        $products = Product::findorfail($id[0]);
+    public function ProductDetails($id){
+        // $latest =  Product::latest()->simplePaginate(6);
+        // foreach($latest as $bb){
+        //     $bb->hashid = Hashids::connection('category')->encode($bb->id);
+        // }
+        // $id = Hashids::connection('category')->decode($id);
+        // $products = Product::findorfail($id[0]);
     return view('users.pages.product_details')
-    ->with('products', $latest)
-    ->with('product', $products);
+    ->with('product', Product::where('id', decrypt($id))->first())
+    ->with('products', Product::latest()->simplePaginate(4));
+    
 
     }
 
     public function services(){
         return view('users.pages.services')
-        ->with('services', Services::latest()->first());
+        ->with('services', Services::paginate(6));
         // ->with('settings', Settings::first());
     }
 
-    // public function blogs(){
-    //     return view('users.pages.blogs')
-    //     ->with('blogs', Blog::latest()->first());
-    //     // ->with('settings', Settings::first());
-    // }
+    public function ServiceDetails($id)
+    {
+        return view('users.pages.service_details')
+        ->with('service', Services::where('id', decrypt($id))->first())
+        ->with('se', Services::latest()->simplePaginate(6));
+        
+    }
 
 }
