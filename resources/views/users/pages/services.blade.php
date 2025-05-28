@@ -84,7 +84,10 @@
 
               <nav class="pagination-area">
                 <ul class="pagination justify-content-center">
-            
+                  @php
+                  $start = max($services->currentPage() - 1, 1);
+                  $end = min($services->currentPage() + 1, $services->lastPage());
+                 @endphp
                     {{-- Previous Arrow --}}
                     @if ($services->onFirstPage())
                         <li class="disabled"><span><i class="icon-arrow-left"></i></span></li>
@@ -93,7 +96,7 @@
                     @endif
             
                     {{-- Page Numbers --}}
-                    @for ($i = 1; $i <= $services->lastPage(); $i++)
+                    @for ($i = $start; $i <= $end; $i++)
                         <li>
                             <a 
                                 href="{{ $services->url($i) }}" 

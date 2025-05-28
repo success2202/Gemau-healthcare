@@ -9,6 +9,9 @@
 <link rel="stylesheet"
 href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;family=Roboto:wght@400;700&amp;display=swap">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+<!-- Bootstrap 5 scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <link rel="stylesheet" href="{{asset('/frontend/css/libraries.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 

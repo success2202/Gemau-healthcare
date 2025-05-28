@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-<title> {{$product[0]?->category?->name }}</title>
+<title>{{$product[0]?->category?->name }}</title>
 @endsection
 @section('head')
 <link rel="canonical" href="{{ url('catalogs/'.Str::slug($product[0]?->category?->name)) }}">
@@ -161,7 +161,7 @@
               </div>
               <div class="row">
                 <!-- Product item #1 -->
-                @forelse ($product as $prod)
+                @foreach ($product as $prod)
                 <div class="col-sm-6 col-md-6 col-lg-4">
                   <div class="product-item">
                     <div class="product__img">
@@ -179,22 +179,60 @@
                   </div><!-- /.product-item -->
                 </div><!-- /.col-lg-4 -->
 
-                @empty
-                    
-                @endforelse
+                @endforeach
                
               </div><!-- /.row -->
               <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                  <nav class="pagination-area">
+                  {{-- <nav class="pagination-area">
                     <ul class="pagination justify-content-center">
                       <li><a class="current" href="#">1</a></li>
                       <li><a href="#">2</a></li>
                       <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                     </ul>
-                  </nav><!-- /.pagination-area -->
+                  </nav><!-- /.pagination-area --> --}}
+
+                  <nav class="pagination-area">
+                    <ul class="pagination justify-content-center">
+                      @php
+                      $start = max($product->currentPage() - 1, 1);
+                      $end = min($product->currentPage() + 1, $product->lastPage());
+                     @endphp
+                        {{-- Previous Arrow --}}
+                        @if ($product->onFirstPage())
+                            <li class="disabled"><span><i class="icon-arrow-left"></i></span></li>
+                        @else
+                            <li><a href="{{ $product->previousPageUrl() }}"><i class="icon-arrow-left"></i></a></li>
+                        @endif
+                
+                        {{-- Page Numbers --}}
+                        @for ($a = $start; $a <= $end; $a++)
+                            <li>
+                                <a 
+                                    href="{{ $product->url($a) }}" 
+                                    class="{{ $product->currentPage() == $a ? 'current' : '' }}">
+                                    {{ $a }}
+                                </a>
+                            </li>
+                        @endfor
+
+                        
+                
+                        {{-- Next Arrow --}}
+                        @if ($product->hasMorePages())
+                            <li><a href="{{ $product->nextPageUrl() }}"><i class="icon-arrow-right"></i></a></li>
+                        @else
+                            <li class="disabled"><span><i class="icon-arrow-right"></i></span></li>
+                        @endif
+                
+                    </ul>
+                </nav>
                 </div><!-- /.col-lg-12 -->
               </div><!-- /.row -->
+
+             
+
+
             </div><!-- /.col-lg-9 -->
             <div class="col-sm-12 col-md-4 col-lg-3">
               <aside class="sidebar-layout2">

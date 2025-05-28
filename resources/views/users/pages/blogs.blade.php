@@ -141,127 +141,51 @@
                 </div><!-- /.post__body -->
               </div><!-- /.post-item -->
             </div><!-- /.col-lg-4 -->
-            <!-- Post Item #3 -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="post-item">
-                <div class="post__img">
-                  <a href="blog-single-post.html">
-                    <img src="{{ asset('frontend/images/blog/grid/Picture1.png') }}" class="logo-dark" height="200px" width="300px" alt="post image" loading="lazy">
-                  </a>
-                </div><!-- /.post__img -->
-                <div class="post__body">
-                  <div class="post__meta-cat">
-                    <a href="#">Life Style</a><a href="#">Nutrition</a>
-                  </div><!-- /.blog-meta-cat -->
-                  <div class="post__meta d-flex">
-                    <span class="post__meta-date">Jan 28, 2022</span>
-                    <a class="post__meta-author" href="#">Saul Wade</a>
-                  </div>
-                  <h4 class="post__title"><a href="#">Tips for Eating Healthy When You’re Working From Home </a></h4>
-  
-                  <p class="post__desc">It’s normal to feel anxiety, worry and grief any time you’re diagnosed with a
-                    condition that’s certainly true if you test positive for COVID-19, or are presumed to be positive...
-                  </p>
-                  <a href="blog-single-post.html" class="btn btn__secondary btn__link btn__rounded">
-                    <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
-                  </a>
-                </div><!-- /.post__body -->
-              </div><!-- /.post-item -->
-            </div><!-- /.col-lg-4 -->
-
-
-            <!-- Post Item #4 -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="post-item">
-                <div class="post__img">
-                  <a href="blog-single-post.html">
-                    <img src="assets/images/blog/grid/4.jpg" alt="post image" loading="lazy">
-                  </a>
-                </div><!-- /.post__img -->
-                <div class="post__body">
-                  <div class="post__meta-cat">
-                    <a href="#">Disease</a><a href="#">Flu</a>
-                  </div><!-- /.blog-meta-cat -->
-                  <div class="post__meta d-flex">
-                    <span class="post__meta-date">Jan 30, 2022</span>
-                    <a class="post__meta-author" href="#">Mark Ezak</a>
-                  </div>
-                  <h4 class="post__title"><a href="#">Why Coronavirus Cases Among Adults Is Bad News</a></h4>
-                  <p class="post__desc">A new surge of coronavirus cases has spread across the country and while there’s
-                    still so much to learn about virus, how it’s transmitted and its long-term effects
-                  </p>
-                  <a href="blog-single-post.html" class="btn btn__secondary btn__link btn__rounded">
-                    <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
-                  </a>
-                </div><!-- /.post__body -->
-              </div><!-- /.post-item -->
-            </div><!-- /.col-lg-4 -->
-            <!-- Post Item #5 -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="post-item">
-                <div class="post__img">
-                  <a href="blog-single-post.html">
-                    <img src="assets/images/blog/grid/5.jpg" alt="post image" loading="lazy">
-                  </a>
-                </div><!-- /.post__img -->
-                <div class="post__body">
-                  <div class="post__meta-cat">
-                    <a href="#">Mental Health</a><a href="#">Sales</a>
-                  </div><!-- /.blog-meta-cat -->
-                  <div class="post__meta d-flex">
-                    <span class="post__meta-date">Jan 30, 2022</span>
-                    <a class="post__meta-author" href="#">Martin King</a>
-                  </div>
-                  <h4 class="post__title"><a href="#">Why Do People Get Kidney Stones in the Summer? </a></h4>
-                  <p class="post__desc">Summer may have just officially started, but kidney stone season began a couple of
-                    weeks ago. Doctors see an increase in kidney stone cases when the weather warms up...
-                  </p>
-                  <a href="blog-single-post.html" class="btn btn__secondary btn__link btn__rounded">
-                    <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
-                  </a>
-                </div><!-- /.post__body -->
-              </div><!-- /.post-item -->
-            </div><!-- /.col-lg-4 -->
-            <!-- Post Item #6 -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="post-item">
-                <div class="post__img">
-                  <a href="blog-single-post.html">
-                    <img src="assets/images/blog/grid/6.jpg" alt="post image" loading="lazy">
-                  </a>
-                </div><!-- /.post__img -->
-                <div class="post__body">
-                  <div class="post__meta-cat">
-                    <a href="#">Infectious</a><a href="#">Disease</a>
-                  </div><!-- /.blog-meta-cat -->
-                  <div class="post__meta d-flex">
-                    <span class="post__meta-date">Feb 07, 2022</span>
-                    <a class="post__meta-author" href="#">Marie Black</a>
-                  </div>
-                  <h4 class="post__title"><a href="#">Do Any Drugs Really Work to Treat Coronavirus? </a></h4>
-                  <p class="post__desc">While most people who get COVID-19 are able to recover at home, the rush is on to
-                    find a treatment that’s safe and effective against life-threatening cases of the disease...
-                  </p>
-                  <a href="blog-single-post.html" class="btn btn__secondary btn__link btn__rounded">
-                    <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
-                  </a>
-                </div><!-- /.post__body -->
-              </div><!-- /.post-item -->
-            </div><!-- /.col-lg-4 -->
-          </div><!-- /.row --> --}}
+            
           <div class="row">
             <div class="col-12 text-center">
-              <nav class="pagination-area">
+              {{-- <nav class="pagination-area">
                 <ul class="pagination justify-content-center">
                   <li><a class="current" href="#">1</a></li>
                   <li><a href="#">2</a></li>
                   <li><a href="#"><i class="icon-arrow-right"></i></a></li>
                 </ul>
-              </nav><!-- .pagination-area -->
+              </nav><!-- .pagination-area --> --}}
+
+              <nav class="pagination-area">
+                <ul class="pagination justify-content-center">
+                  @php
+                  $start = max($blogs->currentPage() - 1, 1);
+                  $end = min($blogs->currentPage() + 1, $blogs->lastPage());
+                 @endphp
+                    {{-- Previous Arrow --}}
+                    @if ($blogs->onFirstPage())
+                        <li class="disabled"><span><i class="icon-arrow-left"></i></span></li>
+                    @else
+                        <li><a href="{{ $blogs->previousPageUrl() }}"><i class="icon-arrow-left"></i></a></li>
+                    @endif
+            
+                    {{-- Page Numbers --}}
+                    @for ($i = $start; $i <= $end; $i++)
+                        <li>
+                            <a 
+                                href="{{ $blogs->url($i) }}" 
+                                class="{{ $blogs->currentPage() == $i ? 'current' : '' }}">
+                                {{ $i }}
+                            </a>
+                        </li>
+                    @endfor
+            
+                    {{-- Next Arrow --}}
+                    @if ($blogs->hasMorePages())
+                        <li><a href="{{ $blogs->nextPageUrl() }}"><i class="icon-arrow-right"></i></a></li>
+                    @else
+                        <li class="disabled"><span><i class="icon-arrow-right"></i></span></li>
+                    @endif
+            
+                </ul>
+            </nav>
+
             </div><!-- /.col-12 -->
           </div><!-- /.row -->
         </div><!-- /.container -->

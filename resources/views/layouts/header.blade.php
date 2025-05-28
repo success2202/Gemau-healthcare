@@ -1,7 +1,7 @@
 <header class="header header-layout2">
     <nav class="navbar navbar-expand-lg sticky-navbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{{route('index')}}">
+        <a class="navbar-brand" href="{{route('dashboard')}}">
           {{-- <img src="" class="logo-light" alt="logo"> --}}
           <img src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" width="120px" alt="logo">
           {{-- <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="{{$settings->site_name}}" class="logo-dark" width="120px"></a> --}}
@@ -35,11 +35,61 @@
         </div><!-- /.navbar-collapse -->
     
         <div class="d-none d-xl-flex align-items-center position-relative ml-30">
-            <a href="" class=" btn-sm">
+          @guest
+              
+         
+            <a href="" class=" btn-sm nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
               <i class="icon-user"></i>
               <span>Get Started</span>
             </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+              <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+          </ul>
+          @else
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="icon-user"></i>
+            {{ Auth::user()->first_name }}
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ route('dashboard') }}">Profile</a></li>
+            <li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Logout</button>
+                </form>
+            </li>
+        </ul>
+          @endguest
+
           </div>
+
+          <!-- User dropdown -->
+{{-- 
+  @guest
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          Account
+      </a>
+      <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+          <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+      </ul>
+  @else
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          {{ Auth::user()->name }}
+      </a>
+      <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
+          <li>
+              <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <button type="submit" class="dropdown-item">Logout</button>
+              </form>
+          </li>
+      </ul>
+  @endguest --}}
+
+
 
           <div class="d-none d-xl-flex align-items-center position-relative ml-30">
             <a href="" class=" btn-sm">

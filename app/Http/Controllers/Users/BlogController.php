@@ -13,7 +13,7 @@ class BlogController extends Controller
 {
     public function Index(){
     
-        $blogs =  Blog::latest()->simplePaginate(6);
+        $blogs =  Blog::Paginate(6);
         foreach($blogs as $Blog){
             $Blog->hashid = Hashids::connection('products')->encode($Blog->id);
         }

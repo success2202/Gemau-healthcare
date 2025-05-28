@@ -15,8 +15,14 @@ use App\Http\Controllers\Users\BlogController;
 use App\Http\Controllers\Users\FaqController;
 use App\Http\Controllers\Users\UserController;
 
-Route::get('/',  [HomeController::class, '__invoke'])->name('users.index');
-Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('index');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [HomeController::class, '__invoke'] )->name('dashboard');
+    Route::get('/',  [HomeController::class, '__invoke'])->name('users.index');
+Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('dashboard');
+});
+
+
+
 Route::get('/products', [ProductDetailsController::class, '__invoke'])->name('users.products');
 
 Route::controller(CartsController::class)->group( function(){

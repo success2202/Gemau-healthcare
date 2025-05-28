@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-2">
             <div class="footer-widget-about">
-                <a href="{{route('index')}}"><img src="{{asset('images/'.$settings->site_logo)}}"  alt=""  width="150px"/></a>
+                <a href="{{route('dashboard')}}"><img src="{{asset('images/'.$settings->site_logo)}}"  alt=""  width="150px"/></a>
               <p class="color-gray">{!!substr($settings->about, 0,100) !!}
               </p>
             
@@ -18,7 +18,7 @@
                     @forelse ($site_menu as $menu )
                     <li > 
                     @if($menu->name == 'Home') 
-                    <a style="color:#d6d2d2" href="{{route('index')}}">{{$menu->name}}</a>
+                    <a style="color:#d6d2d2" href="{{route('dashboard')}}">{{$menu->name}}</a>
                      @else <a style="color:#d6d2d2" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
                    </li>
                      @empty

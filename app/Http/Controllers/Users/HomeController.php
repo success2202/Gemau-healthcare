@@ -66,4 +66,17 @@ class HomeController extends Controller
             
         ]);
     }
+
+    public function Index(){
+        $slider = Slider::latest()->get();
+        $category = Category::latest()->simplePaginate(10);
+        $product = Product::latest()->simplePaginate(9);
+        $services = Services::latest()->simplePaginate(6);
+        return view('users.dashboard')
+        ->with('sliders', $slider)
+        ->with('categories', $category)
+        ->with('service', $services)
+        ->with('products', $product);
+
+    }
 }

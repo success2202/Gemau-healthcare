@@ -37,10 +37,10 @@ class PageController extends Controller
     }
 
     public function products(){
-        $products =  Product::latest()->simplePaginate(6);
+        $products =  Product::paginate(6);
         $category = Category::latest()->simplePaginate(10);
         return view('users.pages.products')
-        ->with('product',$products)
+        ->with('product', $products)
         ->with('categories', $category);
     }
 
