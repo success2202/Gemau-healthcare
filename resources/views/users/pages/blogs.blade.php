@@ -58,7 +58,7 @@
         <h1 class="pagetitle__heading">Our Blogs</h1>
         <nav>
           <ol class="breadcrumb justify-content-center mb-0">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">blog</li>
           </ol>
         </nav>
@@ -79,7 +79,7 @@
               <div class="post-item">
                 <div class="post__img">
                   <a href="{{route('blogs.details',$item->hashid)}}">
-                    <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" class="logo-dark" height="200px" width="300px" alt="post image" loading="lazy">
+                    <img src="{{asset('images/blog/'.$item->image)}}" class="logo-dark" height="200px" width="300px" alt="post image" loading="lazy">
                   </a>
                 </div><!-- /.post__img -->
                 <div class="post__body">
@@ -90,11 +90,11 @@
                     <span class="post__meta-date">{{$item->created_at->format('M d, Y')}}.</span>
                     <a class="post__meta-author" href="#">{{_('By'). ' '.$settings->site_name}}</a>
                   </div>
-                  <h4 class="post__title"><a href="{{route('blogs.details',$item->hashid)}}">{{$item->title}}</a></h4>
+                  <h4 class="post__title"><a href="{{route('blogs.details',encrypt($item->id))}}">{{$item->title}}</a></h4>
   
-                  <p class="post__desc">{{!! $item->content !!}}
+                  <p class="post__desc">{{trim(strip_tags($item->content))}}
                   </p>
-                  <a href="{{route('blogs.details',$item->hashid)}}" class="btn btn__secondary btn__link btn__rounded">
+                  <a href="{{route('blogs.details',encrypt($item->id))}}" class="btn btn__secondary btn__link btn__rounded">
                     <span>Read More</span>
                     <i class="icon-arrow-right"></i>
                   </a>

@@ -18,12 +18,12 @@ use imageUpload;
     public function add(Request $request, $id)
      {   
       // return response()->json($request);
-         $product = Product::find($id);
+         $product = Product::findorFail($id);
          if(isset($request->image)){
             $file = $this->UploadImage($request, '/carts/images');
          }
          $response = Cart::add([
-             'id' => $product->id,
+             'product_id' => $product->id,
              'name' => $product->name,
              'price' => $product->sale_price,
              'options' => [
@@ -40,6 +40,7 @@ use imageUpload;
          }
      }
 
+     
      public function CartTest(Request $request){
       return $request;
      }

@@ -43,7 +43,7 @@
           </div><!-- /.col-lg-6 -->
           <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="video-banner">
-              <img src="{{asset('images/Picture2.png')}}" alt="about">
+              <img src="{{asset('images/Picture1.png')}}" alt="about">
               <img src="{{asset('images/pp.jpg')}}" alt="about">
               <a class="video__btn video__btn-white popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
                 <div class="video__player">

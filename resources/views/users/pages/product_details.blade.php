@@ -39,7 +39,7 @@
               <div class="row product-item-single">
                 <div class="col-sm-6">
                   <div class="product__img">
-                    <img src="{{ asset('/images/pn1.jpg') }}" class="zoomin" alt="product" loading="lazy">
+                    <img src="{{ asset('images/products/'.$product->image_path) }}" class="zoomin" alt="product" loading="lazy">
                   </div><!-- /.product-img -->
                 </div>
                 <div class="col-sm-6">
@@ -63,12 +63,19 @@
                     </p>
                   </div><!-- /.product-desc --> --}}
                   <div class="product__quantity d-flex mb-30">
+                    <form action="{{ route('carts.add', encrypt($product->id)) }}" method="POST">
+                      @csrf
                     <div class="quantity__input-wrap mr-20">
+                     
                       <i class="decrease-qty fa fa-minus"></i>
-                      <input type="number" value="1" class="qty-input">
+                      
+                      <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="number" class="qty-input" name="quantity" value="1" min="1">
                       <i class="increase-qty fa fa-plus"></i>
+                      
                     </div>
-                    <a class="btn btn__secondary btn__rounded" href="#">add to cart</a>
+                    <button type="submit" class="btn btn__secondary btn__rounded"> add to cart <i class="icon-cart"></i></button>
+                  </form>
                   </div><!-- /.product-quantity -->
                   <div class="product__meta-details">
                     <ul class="list-unstyled mb-30">
@@ -92,7 +99,7 @@
                 </nav>
                 <div class="tab-content mb-50" id="nav-tabContent">
                   <div class="tab-pane fade show active" id="Description">
-                    <p>{{!!$product->description!!}}.</p>
+                    <p>{{trim(strip_tags($product->description))}}.</p>
                   </div><!-- /.desc-tab -->
                   {{-- <div class="tab-pane fade" id="Details">
                     <p>Yorks is not just about graphic design; it's more than that. We offer integral communication
@@ -129,7 +136,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-3">
                   <div class="product-item">
                     <div class="product__img">
-                      <img src="{{ asset('images/pn2.jpg') }}" alt="Product" loading="lazy">
+                      <img src="{{ asset('images/products/'.$item->image_path) }}" alt="Product" loading="lazy">
                       <div class="product__action">
                         <a href="#" class="btn btn__primary btn__rounded">
                           <i class="icon-cart"></i> <span>Add To Cart</span>

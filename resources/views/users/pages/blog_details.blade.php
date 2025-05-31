@@ -75,7 +75,7 @@
             <div class="col-12">
               <nav>
                 <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{{route('users.index')}}">Home</a></li>
                   <li class="breadcrumb-item"><a href="{{route('users.blogs')}}">Blog</a></li>
                   <li class="breadcrumb-item active" aria-current="page">{{$blog->title}}</li>
                 </ol>
@@ -258,11 +258,11 @@
                         
                       <div class="widget-post-item d-flex align-items-center">
                       <div class="widget-post__img">
-                        <a href="{{route('blogs.details',$item->hashid)}}"><img src="{{ asset('frontend/images/blog/grid/2.jpg') }}" alt="thumb"></a>
+                        <a href="{{route('blogs.details',$blog->id)}}"><img src="{{ asset('frontend/images/blog/grid/2.jpg') }}" alt="thumb"></a>
                       </div><!-- /.widget-post-img -->
                       <div class="widget-post__content">
                         <span class="widget-post__date">{{$item->created_at->format('M d, Y')}}.</span>
-                        <h4 class="widget-post__title"><a href="{{route('blogs.details',$item->hashid)}}">{{ $item->title }}</a>
+                        <h4 class="widget-post__title"><a href="{{route('blogs.details',$blog->id)}}">{{ $item->title }}</a>
                         </h4>
                       </div><!-- /.widget-post-content -->
                     </div><!-- /.widget-post-item -->

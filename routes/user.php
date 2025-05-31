@@ -83,6 +83,8 @@ Route::get('/pages/products', 'Products')->name('users.products');
 Route::get('/pages/products/details/{id}', 'ProductDetails')->name('product.details');
 Route::get('/pages/services', 'Services')->name('users.services');
 Route::get('/pages/services/details/{id}', 'ServiceDetails')->name('service.details');
+Route::get('/category/{id}', 'productsByCategory')->name('category.products');
+
 // Route::get('/pages/blogs', 'Blogs')->name('users.blogs');
 });
 
@@ -97,5 +99,5 @@ Route::controller(PrescriptionController::class)->group(function(){
 Route::get('upload/sitemap', [SiteMapController::class, 'SiteMap'])->name('site.map');
 
 Route::get('blogs', [BlogController::class, 'Index'])->name('users.blogs');
-Route::get('blogs/details/{id}', [BlogController::class, 'Details'])->name('blogs.details');
+Route::get('blogs/details/{id}', [BlogController::class, 'BlogDetails'])->name('blogs.details');
 Route::get('/faq', [FaqController::class, '__invoke'])->name('faq.index');

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('title')
-<title>{{$products[0]?->category?->name }}</title>
+<title>{{$product[0]?->category?->name }}</title>
 @endsection
 @section('head')
-<link rel="canonical" href="{{ url('catalogs/'.Str::slug($products[0]?->category?->name)) }}">
+<link rel="canonical" href="{{ url('catalogs/'.Str::slug($product[0]?->category?->name)) }}">
 @endsection
 @section('content')
 
@@ -161,7 +161,7 @@
               </div>
               <div class="row">
                 <!-- Product item #1 -->
-                @foreach ($products as $prod)
+                @foreach ($product as $prod)
                 <div class="col-sm-6 col-md-6 col-lg-4">
                   <div class="product-item">
                     <div class="product__img">
@@ -203,22 +203,22 @@
                   <nav class="pagination-area">
                     <ul class="pagination justify-content-center">
                       @php
-                      $start = max($products->currentPage() - 1, 1);
-                      $end = min($products->currentPage() + 1, $products->lastPage());
+                      $start = max($product->currentPage() - 1, 1);
+                      $end = min($product->currentPage() + 1, $product->lastPage());
                      @endphp
                         {{-- Previous Arrow --}}
-                        @if ($products->onFirstPage())
+                        @if ($product->onFirstPage())
                             <li class="disabled"><span><i class="icon-arrow-left"></i></span></li>
                         @else
-                            <li><a href="{{ $products->previousPageUrl() }}"><i class="icon-arrow-left"></i></a></li>
+                            <li><a href="{{ $product->previousPageUrl() }}"><i class="icon-arrow-left"></i></a></li>
                         @endif
                 
                         {{-- Page Numbers --}}
                         @for ($a = $start; $a <= $end; $a++)
                             <li>
                                 <a 
-                                    href="{{ $products->url($a) }}" 
-                                    class="{{ $products->currentPage() == $a ? 'current' : '' }}">
+                                    href="{{ $product->url($a) }}" 
+                                    class="{{ $product->currentPage() == $a ? 'current' : '' }}">
                                     {{ $a }}
                                 </a>
                             </li>
@@ -227,8 +227,8 @@
                         
                 
                         {{-- Next Arrow --}}
-                        @if ($products->hasMorePages())
-                            <li><a href="{{ $products->nextPageUrl() }}"><i class="icon-arrow-right"></i></a></li>
+                        @if ($product->hasMorePages())
+                            <li><a href="{{ $product->nextPageUrl() }}"><i class="icon-arrow-right"></i></a></li>
                         @else
                             <li class="disabled"><span><i class="icon-arrow-right"></i></span></li>
                         @endif
@@ -290,18 +290,22 @@
                 </div><!-- /.widget-poducts --> --}}
 
                 <div class="widget widget-categories">
-                  <h5 class="widget__title"> Categories </h5>
+                  <h6 class="widget__title"> Categories </h6>
                   <div class="widget-content">
                     <ul class="list-unstyled mb-0">
-                    
-                        @forelse ($categories as $item)
-                        <li><a href="{{route('category.products',$item->id)}}"><i class="fa fa-star text-warning"></i>&nbsp;&nbsp; <span>{{ $item->name }}</span></a></li>
+                    <li> <h6> {{$category->name}} </h6> </li>
+                        
+                        @forelse ($product as $item)
+                        
+                        <li><a href="{{ route('product.details',encrypt($item->id)) }}"><i class="fa fa-check-circle"></i>&nbsp;&nbsp;<span>{{ $item->name }}</span></a></li>
                         @empty
                             
                         @endforelse
-                     
+                       
                       {{-- <li><a href="#"><span class="cat-count">0</span><span>Cardiology</span></a></li>
-                      
+                      <li><a href="#"><span class="cat-count">3</span><span>Pathology</span></a></li>
+                      <li><a href="#"><span class="cat-count">2</span><span>Laboratory</span></a></li>
+                      <li><a href="#"><span class="cat-count">4</span><span>Pediatric</span></a></li>
                       <li><a href="#"><span class="cat-count">1</span><span>Cardiac Clinic</span></a></li> --}}
                     </ul>
                   </div><!-- /.widget-content -->

@@ -49,11 +49,11 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
               <div class="service-item">
                 <div class="service__icon">
-                  <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="Product" loading="lazy">
+                  <img src="{{asset('/images/services/'.$service->images)}}" alt="Product" loading="lazy">
                 </div><!-- /.service__icon -->
                 <div class="service__content">
                   <h4 class="service__title">{{ $service->title }}</h4>
-                  <p class="service__desc">{{$service->contents}}
+                  <p class="service__desc">{{ trim(strip_tags($service->contents)) }}
                   </p>
                  
                   <a href="{{ route('service.details',encrypt($service->id)) }}" class="btn btn__secondary btn__outlined btn__rounded">

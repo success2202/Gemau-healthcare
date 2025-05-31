@@ -95,7 +95,7 @@ class ProductController extends Controller
         $valid = Validator::make($request->all(), [
             'name' => 'required',
             'category_id' => 'required|integer',
-            'image' => 'required|mimes:png,jpg,jpeg,gif',
+            'image' => 'required|mimes:png,jpg,jpeg,gif,webp',
             'description' => 'required',
             'cost_price' => 'required',
         ]);

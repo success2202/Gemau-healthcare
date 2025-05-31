@@ -16,6 +16,7 @@ use App\Http\Controllers\Manage\OrderController;
 use App\Http\Controllers\Manage\PageController;
 use App\Http\Controllers\Manage\PrescriptionController;
 use App\Http\Controllers\Manage\ShippingController;
+use App\Http\Controllers\Manage\ServiceController;
 
 Route::prefix('manage')->group(function () {
     Route::controller(AdminLoginController::class)->group(function () {
@@ -122,6 +123,15 @@ Route::prefix('manage')->group(function () {
             Route::get('/blog/edit/{id}', 'Edit')->name('admin.blog.edit');
             Route::post('blog/update/{id}', 'Update')->name('admin.blog.update');
             Route::post('blog/delete/{id}', 'Delete')->name('admin.blog.delete');
+        });
+
+        Route::controller(ServiceController::class)->group(function(){
+            Route::get('/services', 'Index')->name('admin.service.index');
+            Route::get('service/create', 'Create')->name('admin.service.create');
+            Route::post('/service/store', 'Store')->name('admin.service.store');
+            Route::get('/service/edit/{id}', 'Edit')->name('admin.service.edit');
+            Route::post('service/update/{id}', 'Update')->name('admin.service.update');
+            Route::post('service/delete/{id}', 'Delete')->name('admin.service.delete');
         });
 
         Route::controller(FaqController::class)->group(function (){

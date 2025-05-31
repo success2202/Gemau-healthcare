@@ -27,6 +27,19 @@
                 <li><a href="{{route('product.index')}}">Manage Products</a></li>
             </ul>
         </li>
+
+        <li>
+            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Menus"
+           data-nav-target="#dashboards">
+            <i class="fa fa-image"></i>&nbsp; Manage Services</a>
+            <ul>
+                <li><a href="{{route('admin.service.create')}}">Add Service</a></li>
+                <li><a href="{{route('admin.service.index')}}">Manage Services</a></li>
+            </ul>
+        </li>
+
+
+
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Menus"
            data-nav-target="#dashboards">

@@ -40,7 +40,7 @@ class PageController extends Controller
         $products =  Product::paginate(6);
         $category = Category::latest()->simplePaginate(10);
         return view('users.pages.products')
-        ->with('product', $products)
+        ->with('products', $products)
         ->with('categories', $category);
     }
 
@@ -57,6 +57,17 @@ class PageController extends Controller
     
 
     }
+
+    
+    public function productsByCategory($id)
+        {
+            $category = Category::where('id',$id)->firstOrFail();
+            $product = $category->products()->paginate(10); // or ->get()
+
+            return view('users.pages.product_category', compact('category', 'product'));
+        }
+
+    
 
     public function services(){
         return view('users.pages.services')

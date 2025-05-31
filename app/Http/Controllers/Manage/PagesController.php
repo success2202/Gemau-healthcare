@@ -84,6 +84,11 @@ class PagesController extends Controller
                 return view('users.pages.contact') 
                 ->with('contact', ContactUs::latest()->first())->with('news', Blog::latest()->get());
                 break;
+
+                case "services":
+                return view('users.pages.services') 
+                ->with('services', Services::latest()->first())->with('news', Blog::latest()->get());
+                break;
             default:
             return view('errors.404'); 
             break;
