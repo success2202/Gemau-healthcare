@@ -21,10 +21,10 @@
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
               </ul><!-- /.social-icons -->
-              <form class="header-topbar__search">
+              {{-- <form class="header-topbar__search">
                 <input type="text" class="form-control" placeholder="Search...">
                 <button class="header-topbar__search-btn"><i class="fa fa-search"></i></button>
-              </form>
+              </form> --}}
             </div>
           </div>
         </div><!-- /.col-12 -->

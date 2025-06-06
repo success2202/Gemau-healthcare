@@ -17,7 +17,9 @@
       <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
         <div class="heading text-center mb-60">
           <h2 class="heading__title ">Our services</h2>
-          <h3 class="heading__subtitle"><p>The company offers a complete assortment of both on-grid and off-grid solutions, including modules, inverters, mounting systems and accessories.</p></h3>
+          <h3 class="heading__subtitle"><p>Flexible home care to suit you.
+The flexibility of home care enables you to live safely and comfortably in the home you know best.
+ From daily or weekly care visits right through to the dedicated support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis..</p></h3>
         </div><!-- /.heading -->
       
         <nav>
@@ -52,8 +54,8 @@
                   <img src="{{asset('/images/services/'.$service->images)}}" alt="Product" loading="lazy">
                 </div><!-- /.service__icon -->
                 <div class="service__content">
-                  <h4 class="service__title">{{ $service->title }}</h4>
-                  <p class="service__desc">{{ trim(strip_tags($service->contents)) }}
+                  <h5 class="service__title">{{ $service->title }}</h5>
+                  {{-- <p class="service__desc">{{ trim(strip_tags($service->contents)) }} --}}
                   </p>
                  
                   <a href="{{ route('service.details',encrypt($service->id)) }}" class="btn btn__secondary btn__outlined btn__rounded">

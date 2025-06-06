@@ -14,19 +14,39 @@
         <div class="col-sm-12 col-md-12 col-lg-8">
           <div class="text-block mb-50">
             
-                
-            <p class="text-block__desc mb-20 font-weight-bold color-secondary"><h3 style="text-align: center">{{$service->title}}</h3></p>
-            <div class="video-banner-layout3 bg-overlay mb-50">
-              <img src="{{asset('frontend/images/blog/grid/Picture1.png')}}" alt="banner">
-              <a class="video__btn video__btn-white popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
-                <div class="video__player">
-                  <i class="fa fa-play"></i>
+            
+           
+              <div class="container my-5">
+              <div class="card p-4 shadow-lg border-0 rounded-4">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 text-primary">{{$service->title}}</h5>
+                  <div class="video-banner-layout3 bg-overlay mb-50">
+                          <img src="{{asset('images/services/'.$service->images)}}" alt="banner">
+                          <a class="video__btn video__btn-white popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
+                            <div class="video__player">
+                              <i class="fa fa-play"></i>
                 </div>
               </a>
             </div><!-- /.video-banner -->
-            <p class="text-block__desc mb-20">{{$service->contents}}</p>
-           
-              
+      <p class="card-text ">
+        {{ trim(strip_tags($service->contents)) }}
+      </p>
+
+      <h5 class="mt-4">Our Mission</h5>
+      <p class="card-text">
+        To deliver compassionate, personalized, and professional care that promotes wellness, safety, and peace of mind for our clients and their families.
+      </p>
+
+      <h5 class="mt-4">What We Offer</h5>
+      <ul class="list-unstyled card-text">
+        <li>✔️ Skilled nursing care</li>
+        <li>✔️ Personal assistance with daily activities</li>
+        <li>✔️ Companionship and emotional support</li>
+        <li>✔️ 24/7 home health monitoring</li>
+      </ul>
+    </div>
+  </div>
+</div>
             </div><!-- /.text-block -->
 
           {{-- <div class="widget-plan mb-60">
@@ -70,9 +90,9 @@
               </div>
             </div><!-- /.widget__footer -->
           </div><!-- /.widget-plan --> --}}
-          <div class="text-block mb-50">
+          <div class="text-block card-text">
             <h5 class="text-block__title">Our Core Values</h5>
-            <p class="text-block__desc mb-20">Today the hospital is recognised as a world renowned institution, not
+            <p class=" card-text">Today the hospital is recognised as a world renowned institution, not
               only providing outstanding care and treatment, but improving the outcomes for all through a
               comprehensive medical research. For over 20 years, our hospital has touched lives of millions of people,
               and provide care and treatment for the sickest in our community including rehabilitation and aged care.
@@ -83,8 +103,8 @@
            ========================= -->
           <section class="team-layout2 pt-0 pb-30">
             <div class="heading mb-40">
-              <h3 class="heading__title">Meet Our Team</h3>
-              <p class="heading__desc">Our administration and support staff all have exceptional people skills and
+              <h5 class="card-text">Meet Our Team</h5>
+              <p class="card-text">Our administration and support staff all have exceptional people skills and
                 trained to assist you with all medical enquiries.
               </p>
             </div><!-- /.heading -->
@@ -156,11 +176,11 @@
         <div class="col-sm-12 col-md-12 col-lg-4">
           <aside class="sidebar has-marign-left sticky-top">
             <div class="widget widget-services">
-              <h5 class="widget__title">Our Solution</h5>
+              <h5 class="widget__title">Our Services</h5>
               <div class="widget-content">
                 <ul class="list-unstyled mb-0">
                     @forelse ($se as $item)
-                    <li><a href="{{ route('service.details',encrypt($service->id)) }}"><span>{{ $item->title }}</span><i class="icon-arrow-right"></i></a></li>  
+                    <li><a href="{{ route('service.details',encrypt($item->id)) }}"><span>{{ $item->title }}</span><i class="icon-arrow-right"></i></a></li>  
                     @empty
                    
                     @endforelse
@@ -198,10 +218,11 @@
               </div><!-- /.widget-content -->
             </div><!-- /.widget-schedule -->
             <div class="widget widget-reports">
-              <a href="#" class="btn btn__primary btn__block">
+              {{-- <a href="#" class="btn btn__primary btn__block">
                 <i class="icon-pdf-file"></i>
                 <span>2024 Client Reports</span>
-              </a>
+              </a> --}}
+               <a href="/appointment" class="btn btn-primary mt-2">Book Appointment</a>
             </div>
           </aside><!-- /.sidebar -->
         </div><!-- /.col-lg-4 -->

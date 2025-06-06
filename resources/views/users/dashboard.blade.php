@@ -5,6 +5,101 @@
 @section('head')
 <link rel="canonical" href="https://sanlivepharmacy.com/">
 @endsection
+
+@section('styles')
+ <style>
+  .tit{
+    padding: 10px;
+    padding-top: 20px
+  }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      
+    }
+
+
+    .flip-card {
+      background-color: transparent;
+      width: 250px;
+      height: 350px;
+      perspective: 1000px;
+      
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
+    .flip-card-front {
+      background-color: #fff;
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .flip-card-front h4 {
+      margin: 10px;
+      font-size: 1.1rem;
+    }
+
+    .flip-card-back {
+      background-color: #343a40;
+      color: white;
+      transform: rotateY(180deg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .flip-card-back p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1000px) {
+      .card-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+@endsection
+
 @section('content')
 
 
@@ -85,7 +180,7 @@
       </div><!-- /.container -->
     </section><!-- /.Team --> --}}
 
-    <section class="team-layout1 pb-80">
+    <section class="team-layout1 pb-80 lay" >
   
         <div class="row">
           <div class="col-12">
@@ -93,19 +188,25 @@
               data-slick='{"slidesToShow": 2, "slidesToScroll": 1, "autoplay": true, "arrows": false, "dots": false, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 1}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
               <!-- Member #1 -->
               <div class="member">
-                  <img src="{{asset('images/s4.jpg')}}" alt="member img">
+                <p style="text-align: center">The flexibility of home care enables you to live safely and comfortably in the home you know best. From daily or weekly care visits right through to the dedicated
+                     support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis.</p>
+                  <img src="{{asset('images/c6.jpg')}}" alt="member img">
                   
               </div><!-- /.member -->
               <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('images/s4.jpg')}}" alt="member img">
+                  <p style="text-align: center">The flexibility of home care enables you to live safely and comfortably in the home you know best. From daily or weekly care visits right through to the dedicated
+                     support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis.</p>
+                  <img src="{{asset('images/c4.jpg')}}" alt="member img">
                 </div>
              
               </div><!-- /.member -->
               <!-- Member #3 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('images/s3.jpg')}}" alt="member img">
+                  <p style="text-align: center">The flexibility of home care enables you to live safely and comfortably in the home you know best. From daily or weekly care visits right through to the dedicated
+                     support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis.</p>
+                  <img src="{{asset('images/c1.jpg')}}" alt="member img">
                   <ul class="social-icons list-unstyled mb-0">
                 </div><!-- /.member-img -->
               
@@ -113,7 +214,9 @@
               <!-- Member #4 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('images/s3.jpg')}}" alt="member img">
+                  <p style="text-align: center">The flexibility of home care enables you to live safely and comfortably in the home you know best. From daily or weekly care visits right through to the dedicated
+                     support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis.</p>
+                  <img src="{{asset('images/c2.webp')}}" alt="member img">
                 </div><!-- /.member-img -->
                 
                 
@@ -121,21 +224,28 @@
             </div><!-- /.carousel -->
           </div><!-- /.col-12 -->
         </div><!-- /.row -->
+        <center><a href="/appointment" class="btn btn-primary mt-2">Book Appointment</a></center>
       </div><!-- /.container -->
+      
     </section><!-- /.Team -->
 
   <!-- ========================
           Services Layout 1
       =========================== -->
       <section class="services-layout1 pt-130">
-        <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/2.jpg') }}" alt="background"></div>
+        <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/1.jpg') }}" alt="background"></div>
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
               <div class="heading text-center mb-60">
-                <h2 class="heading__title ">Our Solutions</h2>
-                <h3 class="heading__subtitle"><p>At ROISOLAR, we deliver customized solar energy systems designed to help you reduce electricity costs, achieve energy independence, and meet your sustainability goals. Whatever your energy needs, we provide smart, scalable solutions built for long-term performance
-                </p>.</h3>
+                <h3 class="heading__title ">Our Services</h3>
+                <div class="bg-dark bg-opacity-50 p-4 rounded">
+          <h4 class="text-white">Flexible home care to suit you.</h4>
+          <p class="text-white">The flexibility of home care enables you to live safely and comfortably in the home 
+            you know best. From daily or weekly care visits right through to the dedicated support 
+            of a live-in caregiver there are plenty of home care services available – and even on a temporary basis..</p>
+          {{-- <a href="/appointment" class="btn btn-primary mt-2">Book Appointment</a> --}}
+        </div>
               </div><!-- /.heading -->
             </div><!-- /.col-lg-6 -->
           </div><!-- /.row -->
@@ -149,8 +259,8 @@
                 </div><!-- /.service__icon -->
                 <div class="service__content">
                   <h4 class="service__title">{{ $serv->title }}</h4>
-                  <p class="service__desc">{{ trim(strip_tags($serv->contents)) }}
-                  </p>
+                  {{-- <p class="service__desc">{{ trim(strip_tags($serv->contents)) }}
+                  </p> --}}
                  
                   <a href="{{ route('service.details',encrypt($serv->id)) }}" class="btn btn__secondary btn__outlined btn__rounded">
                     <span>Read More</span>
@@ -172,47 +282,36 @@
 
   <section class="banner-layout1 py-0">
       <div class="bg-img"><img src="{{asset('frontend/images/backgrounds/8.jpg')}}" alt="backgrounds"></div>
-      <div class="top-banner bg-white">
-        <div class="container">
-          {{-- <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6">
-              <p class="font-weight-bold mb-0"><h3>Roisolar is not just about energy.
-                We are about empowering Africa — sustainably, reliably, and innovatively.</h3>
-                <a href="#" class="color-secondary">
-                  <span>Contact Us For More Information</span> <i class="icon-arrow-right"></i>
-                </a>
-              </p>
-            </div><!-- /.col-lg-6 -->
-          </div><!-- /.row --> --}}
-        </div><!-- /.container -->
-      </div><!-- /.top-banner -->
+      
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-6">
-            <div class="banner-text">
-              <div class="heading-layout2 heading-light">
-                <h2 class="heading__title">About Us</h2>
-                <p class="heading__desc mb-40">At Roisolar, we are driving Africa’s transition toward a cleaner, more sustainable energy future. As a specialist engineering, procurement, and project management (EPCM) company, we deliver innovative, high-performance solar and energy storage solutions tailored for the Commercial and Industrial (C&I) sectors.
-                </p>
-              </div>
-              <ul class="list-items list-items-layout2 list-items-light list-horizontal list-unstyled mb-50">
-                <li>End-to-End Expertise</li>
-                <li>Technical Excellence</li>
-                <li>Client-Centric Approach</li>
-                <li>Sustainability Commitment</li>
-              </ul>
-            </div><!-- /.banner-text -->
+           
+<div class="container my-5">
+  <div class="card p-4 shadow rounded-4 border-0">
+    <h3 class="card-title mb-3">About Us</h3>
+    <p class="card-text">
+     {{ trim(strip_tags($aboutUs->content)) }}
+    </p>
+  </div>
+</div>
             <div class="fancybox-layout3">
               <!-- fancybox item #1 -->
+              
               <div class="fancybox-item d-flex">
-
-            <p> <span style="font-weight: bolder">
-              Our seasoned team of engineers and energy specialists ensures every project meets the highest standards of quality, safety, and performance.
-              </div><!-- /.fancybox-item -->
-              <!-- fancybox item #2 -->
-                 <div class="fancybox-item d-flex">
-            From project development, design, and engineering to installation and ongoing operation and maintenance, we provide complete, in-house solar solutions.
-                 </div>
+                
+            <p> <span style="font-weight: bolder; color:rgb(1, 41, 41)">
+            <ul>
+              <li>Home Care Experts</li>  
+              <li>Available 24/7</li>
+              <li>High Calibre Caregivers.</li>
+              <li>A Trusted Partner. </li>
+              <li>Balanced Care.</li>
+              <li>Peace of Mind</li>
+              </ul>
+               </span> </p>
+               
+              </div>
             </div><!-- /.fancybox-layout3 -->
           </div><!-- /.col-lg-6 -->
           <div class="col-sm-12 col-md-12 col-lg-6 banner-img">
@@ -230,186 +329,171 @@
      <!-- ========================
        page title 
     =========================== -->
-    <section class="page-title page-title-layout5 text-center">
+    {{-- <section class="page-title page-title-layout5 text-center">
       <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/6.jpg') }}" alt="background"></div>
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h1 class="pagetitle__heading">Our Products</h1>
+            <h1 class="pagetitle__heading">Why Choose Us</h1>
             
           </div><!-- /.col-xl-6 -->
         </div><!-- /.row -->
       </div><!-- /.container -->
-    </section><!-- /.page-title -->
+      
+    </section><!-- /.page-title --> --}}
 
   <!-- ========================
        shop 
     =========================== -->
     <section class="shop-grid">
+      <center><h1 class="pagetitle__heading">Why Choose Us</h1></center> <br>
       <div class="container">
         <div class="row">
-          <div class="col-sm-12 col-md-8 col-lg-9">
-            <div class="sorting-options d-flex flex-wrap justify-content-between align-items-center mb-30">
-              
-              <select>
-                <option selected="" value="0">Sort by latest</option>
-                <option value="1">Sort by Popular</option>
-                <option value="2">Sort by highest Price </option>
-                <option value="3">Sort by lowest Price </option>
-              </select>
-            </div>
-            <div class="row">
-              <!-- Product item #1 -->
-              @forelse ($products as $prods)
-              <div class="col-sm-6 col-md-6 col-lg-4">
-                <div class="product-item">
-                  <div class="product__img">
-                    <img src="{{asset('images/products/'.$prods->image_path)}}" alt="Product" loading="lazy">
-                    <div class="product__action">
-                      <a href="#" class="btn btn__primary btn__rounded">
-                        <i class="icon-cart"></i> <span>Add To Cart</span>
-                      </a>
-                    </div><!-- /.product-action -->
-                  </div><!-- /.product-img -->
-                  <div class="product__info">
-                    <h4 class="product__title"><a href="{{ route('product.details',encrypt($prods->id)) }}">{{ $prods->name }}</a></h4>
-                    <span class="product__price">${{ $prods->price }}</span>
-                  </div><!-- /.product-content -->
-                </div><!-- /.product-item -->
-              </div><!-- /.col-lg-4 -->
-              @empty
-                  
-              @endforelse
-              
-              <!-- Product item #2 -->
-              {{-- <div class="col-sm-6 col-md-6 col-lg-4">
-                <div class="product-item">
-                  <div class="product__img">
-                    <img src="{{asset('frontend/images/blog/grid/pp.jpg')}}" alt="Product" loading="lazy">
-                    <div class="product__action">
-                      <a href="#" class="btn btn__primary btn__rounded">
-                        <i class="icon-cart"></i> <span>Add To Cart</span>
-                      </a>
-                    </div><!-- /.product-action -->
-                  </div><!-- /.product-img -->
-                  <div class="product__info">
-                    <h4 class="product__title"><a href="#">Biotin Complex</a></h4>
-                    <span class="product__price">$12,99</span>
-                  </div><!-- /.product-content -->
-                </div><!-- /.product-item -->
-              </div><!-- /.col-lg-4 --> --}}
-              
-            </div><!-- /.row -->
-            <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                <nav class="pagination-area">
-                  <ul class="pagination justify-content-center">
-                    <li><a class="current" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                  </ul>
-                </nav><!-- /.pagination-area -->
-              </div><!-- /.col-lg-12 -->
-            </div><!-- /.row -->
-          </div><!-- /.col-lg-9 -->
-          <div class="col-sm-12 col-md-4 col-lg-3">
-            <aside class="sidebar-layout2">
-              <div class="widget widget-search">
-                <h5 class="widget__title">Search</h5>
-                <div class="widget__content">
-                  <form class="widget__form-search">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <button class="btn" type="submit"><i class="icon-search"></i></button>
-                  </form>
-                </div><!-- /.widget-content -->
-              </div><!-- /.widget-search -->
-              {{-- <div class="widget widget-poducts">
-                <h5 class="widget__title">Best Sellers</h5>
-                <div class="widget__content">
-                  <!-- product item #1 -->
-                  <div class="widget-product-item d-flex align-items-center">
-                    <div class="widget-product__img">
-                      <a href="#"><img src="{{ asset('frontend/images/products/11.jpg') }}" alt="Product" loading="lazy"></a>
-                    </div><!-- /.product-product-img -->
-                    <div class="widget-product__content">
-                      <h5 class="widget-product__title"><a href="#">Calming Herps</a></h5>
-                      <span class="widget-product__price">$ 38.00</span>
-                    </div><!-- /.widget-product-content -->
-                  </div><!-- /.widget-product-item -->
-                  <!-- product item #2 -->
-                  <div class="widget-product-item d-flex align-items-center">
-                    <div class="widget-product__img">
-                      <a href="#"><img src="{{ asset('frontend/images/products/10.jpg') }}" alt="Product" loading="lazy"></a>
-                    </div><!-- /.product-product-img -->
-                    <div class="widget-product__content">
-                      <h5 class="widget-product__title"><a href="#">Goji Powder</a></h5>
-                      <span class="widget-product__price">$ 33.00</span>
-                    </div><!-- /.widget-product-content -->
-                  </div><!-- /.widget-product-item -->
-                  <!-- product item #3 -->
-                  <div class="widget-product-item d-flex align-items-center">
-                    <div class="widget-product__img">
-                      <a href="#"><img src="{{ asset('frontend/images/products/12.jpg') }}" alt="Product" loading="lazy"></a>
-                    </div><!-- /.product-product-img -->
-                    <div class="widget-product__content">
-                      <h5 class="widget-product__title"><a href="#">Biotin Complex</a></h5>
-                      <span class="widget-product__price">$ 18.00</span>
-                    </div><!-- /.widget-product-content -->
-                  </div><!-- /.widget-product-item -->
-                </div><!-- /.widget-content -->
-              </div><!-- /.widget-poducts --> --}}
-              <div class="widget widget-categories">
-                <h5 class="widget__title">Categories</h5>
-                <div class="widget-content">
-                  <ul class="list-unstyled mb-0">
-                    @forelse ($categories as $item)
-                    <li><a href="{{route('category.products',$item->id)}}"><i class="fa fa-star text-warning"></i>&nbsp;&nbsp;</span><span>{{ $item->name }}</span></a></li>
 
-                    @empty
-                        
-                    @endforelse
-                    
-                  </ul>
-                </div><!-- /.widget-content -->
-              </div><!-- /.widget-categories -->
-              <div class="widget widget-filter">
-                <h5 class="widget__title">Pricing Filter</h5>
-                <div class="widget__content">
-                  <div id="rangeSlider"></div>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="price-output d-flex align-items-center">
-                      <label for="rangeSliderResult">Price: </label>
-                      <input type="text" id="rangeSliderResult" readonly>
-                    </div>
-                    <button class="btn__filter">Filter</button>
-                  </div>
-                </div><!-- /.widget-content -->
-              </div><!-- /.widget-filter -->
-              <div class="widget widget-tags">
-                <h5 class="widget__title">Tags</h5>
-                <div class="widget-content">
-                  <ul class="list-unstyled">
-                    <li><a href="#">Responsive</a></li>
-                    <li><a href="#">Fresh</a></li>
-                    <li><a href="#">Modern</a></li>
-                    <li><a href="#">Corporate</a></li>
-                    <li><a href="#">Business</a></li>
-                  </ul>
-                </div><!-- /.widget-content -->
-              </div><!-- /.widget-Tags -->
-            </aside><!-- /.sidebar -->
-          </div><!-- /.col-lg-3 -->
+<div class="card-container">
+  <!-- Card 1 -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="{{ asset('frontend/images/flip/y.jpg') }}" alt="Card 1">
+        <h4 class="tit">Fully Managed and Registered</h4>
+      </div>
+      <div class="flip-card-back">
+        <p>By choosing Angels Home Care Services you are opting for a full-service home care provider that will manage your support from start to finish. We are registered and licensed to provide this support. We handle everything, so you worry less. Our managers, caregivers and medical team are all certified and registered, hence giving you the confidence to relax and know you are in capable hands..</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="{{ asset('frontend/images/flip/y1.jpg') }}" alt="Card 2">
+        <h4 class="tit">Flexible and Adoptable</h4>
+      </div>
+      <div class="flip-card-back">
+        <p>Care and support needs can change over time – and sometimes quite suddenly – so we see the importance in providing a flexible and adaptable service We will regularly review your support plan and carry out caregiver supervisions so we can respond to any changes and arrange extra training or support if it is needed.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="{{ asset('frontend/images/flip/yy.jpg') }}" alt="Card 3">
+        <h4 class="tit">Homecare Specialist</h4>
+      </div>
+      <div class="flip-card-back">
+        <p>Our experience operating in the United States of America under has enabled us gain vast knowledge in this industry. We are experienced in providing client-centred care at home and also country-specific models of care and approach. This means we take into consideration the individuals and family’s needs and also the culture they are exposed to, to find the best way to offer care.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="{{ asset('frontend/images/flip/yyy.jpg') }}" alt="Card 4">
+        <h4 class="tit">Dependable Caregiver</h4>
+      </div>
+      <div class="flip-card-back">
+        <p>Every single one of our caregivers are employed directly by Angels Home Care Services. We never enlist the use of staffing agencies. This means we can ensure the quality of service that each of our caregivers deliver meets our high standards and that they are each totally supported in their roles.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  </div>
+</div>
+
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /.shop -->
+    
+     <section class="testimonials-layout3 pt-130 bg-overlay bg-overlay-secondary">
+      <div class="bg-img"><img src="{{ asset('frontend/images/banners/4.jpg') }}" alt="background"></div>
+      <div class="container">
+        <div class="testimonials-wrapper">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <div class="heading-layout2">
+                <h3 class="heading__title color-primary">Inspiring Stories!</h3>
+              </div><!-- /.heading -->
+            </div><!-- /.col-lg-5 -->
+            <div class="col-sm-12 col-md-12 col-lg-7">
+              <div class="slider-with-navs">
+                <!-- Testimonial #1 -->
+                <div class="testimonial-item">
+                  <h3 class="testimonial__title">“Their doctors include highly qualified practitioners who come from a
+                    range of backgrounds and bring with them a diversity of skills and special interests. They also have
+                    registered nurses on staff who are available to triage any urgent matters, and the administration
+                    and support staff all have exceptional people skills”
+                  </h3>
+                </div><!-- /. testimonial-item -->
+                <!-- Testimonial #2 -->
+                <div class="testimonial-item">
+                  <h3 class="testimonial__title">“Their doctors include highly qualified practitioners who come from a
+                    range of backgrounds and bring with them a diversity of skills and special interests. They also have
+                    registered nurses on staff who are available to triage any urgent matters, and the administration
+                    and support staff all have exceptional people skills”
+                  </h3>
+                </div><!-- /. testimonial-item -->
+                <!-- Testimonial #3 -->
+                <div class="testimonial-item">
+                  <h3 class="testimonial__title">“Their doctors include highly qualified practitioners who come from a
+                    range of backgrounds and bring with them a diversity of skills and special interests. They also have
+                    registered nurses on staff who are available to triage any urgent matters, and the administration
+                    and support staff all have exceptional people skills”
+                  </h3>
+                </div><!-- /. testimonial-item -->
+              </div><!-- /.slick-carousel -->
+              <div class="slider-nav mb-60">
+                <div class="testimonial__meta">
+                  <div class="testimonial__thmb">
+                    <img src="{{ asset('frontend/images/testimonials/thumbs/1.png') }}" alt="author thumb">
+                  </div><!-- /.testimonial-thumb -->
+                  <div>
+                    <h4 class="testimonial__meta-title">Sami Wade</h4>
+                    <p class="testimonial__meta-desc">7oroof Inc</p>
+                  </div>
+                </div><!-- /.testimonial-meta -->
+                <div class="testimonial__meta">
+                  <div class="testimonial__thmb">
+                    <img src="{{ asset('frontend/images/testimonials/thumbs/2.png') }}" alt="author thumb">
+                  </div><!-- /.testimonial-thumb -->
+                  <div>
+                    <h4 class="testimonial__meta-title">Ahmed</h4>
+                    <p class="testimonial__meta-desc">Web Inc</p>
+                  </div>
+                </div><!-- /.testimonial-meta -->
+                <div class="testimonial__meta">
+                  <div class="testimonial__thmb">
+                    <img src="{{ asset('frontend/images/testimonials/thumbs/3.png') }}" alt="author thumb">
+                  </div><!-- /.testimonial-thumb -->
+                  <div>
+                    <h4 class="testimonial__meta-title">Sonia Blake</h4>
+                    <p class="testimonial__meta-desc">Web Inc</p>
+                  </div>
+                </div><!-- /.testimonial-meta -->
+              </div><!-- /.slider-nav -->
+            </div><!-- /.col-lg-7 -->
+          </div><!-- /.row -->
+        </div><!-- /.testimonials-wrapper -->
+      </div><!-- /.container -->
+    </section><!-- /.testimonials layout 3 -->
 
-        <section class="team-layout2 pb-80">
+ <!-- ======================
+      Team
+    ========================= -->
+    <section class="team-layout2 pb-80">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
             <div class="heading text-center mb-40">
               <h3 class="heading__title">Meet Our Team</h3>
-              <p class="heading__desc">Our seasoned team of engineers and energy specialists ensures every project meets the highest standards of quality, safety, and performance.
+              <p class="heading__desc">Our administration and support staff all have exceptional people skills and
+                trained to assist you with all medical enquiries.
               </p>
             </div><!-- /.heading -->
           </div><!-- /.col-lg-6 -->
@@ -418,88 +502,149 @@
           <div class="col-12">
             <div class="slick-carousel"
               data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "autoplay": true, "arrows": false, "dots": false, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 1}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
-          
-
+              <!-- Member #1 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('images/Picture5.png')}}" alt="member img">
+                  <img src="{{ asset('frontend/images/team/1.jpg') }}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="#">Felix Udanyi</a></h5>
-                  <p class="member__job">Chief Executive Officer & Founder</p>
-                  <p class="member__desc">Felix Udanyi is a dynamic and results-driven professional whose career spans over 20 years across multiple industries, marked by a steadfast commitment to excellence, innovation, and strategic leadership.
-                    He holds a Master’s Degree from the University of Liverpool, United Kingdom, and a Bachelor of Engineering in Electrical and Computer Engineering from the Federal University of Technology, Minna, Nigeria.
-                  </p>
+                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Mike Dooley</a></h5>
+                  <p class="member__job">Cardiology Specialist</p>
+                  <p class="member__desc">Muldoone obtained his undergraduate degree in Biomedical Engineering at Tulane
+                    University prior to attending St George's University School of Medicine</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
                       <span>Read More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
+                    <ul class="social-icons list-unstyled mb-0">
+                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                    </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
               </div><!-- /.member -->
-
-
-                <div class="member">
+              <!-- Member #2 -->
+              <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('images/Picture6.png')}}" alt="member img">
+                  <img src="{{ asset('frontend/images/team/2.jpg') }}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="#">Dr Zaiming Fan</a></h5>
-                  <p class="member__job">Technical Partner</p>
-                  <p class="member__desc">Dr. Zaiming Fan is an experienced R&D Director at Shenzhen Zhongnuo Communication Technology Co., Ltd., leading over 1,600 staff across communication, electronics, renewable energy, and UAV systems. With a Ph.D. from Lancaster University and 20+ years of experience, he specializes in ODM R&D management, wireless communication, renewable energy, and embedded systems.</p>
+                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Dermatologists</a></h5>
+                  <p class="member__job">Cardiology Specialist</p>
+                  <p class="member__desc">Brian specializes in treating skin, hair, nail, and mucous membrane. He also
+                    address cosmetic issues, helping to revitalize the appearance of the skin</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
                       <span>Read More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
+                    <ul class="social-icons list-unstyled mb-0">
+                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                    </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
               </div><!-- /.member -->
-   
-               <div class="member">
+              <!-- Member #3 -->
+              <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('images/Picture7.png')}}" alt="member img">
+                  <img src="{{ asset('frontend/images/team/3.jpg') }}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="#">Peter Yuan Liu</a></h5>
-                  <p class="member__job">Technical Partner</p>
-                  <p class="member__desc">A seasoned Renewable Energy Engineer with over 15 years of experience in solar technology, product development, and R&D leadership. Since 2012, he has led innovation at Shenzhen Jiapu Solar Energy Co., LTD, as General Manger ,developing high-efficiency solar systems, advanced absorption coatings, and a range of industry-leading microinverters.</p>
+                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Maria Andaloro</a></h5>
+                  <p class="member__job">Pediatrician</p>
+                  <p class="member__desc">Andaloro graduated from medical school and completed 3 years residency program
+                    in pediatrics. She passed rigorous exams by the American Board of Pediatrics.</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
                       <span>Read More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
+                    <ul class="social-icons list-unstyled mb-0">
+                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                    </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
               </div><!-- /.member -->
-
-                <div class="member">
+              <!-- Member #4 -->
+              <div class="member">
                 <div class="member__img">
-                  <img src="{{asset('images/Picture8.png')}}" alt="member img">
+                  <img src="{{ asset('frontend/images/team/4.jpg') }}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="#">Abel Dangana</a></h5>
-                  <p class="member__job">Strategic Relationship Executive</p>
-                  <p class="member__desc">With over 25 years of experience in operations management and supply chain optimization, the SRO drives key partnerships, ensures operational efficiency, and supports the seamless execution of solar and energy storage projects.</p>
+                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Dupree Black</a></h5>
+                  <p class="member__job">Urologist</p>
+                  <p class="member__desc">Black diagnose and treat diseases of the urinary tract in both men and women.
+                    He
+                    also diagnose and treat anything involving the reproductive tract in men.</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="#" class="btn btn__secondary btn__link btn__rounded">
+                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
                       <span>Read More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
+                    <ul class="social-icons list-unstyled mb-0">
+                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                    </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
               </div><!-- /.member -->
-
-
-
-
+              <!-- Member #5 -->
+              <div class="member">
+                <div class="member__img">
+                  <img src="{{ asset('frontend/images/team/5.jpg') }}" alt="member img">
+                </div><!-- /.member-img -->
+                <div class="member__info">
+                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Markus skar</a></h5>
+                  <p class="member__job">Laboratory</p>
+                  <p class="member__desc">Skar play a very important role in your health care. People working in the
+                    clinical laboratory are responsible for conducting tests that provide crucial information.</p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Read More</span>
+                      <i class="icon-arrow-right"></i>
+                    </a>
+                    <ul class="social-icons list-unstyled mb-0">
+                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                    </ul><!-- /.social-icons -->
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
+              <!-- Member #6 -->
+              <div class="member">
+                <div class="member__img">
+                  <img src="{{ asset('frontend/images/team/6.jpg') }}" alt="member img">
+                </div><!-- /.member-img -->
+                <div class="member__info">
+                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Kiano Barker</a></h5>
+                  <p class="member__job">Pathologist </p>
+                  <p class="member__desc">Barker help care for patients every day by providing their doctors with the
+                    information needed to ensure appropriate care. He also valuable resources for other physicians.</p>
+                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
+                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Read More</span>
+                      <i class="icon-arrow-right"></i>
+                    </a>
+                    <ul class="social-icons list-unstyled mb-0">
+                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                    </ul><!-- /.social-icons -->
+                  </div>
+                </div><!-- /.member-info -->
+              </div><!-- /.member -->
             </div><!-- /.carousel -->
           </div><!-- /.col-12 -->
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /.Team -->
-
-
 
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users;
 
 use Carbon\Carbon;
 use App\Models\Slider;
+use App\Models\AboutUs;
 use App\Models\Product;
 use App\Models\Setting;
 use App\Models\Category;
@@ -41,6 +42,7 @@ class HomeController extends Controller
     //   }
     
         $slider = Slider::latest()->get();
+        $aboutUs = AboutUs::first();
         $category = Category::latest()->simplePaginate(10);
         $product = Product::latest()->simplePaginate(9);
         $services = Services::latest()->simplePaginate(6);
@@ -63,12 +65,14 @@ class HomeController extends Controller
             'categories' => $category,
             'products' => $product,
             'service' => $services,
+            'aboutUs' => $aboutUs
             
         ]);
     }
 
     public function Index(){
         $slider = Slider::latest()->get();
+        $aboutUs = AboutUs::first();
         $category = Category::latest()->simplePaginate(10);
         $product = Product::latest()->simplePaginate(9);
         $services = Services::latest()->simplePaginate(6);
@@ -76,6 +80,7 @@ class HomeController extends Controller
         ->with('sliders', $slider)
         ->with('categories', $category)
         ->with('service', $services)
+        ->with('aboutUs', $aboutUs)
         ->with('products', $product);
 
     }

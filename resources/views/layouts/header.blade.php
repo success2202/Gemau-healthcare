@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="{{route('dashboard')}}">
           {{-- <img src="" class="logo-light" alt="logo"> --}}
-          <img src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" width="120px" alt="logo">
+          <img src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" height="90px" width="120px" alt="logo">
           {{-- <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="{{$settings->site_name}}" class="logo-dark" width="120px"></a> --}}
         </a>
         <button class="navbar-toggler" type="button">
@@ -28,8 +28,11 @@
             </li><!-- /.nav-item -->
             @else 
             <li class="nav__item"> <a class="nav__item-link" href="{{route($menu->slug)}}">{{$menu->name}}</a>@endif
+
+              
             @empty 
             @endforelse
+            
           </ul><!-- /.navbar-nav -->
           <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
         </div><!-- /.navbar-collapse -->
@@ -53,15 +56,16 @@
         </a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{ route('dashboard') }}">Profile</a></li>
-            <li>
+            <li class="dropdown-item">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="dropdown-item">Logout</button>
+                    <button type="submit" >Logout</button>
                 </form>
             </li>
         </ul>
           @endguest
-
+          
+              
           </div>
 
           <!-- User dropdown -->
@@ -91,12 +95,12 @@
 
 
 
-          <div class="d-none d-xl-flex align-items-center position-relative ml-30">
+          {{-- <div class="d-none d-xl-flex align-items-center position-relative ml-30">
             <a href="" class=" btn-sm">
               <i class="icon-cart"></i>
               <span>MyCart</span>
             </a>
-          </div>
+          </div> --}}
         {{-- <button class="action__btn-search ml-30"><i class="fa fa-search"></i></button> --}}
       </div><!-- /.container -->
     </nav><!-- /.navabr -->

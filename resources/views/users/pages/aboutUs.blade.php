@@ -36,15 +36,15 @@
               <p class="mb-30">{!! $aboutUs->content !!}</p>
               <div class="d-flex align-items-center mb-30">
                 <a href="doctors-grid.html" class="btn btn__primary btn__outlined btn__rounded mr-30">
-                  Meet Our Professionals</a>
+                  Meet Our Team</a>
                 <img src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" width="120px" alt="singnture">
               </div>
             </div>
           </div><!-- /.col-lg-6 -->
           <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="video-banner">
-              <img src="{{asset('images/Picture1.png')}}" alt="about">
-              <img src="{{asset('images/pp.jpg')}}" alt="about">
+              <img src="{{asset('frontend/images/about/ab.jpg')}}" alt="about">
+              
               <a class="video__btn video__btn-white popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
                 <div class="video__player">
                   <i class="fa fa-play"></i>
@@ -55,6 +55,31 @@
 
         </div><!-- /.row -->
       </div><!-- /.container -->
+
+<div class="container my-5">
+  <div class="card p-4 shadow-lg border-0 rounded-4">
+    <div class="card-body">
+      <h5 class="card-text">Who We Are</h5>
+      <p class="card-text">
+        <strong>GEMAU</strong> is a trusted provider of in-home support services, dedicated to helping individuals maintain independence and dignity in the comfort of their own homes.
+      </p>
+
+      <h5 class="card-text">Our Mission</h5>
+      <p class="card-text">
+        To deliver compassionate, personalized, and professional care that promotes wellness, safety, and peace of mind for our clients and their families.
+      </p>
+
+      <h5 class="card-text">What We Offer</h5>
+      <ul class="card-text">
+        <li>✔️ Skilled nursing care</li>
+        <li>✔️ Personal assistance with daily activities</li>
+        <li>✔️ Companionship and emotional support</li>
+        <li>✔️ 24/7 home health monitoring</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
     </section><!-- /.About Layout 1 -->
 
 @endsection

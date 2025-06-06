@@ -56,6 +56,7 @@
     <div class="row">
       <div class="col-12">
         <h1 class="pagetitle__heading">Our Blogs</h1>
+        <h5>Useful advice for anyone responsible for the care of an elderly or disabled person</h5>
         <nav>
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Home</a></li>
@@ -84,7 +85,7 @@
                 </div><!-- /.post__img -->
                 <div class="post__body">
                   <div class="post__meta-cat">
-                    <a href="#">Roisola</a>
+                    <a href="#">GEMAU</a>
                   </div><!-- /.blog-meta-cat -->
                   <div class="post__meta d-flex">
                     <span class="post__meta-date">{{$item->created_at->format('M d, Y')}}.</span>
@@ -92,8 +93,8 @@
                   </div>
                   <h4 class="post__title"><a href="{{route('blogs.details',encrypt($item->id))}}">{{$item->title}}</a></h4>
   
-                  <p class="post__desc">{{trim(strip_tags($item->content))}}
-                  </p>
+                  {{-- <p class="post__desc">{{trim(strip_tags($item->content))}}
+                  </p> --}}
                   <a href="{{route('blogs.details',encrypt($item->id))}}" class="btn btn__secondary btn__link btn__rounded">
                     <span>Read More</span>
                     <i class="icon-arrow-right"></i>
