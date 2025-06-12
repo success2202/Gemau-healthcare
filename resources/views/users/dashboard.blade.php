@@ -224,7 +224,7 @@
             </div><!-- /.carousel -->
           </div><!-- /.col-12 -->
         </div><!-- /.row -->
-        <center><a href="/appointment" class="btn btn-primary mt-2">Book Appointment</a></center>
+        <center><a href="{{ route('users.bookAppointment') }}" class="btn btn-primary mt-2">Book Appointment</a></center>
       </div><!-- /.container -->
       
     </section><!-- /.Team -->
@@ -316,7 +316,7 @@
           </div><!-- /.col-lg-6 -->
           <div class="col-sm-12 col-md-12 col-lg-6 banner-img">
             <div class="bg-img">
-              <img src="" alt="backgrounds">
+              <img src="{{ asset('frontend/images/flip/y.jpg') }}" alt="backgrounds">
             </div>
           </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
@@ -341,6 +341,36 @@
       </div><!-- /.container -->
       
     </section><!-- /.page-title --> --}}
+
+
+
+          @guest
+<div class="container my-5">
+  <div class="card text-center shadow-sm p-4 border-0 rounded-4 bg-light">
+    <h3 class="mb-3">Stay Updated</h3>
+    <p class="text-muted">Subscribe to our newsletter to get the latest updates, tips, and offers.</p>
+
+    <form action="{{ route('newsletter.subscribe') }}" method="POST" class="row g-2 justify-content-center mt-3">
+      @csrf
+      <div class="col-md-6">
+        <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </div>
+    </form>
+
+    @if(session('success'))
+      <div class="alert alert-success mt-3">{{ session('success') }}</div>
+    @endif
+  </div>
+</div>
+@endguest
+
+
+
+
+
 
   <!-- ========================
        shop 

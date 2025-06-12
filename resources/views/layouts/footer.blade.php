@@ -7,7 +7,8 @@
                 <a href="{{route('dashboard')}}"><img src="{{asset('images/'.$settings->site_logo)}}"  alt=""  width="150px"/></a>
               {{-- <p class="color-gray">{!!substr($settings->about, 0,100) !!} </p> --}}
               <h5 style="color:whitesmoke">Our Mission</h5>
-              <p> at GEMAU Health Services LLC, our missionis to deliver compassionate, personalised, and high-quality homr care thatempowers every patient to live with dignity,
+              <p> at GEMAU Health Services LLC, our missionis to deliver compassionate, personalised, 
+                and high-quality homr care thatempowers every patient to live with dignity,
                 independence, and optional well-being. 
               </p>
             

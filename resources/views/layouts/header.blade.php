@@ -32,7 +32,7 @@
               
             @empty 
             @endforelse
-            
+           
           </ul><!-- /.navbar-nav -->
           <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
         </div><!-- /.navbar-collapse -->
@@ -67,6 +67,9 @@
           
               
           </div>
+
+
+
 
           <!-- User dropdown -->
 {{-- 

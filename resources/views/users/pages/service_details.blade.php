@@ -222,7 +222,7 @@
                 <i class="icon-pdf-file"></i>
                 <span>2024 Client Reports</span>
               </a> --}}
-               <a href="/appointment" class="btn btn-primary mt-2">Book Appointment</a>
+               <a href="{{ route('users.bookAppointment') }}" class="btn btn-primary mt-2">Book Appointment</a>
             </div>
           </aside><!-- /.sidebar -->
         </div><!-- /.col-lg-4 -->

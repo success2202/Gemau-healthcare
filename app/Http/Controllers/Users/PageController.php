@@ -87,6 +87,12 @@ class PageController extends Controller
         
     }
 
+    public function BookAppointment()
+    {   
+        return view('users.pages.bookAppoitnment')
+         ->with('aboutUs', AboutUs::latest()->first());
+    }
+
 
 
 

@@ -12,6 +12,19 @@
       src="https://maps.google.com/maps?q=Suite%20100%20San%20Francisco%2C%20LA%2094107%20United%20States&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near"></iframe>
   </section><!-- /.GoogleMap -->
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+ @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
   <!-- ==========================
       contact layout 1
   =========================== -->
@@ -20,7 +33,8 @@
       <div class="row">
         <div class="col-12">
           <div class="contact-panel d-flex flex-wrap">
-            <form class="contact-panel__form" method="post" action="https://7oroof.com/demos/medcity/assets/php/contact.php" id="contactForm">
+            <form class="contact-panel__form" method="post" action="{{ route('contact.submit') }}" >
+              @csrf
               <div class="row">
                 <div class="col-sm-12">
                   <h4 class="contact-panel__title">How Can We Help? </h4>
@@ -31,25 +45,25 @@
                 <div class="col-sm-6 col-md-6 col-lg-6">
                   <div class="form-group">
                     <i class="icon-user form-group-icon"></i>
-                    <input type="text" class="form-control" placeholder="Name" id="contact-name" name="contact-name"
+                    <input type="text" class="form-control" placeholder="Name" name="name"
                       required>
                   </div>
                 </div><!-- /.col-lg-6 -->
                 <div class="col-sm-6 col-md-6 col-lg-6">
                   <div class="form-group">
                     <i class="icon-email form-group-icon"></i>
-                    <input type="email" class="form-control" placeholder="Email" id="contact-email"
-                      name="contact-email" required>
+                    <input type="email" class="form-control" placeholder="Email"
+                      name="email" required>
                   </div>
                 </div><!-- /.col-lg-6 -->
                 <div class="col-sm-6 col-md-6 col-lg-6">
                   <div class="form-group">
                     <i class="icon-phone form-group-icon"></i>
-                    <input type="text" class="form-control" placeholder="Phone" id="contact-Phone"
-                      name="contact-phone" required>
+                    <input type="text" class="form-control" placeholder="Phone" 
+                      name="phone" required>
                   </div>
                 </div><!-- /.col-lg-6 -->
-                <div class="col-sm-6 col-md-6 col-lg-6">
+                {{-- <div class="col-sm-6 col-md-6 col-lg-6">
                   <div class="form-group">
                     <i class="icon-news form-group-icon"></i>
                     <select class="form-control">
@@ -58,12 +72,12 @@
                       <option value="2">Subject 1</option>
                     </select>
                   </div>
-                </div><!-- /.col-lg-6 -->
+                </div><!-- /.col-lg-6 --> --}}
                 <div class="col-12">
                   <div class="form-group">
                     <i class="icon-alert form-group-icon"></i>
-                    <textarea class="form-control" placeholder="Message" id="contact-message"
-                      name="contact-message"></textarea>
+                    <textarea class="form-control" placeholder="Message" 
+                      name="message"></textarea>
                   </div>
                   <button type="submit" class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10">
                     <span>Submit Request</span> <i class="icon-arrow-right"></i>

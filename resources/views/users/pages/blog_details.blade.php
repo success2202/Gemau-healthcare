@@ -95,13 +95,13 @@
               <div class="post-item mb-0">
                 <div class="post__img">
                   <a href="#">
-                    <img src="{{ asset('frontend/images/blog/single/si.jpg') }}" alt="post image" loading="lazy">
+                    <img src="{{asset('images/blog/'.$blog->image)}}" alt="post image" loading="lazy">
                   </a>
                 </div><!-- /.post-img -->
                 <div class="post__body pb-0">
-                  <div class="post__meta-cat">
+                  {{-- <div class="post__meta-cat">
                     <a href="#">Consulting</a><a href="#">Sales</a>
-                  </div><!-- /.blog-meta-cat -->
+                  </div><!-- /.blog-meta-cat --> --}}
                   <div class="post__meta d-flex align-items-center mb-20">
                     <span class="post__meta-date">{{$blog->created_at->format('M d, Y')}}.</span>
                     <a class="post__meta-author" href="#">{{_('By'). ' '.$settings->site_name}}</a>
@@ -124,52 +124,10 @@
                     <li><a href="#"><i class="fab fa-google"></i></a></li>
                   </ul>
                 </div><!-- /.blog-share -->
-                <div class="widget-tags">
-                  <ul class="list-unstyled d-flex flex-wrap mb-0">
-                    <li><a href="#">Consulting</a></li>
-                    <li><a href="#">Tech</a></li>
-                    <li><a href="#">Employee</a></li>
-                  </ul>
-                </div><!-- /.blog-tags -->
-              </div>
-              <div class="widget-nav d-flex justify-content-between mb-40">
                 
-                <a href="#" class="widget-nav__prev d-flex flex-wrap">
-                  <div class="widget-nav__img">
-                    <img src="{{ asset('frontend/images/blog/grid/Picture1.png') }}" alt="blog thumb">
-                  </div>
-                  <div class="widget-nav__content">
-                    <span>Previous Post</span>
-                    <h5 class="widget-nav__ttile mb-0">Unsure About Wearing a Face Mask?</h5>
-                  </div>
-                </a><!-- /.widget-prev  -->
-                <a href="#" class="widget-nav__next d-flex flex-wrap">
-                  <div class="widget-nav__img">
-                    <img src="{{ asset('frontend/images/blog/grid/pp.jpg') }}" alt="blog thumb">
-                  </div>
-                  <div class="widget-nav__content">
-                    <span>Next Post</span>
-                    <h5 class="widget-nav__ttile mb-0">Tips for Eating Healthy When You’re Home</h5>
-                  </div>
-                </a><!-- /.widget-next  -->
               </div>
-              <div class="blog-author d-flex flex-wrap mb-70">
-                <div class="blog-author__avatar">
-                  <img src="{{ asset('frontend/images/blog/author/1.jpg') }}" alt="avatar">
-                </div><!-- /.author-avatar  -->
-                <div class="blog-author__content">
-                  <h6 class="blog-author__name">Mahmoud Baghagho</h6>
-                  <p class="blog-author__bio">Founded by Begha over many cups of tea at her kitchen table in 2009, our
-                    brand promise is simple: to
-                    provide powerful digital marketing solutions to small and medium businesses.</p>
-                  <ul class="social-icons list-unstyled mb-0">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-vimeo-v"></i></a> </li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a> </li>
-                  </ul>
-                </div><!-- /.author-content  -->
-              </div><!-- /.blog-author  -->
+              
+              
               <div class="blog-comments mb-70">
                 <h5 class="blog-widget__title">2 comments</h5>
                 <ul class="comments-list list-unstyled">
@@ -258,7 +216,7 @@
                         
                       <div class="widget-post-item d-flex align-items-center">
                       <div class="widget-post__img">
-                        <a href="{{route('blogs.details',$blog->id)}}"><img src="{{ asset('frontend/images/blog/grid/2.jpg') }}" alt="thumb"></a>
+                        <a href="{{route('blogs.details',$blog->id)}}"><img src="{{asset('images/blog/'.$item->image)}}" alt="thumb"></a>
                       </div><!-- /.widget-post-img -->
                       <div class="widget-post__content">
                         <span class="widget-post__date">{{$item->created_at->format('M d, Y')}}.</span>
@@ -270,55 +228,10 @@
                     @empty
                         
                     @endforelse
-                    <!-- post item #2 -->
-                    {{-- <div class="widget-post-item d-flex align-items-center">
-                      <div class="widget-post__img">
-                        <a href="#"><img src="assets/images/blog/grid/3.jpg" alt="thumb"></a>
-                      </div><!-- /.widget-post-img -->
-                      <div class="widget-post__content">
-                        <span class="widget-post__date">July 7, 2022</span>
-                        <h4 class="widget-post__title"><a href="#">Do Employee Surveys Tell About Employee?</a>
-                        </h4>
-                      </div><!-- /.widget-post-content -->
-                    </div><!-- /.widget-post-item --> --}}
-                    <!-- post item #3 -->
-                    {{-- <div class="widget-post-item d-flex align-items-center">
-                      <div class="widget-post__img">
-                        <a href="#"><img src="assets/images/blog/grid/6.jpg" alt="thumb"></a>
-                      </div><!-- /.widget-post-img -->
-                      <div class="widget-post__content">
-                        <span class="widget-post__date">March 13, 2022</span>
-                        <h4 class="widget-post__title"><a href="#">Succession Risks That Threaten Your Leadership</a>
-                        </h4>
-                      </div><!-- /.widget-post-content -->
-                    </div><!-- /.widget-post-item --> --}}
+                   
                   </div><!-- /.widget-content -->
                 </div><!-- /.widget-posts -->
-                <div class="widget widget-categories">
-                  <h5 class="widget__title">Categories</h5>
-                  <div class="widget-content">
-                    <ul class="list-unstyled mb-0">
-                      <li><a href="#"><span class="cat-count">4</span><span>Neurology</span></a></li>
-                      <li><a href="#"><span class="cat-count">0</span><span>Cardiology</span></a></li>
-                      <li><a href="#"><span class="cat-count">3</span><span>Pathology</span></a></li>
-                      <li><a href="#"><span class="cat-count">2</span><span>Laboratory</span></a></li>
-                      <li><a href="#"><span class="cat-count">4</span><span>Pediatric</span></a></li>
-                      <li><a href="#"><span class="cat-count">1</span><span>Cardiac Clinic</span></a></li>
-                    </ul>
-                  </div><!-- /.widget-content -->
-                </div><!-- /.widget-categories -->
-                <div class="widget widget-tags">
-                  <h5 class="widget__title">Tags</h5>
-                  <div class="widget-content">
-                    <ul class="list-unstyled mb-0">
-                      <li><a href="#">Insights</a></li>
-                      <li><a href="#">Industry</a></li>
-                      <li><a href="#">Modern</a></li>
-                      <li><a href="#">Corporate</a></li>
-                      <li><a href="#">Business</a></li>
-                    </ul>
-                  </div><!-- /.widget-content -->
-                </div><!-- /.widget-tags -->
+                
               </aside><!-- /.sidebar -->
             </div><!-- /.col-lg-4 -->
           </div><!-- /.row -->

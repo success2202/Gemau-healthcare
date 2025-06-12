@@ -1,19 +1,22 @@
 <?php
 
-use App\Http\Controllers\Users\PageController;
-use App\Http\Controllers\Users\AddressController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Users\HomeController;
-use App\Http\Controllers\Users\ProductDetailsController;
-use App\Http\Controllers\Users\CartsController;
-use App\Http\Controllers\Users\CheckoutController;
-use App\Http\Controllers\Users\PaymentController;
-use App\Http\Controllers\Users\PrescriptionController;
-use App\Http\Controllers\Users\SearchController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SiteMapController;
-use App\Http\Controllers\Users\BlogController; 
 use App\Http\Controllers\Users\FaqController;
+use App\Http\Controllers\NewsLetterController;
+use App\Http\Controllers\Users\HomeController;
+use App\Http\Controllers\Users\PageController;
 use App\Http\Controllers\Users\UserController;
+use App\Http\Controllers\Users\BlogController; 
+use App\Http\Controllers\Users\CartsController;
+use App\Http\Controllers\Users\SearchController;
+use App\Http\Controllers\Users\AddressController;
+use App\Http\Controllers\Users\PaymentController;
+use App\Http\Controllers\Users\CheckoutController;
+use App\Http\Controllers\BookAppointmentController;
+use App\Http\Controllers\Users\PrescriptionController;
+use App\Http\Controllers\Users\ProductDetailsController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, '__invoke'] )->name('dashboard');
@@ -85,7 +88,7 @@ Route::get('/pages/services', 'Services')->name('users.services');
 Route::get('/pages/services/details/{id}', 'ServiceDetails')->name('service.details');
 Route::get('/product/category/{id}', 'productsByCategory')->name('category.products');
 
-Route::get('/pages/appointment', 'BookApp')->name('users.bookAppointment');
+Route::get('/pages/appointment', 'BookAppointment')->name('users.bookAppointment');
 });
 
 
@@ -101,3 +104,8 @@ Route::get('upload/sitemap', [SiteMapController::class, 'SiteMap'])->name('site.
 Route::get('blogs', [BlogController::class, 'Index'])->name('users.blogs');
 Route::get('blogs/details/{id}', [BlogController::class, 'BlogDetails'])->name('blogs.details');
 Route::get('/faq', [FaqController::class, '__invoke'])->name('faq.index');
+
+
+Route::post('/newsletter/subscribe', [NewsLetterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::post('/bookappoitment/store', [BookAppointmentController::class, 'store'])->name('appointment.store');
+Route::post('/contact', [ContactController::class, 'contactSubmit'])->name('contact.submit');
