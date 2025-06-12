@@ -6,7 +6,7 @@
                      <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
-                                <h6 class="card-title">Category</h6>
+                                <h6 class="card-title">Testimonial</h6>
                                 <div>
                                     <a href="#" class="mr-3">
                                         <i class="fa fa-refresh"></i>
@@ -27,18 +27,18 @@
                                         <table id="myTable" class="table table-striped table-bordered">
                                            <thead>
                                             <tr><th class="text-left">S/N</th>
-                                                <th>Category</th>
+                                                <th>Name</th>
                                                 <th>Image</th>
-                                                <th>Markup</th>
-                                                <th>Inflated Percent</th>
+                                                <th>Title</th>
+                                                <th>Content</th>
                                                  <th>Created At</th>
                                                 <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                   
-                                        @if(count($category) > 0)
-                                        @foreach ($category as  $sp)
+                                        @if(count($testimonial) > 0)
+                                        @foreach ($testimonial as  $sp)
                                             <tr>
                                             <td>{{$sp->id}}</td>
                                                 <td>
@@ -47,13 +47,13 @@
                                               
                                             
                                                 <td>
-                                                    <a href="#"><img src="{{asset('images/category/'.$sp->image_path)}}" width="50px" height="50px"></a> 
+                                                    <a href="#"><img src="{{asset('images/testimonial/'.$sp->image)}}" width="50px" height="50px"></a> 
                                                 </td>  
                                                 <td>
-                                                    <a href="#">{{$sp->markup}}</a> 
+                                                    <a href="#">{{$sp->title}}</a> 
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$sp->inflated}}</a> 
+                                                    <a href="#">{{$sp->content}}</a> 
                                                 </td>      
                                                   <td>
                                                     <a href="#">{{$sp->created_at->format('d/M/y')}}</a>
@@ -64,7 +64,7 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a href="{{route('category.edit', $sp->hashid)}}" class="dropdown-item">Edit Cateogry</a> 
+                                                            <a href="" class="dropdown-item">Edit Cateogry</a> 
                                                         </div>
                                                     </div>
                                                 </td>

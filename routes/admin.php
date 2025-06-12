@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Manage\ProductController;
 use App\Http\Controllers\Manage\CategoryController;
+use App\Http\Controllers\Manage\TestimonialsController;
 use App\Http\Controllers\Manage\AdminController;
 use App\Http\Controllers\Manage\SliderController;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -45,12 +46,18 @@ Route::prefix('manage')->group(function () {
             Route::get('/users', 'Users')->name('admin.users');
         });
 
-        Route::resource('/category', CategoryController::class);
+        // Route::resource('/category', CategoryController::class); 
         Route::resource('/product', ProductController::class);
 
         Route::controller(ProductController::class)->group(function () {
             Route::post('/product/status/{id}', 'status')->name('product.status');
             Route::post('/product/delete/{id}', 'delete')->name('product.delete');
+        });
+
+         Route::controller(TestimonialsController::class)->group(function () {
+            Route::get('/testimonials/create', 'create')->name('testimonial.create');
+            Route::post('/testimonials/store', 'store')->name('testimonial.store');
+            Route::get('testimonials', 'index')->name('testimonial.index');
         });
 
         Route::controller(OrderController::class)->group(function () {

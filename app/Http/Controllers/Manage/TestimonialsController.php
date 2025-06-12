@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Manage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,9 +8,11 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Traits\imageUpload;
 use Vinkla\Hashids\Facades\Hashids;
+use App\Models\Testimonials;
 
-class CategoryController extends Controller
+class TestimonialsController extends Controller
 {
+    //
     /**
      * Display a listing of the resource.
      *
@@ -19,19 +20,19 @@ class CategoryController extends Controller
      */
 
      use imageUpload;
-     public $category;
+     public $testimonial;
 
     public function __construct()
     {
-        $this->category = new Category;
+        $this->testimonial = new Testimonials;
     }
     public function index()
     {
-        $category = Category::latest()->get();
-        addHashId($category);
+        $testimonial = Testimonials::latest()->get();
+        addHashId($testimonial);
         return view('manage.testimonials.index')
-            ->with('category', $category)
-            ->with('bheading', 'Category')
+            ->with('testimonial', $testimonial)
+            ->with('bheading', 'testimonial')
             ->with('breadcrumb', 'Index');
     }
 
@@ -43,7 +44,7 @@ class CategoryController extends Controller
     public function create()
     {
         return view('manage.testimonials.create')
-            ->with('bheading', 'Category')
+            ->with('bheading', 'Testimonial')
             ->with('breadcrumb', 'Index');
     }
 
@@ -58,34 +59,39 @@ class CategoryController extends Controller
         $validate = Validator::make($request->all(), [
             'name' => 'required',
             'image' => 'required',
-            'markup' => 'required|numeric',
-                'inflated' => 'required|numeric'
+            'title' => 'required',
+                'content' => 'required'
         ]);
         if ($validate->fails()) {
             Session::flash('alert', 'error'); 
             Session::flash('message', $validate->errors()->first());
 
             return redirect()->back()->withErrors($validate)->withInput($request->all())
-                ->with('bheading', 'Category')
+                ->with('bheading', 'Testimonial')
                 ->with('breadcrumb', 'Index');
         }
 
-        if ($request->file('image')) {
-            $fileName = $this->UploadImage($request, 'images/category/');
-        }
+       if ($request->hasFile('image')) {
+    $file = $request->file('image');
+    $filename = time() . '.' . $file->getClientOriginalExtension();
+    $image = Image::make($file)->resize(300, 300);
+    $image->save(public_path('images/testimonial/' . $filename));
+    $filen= $image;
+}
+
         //  dd($fileName);
         $data = [
             'name' => $request->name,
-            'image_path' => $fileName,
-            'markup' => $request->markup,
-            'inflated' => $request->inflated,
+            'image' => $filen,
+            'title' => $request->title,
+            'content' => $request->content,
         ];
-        $category =  $this->category->create($data);
-        if ($category) {
+        $testimonial =  $this->testimonial->create($data);
+        if ($testimonial) {
             Session::flash('alert', 'success');
-            Session::flash('message', 'Category Added Successfully');
+            Session::flash('message', 'Testimonial Added Successfully');
             return redirect()->back()
-                ->with('bheading', 'Category')
+                ->with('bheading', 'Testimonial')
                 ->with('breadcrumb', 'Index');
         }
     }

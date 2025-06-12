@@ -11,11 +11,11 @@
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Categories"
             data-nav-target="#dashboards">
-             <i class="fa fa-list"></i>&nbsp; Manage Category</a>
+             <i class="fa fa-list"></i>&nbsp; Manage Testimonial</a>
          </a>
              <ul>
-                 <li><a  href="{{route('category.create')}}">Add Category</a></li>
-                 <li><a href="{{route('category.index')}}">Manage Category</a></li>
+                 <li><a  href="{{route('testimonial.create')}}">Add Testimonial</a></li>
+                 <li><a href="{{route('testimonial.index')}}">Manage Testimonial</a></li>
              </ul>
          </li>
          <li>

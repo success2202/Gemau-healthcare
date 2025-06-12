@@ -110,7 +110,7 @@
                     <div class="form-group form-group-date">
                      
                       
-                      <textarea class="form-control" name="message" class="bi bi-envelope" rows="6" class="form-control"  placeholder="message" required></textarea>
+                      <textarea class="form-control" name="message" class="bi bi-envelope" rows="9" class="form-control"  placeholder="message" required></textarea>
                     </div>
                   </div>
 

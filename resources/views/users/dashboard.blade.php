@@ -373,7 +373,7 @@
 
 
   <!-- ========================
-       shop 
+       why choose us 
     =========================== -->
     <section class="shop-grid">
       <center><h1 class="pagetitle__heading">Why Choose Us</h1></center> <br>

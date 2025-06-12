@@ -10,7 +10,7 @@
               @method('put')
               <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">Edit Category</h6>
+                            <h6 class="card-title">Edit Testimonial</h6>
                             <div class="row">
                                
                                      <div class="col-md-6">
@@ -31,7 +31,7 @@
                                                 <label class="custom-file-label" for="customFile">Change Image</label>
                                             </div>
                                                <img src="{{asset('images/category/'.$category->image_path)}}" width="50px" height="50px">
-                                            <small id="emailHelp" class="form-text text-muted">Change Category Image
+                                            <small id="emailHelp" class="form-text text-muted">Change Testimonial Image
                                             </small>
                                               @error('image')
                                             <span class="invalid-feedback"> <small> *</small> </span>
@@ -39,20 +39,20 @@
                                          </div>   
                                          <div class="col-md-6">
                                           <div class="form-group">
-                                         <input type="text" name="markup" placeholder="markup" value="{{$category->markup}}" class="form-control @error('name') is-invalid @enderror" >
-                                               <small id="emailHelp" class="form-text text-muted">Enter Markup 
+                                         <input type="text" name="title" placeholder="title" value="{{$category->title}}" class="form-control @error('title') is-invalid @enderror" >
+                                               <small id="emailHelp" class="form-text text-muted">Enter Title 
                                                </small>
-                                               @error('markup')
+                                               @error('title')
                                                <span class="invalid-feedback"> <small> * </small> </span>
                                                @enderror
                                            </div>
                                             </div>
                                             <div class="col-md-6">
                                               <div class="form-group">
-                                             <input type="text" name="inflated" placeholder="markup" value="{{$category->inflated}}" class="form-control @error('inflated') is-invalid @enderror" >
-                                                   <small id="emailHelp" class="form-text text-muted">Enter Inflated cap 
+                                             <input type="text" name="name" placeholder="name" value="{{$category->name}}" class="form-control @error('name') is-invalid @enderror" >
+                                                   <small id="emailHelp" class="form-text text-muted">Enter Name 
                                                    </small>
-                                                   @error('inflated')
+                                                   @error('name')
                                                    <span class="invalid-feedback"> <small> * </small> </span>
                                                    @enderror
                                                </div>
