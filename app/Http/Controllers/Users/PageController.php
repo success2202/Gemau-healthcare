@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Users;
 
+use App\Models\Faq;
 use App\Models\Blog;
 use App\Models\AboutUs;
 use App\Models\Product;
@@ -19,6 +20,12 @@ class PageController extends Controller
         $privacypolicy = Privacypolicy::first();
         return  view('users.pages.privacy')
         ->with('policy', $privacypolicy);
+    }
+
+     public function Faqs(){
+        $faqs = Faq::first();
+        return  view('users.pages.faqs')
+        ->with('faqs', $faqs);
     }
 
     public function Terms(){

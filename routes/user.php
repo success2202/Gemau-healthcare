@@ -89,6 +89,11 @@ Route::get('/pages/services/details/{id}', 'ServiceDetails')->name('service.deta
 Route::get('/product/category/{id}', 'productsByCategory')->name('category.products');
 
 Route::get('/pages/appointment', 'BookAppointment')->name('users.bookAppointment');
+Route::get('/pages/faqs', 'Faqs')->name('users.faqs');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/pages/appointment', [PageController::class, 'BookAppointment'])->name('users.bookAppointment');
 });
 
 

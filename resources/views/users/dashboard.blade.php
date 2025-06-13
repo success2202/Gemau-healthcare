@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title>  Roisolar NG </title>
+<title>  GEMAU </title>
 @endsection
 @section('head')
 <link rel="canonical" href="https://sanlivepharmacy.com/">
