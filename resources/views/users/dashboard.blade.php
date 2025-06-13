@@ -448,64 +448,44 @@
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-5">
               <div class="heading-layout2">
+              
                 <h3 class="heading__title color-primary">Inspiring Stories!</h3>
               </div><!-- /.heading -->
             </div><!-- /.col-lg-5 -->
             <div class="col-sm-12 col-md-12 col-lg-7">
               <div class="slider-with-navs">
                 <!-- Testimonial #1 -->
+                @foreach ($test as $item)
+                    
+                
                 <div class="testimonial-item">
-                  <h3 class="testimonial__title">“Their doctors include highly qualified practitioners who come from a
-                    range of backgrounds and bring with them a diversity of skills and special interests. They also have
-                    registered nurses on staff who are available to triage any urgent matters, and the administration
-                    and support staff all have exceptional people skills”
+                  <h3 class="testimonial__title">“{{trim(strip_tags($item->content))}}”
                   </h3>
                 </div><!-- /. testimonial-item -->
+                @endforeach
                 <!-- Testimonial #2 -->
-                <div class="testimonial-item">
-                  <h3 class="testimonial__title">“Their doctors include highly qualified practitioners who come from a
-                    range of backgrounds and bring with them a diversity of skills and special interests. They also have
-                    registered nurses on staff who are available to triage any urgent matters, and the administration
-                    and support staff all have exceptional people skills”
-                  </h3>
-                </div><!-- /. testimonial-item -->
+                <!-- /. testimonial-item -->
                 <!-- Testimonial #3 -->
-                <div class="testimonial-item">
-                  <h3 class="testimonial__title">“Their doctors include highly qualified practitioners who come from a
-                    range of backgrounds and bring with them a diversity of skills and special interests. They also have
-                    registered nurses on staff who are available to triage any urgent matters, and the administration
-                    and support staff all have exceptional people skills”
-                  </h3>
-                </div><!-- /. testimonial-item -->
+                <!-- /. testimonial-item -->
               </div><!-- /.slick-carousel -->
               <div class="slider-nav mb-60">
+              @foreach ($test as $item)
                 <div class="testimonial__meta">
+                
                   <div class="testimonial__thmb">
                     <img src="{{ asset('frontend/images/testimonials/thumbs/1.png') }}" alt="author thumb">
                   </div><!-- /.testimonial-thumb -->
+                  
+                      
+                  
                   <div>
-                    <h4 class="testimonial__meta-title">Sami Wade</h4>
-                    <p class="testimonial__meta-desc">7oroof Inc</p>
+                    <h4 class="testimonial__meta-title">{{$item->name}}</h4>
+                    <p class="testimonial__meta-desc">{{$item->title}}</p>
                   </div>
                 </div><!-- /.testimonial-meta -->
-                <div class="testimonial__meta">
-                  <div class="testimonial__thmb">
-                    <img src="{{ asset('frontend/images/testimonials/thumbs/2.png') }}" alt="author thumb">
-                  </div><!-- /.testimonial-thumb -->
-                  <div>
-                    <h4 class="testimonial__meta-title">Ahmed</h4>
-                    <p class="testimonial__meta-desc">Web Inc</p>
-                  </div>
-                </div><!-- /.testimonial-meta -->
-                <div class="testimonial__meta">
-                  <div class="testimonial__thmb">
-                    <img src="{{ asset('frontend/images/testimonials/thumbs/3.png') }}" alt="author thumb">
-                  </div><!-- /.testimonial-thumb -->
-                  <div>
-                    <h4 class="testimonial__meta-title">Sonia Blake</h4>
-                    <p class="testimonial__meta-desc">Web Inc</p>
-                  </div>
-                </div><!-- /.testimonial-meta -->
+                @endforeach
+                
+                
               </div><!-- /.slider-nav -->
             </div><!-- /.col-lg-7 -->
           </div><!-- /.row -->
@@ -532,16 +512,17 @@
           <div class="col-12">
             <div class="slick-carousel"
               data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "autoplay": true, "arrows": false, "dots": false, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 1}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
-              <!-- Member #1 -->
+             
+              @foreach ($team as $item)
               <div class="member">
+              
                 <div class="member__img">
-                  <img src="{{ asset('frontend/images/team/1.jpg') }}" alt="member img">
+                  <img src="{{ asset('images/team/'.$item->image) }}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Mike Dooley</a></h5>
-                  <p class="member__job">Cardiology Specialist</p>
-                  <p class="member__desc">Muldoone obtained his undergraduate degree in Biomedical Engineering at Tulane
-                    University prior to attending St George's University School of Medicine</p>
+                  <h5 class="member__name"><a href="doctors-single-doctor1.html">{{ $item->name }}</a></h5>
+                  <p class="member__job">{{ $item->title }}</p>
+                  <p class="member__desc">{{ trim(strip_tags($item->description ))}}</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
                     <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
                       <span>Read More</span>
@@ -554,123 +535,11 @@
                     </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
+                
               </div><!-- /.member -->
-              <!-- Member #2 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('frontend/images/team/2.jpg') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Dermatologists</a></h5>
-                  <p class="member__job">Cardiology Specialist</p>
-                  <p class="member__desc">Brian specializes in treating skin, hair, nail, and mucous membrane. He also
-                    address cosmetic issues, helping to revitalize the appearance of the skin</p>
-                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
-                      <i class="icon-arrow-right"></i>
-                    </a>
-                    <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
-                    </ul><!-- /.social-icons -->
-                  </div>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
-              <!-- Member #3 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('frontend/images/team/3.jpg') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Maria Andaloro</a></h5>
-                  <p class="member__job">Pediatrician</p>
-                  <p class="member__desc">Andaloro graduated from medical school and completed 3 years residency program
-                    in pediatrics. She passed rigorous exams by the American Board of Pediatrics.</p>
-                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
-                      <i class="icon-arrow-right"></i>
-                    </a>
-                    <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
-                    </ul><!-- /.social-icons -->
-                  </div>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
-              <!-- Member #4 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('frontend/images/team/4.jpg') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Dupree Black</a></h5>
-                  <p class="member__job">Urologist</p>
-                  <p class="member__desc">Black diagnose and treat diseases of the urinary tract in both men and women.
-                    He
-                    also diagnose and treat anything involving the reproductive tract in men.</p>
-                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
-                      <i class="icon-arrow-right"></i>
-                    </a>
-                    <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
-                    </ul><!-- /.social-icons -->
-                  </div>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
-              <!-- Member #5 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('frontend/images/team/5.jpg') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Markus skar</a></h5>
-                  <p class="member__job">Laboratory</p>
-                  <p class="member__desc">Skar play a very important role in your health care. People working in the
-                    clinical laboratory are responsible for conducting tests that provide crucial information.</p>
-                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
-                      <i class="icon-arrow-right"></i>
-                    </a>
-                    <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
-                    </ul><!-- /.social-icons -->
-                  </div>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
+              @endforeach
               <!-- Member #6 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('frontend/images/team/6.jpg') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Kiano Barker</a></h5>
-                  <p class="member__job">Pathologist </p>
-                  <p class="member__desc">Barker help care for patients every day by providing their doctors with the
-                    information needed to ensure appropriate care. He also valuable resources for other physicians.</p>
-                  <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
-                      <i class="icon-arrow-right"></i>
-                    </a>
-                    <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
-                    </ul><!-- /.social-icons -->
-                  </div>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
+              
             </div><!-- /.carousel -->
           </div><!-- /.col-12 -->
         </div><!-- /.row -->

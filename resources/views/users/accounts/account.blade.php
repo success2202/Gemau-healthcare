@@ -25,87 +25,33 @@
         <div class="ps-shopping__content">
             <div class="row">
               @include('includes.accountSidebar')
-                <div class="col-12 col-md-7 col-lg-8 mt-5" style="background: #fff; border-radius: 5px">
+                <div class="col-12 col-md-7 col-lg-8 mt-5" style="background: #8a8282; border-radius: 8px">
                     <div class="row">
-                        <div class="col-12 col-md-6">
-                            <div class="ps-categogy--list">
-                                <div class="ps-product ps-product--list"
-                                    style="border:2px solid #d1d5dad4; border-radius:10px">
-                                    <div class="ps-product__conent" style="border-right:0px">
-                                        <div class="ps-product__info"><a class="ps-product__branch" href="#"></a>
-                                            <p class="ps-product__tite " style="font-size:16px; color:#262525"><a></a>
+                        
 
-                                    Account Information
-                                            </p>
-                                            <hr>
-                                            <div class="ps-product__meta">
-                                                <span class="ps-product__price"
-                                                    style="font-size:15px; "> {{ucfirst($account->first_name .' '.$account->last_name )}} </span>
-                                            </div>
-                                            <ul class="ps-product__list">
-                                                <li> <span class="ps-list__title"> </span>{{$account->email}}
-                                                </li>
-                                                <li> <span class="ps-list__title"> </span>{{$account->phone??null}}
-                                            </li>
-                                                <li> <span class="ps-list__title"> </span>Last Login: {{$account->last_login}}
-                                            </li>
-                                            </ul>
-                                        </div>
+<div class="container my-5">
+  <div class="card mx-auto" style="max-width: 540px;">
+    <div class="row g-0">
+      
+      <div class="col-md-8">
+        <img src="{{ asset('frontend/images/team/1.jpg') }}"
+     alt="Profile"
+     class="img-thumbnail rounded-circle border border-primary"
+     style="width: 150px; height: 150px;">
 
+        <div class="card-body">
+          <h5 class="card-title">{{ucfirst($account->first_name .' '.$account->last_name )}}</h5>
+          <p class="card-text"><strong>Email:</strong> {{ $account->email }}</p>
+          <p class="card-text"><strong>Phone:</strong> {{ $account->phone }}</p>
+          <p class="card-text"><strong>Location:</strong> {{ $account->address }}</p>
+          <p class="card-text"><small class="text-muted">{{ $account->created_at }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="ps-categogy--list">
-                                <div class="ps-product ps-product--list"
-                                style="border:2px solid #d1d5dad4; border-radius:10px">
-                                <div class="ps-product__conent" style="border-right:0px">
-                                    @if(isset($address))
-                                    <div class="ps-product__info"><a class="ps-product__branch" href="#"></a>
-                                        <p class="ps-product__tite " style="font-size:16px; color:#262525"><a></a>
-
-                                          Shipping Address <small style="font-size: 10px; color:rgb(117, 131, 242)"> Default</small>
-                                            <span style="float: right"> <a href=""> <i class="icon-pen"></i> </a> </span>
-                                        </p>
-                                        <hr>
-                                        <div class="ps-product__meta">
-                                            <span class="ps-product__price"
-                                                style="font-size:15px; "> {{ucfirst($address->name  )}} </span>
-                                        </div>
-                                        <ul class="ps-product__list">
-                                            <li> <span class="ps-list__title"> </span>{{$address->email}} | {{$address->phone??null}}
-                                            </li>
-                                            <li> <span class="ps-list__title"> </span>
-                                                {{$address->address}} | {{$address->city}} | {{$address->state }} {{_('state')}} | {{$address->country}}   
-                                        </li>
-                                        </ul>
-                                    </div>
-                                    @else 
-                                    <div class="ps-product__info"><a class="ps-product__branch" href="#"></a>
-                                        <p class="ps-product__tite " style="font-size:16px; color:#262525"><a></a>
-
-                                          Shipping Address <small style="font-size: 10px; color:rgb(117, 131, 242)"> Default</small>
-                                            <span style="float: right"> <a href=""> <i class="icon-pen"></i> </a> </span>
-                                        </p>
-                                        <hr>
-                                        
-                                        <ul class="ps-product__list">
-                                            <li> <span class="ps-list__title"> </span>You don't have a shippig address yet <br>
-                                                <a href="{{route('users.address.create')}}" class="btn btn-info">Add Shipping Address</a>
-                                             
-                                        </li>
-                                        </ul>
-                                    </div>
-
-                                    @endif
-
-
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                 </div>

@@ -55,7 +55,7 @@
             {{ Auth::user()->first_name }}
         </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{ route('dashboard') }}">Profile</a></li>
+            <li><a class="dropdown-item" href="{{ route('users.account.index') }}">Profile</a></li>
             <li class="dropdown-item">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

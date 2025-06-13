@@ -6,14 +6,14 @@
                 <strong>Account Information</strong></li>
             <li class="border-b-4"><a class="dropdown-item " style="padding:15px; text-weight:bold"
                     href="{{route('users.account.index')}}"> <i class="icon-user"> </i> &nbsp;Account </a></li>
-            <li><a class="dropdown-item navIL" href="{{route('users.orders')}}"> <i class=" icon-cart"> </i> &nbsp;
+            {{-- <li><a class="dropdown-item navIL" href="{{route('users.orders')}}"> <i class=" icon-cart"> </i> &nbsp;
                     Orders</a></li>
             <li><a class="dropdown-item navIL" href="{{route('users.account.address')}}"> <i class="icon-book"> </i> &nbsp; Address
                     Book</a></li>
             <li><a class="dropdown-item navIL" href="{{route('users.recent.views')}}"><i class="icon-clock"> </i> &nbsp;
                     Recently Viewed</a></li>
             <li><a class="dropdown-item navIL" href="{{route('users.order.payments')}}"> <i class="icon-wallet"> </i>&nbsp; Card
-                    Payments</a></li>
+                    Payments</a></li> --}}
             <li><a class="dropdown-item navIL" href="{{route('users.account.settings')}}"><i class="icon-cog"> </i>&nbsp; Update
                     Account</a></li>
                     <li><a class="dropdown-item navIL" href="{{route('logout') }}" onclick="event.preventDefault() 

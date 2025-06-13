@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Users;
 
 use Carbon\Carbon;
+use App\Models\Team;
 use App\Models\Slider;
 use App\Models\AboutUs;
 use App\Models\Product;
 use App\Models\Setting;
 use App\Models\Category;
 use App\Models\Services;
+use App\Models\Testimonials;
 use Illuminate\Http\Request;
 use App\Models\CountryCurrency;
 use Vinkla\Hashids\Facades\Hashids;
@@ -72,15 +74,19 @@ class HomeController extends Controller
 
     public function Index(){
         $slider = Slider::latest()->get();
+        $test = Testimonials::all();
+        $team = Team::all();
         $aboutUs = AboutUs::first();
         $category = Category::latest()->simplePaginate(10);
         $product = Product::latest()->simplePaginate(9);
         $services = Services::latest()->simplePaginate(6);
         return view('users.dashboard')
         ->with('sliders', $slider)
+        ->with('test', $test)
         ->with('categories', $category)
         ->with('service', $services)
         ->with('aboutUs', $aboutUs)
+        ->with('team', $team)
         ->with('products', $product);
 
     }

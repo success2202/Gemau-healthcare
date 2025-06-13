@@ -21,10 +21,10 @@
          <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Menus"
            data-nav-target="#dashboards">
-            <i class="fa fa-image"></i>&nbsp; Manage Products</a>
+            <i class="fa fa-image"></i>&nbsp; Manage Team</a>
             <ul>
-                <li><a href="{{route('product.create')}}">Add Product</a></li>
-                <li><a href="{{route('product.index')}}">Manage Products</a></li>
+                <li><a href="{{route('team.create')}}">Add Team</a></li>
+                <li><a href="{{route('team.index')}}">Manage Team</a></li>
             </ul>
         </li>
 

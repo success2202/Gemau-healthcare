@@ -24,7 +24,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('dashboard');
 });
 
-
+Route::get('/', [HomeController::class, 'Index'] )->name('users.index');
 
 Route::get('/products', [ProductDetailsController::class, '__invoke'])->name('users.products');
 
