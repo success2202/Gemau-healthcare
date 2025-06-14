@@ -24,7 +24,7 @@ The flexibility of home care enables you to live safely and comfortably in the h
       
         <nav>
           <ol class="breadcrumb justify-content-center mb-0">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">shop</li>
           </ol>
         </nav>

@@ -5,7 +5,7 @@
          <li>
             <a  href="{{route('admin.index')}}" data-toggle="tooltip" data-placement="right" title="Dashboard"
            data-nav-target="#dashboards">
-           <i class="fa fa-home"></i> &nbsp;Dashboard</a>
+           <i class="fa fa-home"></i> &nbsp;Dashboard/Appointments</a>
         </li>
          <li class="navigation-divider">Manage Website</li>
         <li>
@@ -50,7 +50,7 @@
             </ul>
         </li>
         <li class="navigation-divider">Manage Users</li>
-        <li>
+        {{-- <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="View and Manage Sales"
             data-nav-target="#dashboards">
             <i class="fa fa-line-chart"></i>&nbsp;Manage Sales</a>
@@ -74,7 +74,7 @@
                 <ul>
                     <li><a href="{{route('admin.prescription')}}">View all</a></li>
                 </ul>
-        </li>  
+        </li>   --}}
 
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="View and Manage Users"
