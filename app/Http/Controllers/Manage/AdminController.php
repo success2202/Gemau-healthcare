@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Models\CartItem;
 use App\Models\CreateShipment;
-use App\Models\Product;
+use App\Models\BookAppoint;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\Order;
@@ -23,7 +23,7 @@ use App\Models\ShippingAddress;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller
+class AdminController extends Controller 
 {
         public function sendMail($data){
         //   Mail::to($data['email'], 'orders@Trendykay.ng')->send(new DispatchedMail($data));
@@ -33,7 +33,7 @@ class AdminController extends Controller
           return view('manage.users.index')
           ->with('bheading', 'Index')
           ->with('breadcrumb', 'Index')
-          ->with('products', count(Product::all()))
+          ->with('bookappoint', count(BookAppoint::all()))
           ->with('users', count(User::all()))
           ->with('order', count(Order::all()))
           ->with('orders', Order::latest()->take(5)->get())

@@ -10,17 +10,17 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h2 class="font-weight-bold mb-2">{{$products}}</h2>
-                                    <div>Total Products</div>
+                                    <h2 class="font-weight-bold mb-2">{{$bookappoint}}</h2>
+                                    <div>Total Appointments</div>
                                 </div> 
                                 <div>
-                                    <span class="dashboard-pie-1">{{$products}}/100</span>
+                                    <span class="dashboard-pie-1">{{$bookappoint}}/100</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
+                {{-- <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card">
                         <div class="card-body">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
+                {{-- <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
                     <div class="card">
                         <div class="card-body">
@@ -94,16 +94,17 @@
                                         <table id="myTable" class="table table-striped table-bordered">
                                            <thead>
                                             <tr>
-                                                <th>User Email</th>
-                                                <th>Order No</th>
-                                                <th>Payment Ref</th>
-                                                  <th>Payment Method</th>
-                                                <th>Amount</th>
-                                                <th>Payment Status</th>
-                                                <th>Completion Status</th>
-                                                <th>Dispatch Status</th>
-                                                 <th>Created At</th>
-                                                 <th> &nbsp; &nbsp; &nbsp;&nbsp; </th>
+                                                <th>Client Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                  <th>Service</th>
+                                                <th>Clinic</th>
+                                                <th>Doctor</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                <th>Date</th>
+                                                 <th>Time</th>
+                                                 
                                             </thead>
                                             <tbody>
                                         @forelse ($orders as  $sp)
