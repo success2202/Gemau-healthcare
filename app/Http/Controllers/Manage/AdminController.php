@@ -34,6 +34,7 @@ class AdminController extends Controller
           ->with('bheading', 'Index')
           ->with('breadcrumb', 'Index')
           ->with('bookappoint', count(BookAppoint::all()))
+          ->with('bookappoints', BookAppoint::all())
           ->with('users', count(User::all()))
           ->with('order', count(Order::all()))
           ->with('orders', Order::latest()->take(5)->get())

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title> Appointmen - GEMAU  </title>
+<title> Appointment - GEMAU  </title>
 @endsection
 @section('head')
 <link rel="canonical" href="{{ url()->current() }}">

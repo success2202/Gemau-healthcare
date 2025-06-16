@@ -98,51 +98,52 @@
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                   <th>Service</th>
+                                                  <th>Message</th>
                                                 <th>Clinic</th>
                                                 <th>Doctor</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                
                                                 <th>Date</th>
-                                                 <th>Time</th>
+                                                 {{-- <th>Time</th> --}}
+                                                 <th>Action</th>
                                                  
                                             </thead>
                                             <tbody>
-                                        @forelse ($orders as  $sp)
+                                        @forelse ($bookappoints as  $sp)
                                         
                                             <tr>
                                                 <td>
-                                                    <a href="#">{{substr($sp->user->email,0,15)}}..</a>
+                                                    <a href="#">{{($sp->name)}}..</a>
                                                 </td> 
                                                 <td>
-                                                    <a href="#">{{$sp->order_no}}</a>
+                                                    <a href="#">{{$sp->email}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$sp->payment_ref??"-"}}</a>
+                                                    <a href="#">{{$sp->phone}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{_('card')}}</a>
+                                                    <a href="#">{{$sp->service}}</a>
+                                                </td>
+                                                <td>
+                                                    <a href="#">{{$sp->message}}</a>
                                                 </td>
                                                  <td>
-                                                    <a href="#">{{number_format($sp->payable,2)}}</a>
+                                                    <a href="#">{{$sp->clinics}}</a>
                                                 </td>
-                                                 <td>
-                                                    @if($sp->is_paid == 1) <span  class="badge badge-success">Paid</span> @else <span type="span" class="badge badge-light">Pending</span> @endif</a>
+                                                <td>
+                                                    <a href="#">{{$sp->doctors}}</a>
+                                                </td>   
+                                                <td>
+                                                    <a href="#" style="color:green"><strong>{{$sp->approve}} </strong></a>
                                                 </td> 
-                                                <td>
-                                                <a href="#">@if($sp->is_delivered == 1) <span  class="badge badge-info">Initiated</span>
-                                                    @elseif($sp->is_delivered == 2) <span  class="badge badge-primary">Completed</span>
-                                                    @elseif($sp->is_delivered == 3) <span  class="badge badge-danger">Cancelled</span>
-                                                    @else <span class="badge badge-light">Pending</span> @endif</a>
-                                                </td>
-                                                <td>
-                                                <a href="#">@if($sp->dispatch_status == 1) <span  class="badge badge-primary">Dispatched</span> 
-                                                    @elseif($sp->dispatch_status == 2) <span class="badge badge-success">Delivered</span>
-                                                    @else <span  class="badge badge-light">Pending</span>@endif</a>
-                                                </td>      
-                                                  <td>
-                                                    <a href="#">{{$sp->created_at->format('d/M/y')}}</a>
-                                                </td>
                                                
+
+                                                  {{-- <td>
+                                                    <a href="#">{{$sp->appointment_date}}</a>
+                                                </td> --}}
+                                               
+                                               <td>  {{ \Carbon\Carbon::now()->format('Y-m-d H:i:s') }}</td>
+                                            
                                                         
                                                 <td class="text-right">
                                                     <div class="dropdown">
@@ -150,9 +151,13 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a href="{{route('admin.order-details', encrypt($sp->order_no))}}" class="dropdown-item">View Order Details</a>
-                                                            <a href="{{route('admin.shipping', encrypt($sp->order_no))}}" class="dropdown-item">View Shipping</a>
-                                                          <a href="{{route('order.status', encrypt($sp->order_no))}}" class="dropdown-item">Update Status</a>
+                                                         @if($sp->approve)
+                                                            <span class="dropdown-item">Approved</span>
+                                                        @else
+                                                            <span class="dropdown-item">Unapproved</span>
+                                                        @endif
+                                                           
+                                                          
                                                         </div>
                                                     </div>
                                                 </td>
