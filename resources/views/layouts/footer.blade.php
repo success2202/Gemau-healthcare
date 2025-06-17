@@ -1,10 +1,12 @@
+
+
 <footer class="footer">
     <div class="footer-primary">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-2">
             <div class="footer-widget-about">
-                <a href="{{route('dashboard')}}"><img src="{{asset('images/'.$settings->site_logo)}}"  alt=""  width="150px"/></a>
+                <a href="{{route('dashboard')}}"><img style="background-color:white;" src="{{asset('images/'.$settings->site_logo)}}"  alt=""  width="150px"/></a>
               {{-- <p class="color-gray">{!!substr($settings->about, 0,100) !!} </p> --}}
               <h5 style="color:whitesmoke">Our Mission</h5>
               <p> at GEMAU Health Services LLC, our missionis to deliver compassionate, personalised, 
@@ -50,7 +52,7 @@
                 <li>If you have any questions or need help, feel free to contact with our team.</li>
                 <li>
                   <a href="tel:01061245741" class="phone__number" style="color:#fff">
-                    <i class="icon-phone"></i> <span>{{$settings->site_phone}}</span>
+                    <i class="icon-phone"></i> <span style="color:#fff">{{$settings->site_phone}}</span>
                   </a>
                 </li>
                 <p style="color:#d6d2d2"><i class="fa fa-map-marker"></i> {{$settings->address}}.</p>
@@ -67,7 +69,32 @@
       </div><!-- /.container -->
        <div style="color:#fff; text-align:center"> {{$settings->site_copyright}} </div>
        <button id="scrollTopBtn"><i class="fas fa-long-arrow-alt-up"></i></button>
+
+       <a href="https://wa.me/2349161196318" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+</a>
     </div><!-- /.footer-primary -->
+
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 25px;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.whatsapp-icon {
+    font-size: 30px;
+}
+</style>
+
   </footer><!-- /.Footer -->
 
   @include('layouts.js')

@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Mail\AppointmentBooked;
 use validate;
-
+use Illuminate\Support\Facades\Mail;
 use App\Models\BookAppoint;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class BookAppointmentController extends Controller
     //
    public function store(Request $request)
 {
-    $request->validate([
+    $data = $request->validate([
         'name' => 'required|string|max:255',
         'email' => 'required|email',
         'phone' => ['required', 'regex:/^[0-9\s\-\+\(\)]{10,20}$/'],
@@ -23,9 +23,9 @@ class BookAppointmentController extends Controller
         'appointment_date' => 'required|date',
     ]);
 
-    BookAppoint::create($request->only([
-        'name', 'email', 'phone', 'doctors', 'clinics', 'message', 'appointment_date'
-    ]));
+    $appointment = BookAppoint::create($data);
+
+    Mail::to('successceejay@gmail.com')->send(new AppointmentBooked($appointment));
 
     return back()->with('success', 'Appointment booked successfully!');
 }

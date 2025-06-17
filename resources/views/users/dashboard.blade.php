@@ -188,15 +188,13 @@
               data-slick='{"slidesToShow": 2, "slidesToScroll": 1, "autoplay": true, "arrows": false, "dots": false, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 1}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
               <!-- Member #1 -->
               <div class="member">
-                <p style="text-align: center">The flexibility of home care enables you to live safely and comfortably in the home you know best. From daily or weekly care visits right through to the dedicated
-                     support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis.</p>
+                <p style="text-align: center">A home health agency that specializes in both adult and pediatric patients</p>
                   <img src="{{asset('images/c6.jpg')}}" alt="member img">
                   
               </div><!-- /.member -->
               <div class="member">
                 <div class="member__img">
-                  <p style="text-align: center">The flexibility of home care enables you to live safely and comfortably in the home you know best. From daily or weekly care visits right through to the dedicated
-                     support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis.</p>
+                  <p style="text-align: center">A home health agency that specializes in both adult and pediatric patients</p>
                   <img src="{{asset('images/c4.jpg')}}" alt="member img">
                 </div>
              
@@ -204,8 +202,7 @@
               <!-- Member #3 -->
               <div class="member">
                 <div class="member__img">
-                  <p style="text-align: center">The flexibility of home care enables you to live safely and comfortably in the home you know best. From daily or weekly care visits right through to the dedicated
-                     support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis.</p>
+                  <p style="text-align: center">A home health agency that specializes in both adult and pediatric patients</p>
                   <img src="{{asset('images/c1.jpg')}}" alt="member img">
                   <ul class="social-icons list-unstyled mb-0">
                 </div><!-- /.member-img -->
@@ -214,8 +211,7 @@
               <!-- Member #4 -->
               <div class="member">
                 <div class="member__img">
-                  <p style="text-align: center">The flexibility of home care enables you to live safely and comfortably in the home you know best. From daily or weekly care visits right through to the dedicated
-                     support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis.</p>
+                  <p style="text-align: center">A home health agency that specializes in both adult and pediatric patients</p>
                   <img src="{{asset('images/c2.webp')}}" alt="member img">
                 </div><!-- /.member-img -->
                 
@@ -240,10 +236,8 @@
               <div class="heading text-center mb-60">
                 <h3 class="heading__title ">Our Services</h3>
                 <div class="bg-dark bg-opacity-50 p-4 rounded">
-          <h4 class="text-white">Flexible home care to suit you.</h4>
-          <p class="text-white">The flexibility of home care enables you to live safely and comfortably in the home 
-            you know best. From daily or weekly care visits right through to the dedicated support 
-            of a live-in caregiver there are plenty of home care services available – and even on a temporary basis..</p>
+          <p class="text-white">flexibility of our home care services...</p>
+          
           {{-- <a href="/appointment" class="btn btn-primary mt-2">Book Appointment</a> --}}
         </div>
               </div><!-- /.heading -->
@@ -264,7 +258,7 @@
                  
                   <a href="{{ route('service.details',encrypt($serv->id)) }}" class="btn btn__secondary btn__outlined btn__rounded">
                     <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
+                    
                   </a>
                 </div><!-- /.service__content -->
               </div><!-- /.service-item -->
@@ -303,11 +297,12 @@
             <p> <span style="font-weight: bolder; color:rgb(1, 41, 41)">
             <ul>
               <li>Home Care Experts</li>  
-              <li>Available 24/7</li>
+              
               <li>High Calibre Caregivers.</li>
               <li>A Trusted Partner. </li>
               <li>Balanced Care.</li>
-              <li>Peace of Mind</li>
+              <li>Available 24/7</li>
+              
               </ul>
                </span> </p>
                
@@ -386,10 +381,10 @@
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="{{ asset('frontend/images/flip/y.jpg') }}" alt="Card 1">
-        <h4 class="tit">Fully Managed and Registered</h4>
+        <h4 class="tit">We are Compassionate</h4>
       </div>
       <div class="flip-card-back">
-        <p>By choosing Angels Home Care Services you are opting for a full-service home care provider that will manage your support from start to finish. We are registered and licensed to provide this support. We handle everything, so you worry less. Our managers, caregivers and medical team are all certified and registered, hence giving you the confidence to relax and know you are in capable hands..</p>
+        <p>By choosing Gemau Home Care Services you are opting for a full-service home care provider that will manage your support from start to finish. We are registered and licensed to provide this support. We handle everything, so you worry less. Our managers, caregivers and medical team are all certified and registered, hence giving you the confidence to relax and know you are in capable hands..</p>
       </div>
     </div>
   </div>
@@ -399,7 +394,7 @@
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="{{ asset('frontend/images/flip/y1.jpg') }}" alt="Card 2">
-        <h4 class="tit">Flexible and Adoptable</h4>
+        <h4 class="tit">Have Trained Professionals</h4>
       </div>
       <div class="flip-card-back">
         <p>Care and support needs can change over time – and sometimes quite suddenly – so we see the importance in providing a flexible and adaptable service We will regularly review your support plan and carry out caregiver supervisions so we can respond to any changes and arrange extra training or support if it is needed.</p>
@@ -412,7 +407,7 @@
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="{{ asset('frontend/images/flip/yy.jpg') }}" alt="Card 3">
-        <h4 class="tit">Homecare Specialist</h4>
+        <h4 class="tit">Render Personalized In-Home Support</h4>
       </div>
       <div class="flip-card-back">
         <p>Our experience operating in the United States of America under has enabled us gain vast knowledge in this industry. We are experienced in providing client-centred care at home and also country-specific models of care and approach. This means we take into consideration the individuals and family’s needs and also the culture they are exposed to, to find the best way to offer care.</p>
@@ -425,7 +420,7 @@
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="{{ asset('frontend/images/flip/yyy.jpg') }}" alt="Card 4">
-        <h4 class="tit">Dependable Caregiver</h4>
+        <h4 class="tit">24/7 Reliable Care</h4>
       </div>
       <div class="flip-card-back">
         <p>Every single one of our caregivers are employed directly by Angels Home Care Services. We never enlist the use of staffing agencies. This means we can ensure the quality of service that each of our caregivers deliver meets our high standards and that they are each totally supported in their roles.</p>

@@ -97,10 +97,10 @@
                                         {{-- <option value="health_checkup">health checkup</option> --}}
                                         <option value="homecare" {{ old('item') == 'homecare' ? 'selected' : '' }}>homecare</option>
                                         <option value="special_care" {{ old('item') == 'special_care' ? 'selected' : '' }} >special care</option>
-                                        <option value="nursing_service" {{ old('item') == 'nursing_service' ? 'selected' : '' }}>nursing care</option>
+                                        <option value="nursing_service" {{ old('item') == 'nursing_service' ? 'selected' : '' }}>nursing service</option>
                                         <option value="lab_testing" {{ old('item') == 'lab_testing' ? 'selected' : '' }}>lab testing</option>
                                         <option value="vaccinations" {{ old('item') == 'vaccinations' ? 'selected' : '' }}>vaccinations</option>
-                                        <option value="chronic_care" {{ old('item') == 'chronic_care' ? 'selected' : '' }}>chronic care</option>
+                                        <option value="chronic_care" {{ old('item') == 'chronic_care' ? 'selected' : '' }}>chroni care</option>
                                         <option value="pharmacy"  {{ old('item') == 'pharmacy' ? 'selected' : '' }}>pharmacy</option>
 
                                     </select>

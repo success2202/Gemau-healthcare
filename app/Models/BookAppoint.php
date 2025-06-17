@@ -10,7 +10,7 @@ class BookAppoint extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'email', 'phone', 'service', 'message', 'doctors', 'clinics', 'appointment_date', 'approve'
+        'name', 'email', 'phone', 'services', 'message', 'doctors', 'clinics', 'appointment_date'
     ];
 
    

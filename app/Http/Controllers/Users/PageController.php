@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users;
 
 use App\Models\Faq;
 use App\Models\Blog;
+use App\Models\Team;
 use App\Models\AboutUs;
 use App\Models\Product;
 use App\Models\Category;
@@ -90,7 +91,8 @@ class PageController extends Controller
     {
         return view('users.pages.service_details')
         ->with('service', Services::where('id', decrypt($id))->first())
-        ->with('se', Services::latest()->simplePaginate(6));
+        ->with('se', Services::latest()->simplePaginate(6))
+        ->with('team', Team::all());
         
     }
 

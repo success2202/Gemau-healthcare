@@ -15,13 +15,14 @@ use App\Http\Controllers\Users\AddressController;
 use App\Http\Controllers\Users\PaymentController;
 use App\Http\Controllers\Users\CheckoutController;
 use App\Http\Controllers\BookAppointmentController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Users\PrescriptionController;
 use App\Http\Controllers\Users\ProductDetailsController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, '__invoke'] )->name('dashboard');
     Route::get('/',  [HomeController::class, 'Index'])->name('users.index');
-Route::get('/dashboard',  [HomeController::class, '__invoke'])->name('dashboard');
+Route::get('/dashboard',  [HomeController::class, 'Index'])->name('dashboard');
 });
 
 Route::get('/', [HomeController::class, 'Index'] )->name('users.index');
@@ -92,10 +93,10 @@ Route::get('/pages/appointment', 'BookAppointment')->name('users.bookAppointment
 Route::get('/pages/faqs', 'Faqs')->name('users.faqs');
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/pages/appointment', [PageController::class, 'BookAppointment'])->name('users.bookAppointment');
-});
-
+// <!-- Route::middleware(['auth'])->group(function () {
+//     Route::get('/pages/appointment', [PageController::class, 'BookAppointment'])->name('users.bookAppointment');
+// }); -->
+// Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointment.store');
 
 Route::controller(PrescriptionController::class)->group(function(){
 

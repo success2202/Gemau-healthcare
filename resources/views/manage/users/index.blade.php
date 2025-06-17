@@ -70,7 +70,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
-                                <h6 class="card-title">Recent Orders</h6>
+                                <h6 class="card-title">Appointments</h6>
                                 <div>
                                     <a href="#" class="mr-3">
                                         <i class="fa fa-refresh"></i>
@@ -113,7 +113,7 @@
                                         
                                             <tr>
                                                 <td>
-                                                    <a href="#">{{($sp->name)}}..</a>
+                                                    <a href="#">{{($sp->name)}}</a>
                                                 </td> 
                                                 <td>
                                                     <a href="#">{{$sp->email}}</a>
@@ -122,7 +122,7 @@
                                                     <a href="#">{{$sp->phone}}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$sp->service}}</a>
+                                                    <a href="#">{{$sp->services}}</a>
                                                 </td>
                                                 <td>
                                                     <a href="#">{{$sp->message}}</a>

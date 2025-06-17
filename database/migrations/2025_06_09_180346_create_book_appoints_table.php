@@ -18,7 +18,7 @@ class CreateBookAppointsTable extends Migration
              $table->string('name');
             $table->string('email');
             $table->string('phone')->nullable();
-           
+           $table->string('service')->nullable();
             $table->text('message')->nullable();
             $table->dateTime('appointment_date');
             $table->timestamps();
