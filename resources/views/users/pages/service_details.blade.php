@@ -10,6 +10,19 @@
 .bg{
  background-color:rgb(40, 85, 74);
 }
+
+.image-container {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #ccc;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or 'contain' or 'fill' */
+}
 </style>
 @endsection
 
@@ -117,67 +130,21 @@
               </p>
             </div><!-- /.heading -->
             <div class="slick-carousel"
+            
               data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "autoplay": true, "arrows": false, "dots": false, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 1}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
               <!-- Member #1 -->
+              @foreach ($team as $item)
               <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('/images/picture5.png') }}" alt="member img">
+                <div class="member__img image-container">
+                  <img src="{{ asset('images/team/'.$item->image) }}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Mike Dooley</a></h5>
-                  <p class="member__job">Cardiology Specialist</p>
+                  <h5 class="member__name"><a href="doctors-single-doctor1.html">{{ $item->name }}</a></h5>
+                  <p class="member__job">{{ $item->title }}</p>
                 </div><!-- /.member-info -->
               </div><!-- /.member -->
-              <!-- Member #2 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('/images/picture6.png') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Dermatologists</a></h5>
-                  <p class="member__job">Cardiology Specialist</p>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
-              <!-- Member #3 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('/images/picture7.png') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Maria Andaloro</a></h5>
-                  <p class="member__job">Pediatrician</p>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
-              <!-- Member #4 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('/images/picture8.png') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Dupree Black</a></h5>
-                  <p class="member__job">Urologist</p>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
-              <!-- Member #5 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('/images/picture5.png') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Markus skar</a></h5>
-                  <p class="member__job">Laboratory</p>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
-              <!-- Member #6 -->
-              <div class="member">
-                <div class="member__img">
-                  <img src="{{ asset('/images/picture6.png') }}" alt="member img">
-                </div><!-- /.member-img -->
-                <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Kiano Barker</a></h5>
-                  <p class="member__job">Pathologist </p>
-                </div><!-- /.member-info -->
-              </div><!-- /.member -->
+              @endforeach
+             
             </div><!-- /.carousel -->
           </section><!-- /.Team -->
         </div><!-- /.col-lg-8 -->
@@ -188,7 +155,7 @@
               <div class="widget-content">
                 <ul class="list-unstyled mb-0">
                     @forelse ($se as $item)
-                    <li><a href="{{ route('service.details',encrypt($item->id)) }}"><span style="font-size:12px!important;">{{ $item->title }}</span></a></li>  
+                    <li><a href="{{ route('service.details',encrypt($item->id)) }}"><span style="font-size:12px!important; ">{{ $item->title }}</span></a></li>  
                     @empty
                    
                     @endforelse
@@ -197,8 +164,8 @@
                 </ul>
               </div><!-- /.widget-content -->
             </div><!-- /.widget-services -->
-            <div class="widget widget-help bg-overlay bg-overlay-secondary-gradient">
-              <div class="bg-img"><img src="assets/images/banners/5.jpg" alt="background"></div>
+            <div class="widget widget-help bg-overlay bg-overlay-secondary-gradient bg">
+              
               <div class="widget-content">
                 <div class="widget__icon">
                   <i class="icon-call3"></i>
