@@ -5,6 +5,18 @@
 @section('head')
 <link rel="canonical" href="{{ url()->current() }}">
 @endsection
+@section('styles')
+  <style>
+    .bg{
+      color:whitesmoke !important;
+ background-color:rgb(40, 85, 74);
+}
+
+  .tx{
+    color: whitesmoke !important;
+  }
+  </style>
+@endsection
 @section('content')
 
 
@@ -177,11 +189,11 @@
                         <input type="email" class="form-control" placeholder="Email:">
                       </div><!-- /.form-group -->
                     </div><!-- /.col-lg-6 -->
-                    <div class="col-sm-12 col-md-4 col-lg-4">
+                    {{-- <div class="col-sm-12 col-md-4 col-lg-4">
                       <div class="form-group">
                         <input type="text" class="form-control" placeholder="Website:">
                       </div><!-- /.form-group -->
-                    </div><!-- /.col-lg-6 -->
+                    </div><!-- /.col-lg-6 --> --}}
                     <div class="col-12">
                       <div class="form-group">
                         <textarea class="form-control" placeholder="Comment"></textarea>
@@ -198,7 +210,7 @@
             </div><!-- /.col-lg-8 -->
             <div class="col-sm-12 col-md-12 col-lg-4">
               <aside class="sidebar">
-                <div class="widget widget-search">
+                {{-- <div class="widget widget-search">
                   <h5 class="widget__title">Search</h5>
                   <div class="widget__content">
                     <form class="widget__form-search">
@@ -206,9 +218,9 @@
                       <button class="btn" type="submit"><i class="icon-search"></i></button>
                     </form>
                   </div><!-- /.widget-content -->
-                </div><!-- /.widget-search -->
-                <div class="widget widget-posts">
-                  <h5 class="widget__title">Recent Posts</h5>
+                </div><!-- /.widget-search --> --}}
+                <div class="widget widget-posts bg">
+                  <h5 class="widget__title tx">Recent Posts</h5>
                   <div class="widget__content">
                     <!-- post item #1 -->
 
@@ -220,7 +232,7 @@
                       </div><!-- /.widget-post-img -->
                       <div class="widget-post__content">
                         <span class="widget-post__date">{{$item->created_at->format('M d, Y')}}.</span>
-                        <h4 class="widget-post__title"><a href="{{route('blogs.details',$blog->id)}}">{{ $item->title }}</a>
+                        <h4 class="widget-post__title "><a href="{{route('blogs.details',$blog->id)}}" class="tx">{{ $item->title }}</a>
                         </h4>
                       </div><!-- /.widget-post-content -->
                     </div><!-- /.widget-post-item -->

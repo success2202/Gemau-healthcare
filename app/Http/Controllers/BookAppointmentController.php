@@ -25,7 +25,7 @@ class BookAppointmentController extends Controller
 
     $appointment = BookAppoint::create($data);
 
-    Mail::to('successceejay@gmail.com')->send(new AppointmentBooked($appointment));
+    Mail::to('support@gemauhealthcareservices.com')->send(new AppointmentBooked($appointment));
 
     return back()->with('success', 'Appointment booked successfully!');
 }

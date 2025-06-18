@@ -19,7 +19,7 @@ class ContactController extends Controller
 
     $details = $request->only(['name', 'phone', 'email', 'message']);
 
-    Mail::to('successceejay@gmail.com')->send(new ContactMail($details));
+    Mail::to('support@gemauhealthcareservices.com')->send(new ContactMail($details));
 
     return back()->with('success', 'Your message has been sent!');
 }
