@@ -7,7 +7,7 @@
                         @csrf
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">Update Blog</h6>
+                            <h6 class="card-title">Update Service</h6>
                             <div class="row">
                                 <div class="col-md-12">
                                         <div class="form-group">

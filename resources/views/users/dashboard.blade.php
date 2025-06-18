@@ -97,6 +97,51 @@
         align-items: center;
       }
     }
+
+
+   .marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  
+  height: 50px;
+}
+
+.marquee-text {
+  position: absolute;
+  white-space: nowrap;
+  color: white;
+  animation: moveRight 10s linear infinite;
+}
+
+@keyframes moveRight {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+.image-container {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #ccc;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or 'contain' or 'fill' */
+}
+
+.bg{
+ background-color:rgb(40, 85, 74);
+}
+
+
   </style>
 @endsection
 
@@ -192,13 +237,13 @@
                   <img src="{{asset('images/c6.jpg')}}" alt="member img">
                   
               </div><!-- /.member -->
-              <div class="member">
+              {{-- <div class="member">
                 <div class="member__img">
                   <p style="text-align: center">A home health agency that specializes in both adult and pediatric patients</p>
-                  <img src="{{asset('images/c4.jpg')}}" alt="member img">
+                  <img src="{{asset('images/bv.jpg')}}" alt="member img">
                 </div>
              
-              </div><!-- /.member -->
+              </div><!-- /.member --> --}}
               <!-- Member #3 -->
               <div class="member">
                 <div class="member__img">
@@ -220,7 +265,7 @@
             </div><!-- /.carousel -->
           </div><!-- /.col-12 -->
         </div><!-- /.row -->
-        <center><a href="{{ route('users.bookAppointment') }}" class="btn btn-primary mt-2">Book Appointment</a></center>
+        <center><a href="{{ route('users.bookAppointment') }}" class="btn btn-primary mt-2 bg">Book Appointment</a></center>
       </div><!-- /.container -->
       
     </section><!-- /.Team -->
@@ -235,7 +280,7 @@
             <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
               <div class="heading text-center mb-60">
                 <h3 class="heading__title ">Our Services</h3>
-                <div class="bg-dark bg-opacity-50 p-4 rounded">
+                <div class="bg bg-opacity-50 p-4 rounded">
           <p class="text-white">flexibility of our home care services...</p>
           
           {{-- <a href="/appointment" class="btn btn-primary mt-2">Book Appointment</a> --}}
@@ -243,20 +288,21 @@
               </div><!-- /.heading -->
             </div><!-- /.col-lg-6 -->
           </div><!-- /.row -->
+
           <div class="row">
             <!-- service item #1 -->
             @forelse ($service as $serv)
             <div class="col-sm-12 col-md-6 col-lg-4">
               <div class="service-item">
-                <div class="service__icon">
+                <div class="service__icon image-container">
                   <img src="{{asset('images/services/'.$serv->images)}}" alt="Product" loading="lazy">
                 </div><!-- /.service__icon -->
                 <div class="service__content">
-                  <h4 class="service__title">{{ $serv->title }}</h4>
+                  <h6>{{ $serv->title }}</h6>
                   {{-- <p class="service__desc">{{ trim(strip_tags($serv->contents)) }}
                   </p> --}}
                  
-                  <a href="{{ route('service.details',encrypt($serv->id)) }}" class="btn btn__secondary btn__outlined btn__rounded">
+                  <a href="{{ route('service.details',encrypt($serv->id)) }}" class="btn btn__secondary btn__outlined btn__rounded ">
                     <span>Read More</span>
                     
                   </a>
@@ -351,7 +397,7 @@
         <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
       </div>
       <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <button type="submit" class="btn btn-primary bg">Subscribe</button>
       </div>
     </form>
 
@@ -371,7 +417,7 @@
        why choose us 
     =========================== -->
     <section class="shop-grid">
-      <center><h1 class="pagetitle__heading">Why Choose Us</h1></center> <br>
+      <center><h3 class="heading__title">Why Choose Us</h3></center> <br>
       <div class="container">
         <div class="row">
 
@@ -393,7 +439,7 @@
   <div class="flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img src="{{ asset('frontend/images/flip/y1.jpg') }}" alt="Card 2">
+        <img src="{{ asset('frontend/images/flip/nurse.jpg') }}" alt="Card 2">
         <h4 class="tit">Have Trained Professionals</h4>
       </div>
       <div class="flip-card-back">
@@ -485,6 +531,11 @@
             </div><!-- /.col-lg-7 -->
           </div><!-- /.row -->
         </div><!-- /.testimonials-wrapper -->
+
+        <div class="marquee-container">
+  <h4 class="marquee-text">licensed Provider of Home Health & Personal Assistant Services</h4>
+</div>
+
       </div><!-- /.container -->
     </section><!-- /.testimonials layout 3 -->
 
@@ -511,7 +562,7 @@
               @foreach ($team as $item)
               <div class="member">
               
-                <div class="member__img">
+                <div class="member__img image-container">
                   <img src="{{ asset('images/team/'.$item->image) }}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">

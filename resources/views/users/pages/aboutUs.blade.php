@@ -59,22 +59,23 @@
 <div class="container my-5">
   <div class="card p-4 shadow-lg border-0 rounded-4">
     <div class="card-body">
-      <h5 class="card-text">Who We Are</h5>
-      <p class="card-text">
+      <h6 class="card-text">Who We Are</h6>
+      <p class="mb-30">
         <strong>GEMAU</strong> is a trusted provider of in-home support services, dedicated to helping individuals maintain independence and dignity in the comfort of their own homes.
       </p>
 
-      <h5 class="card-text">Our Mission</h5>
-      <p class="card-text">
+      <h6 class="card-text">Our Mission</h6>
+      <p class="mb-30">
         To deliver compassionate, personalized, and professional care that promotes wellness, safety, and peace of mind for our clients and their families.
       </p>
 
-      <h5 class="card-text">What We Offer</h5>
-      <ul class="card-text">
+      <h6 class="card-text">What We Offer</h6>
+      <ul class="mb-30">
         <li>✔️ Skilled nursing care</li>
-        <li>✔️ Personal assistance with daily activities</li>
-        <li>✔️ Companionship and emotional support</li>
-        <li>✔️ 24/7 home health monitoring</li>
+        <li>✔️ Chronic illness care</li>
+        <li>✔️ Medication support</li>
+        <li>✔️ Daily living Assistance</li>
+        <li>✔️ Meal Prep & companionship</li>
       </ul>
     </div>
   </div>

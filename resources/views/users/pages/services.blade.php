@@ -5,6 +5,28 @@
 @section('head')
 <link rel="canonical" href="{{ url()->current() }}">
 @endsection
+
+@section('styles')
+<style>
+.image-container {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #ccc;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or 'contain' or 'fill' */
+}
+
+.bg{
+ background-color:rgb(40, 85, 74);
+}
+</style>
+@endsection
+
 @section('content')
 
 
@@ -17,9 +39,7 @@
       <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
         <div class="heading text-center mb-60">
           <h2 class="heading__title ">Our services</h2>
-          <h3 class="heading__subtitle"><p>Flexible home care to suit you.
-The flexibility of home care enables you to live safely and comfortably in the home you know best.
- From daily or weekly care visits right through to the dedicated support of a live-in caregiver there are plenty of home care services available – and even on a temporary basis..</p></h3>
+          <h3 class="heading__subtitle"><p>flexibility of our home care services....</p></h3>
         </div><!-- /.heading -->
       
         <nav>
@@ -50,11 +70,11 @@ The flexibility of home care enables you to live safely and comfortably in the h
           
             <div class="col-sm-12 col-md-6 col-lg-4">
               <div class="service-item">
-                <div class="service__icon">
+                <div class="service__icon image-container">
                   <img src="{{asset('/images/services/'.$service->images)}}" alt="Product" loading="lazy">
                 </div><!-- /.service__icon -->
                 <div class="service__content">
-                  <h5 class="service__title">{{ $service->title }}</h5>
+                  <h6>{{ $service->title }}</h6>
                   {{-- <p class="service__desc">{{ trim(strip_tags($service->contents)) }} --}}
                   </p>
                  

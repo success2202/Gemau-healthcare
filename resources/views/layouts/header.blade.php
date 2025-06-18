@@ -1,11 +1,14 @@
 <header class="header header-layout2">
     <nav class="navbar navbar-expand-lg sticky-navbar">
+    
       <div class="container-fluid">
         <a class="navbar-brand" href="{{route('dashboard')}}">
           {{-- <img src="" class="logo-light" alt="logo"> --}}
-          <img src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" height="90px" width="110px" alt="logo">
+          {{-- <img src="{{asset('images/lgg.png')}}" class="logo-dark" height="90px" width="110px" alt="logo"> --}}
+          <img src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" height="90px" width="130px" alt="logo">
           {{-- <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="{{$settings->site_name}}" class="logo-dark" width="120px"></a> --}}
         </a>
+        
         <button class="navbar-toggler" type="button">
           <span class="menu-lines"><span></span></span>
         </button>

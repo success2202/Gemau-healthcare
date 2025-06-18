@@ -5,6 +5,14 @@
 @section('head')
 <link rel="canonical" href="{{ url()->current() }}">
 @endsection
+@section('styles')
+<style>
+.bg{
+ background-color:rgb(40, 85, 74);
+}
+</style>
+@endsection
+
 @section('content')
     
 
@@ -175,12 +183,12 @@
         </div><!-- /.col-lg-8 -->
         <div class="col-sm-12 col-md-12 col-lg-4">
           <aside class="sidebar has-marign-left sticky-top">
-            <div class="widget widget-services">
-              <h5 class="widget__title">Our Services</h5>
+            <div class="widget widget-services bg">
+              <h5 class="widget__title" style="color:white;">Our Services</h5>
               <div class="widget-content">
                 <ul class="list-unstyled mb-0">
                     @forelse ($se as $item)
-                    <li><a href="{{ route('service.details',encrypt($item->id)) }}"><span>{{ $item->title }}</span><i class="icon-arrow-right"></i></a></li>  
+                    <li><a href="{{ route('service.details',encrypt($item->id)) }}"><span style="font-size:12px!important;">{{ $item->title }}</span></a></li>  
                     @empty
                    
                     @endforelse
@@ -222,7 +230,7 @@
                 <i class="icon-pdf-file"></i>
                 <span>2024 Client Reports</span>
               </a> --}}
-               <a href="{{ route('users.bookAppointment') }}" class="btn btn-primary mt-2">Book Appointment</a>
+               <a href="{{ route('users.bookAppointment') }}" class="btn btn-primary mt-2 bg">Book Appointment</a>
             </div>
           </aside><!-- /.sidebar -->
         </div><!-- /.col-lg-4 -->
