@@ -5,7 +5,7 @@
         <a class="navbar-brand" href="{{route('dashboard')}}">
           {{-- <img src="" class="logo-light" alt="logo"> --}}
           {{-- <img src="{{asset('images/lgg.png')}}" class="logo-dark" height="90px" width="110px" alt="logo"> --}}
-          <img src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" height="90px" width="120px" alt="logo">
+          <img style="padding-bottom: 5px;" src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" height="90px" width="120px" alt="logo">
           {{-- <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="{{$settings->site_name}}" class="logo-dark" width="120px"></a> --}}
         </a>
         
@@ -38,7 +38,7 @@
            
           </ul><!-- /.navbar-nav -->
           <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
-        </div><!-- /.navbar-collapse -->
+        
     
         <div class="d-none d-xl-flex align-items-center position-relative ml-30">
           @guest
@@ -70,7 +70,7 @@
           
               
           </div>
-
+</div><!-- /.navbar-collapse -->
 
 
 
