@@ -6,13 +6,13 @@
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-2">
             <div class="footer-widget-about">
-                <a href="{{route('dashboard')}}"><img style="background-color:white;" src="{{asset('images/'.$settings->site_logo)}}"  alt=""  width="150px"/></a>
+                <a href="{{route('dashboard')}}"><img style="background-color:white;" src="{{asset('images/'.$settings->site_logo)}}"  alt="" height="90px" width="120px"/></a>
               {{-- <p class="color-gray">{!!substr($settings->about, 0,100) !!} </p> --}}
-              <h5 style="color:whitesmoke">Our Mission</h5>
+              {{-- <h5 style="color:whitesmoke">Our Mission</h5>
               <p> at GEMAU Health Services LLC, our missionis to deliver compassionate, personalised, 
                 and high-quality homr care thatempowers every patient to live with dignity,
                 independence, and optional well-being. 
-              </p>
+              </p> --}}
             
             </div><!-- /.footer-widget__content -->
           </div><!-- /.col-xl-2 -->
