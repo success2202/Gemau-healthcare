@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\Users\FaqController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\Users\HomeController;
 use App\Http\Controllers\Users\PageController;
 use App\Http\Controllers\Users\UserController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Users\BlogController; 
 use App\Http\Controllers\Users\CartsController;
 use App\Http\Controllers\Users\SearchController;
@@ -15,7 +17,6 @@ use App\Http\Controllers\Users\AddressController;
 use App\Http\Controllers\Users\PaymentController;
 use App\Http\Controllers\Users\CheckoutController;
 use App\Http\Controllers\BookAppointmentController;
-use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Users\PrescriptionController;
 use App\Http\Controllers\Users\ProductDetailsController;
 
@@ -115,3 +116,4 @@ Route::get('/faq', [FaqController::class, '__invoke'])->name('faq.index');
 Route::post('/newsletter/subscribe', [NewsLetterController::class, 'subscribe'])->name('newsletter.subscribe');
 Route::post('/bookappoitment/store', [BookAppointmentController::class, 'store'])->name('appointment.store');
 Route::post('/contact', [ContactController::class, 'contactSubmit'])->name('contact.submit');
+Route::post('/comment', [CommentController::class, 'submitComment'])->name('comment.submit');
