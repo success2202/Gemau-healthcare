@@ -30,46 +30,49 @@
               @endif
             </li><!-- /.nav-item -->
             @else 
-            <li class="nav__item"> <a class="nav__item-link" href="{{route($menu->slug)}}">{{$menu->name}}</a>@endif
+            <li class="nav__item"> <a class="nav__item-link" href="{{route($menu->slug)}}">{{$menu->name}}</a> </li>@endif
 
               
             @empty 
             @endforelse
-           
-          </ul><!-- /.navbar-nav -->
-          <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
-        
-    
-        <div class="d-none d-xl-flex align-items-center position-relative ml-30">
+
+
+            
           @guest
               
          
-            <a href="" class=" btn-sm nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+           <li class="nav__item has-dropdown"> <a href="" data-toggle="dropdown" class="dropdown-toggle nav__item-link"> 
               <i class="icon-user"></i>
               <span>Get Started</span>
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
-              <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+              <li><a class="nav__item" href="{{ route('login') }}">Login</a></li>
+              <li><a class="nav__item" href="{{ route('register') }}">Register</a></li>
           </ul>
+          </li>
           @else
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-            <i class="icon-user"></i>
+          <li class="nav__item has-dropdown"> <a href="" data-toggle="dropdown" class="dropdown-toggle nav__item-link"> 
+              <i class="icon-user"></i>
             {{ Auth::user()->first_name }}
         </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{ route('users.account.index') }}">Profile</a></li>
-            <li class="dropdown-item">
+            <li><a class="nav__item" href="{{ route('users.account.index') }}">Profile</a></li>
+            <li class="nav__item">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" >Logout</button>
                 </form>
             </li>
         </ul>
+        </li>
           @endguest
           
-              
-          </div>
+         
+          </ul><!-- /.navbar-nav -->
+          <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
+        
+    
+      
 </div><!-- /.navbar-collapse -->
 
 
