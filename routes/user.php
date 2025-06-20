@@ -116,4 +116,4 @@ Route::get('/faq', [FaqController::class, '__invoke'])->name('faq.index');
 Route::post('/newsletter/subscribe', [NewsLetterController::class, 'subscribe'])->name('newsletter.subscribe');
 Route::post('/bookappoitment/store', [BookAppointmentController::class, 'store'])->name('appointment.store');
 Route::post('/contact', [ContactController::class, 'contactSubmit'])->name('contact.submit');
-Route::post('/comment', [CommentController::class, 'submitComment'])->name('comment.submit');
+Route::post('/blogs/{blog}/comments', [CommentController::class, 'submitComment'])->name('comment.submit');

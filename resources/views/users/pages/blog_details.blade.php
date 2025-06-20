@@ -141,27 +141,28 @@
               
               
               <div class="blog-comments mb-70">
-                <h5 class="blog-widget__title">2 comments</h5>
+                <h5 class="blog-widget__title">{{ $blog->comments->count() }} </h5>
+                @foreach ($blog->comments as $comment)
                 <ul class="comments-list list-unstyled">
                   <li class="comment__item">
                     <div class="comment__avatar">
                       <img src="{{ asset('frontend/images/blog/author/2.jpg') }}" alt="avatar">
                     </div>
+                 
                     <div class="comment__content">
-                      <h5 class="comment__author">Richard Muldoone</h5>
-                      <span class="comment__date">Feb 28, 2017 - 08:07 pm</span>
-                      <p class="comment__desc">The example about the mattress sizing page you mentioned in the last WBF
-                        can be a perfect example
-                        of new keywords and content, and broadening the funnel as well. I can only imagine the sale
-                        numbers if that was the site of a mattress selling company.</p>
+                      <h5 class="comment__author">{{ $comment->name }}</h5>
+                      <span class="comment__date">{{ $comment->created_at }}</span>
+                      <p class="comment__desc">{{ $comment->comment }}.</p>
                       <a class="comment__reply" href="#">reply</a>
                     </div>
-                    <ul class="nested__comment list-unstyled">
+                    @endforeach
+                    {{-- <ul class="nested__comment list-unstyled">
                       <li class="comment__item">
                         <div class="comment__avatar">
                           <img src="{{ asset('frontend/images/blog/author/3.jpg') }}" alt="avatar">
-                        </div>
-                        <div class="comment__content">
+                        </div> --}}
+                        
+                        {{-- <div class="comment__content">
                           <h5 class="comment__author">Mike Dooley</h5>
                           <span class="comment__date">Feb 28, 2017 - 08:22 pm</span>
                           <p class="comment__desc">The example about the mattress sizing page you mentioned in the last
@@ -169,7 +170,7 @@
                             example of new keywords and content, and broadening the funnel as well. I can only imagine the
                             sale numbers if that was the site of a mattress selling company.</p>
                           <a class="comment__reply" href="#">reply</a>
-                        </div>
+                        </div> --}}
                       </li><!-- /.comment -->
                     </ul><!-- /.nested-comment -->
                   </li><!-- /.comment -->
@@ -177,16 +178,18 @@
               </div><!-- /.blog-comments -->
               <div class="blog-widget blog-comments-form mb-30">
                 <h5 class="blog-widget__title">Leave A Reply</h5>
-                <form>
+                <form action="{{ route('comment.submit',$blog->id) }}" method="post">
+                  @csrf
                   <div class="row">
                     <div class="col-sm-12 col-md-4 col-lg-4">
+                      
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name:">
+                        <input name="name" type="text" class="form-control" placeholder="Name:">
                       </div><!-- /.form-group -->
                     </div><!-- /.col-lg-6 -->
                     <div class="col-sm-12 col-md-4 col-lg-4">
                       <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email:">
+                        <input name="email" type="email" class="form-control" placeholder="Email:">
                       </div><!-- /.form-group -->
                     </div><!-- /.col-lg-6 -->
                     {{-- <div class="col-sm-12 col-md-4 col-lg-4">
@@ -196,7 +199,7 @@
                     </div><!-- /.col-lg-6 --> --}}
                     <div class="col-12">
                       <div class="form-group">
-                        <textarea class="form-control" placeholder="Comment"></textarea>
+                        <textarea name="comment" class="form-control" placeholder="Comment"></textarea>
                       </div><!-- /.form-group -->
                     </div><!-- /.col-lg-12 -->
                     <div class="col-sm-12 col-md-12 col-lg-12 d-flex flex-wrap align-items-center">
