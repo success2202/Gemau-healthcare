@@ -79,7 +79,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
               <div class="post-item">
                 <div class="post__img">
-                  <a href="{{route('blogs.details',$item->hashid)}}">
+                  <a href="{{route('blogs.details',encrypt($item->id))}}">
                     <img src="{{asset('images/blog/'.$item->image)}}" class="logo-dark" height="200px" width="300px" alt="post image" loading="lazy">
                   </a>
                 </div><!-- /.post__img -->

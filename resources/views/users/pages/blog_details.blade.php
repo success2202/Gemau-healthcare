@@ -117,7 +117,7 @@
                   <div class="post__meta d-flex align-items-center mb-20">
                     <span class="post__meta-date">{{$blog->created_at->format('M d, Y')}}.</span>
                     <a class="post__meta-author" href="#">{{_('By'). ' '.$settings->site_name}}</a>
-                    <a class="post__meta-comments" href="#">2 coments</a>
+                    <a class="post__meta-comments" href="#">{{ $blog->comments->count() }} coments</a>
                   </div><!-- /.blog-meta -->
                   <h1 class="post__title mb-30">
                     {{$blog->title}}
@@ -141,7 +141,7 @@
               
               
               <div class="blog-comments mb-70">
-                <h5 class="blog-widget__title">{{ $blog->comments->count() }} </h5>
+                <h5 class="blog-widget__title">{{ $blog->comments->count() }} Comments </h5>
                 @foreach ($blog->comments as $comment)
                 <ul class="comments-list list-unstyled">
                   <li class="comment__item">
