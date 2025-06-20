@@ -228,11 +228,11 @@
                         
                       <div class="widget-post-item d-flex align-items-center">
                       <div class="widget-post__img">
-                        <a href="{{route('blogs.details',$blog->id)}}"><img src="{{asset('images/blog/'.$item->image)}}" alt="thumb"></a>
+                        <a href="{{route('blogs.details',encrypt($item->id))}}"><img src="{{asset('images/blog/'.$item->image)}}" alt="thumb"></a>
                       </div><!-- /.widget-post-img -->
                       <div class="widget-post__content">
                         <span class="widget-post__date">{{$item->created_at->format('M d, Y')}}.</span>
-                        <h4 class="widget-post__title "><a href="{{route('blogs.details',$blog->id)}}" class="tx">{{ $item->title }}</a>
+                        <h4 class="widget-post__title "><a href="{{route('blogs.details',encrypt($item->id))}}" class="tx">{{ $item->title }}</a>
                         </h4>
                       </div><!-- /.widget-post-content -->
                     </div><!-- /.widget-post-item -->
