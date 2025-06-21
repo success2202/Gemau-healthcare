@@ -89,7 +89,7 @@ Route::get('/pages/products/details/{id}', 'ProductDetails')->name('product.deta
 Route::get('/pages/services', 'Services')->name('users.services');
 Route::get('/pages/services/details/{id}', 'ServiceDetails')->name('service.details');
 Route::get('/product/category/{id}', 'productsByCategory')->name('category.products');
-
+Route::get('/pages/team/{id}', 'TeamDetails')->name('team.details');
 Route::get('/pages/appointment', 'BookAppointment')->name('users.bookAppointment');
 Route::get('/pages/faqs', 'Faqs')->name('users.faqs');
 });

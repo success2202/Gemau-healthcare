@@ -5,6 +5,18 @@
 @section('head')
 <link rel="canonical" href="{{ url()->current() }}">
 @endsection
+@section('styles')
+   <style>
+    .bg{
+      color:whitesmoke !important;
+ background-color:rgb(40, 85, 74);
+}
+
+  .tx{
+    color: whitesmoke !important;
+  }
+  </style>
+@endsection
 @section('content')
 
 @if ($errors->any())
@@ -116,7 +128,7 @@
 
 
                   <div class="col-12">
-                    <button type="submit"  class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10">
+                    <button type="submit"  class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10 bg">
                       <span>Book Appointment</span> <i class="icon-arrow-right"></i>
                     </button>
                     <div class="contact-result"></div>
@@ -124,8 +136,8 @@
                 </div><!-- /.row -->
               </form>
               <div
-                class="contact-panel__info d-flex flex-column justify-content-between bg-overlay bg-overlay-primary-gradient">
-                <div class="bg-img"><img src="assets/images/banners/1.jpg" alt="banner"></div>
+                class="contact-panel__info d-flex flex-column justify-content-between bg-overlay bg-overlay-primary-gradient bg">
+                {{-- <div class="bg-img"><img src="assets/images/banners/1.jpg" alt="banner"></div> --}}
                 <div>
                   <h4 class="contact-panel__title color-white">Why Choose Us</h4>
                   <ul class="contact__list list-unstyled mb-30">

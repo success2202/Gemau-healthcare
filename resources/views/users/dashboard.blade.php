@@ -320,8 +320,8 @@
 
 
 
-  <section class="banner-layout1 py-0">
-      <div class="bg-img"><img src="{{asset('frontend/images/backgrounds/8.jpg')}}" alt="backgrounds"></div>
+  <section class="banner-layout1 py-0 bg">
+      {{-- <div class="bg-img"><img src="{{asset('frontend/images/backgrounds/8.jpg')}}" alt="backgrounds"></div> --}}
       
       <div class="container">
         <div class="row">
@@ -429,7 +429,7 @@
         <img src="{{ asset('frontend/images/flip/y.jpg') }}" alt="Card 1">
         <h4 class="tit">We are Compassionate</h4>
       </div>
-      <div class="flip-card-back">
+      <div class="flip-card-back bg">
         <p>By choosing Gemau Home Care Services you are opting for a full-service home care provider that will manage your support from start to finish. We are registered and licensed to provide this support. We handle everything, so you worry less. Our managers, caregivers and medical team are all certified and registered, hence giving you the confidence to relax and know you are in capable hands..</p>
       </div>
     </div>
@@ -442,7 +442,7 @@
         <img src="{{ asset('frontend/images/flip/nurse.jpg') }}" alt="Card 2">
         <h4 class="tit">Have Trained Professionals</h4>
       </div>
-      <div class="flip-card-back">
+      <div class="flip-card-back bg">
         <p>Care and support needs can change over time – and sometimes quite suddenly – so we see the importance in providing a flexible and adaptable service We will regularly review your support plan and carry out caregiver supervisions so we can respond to any changes and arrange extra training or support if it is needed.</p>
       </div>
     </div>
@@ -455,7 +455,7 @@
         <img src="{{ asset('frontend/images/flip/yy.jpg') }}" alt="Card 3">
         <h4 class="tit">Render Personalized In-Home Support</h4>
       </div>
-      <div class="flip-card-back">
+      <div class="flip-card-back bg">
         <p>Our experience operating in the United States of America under has enabled us gain vast knowledge in this industry. We are experienced in providing client-centred care at home and also country-specific models of care and approach. This means we take into consideration the individuals and family’s needs and also the culture they are exposed to, to find the best way to offer care.</p>
       </div>
     </div>
@@ -468,7 +468,7 @@
         <img src="{{ asset('frontend/images/flip/yyy.jpg') }}" alt="Card 4">
         <h4 class="tit">24/7 Reliable Care</h4>
       </div>
-      <div class="flip-card-back">
+      <div class="flip-card-back bg">
         <p>Every single one of our caregivers are employed directly by Angels Home Care Services. We never enlist the use of staffing agencies. This means we can ensure the quality of service that each of our caregivers deliver meets our high standards and that they are each totally supported in their roles.</p>
       </div>
     </div>
@@ -482,8 +482,8 @@
       </div><!-- /.container -->
     </section><!-- /.shop -->
     
-     <section class="testimonials-layout3 pt-130 bg-overlay bg-overlay-secondary">
-      <div class="bg-img"><img src="{{ asset('frontend/images/banners/4.jpg') }}" alt="background"></div>
+     <section class="testimonials-layout3 pt-130 bg-overlay bg-overlay-secondary bg">
+      {{-- <div class="bg-img"><img src="{{ asset('frontend/images/banners/4.jpg') }}" alt="background"></div> --}}
       <div class="container">
         <div class="testimonials-wrapper">
           <div class="row">
@@ -566,11 +566,11 @@
                   <img src="{{ asset('images/team/'.$item->image) }}" alt="member img">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">{{ $item->name }}</a></h5>
-                  <p class="member__job">{{ $item->title }}</p>
-                  <p class="member__desc">{{ trim(strip_tags($item->description ))}}</p>
+                  <h4 class="member__name"><a href="{{ route('team.details', encrypt($item->id)) }}">{{ $item->name }}</a></h4>
+                  <h6 class="member__job">{{ $item->title }}</h6>
+                  {{-- <p class="member__desc">{{ trim(strip_tags($item->description ))}}</p> --}}
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
+                    <a href="{{ route('team.details', encrypt($item->id)) }}" class="btn btn__secondary btn__link btn__rounded">
                       <span>Read More</span>
                       <i class="icon-arrow-right"></i>
                     </a>

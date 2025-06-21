@@ -102,6 +102,14 @@ class PageController extends Controller
          ->with('aboutUs', AboutUs::latest()->first());
     }
 
+     public function TeamDetails($id)
+    {
+        return view('users.pages.teamDetails')
+        ->with('team', Team::where('id', decrypt($id))->first());
+        // ->with('te', Team::latest()->simplePaginate(6));
+        // ->with('team', Team::all());
+        
+    }
 
 
 
