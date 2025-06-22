@@ -92,7 +92,7 @@
                     <textarea class="form-control" placeholder="Message" 
                       name="message"></textarea>
                   </div>
-                  <button type="submit" class="btn btn__secondary  bg">
+                  <button type="submit" class="btn btn__secondary  bg" style="border-radius:20px">
                     <span>Send</span>
                   </button>
                   <div class="contact-result"></div>
