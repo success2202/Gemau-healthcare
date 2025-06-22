@@ -5,6 +5,19 @@
 @section('head')
 <link rel="canonical" href="{{ url()->current() }}">
 @endsection
+
+@section('styles')
+   <style>
+    .bg{
+      color:whitesmoke !important;
+ background-color:rgb(40, 85, 74);
+}
+
+  .tx{
+    color: whitesmoke !important;
+  }
+  </style>
+@endsection
 @section('content')
 
 <section class="google-map py-0">
@@ -79,16 +92,16 @@
                     <textarea class="form-control" placeholder="Message" 
                       name="message"></textarea>
                   </div>
-                  <button type="submit" class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10">
-                    <span>Submit Request</span> <i class="icon-arrow-right"></i>
+                  <button type="submit" class="btn btn__secondary  bg">
+                    <span>Send</span>
                   </button>
                   <div class="contact-result"></div>
                 </div><!-- /.col-lg-12 -->
               </div><!-- /.row -->
             </form>
             <div
-              class="contact-panel__info d-flex flex-column justify-content-between bg-overlay bg-overlay-primary-gradient">
-              <div class="bg-img"><img src="{{ asset('frontend/images/banners/1.jpg') }}" alt="banner"></div>
+              class=" bg contact-panel__info d-flex flex-column justify-content-between bg-overlay bg-overlay-primary-gradient bg">
+              {{-- <div class="bg-img"><img src="{{ asset('frontend/images/banners/1.jpg') }}" alt="banner"></div> --}}
               <div>
                 <h4 class="contact-panel__title color-white">Quick Contacts</h4>
                 <p class="contact-panel__desc font-weight-bold color-white mb-30">Please feel free to contact our
@@ -98,16 +111,16 @@
               <div>
                 <ul class="contact__list list-unstyled mb-30">
                   <li>
-                    <i class="icon-phone"></i><a href="tel:+5565454117">Emergency Line: (002) 01061245741</a>
+                    <i class="icon-phone"></i><a href="tel:+5565454117">Emergency Line: <span>{{$settings->site_phone}}</span></a>
                   </li>
                   <li>
-                    <i class="icon-location"></i><a href="#">Location: Brooklyn, New York</a>
+                    <i class="icon-location"></i><a href="#">Location: <span>{{$settings->address}}</span></a>
                   </li>
                   <li>
                     <i class="icon-clock"></i><a href="contact-us.html">Mon - Fri: 8:00 am - 7:00 pm</a>
                   </li>
                 </ul>
-                <a href="#" class="btn btn__white btn__rounded btn__outlined">Contact Us</a>
+                {{-- <a href="#" class="btn btn__white btn__rounded btn__outlined">Contact Us</a> --}}
               </div>
             </div>
           </div>
