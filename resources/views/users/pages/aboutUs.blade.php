@@ -7,19 +7,20 @@
 @endsection
 @section('content')
 
+
   <!-- ========================
        page title 
     =========================== -->
     <section class="page-title page-title-layout5 text-center">
-      <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/6.jpg') }}" alt="background"></div>
+      <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/im.jpg') }}" alt="background"></div>
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h1 class="pagetitle__heading">About Us</h1>
+            <h5 >About Us</h5>
             <nav>
               <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                <li class="breadcrumb-item"><a href="{{ route('users.index') }}" style="color:white !important;"> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page" style="color:white !important;">About Us</li>
               </ol>
             </nav>
           </div><!-- /.col-xl-6 -->
