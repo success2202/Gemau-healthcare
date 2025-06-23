@@ -299,10 +299,9 @@
                 </div><!-- /.service__icon -->
                 <div class="service__content">
                   <h6>{{ $serv->title }}</h6>
-                  {{-- <p class="service__desc">{{ trim(strip_tags($serv->contents)) }}
-                  </p> --}}
+                  {{ \Illuminate\Support\Str::limit(strip_tags($serv->contents), 50) }}
                  
-                  <a href="{{ route('service.details',encrypt($serv->id)) }}" class="btn btn__secondary btn__outlined btn__rounded ">
+                  <a href="{{ route('service.details',encrypt($serv->id)) }}">
                     <span>Read More</span>
                     
                   </a>

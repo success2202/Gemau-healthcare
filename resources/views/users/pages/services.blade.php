@@ -45,7 +45,7 @@
         <nav>
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item" style="color:white !important;"><a href="{{ route('users.index') }}" style="color:white !important;">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page" style="color:white !important;">shop</li>
+            <li class="breadcrumb-item active" aria-current="page" style="color:white !important;">service</li>
           </ol>
         </nav>
       </div><!-- /.col-xl-6 -->
@@ -75,12 +75,12 @@
                 </div><!-- /.service__icon -->
                 <div class="service__content">
                   <h6>{{ $service->title }}</h6>
-                  {{-- <p class="service__desc">{{ trim(strip_tags($service->contents)) }} --}}
-                  </p>
+                  {{ \Illuminate\Support\Str::limit(strip_tags($service->contents), 50) }}
+                  
                  
-                  <a href="{{ route('service.details',encrypt($service->id)) }}" class="btn btn__secondary btn__outlined btn__rounded">
+                  <a href="{{ route('service.details',encrypt($service->id)) }}" class="">
                     <span>Read More</span>
-                    <i class="icon-arrow-right"></i>
+                   
                   </a>
                 </div><!-- /.service__content -->
               </div><!-- /.service-item -->
