@@ -101,7 +101,7 @@
                                                   <th>Message</th>
                                                 <th>Clinic</th>
                                                 <th>Doctor</th>
-                                                <th>Status</th>
+                                                {{-- <th>Status</th> --}}
                                                 
                                                 <th>Date</th>
                                                  {{-- <th>Time</th> --}}
@@ -133,9 +133,9 @@
                                                 <td>
                                                     <a href="#">{{$sp->doctors}}</a>
                                                 </td>   
-                                                <td>
+                                                {{-- <td>
                                                     <a href="#" style="color:green"><strong>{{$sp->approve}} </strong></a>
-                                                </td> 
+                                                </td>  --}}
                                                
 
                                                   {{-- <td>
@@ -151,12 +151,12 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                         @if($sp->approve)
-                                                            <span class="dropdown-item">Approved</span>
-                                                        @else
-                                                            <span class="dropdown-item">Unapproved</span>
-                                                        @endif
-                                                           
+                                                        
+                                                         <form method="get" action="{{route('appointment.delete', encrypt($sp->id))}}" id="form1"> 
+                                                            @csrf  
+                                                              <button type="submit" onclick="return confirm('Are you sure you want to delete testimonial')" class="dropdown-item" style="color:red">Delete</button>
+                                                             </form>
+                                                      
                                                           
                                                         </div>
                                                     </div>
@@ -215,5 +215,23 @@
             ]
         });
     })
+
+
+    let message = {!! json_encode(Session::get('message')) !!};
+let msg = {!! json_encode(Session::get('alert')) !!};
+//alert(msg);
+toastr.options = {
+        timeOut: 3000,
+        progressBar: true,
+        showMethod: "slideDown",
+        hideMethod: "slideUp",
+        showDuration: 200,
+        hideDuration: 200
+    };
+if(message != null && msg == 'success'){
+toastr.success(message);
+}else if(message != null && msg == 'error'){
+    toastr.error(message);
+}
 </script>
 @endsection

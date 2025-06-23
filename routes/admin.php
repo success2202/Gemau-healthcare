@@ -12,6 +12,7 @@ use App\Http\Controllers\Manage\Check2faController;
 use App\Http\Controllers\Manage\SettingsController;
 use App\Http\Controllers\Manage\PagesController;
 use App\Http\Controllers\Manage\BlogController;
+use App\Http\Controllers\Manage\BookAppointmentController;
 use App\Http\Controllers\Manage\FaqController;
 use App\Http\Controllers\Manage\ManualPaymentController;
 use App\Http\Controllers\Manage\OrderController;
@@ -134,6 +135,10 @@ Route::prefix('manage')->group(function () {
 
         Route::controller(PrescriptionController::class)->group(function(){
         Route::get('prescription/all', 'Index')->name('admin.prescription');
+        });
+
+        Route::controller(BookAppointmentController::class)->group(function(){
+         Route::get('appointment/delete/{id}', 'Delete')->name('appointment.delete');
         });
 
         Route::controller(BlogController::class)->group(function(){

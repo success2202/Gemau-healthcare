@@ -25,7 +25,7 @@
     @yield('styles')
     <style>
     .bg{
-      color:whitesmoke !important;
+      color:white !important;
  background-color:rgb(40, 85, 74) !important;
 }
 
