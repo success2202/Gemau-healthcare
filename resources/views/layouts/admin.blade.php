@@ -26,7 +26,7 @@
     <style>
     .bg{
       color:whitesmoke !important;
- background-color:rgb(40, 85, 74);
+ background-color:rgb(40, 85, 74) !important;
 }
 
   .tx{
@@ -42,7 +42,7 @@
 <div id="main">
     <!-- begin::navigation -->
     <div class="navigation">
-        <div class="navigation-menu-tab">
+        <div class="navigation-menu-tab bg">
           <div>
                 <div class="navigation-menu-tab-header" data-toggle="tooltip" title="Admin" data-placement="right">
                     <a href="{{route('admin.index')}}" class="nav-link" data-toggle="dropdown" aria-expanded="false">
@@ -66,7 +66,7 @@
                 <ul>
                     <li>
                         <a href="" data-toggle="tooltip" data-placement="right" title="Settings">
-                            <i data-feather="settings"></i>
+                            <i  data-feather="settings"></i>
                         </a>
                     </li>
                     <li>
