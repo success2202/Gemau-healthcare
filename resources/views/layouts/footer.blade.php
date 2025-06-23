@@ -70,28 +70,58 @@
        <div style="color:#fff; text-align:center"> {{$settings->site_copyright}} </div>
        <button id="scrollTopBtn"><i class="fas fa-long-arrow-alt-up"></i></button>
 
-       <a href="https://wa.me/2349161196318" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp whatsapp-icon"></i>
-</a>
+      <div class="whatsapp-container">
+  <div class="whatsapp-button">
+    <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+    <a href="https://wa.me/19728025064" target="_blank" class="whatsapp-icon">
+      🟢
+    </a>
+  </div>
+</div>
     </div><!-- /.footer-primary -->
 
 
 <style>
-.whatsapp-float {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    border-radius: 50%;
-    padding: 15px;
-    font-size: 25px;
-    z-index: 1000;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+.whatsapp-container {
+  position: fixed;
+  bottom: 30px;
+  right: 80px;
+  z-index: 999;
 }
+
+.whatsapp-tooltip {
+  visibility: hidden;
+  background-color: #25D366;
+  color: white;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 6px;
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.whatsapp-button:hover .whatsapp-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 .whatsapp-icon {
-    font-size: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 </style>
 
