@@ -8,9 +8,12 @@
 @section('styles')
 <style>
 .bg{
+  color:whitesmoke !important;
  background-color:rgb(40, 85, 74);
 }
-
+.tx{
+    color: whitesmoke !important;
+  }
 .image-container {
   width: 300px;
   height: 200px;
@@ -179,12 +182,12 @@
                 </a>
               </div><!-- /.widget-content -->
             </div><!-- /.widget-help -->
-            <div class="widget widget-schedule">
+            <div class="widget widget-schedule bg">
               <div class="widget-content">
-                <div class="widget__icon">
+                <div class="widget__icon tx">
                   <i class="icon-charity2"></i>
                 </div>
-                <h4 class="widget__title">Opening Hours</h4>
+                <h4 class="widget__title tx">Opening Hours</h4>
                 <ul class="time__list list-unstyled mb-0">
                   <li><span>Monday - Friday</span><span>8.00 - 7:00 pm</span></li>
                   <li><span>Saturday</span><span>9.00 - 10:00 pm</span></li>

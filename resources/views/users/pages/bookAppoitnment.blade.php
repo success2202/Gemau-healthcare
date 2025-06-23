@@ -129,8 +129,9 @@
 
                   <div class="col-12">
                     <button type="submit"  class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10 bg">
-                      <span>Book Appointment</span> <i class="icon-arrow-right"></i>
+                      <span>Book Appointment</span> 
                     </button>
+                    <p>Note: Appointment booking is subject to official confirmation.  A feedback should be expected via e-mail within 24 hours after form submission </p>
                     <div class="contact-result"></div>
                   </div><!-- /.col-lg-12 -->
                 </div><!-- /.row -->

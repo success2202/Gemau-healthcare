@@ -6,28 +6,40 @@
 <link rel="canonical" href="https://sanlivepharmacy.com/">
 @endsection
 
+@section('styles')
+   <style>
+    .bg{
+      color:whitesmoke !important;
+ background-color:rgb(40, 85, 74);
+}
+
+  .tx{
+    color: whitesmoke !important;
+  }
+  </style>
+@endsection
 @section('content')
 
  <!-- ========================
        page title 
     =========================== -->
-    <section class="page-title page-title-layout5">
-      <div class="bg-img"><img src="assets/images/backgrounds/6.jpg" alt="background"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-12 d-flex justify-content-between flex-wrap align-items-center">
-            <h1 class="pagetitle__heading my-3">FAQs</h1>
-            <nav>
-              <ol class="breadcrumb my-3">
-                <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('about-us') }}">About</a></li>
-                <li class="breadcrumb-item active" aria-current="page">FAQs</li>
-              </ol>
-            </nav>
-          </div><!-- /.col-12 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /.page-title -->
+    <section class="page-title page-title-layout5 text-center">
+  <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/im.jpg') }}" alt="background"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h5>Fags</h5>
+        
+        <nav>
+          <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="{{ route('users.index') }}" style="color:white !important;">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page" style="color:white !important;">blog</li>
+          </ol>
+        </nav>
+      </div><!-- /.col-xl-6 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.page-title -->
 
     <!-- ======================
        FAQ
@@ -48,16 +60,16 @@
                     or medical enquiry call us.
                   </p>
                   <a href="tel:+201061245741" class="phone__number">
-                    <i class="icon-phone"></i> <span>01061245741</span>
+                    <i class="icon-phone"></i> <span>{{$settings->site_phone}}</span>
                   </a>
                 </div><!-- /.widget-content -->
               </div><!-- /.widget-help -->
-              <div class="widget widget-schedule">
+              <div class="widget widget-schedule bg">
                 <div class="widget-content">
-                  <div class="widget__icon">
+                  <div class="widget__icon tx">
                     <i class="icon-charity2"></i>
                   </div>
-                  <h4 class="widget__title">Opening Hours</h4>
+                  <h4 class="widget__title tx">Opening Hours</h4>
                   <ul class="time__list list-unstyled mb-0">
                     <li><span>Monday - Friday</span><span>8.00 - 7:00 pm</span></li>
                     <li><span>Saturday</span><span>9.00 - 10:00 pm</span></li>
