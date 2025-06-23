@@ -64,7 +64,11 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a href="" class="dropdown-item">Edit Cateogry</a> 
+                                                            <a href="{{route('testimonial.edit', $sp->hashid)}}" class="dropdown-item">Edit Testimonial</a> 
+                                                             <form method="get" action="{{route('testimonial.delete', encrypt($sp->id))}}"> 
+                                                            @csrf  
+                                                              <button type="submit" onclick="return confirm('Are you sure you want to delete testimonial')" class="dropdown-item" style="color:red">Delete</button>
+                                                             </form>
                                                         </div>
                                                     </div>
                                                 </td>

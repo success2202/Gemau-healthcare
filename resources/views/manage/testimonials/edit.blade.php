@@ -5,7 +5,7 @@
  <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                  <form action="{{route('category.update', $category->hashid)}}" method="post" enctype="multipart/form-data">
+                  <form action="{{route('testimonial.update', $testimonial->hashid)}}" method="post" enctype="multipart/form-data">
                     @csrf
               @method('put')
               <div class="card">
@@ -15,8 +15,8 @@
                                
                                      <div class="col-md-6">
                                        <div class="form-group">
-                                      <input type="text" name="name" placeholder="category Name" value="{{$category->name}}" class="form-control @error('name') is-invalid @enderror" >
-                                            <small id="emailHelp" class="form-text text-muted">Enter Category Name
+                                      <input type="text" name="name" placeholder="category Name" value="{{$testimonial->name}}" class="form-control @error('name') is-invalid @enderror" >
+                                            <small id="emailHelp" class="form-text text-muted">Enter Testimonial Name
                                             </small>
                                             @error('name')
                                             <span class="invalid-feedback"> <small> * </small> </span>
@@ -30,7 +30,7 @@
                                             <input type="file"name="image" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Change Image</label>
                                             </div>
-                                               <img src="{{asset('images/category/'.$category->image_path)}}" width="50px" height="50px">
+                                               <img src="{{asset('images/category/'.$testimonial->image_path)}}" width="50px" height="50px">
                                             <small id="emailHelp" class="form-text text-muted">Change Testimonial Image
                                             </small>
                                               @error('image')
@@ -39,7 +39,7 @@
                                          </div>   
                                          <div class="col-md-6">
                                           <div class="form-group">
-                                         <input type="text" name="title" placeholder="title" value="{{$category->title}}" class="form-control @error('title') is-invalid @enderror" >
+                                         <input type="text" name="title" placeholder="title" value="{{$testimonial->title}}" class="form-control @error('title') is-invalid @enderror" >
                                                <small id="emailHelp" class="form-text text-muted">Enter Title 
                                                </small>
                                                @error('title')
@@ -47,16 +47,21 @@
                                                @enderror
                                            </div>
                                             </div>
-                                            <div class="col-md-6">
-                                              <div class="form-group">
-                                             <input type="text" name="name" placeholder="name" value="{{$category->name}}" class="form-control @error('name') is-invalid @enderror" >
-                                                   <small id="emailHelp" class="form-text text-muted">Enter Name 
-                                                   </small>
-                                                   @error('name')
-                                                   <span class="invalid-feedback"> <small> * </small> </span>
-                                                   @enderror
-                                               </div>
-                                                </div>       
+                                            <div class="text-muted d-flex justify-content-between">
+                                            <div class="text-truncate small"></div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <textarea name="content" id="summernote" class="@error('content') is-invalid @enderror" name="content">{{$testimonial->content}}</textarea>
+                                           
+                                                    <small id="emailHelp" class="form-text text-muted">Testimonial
+                                                    </small>
+                                                    @error('content')
+                                                    <span class="invalid-feedback"> <small> * </small> </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+ 
                             </div> 
                         </div>
                          
@@ -68,7 +73,7 @@
                           </div>
                           <div class="col-md-4">
                         <div class="p-5">
-                             <button type="submit" class="text-center btn btn-primary w-100 p-3 ">Update Category</button>
+                             <button type="submit" class="text-center btn btn-primary w-100 p-3 ">Update Testimonial</button>
                            </div>
                            </div>
                            </div>

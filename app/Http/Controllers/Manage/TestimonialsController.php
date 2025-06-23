@@ -116,12 +116,12 @@ class TestimonialsController extends Controller
     public function edit($id)
     {
         $id =  Hashids::connection('products')->decode($id);
-        $cat = Category::where('id', $id[0])->first();
-        $cat->hashid = Hashids::connection('products')->encode($id);
-        return view('manage.category.edit')
-            ->with('bheading', 'Category')
-            ->with('category',   $cat)
-            ->with('breadcrumb', 'Edit Catogry');
+        $test = Testimonials::where('id', $id[0])->first();
+        $test->hashid = Hashids::connection('products')->encode($id);
+        return view('manage.testimonials.edit')
+            ->with('bheading', 'Testimonial')
+            ->with('testimonial',   $test)
+            ->with('breadcrumb', 'Edit Testimonial');
     }
 
     /**
@@ -134,25 +134,26 @@ class TestimonialsController extends Controller
     public function update(Request $request, $id)
     {
         $valid = Validator::make($request->all(),[
-                'markup' => 'required|numeric',
-                'inflated' => 'required|numeric'
+                'name' => 'required',
+                'title' => 'required',
+                'content' => 'required'
         ]);
         if($valid->fails()){
             Session::flash('alert', 'error');
             Session::flash('message', $valid->errors()->first());  
         }
         $id = Hashids::connection('products')->decode($id);
-        $category = category::where('id', $id)->first();
-        $category->name = $request->name;
+        $test = Testimonials::where('id', $id)->first();
+        $test->name = $request->name;
 
-        $category->markup = $request->markup;
-        $category->inflated = $request->inflated;
-        if($request->file('image')){
-            $category->image_path = $this->UploadImage($request, 'images/category/',400, 400);
-        }else{
-            $category->image_path =  $category->image;  
-        }
-        if($category->save()){
+        $test->title = $request->title;
+        $test->content = $request->content;
+        // if($request->file('image')){
+        //     $category->image_path = $this->UploadImage($request, 'images/category/',400, 400);
+        // }else{
+        //     $category->image_path =  $category->image;  
+        // }
+        if($test->save()){
             Session::flash('alert', 'success');
             Session::flash('message', 'Category Added Successfully');
             return redirect()->back()
@@ -170,5 +171,19 @@ class TestimonialsController extends Controller
     public function destroy($id)
     {
         //
+        
+    }
+
+    public function delete($id){
+        $test = Testimonials::where('id', decrypt($id))->first();
+        if($test){
+            $test->delete();
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'Slider Deleted Successfully');
+            return back();
+        }
+        Session::flash('alert', 'error');
+        Session::flash('alert', 'Somthing went wrong');
+        return back();
     }
 }

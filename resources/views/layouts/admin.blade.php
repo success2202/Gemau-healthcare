@@ -20,6 +20,16 @@
     <link rel="stylesheet" href="{{asset('/backend/css/app.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('/backend/vendors/select2/css/select2.min.css')}}" type="text/css">
     @yield('styles')
+    <style>
+    .bg{
+      color:whitesmoke !important;
+ background-color:rgb(40, 85, 74);
+}
+
+  .tx{
+    color: whitesmoke !important;
+  }
+  </style>
 </head>
 <body>
     <!-- App styles  -->

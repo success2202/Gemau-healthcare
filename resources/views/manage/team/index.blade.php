@@ -65,6 +65,10 @@
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <a href="{{ route('team.edit', $sp->hashid) }}" class="dropdown-item">Edit Team</a> 
+                                                             <form method="get" action="{{route('team.delete', encrypt($sp->id))}}"> 
+                                                            @csrf  
+                                                              <button type="submit" onclick="return confirm('Are you sure you want to delete Team')" class="dropdown-item" style="color:red">Delete</button>
+                                                             </form>
                                                         </div>
                                                     </div>
                                                 </td>

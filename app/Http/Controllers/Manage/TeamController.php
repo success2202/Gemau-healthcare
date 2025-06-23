@@ -164,4 +164,17 @@ class TeamController extends Controller
     {
         //
     }
+
+     public function delete($id){
+        $team = Team::where('id', decrypt($id))->first();
+        if($team){
+            $team->delete();
+            Session::flash('alert', 'error');
+            Session::flash('msg', 'Slider Deleted Successfully');
+            return back();
+        }
+        Session::flash('alert', 'error');
+        Session::flash('alert', 'Somthing went wrong');
+        return back();
+    }
 }

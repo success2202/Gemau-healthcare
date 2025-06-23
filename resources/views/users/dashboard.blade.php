@@ -488,7 +488,7 @@
         <div class="testimonials-wrapper">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-5">
-              <div class="heading-layout2">
+              <div class="heading-layout2">            
               
                 <h3 class="heading__title color-primary">Inspiring Stories!</h3>
               </div><!-- /.heading -->
@@ -533,7 +533,7 @@
         </div><!-- /.testimonials-wrapper -->
 
         <div class="marquee-container">
-  <h4 class="marquee-text">licensed Provider of Home Health & Personal Assistant Services</h4>
+  <h4 class="marquee-text">Your Health, Our Priority!!</h4>
 </div>
 
       </div><!-- /.container -->

@@ -58,7 +58,10 @@ Route::prefix('manage')->group(function () {
          Route::controller(TestimonialsController::class)->group(function () {
             Route::get('/testimonials/create', 'create')->name('testimonial.create');
             Route::post('/testimonials/store', 'store')->name('testimonial.store');
+            Route::get('/testimonials/edit{id}', 'edit')->name('testimonial.edit');
             Route::get('testimonials', 'index')->name('testimonial.index');
+            Route::put('testimonials/update/{id}', 'update')->name('testimonial.update');
+            Route::get('/testimonial/delete/{id}', 'delete')->name('testimonial.delete');
         });
 
         Route::controller(TeamController::class)->group(function () {
@@ -67,6 +70,7 @@ Route::prefix('manage')->group(function () {
             Route::get('team', 'index')->name('team.index');
             Route::get('/team/edit/{id}', 'edit')->name('team.edit');
             Route::put('/team/update/{id}', 'update')->name('team.update');
+            Route::get('/team/delete/{id}', 'delete')->name('team.delete');
         });
 
         Route::controller(OrderController::class)->group(function () {

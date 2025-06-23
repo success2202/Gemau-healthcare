@@ -28,7 +28,7 @@
                                                     <input type="file"name="image" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile">
                                                         <label class="custom-file-label" for="customFile">Choose Image</label>
                                                     </div>
-                                                    <small id="emailHelp" class="form-text text-muted">Upload Category Image
+                                                    <small id="emailHelp" class="form-text text-muted">Upload Testimonial Image
                                                     </small>
                                                       @error('image')
                                                     <span class="invalid-feedback"> <small> *</small> </span>
