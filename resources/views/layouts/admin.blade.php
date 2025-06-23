@@ -47,7 +47,7 @@
                 <div class="navigation-menu-tab-header" data-toggle="tooltip" title="Admin" data-placement="right">
                     <a href="{{route('admin.index')}}" class="nav-link" data-toggle="dropdown" aria-expanded="false">
                         <figure class="avatar avatar-sm">
-                                 <img src="{{asset('images/'.$settings->site_logo)}}" style="backround-color:white !important;" height="10px" width="10px">
+                                 <img src="{{asset('images/'.$settings->site_logo)}}"  height="10px" width="10px">
                         </figure>
                     </a>
                 </div>
