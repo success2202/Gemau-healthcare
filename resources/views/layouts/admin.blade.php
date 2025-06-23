@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="{{asset('/backend/vendors/vmap/jqvmap.min.css')}}">
     <link rel="stylesheet" href="{{asset('/backend/css/app.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('/backend/vendors/select2/css/select2.min.css')}}" type="text/css">
+
+    <link rel="stylesheet" href="{{ asset('css/app.min.css') }}?v={{ time() }}">
+
     @yield('styles')
     <style>
     .bg{

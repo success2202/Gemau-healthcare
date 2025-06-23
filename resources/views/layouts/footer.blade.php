@@ -74,7 +74,7 @@
   <div class="whatsapp-button">
     <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
     <a href="https://wa.me/19728025064" target="_blank" class="whatsapp-icon">
-      🟢
+      <i class="fab fa-whatsapp text-xl"></i>
     </a>
   </div>
 </div>
