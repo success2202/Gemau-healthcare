@@ -49,6 +49,17 @@
                 <li><a href="{{route('admin.blog.index')}}">Manage Blogs</a></li>
             </ul>
         </li>
+
+        <li>
+            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Categories"
+            data-nav-target="#dashboards">
+             <i class="fa fa-list"></i>&nbsp; Manage faqs</a>
+         </a>
+             <ul>
+                 <li><a  href="{{route('admin.settings.faq')}}">Add Faqs</a></li>
+                 <li><a href="{{route('admin.faq.index')}}">Manage Faqs</a></li>
+             </ul>
+         </li>
         <li class="navigation-divider">Manage Users</li>
         {{-- <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="View and Manage Sales"

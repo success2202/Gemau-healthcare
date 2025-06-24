@@ -11,10 +11,12 @@ class FaqController extends Controller
     //
     public function Index(){
         $faq = Faq::first();
+         $faqs = Faq::all();
         return view('manage.faq.index')
         ->with('bheading', 'Website Settings')
         ->with('breadcrumb', 'Website Settings')
-        ->with('faq',  $faq);
+        ->with('faq',  $faq)
+        ->with('faqs',  $faqs);
     }
 
     public function Create(){
@@ -28,6 +30,7 @@ class FaqController extends Controller
     public function Store(Request $request){
         $data = [
             'content' => $request->content,
+            'title' => $request->title
         ];
     
         $record = Faq::firstOrCreate($data);

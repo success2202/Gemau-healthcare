@@ -9,11 +9,13 @@
 
 <div class="ps-about">
     <div class="container">
-        <ul class="ps-breadcrumb">
-            <li class="ps-breadcrumb__item"><a href="">Home</a></li>
-            <li class="ps-breadcrumb__item active" aria-current="page">Terms and Conditions</li>
+    
+        <ul class="ps-breadcrumb"> 
+        <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/im.jpg') }}" alt="background"></div>
+            <li class="ps-breadcrumb__item"><a href="" style="color:white;">Home</a></li>
+            <li class="ps-breadcrumb__item active" aria-current="page" style="color:white;">Terms and Conditions</li>
         </ul>
-    </div>
+    
     <div class="ps-about__content">
         <section class="ps-about__project">
             <div class="container">

@@ -34,13 +34,28 @@
                                                 <span class="text-nowrap text-muted"></span>
                                             </div>
                                         </div>
+
+                                         <div class="text-muted d-flex justify-content-between">
+                                            <div class="text-truncate small"></div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                   <input type="text" name="title" placeholder="Enter Title" value="{{old('title')}}" class="form-control @error('title') is-invalid @enderror" >
+                                                    <small id="emailHelp" class="form-text text-muted">Title
+                                                    </small>
+                                                    @error('title')
+                                                    <span class="invalid-feedback"> <small> * </small> </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="text-muted d-flex justify-content-between">
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <textarea  id="summernote" class="@error('faq') is-invalid @enderror" name="content"></textarea>
                                            
-                                                    <small id="emailHelp" class="form-text text-muted">FAQ
+                                                    <small id="emailHelp" class="form-text text-muted">Content
                                                     </small>
                                                     @error('faq')
                                                     <span class="invalid-feedback"> <small> * </small> </span>
@@ -48,6 +63,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </li>
                                 <div style="float:right" class="pl-5 pt-3">

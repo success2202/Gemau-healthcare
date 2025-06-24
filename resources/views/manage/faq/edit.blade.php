@@ -37,6 +37,21 @@
                                         <div class="text-muted d-flex justify-content-between">
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
+
+                                              <div class="text-muted d-flex justify-content-between">
+                                            <div class="text-truncate small"></div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                   <input type="text" name="title" value="{{ $faq->title}}" class="form-control @error('title') is-invalid @enderror" >
+                                                    <small id="emailHelp" class="form-text text-muted">Title
+                                                    </small>
+                                                    @error('title')
+                                                    <span class="invalid-feedback"> <small> * </small> </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>   
+
                                                 <div class="form-group">
                                                     <textarea id="summernote" class="@error('privacy_policy') is-invalid @enderror" name="content">{{ $faq->content}}</textarea>
                                            

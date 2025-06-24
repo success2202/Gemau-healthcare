@@ -24,7 +24,7 @@ class PageController extends Controller
     }
 
      public function Faqs(){
-        $faqs = Faq::first();
+        $faqs = Faq::all();
         return  view('users.pages.faqs')
         ->with('faqs', $faqs);
     }
