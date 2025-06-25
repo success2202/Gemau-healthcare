@@ -92,6 +92,7 @@ Route::get('/product/category/{id}', 'productsByCategory')->name('category.produ
 Route::get('/pages/team/{id}', 'TeamDetails')->name('team.details');
 Route::get('/pages/appointment', 'BookAppointment')->name('users.bookAppointment');
 Route::get('/pages/faqs', 'Faqs')->name('users.faqs');
+Route::get('/accept-cookie', 'Accept')->name('cookie.accept');
 });
 
 // <!-- Route::middleware(['auth'])->group(function () {

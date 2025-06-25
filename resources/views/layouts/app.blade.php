@@ -28,6 +28,20 @@ href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&am
 
 </head>
 <body>
+@if (Cookie::has('cookie_consent'))
+<div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-gray-800 text-white p-4 z-50 text-sm">
+    <div class="flex justify-between items-center max-w-6xl mx-auto">
+        <p>We use cookies to improve your experience and deliver personalized healthcare services. By continuing to browse, you agree to our use of cookies.</p>
+        <form method="POST" action="{{ route('cookie.accept') }}">
+            @csrf
+            <button type="submit" class="ml-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+                Accept
+            </button>
+        </form>
+    </div>
+</div>
+@endif
+
     <div class="wrapper">
       {{-- <div class="preloader">
         <div class="loading"><span></span><span></span><span></span><span></span></div>

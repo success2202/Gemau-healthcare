@@ -1,7 +1,14 @@
 @extends('layouts.admin')
+@section('styles')
+    <style>
+    .al{
+        background-color: white !important;
+    }
+    </style>
+@endsection
 @section('content')
 @if(Session::has('alert'))
-<div class="alert alert-{{ Session::get('alert') }}">
+<div class="al alert alert-{{ Session::get('alert') }}">
     {{ Session::get('message') }}
 </div>
 @endif

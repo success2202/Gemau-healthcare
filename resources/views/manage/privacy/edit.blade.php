@@ -1,8 +1,9 @@
 @extends('layouts.admin')
+
 @section('content')
 @if(Session::has('alert'))
-<div class="alert alert-{{ Session::get('alert') }}">
-    {{ Session::get('message') }}
+<div class="al alert alert-{{ Session::get('alert') }}">
+   <p> {{ Session::get('message') }} </p>
 </div>
 @endif
         <div class="container-fluid h-100">

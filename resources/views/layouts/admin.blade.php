@@ -32,6 +32,7 @@
   .tx{
     color: whitesmoke !important;
   }
+  
   </style>
 </head>
 <body class="bg">

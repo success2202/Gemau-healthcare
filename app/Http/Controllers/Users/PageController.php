@@ -17,6 +17,13 @@ use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
+
+    public function accept(Request $request)
+    {
+        // Set cookie for 1 year
+        Cookie::queue('cookie_consent', '1', 525600); // minutes = 1 year
+        return back();
+    }
     public function privacypolicy(){
         $privacypolicy = Privacypolicy::first();
         return  view('users.pages.privacy')

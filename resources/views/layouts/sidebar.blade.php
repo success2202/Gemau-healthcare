@@ -5,7 +5,7 @@
          <li>
             <a  href="{{route('admin.index')}}" data-toggle="tooltip" data-placement="right" title="Dashboard"
            data-nav-target="#dashboards">
-           <i class="fa fa-home"></i>&nbsp; VIEW APPOINTMENTS</a>
+           <i class="fa fa-home"></i>&nbsp;APPOINTMENTS</a>
         </li>
          <li class="navigation-divider">Manage Website</li>
 
