@@ -5,9 +5,21 @@
          <li>
             <a  href="{{route('admin.index')}}" data-toggle="tooltip" data-placement="right" title="Dashboard"
            data-nav-target="#dashboards">
-           <i class="fa fa-home"></i>&nbsp; View Appointments</a>
+           <i class="fa fa-home"></i>&nbsp; VIEW APPOINTMENTS</a>
         </li>
          <li class="navigation-divider">Manage Website</li>
+
+          <li>
+            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Categories"
+            data-nav-target="#dashboards">
+             <i class="fa fa-list"></i>&nbsp; Manage Menu</a>
+         </a>
+             <ul>
+                 <li><a  href="{{route('testimonial.create')}}">Add Menu</a></li>
+                 <li><a href="{{route('testimonial.index')}}">Manage Menu</a></li>
+             </ul>
+         </li>
+
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Categories"
             data-nav-target="#dashboards">

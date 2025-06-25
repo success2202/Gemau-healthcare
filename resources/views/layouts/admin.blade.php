@@ -25,7 +25,7 @@
     @yield('styles')
     <style>
     .bg{
-      color:white !important;
+      color:teal !important;
  background-color:rgb(40, 85, 74) !important;
 }
 
@@ -34,7 +34,7 @@
   }
   </style>
 </head>
-<body>
+<body class="bg">
     <!-- App styles  -->
 <div class="preloader">
     {{-- <div class="preloader-icon"></div> --}}
@@ -120,7 +120,7 @@
 
     <footer>
         <div class="container-fluid">
-            <div>© {{date('Y')}} {{$settings->site_name}}, All Rights Reserved</a></div>
+            <div><span style="color:white">© {{date('Y')}} {{$settings->site_name}},  All Rights Reserved </span></a></div>
             <div>
                 {{-- <nav class="nav">
                     
