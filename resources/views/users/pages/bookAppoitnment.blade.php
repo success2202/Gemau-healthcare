@@ -126,6 +126,17 @@
                     </div>
                   </div>
 
+<div class="mb-4">
+        <label class="inline-flex items-center">
+            <input type="checkbox" name="agree" class="form-checkbox text-green-600" {{ old('agree') ? 'checked' : '' }}>
+            <span class="ml-2 text-sm text-gray-700">
+                I agree to the <a href="{{ route('pages.terms')}}" class="text-blue-600 underline" target="_blank">Terms & Conditions</a>
+            </span>
+        </label>
+        @error('agree')
+            <div class="text-red-600 text-sm mt-1">{{ $message }}</div>
+        @enderror
+    </div>
 
                   <div class="col-12">
                     <button type="submit"  class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10 bg">

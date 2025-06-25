@@ -21,6 +21,7 @@ class BookAppointmentController extends Controller
         'clinics' => 'required|string|max:255',
         'message' => 'nullable|string',
         'appointment_date' => 'required|date',
+        'agree' => 'accepted'
     ]);
 
     $appointment = BookAppoint::create($data);
