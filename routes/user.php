@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\CookieController;
 use App\Http\Controllers\Users\FaqController;
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\Users\HomeController;
@@ -92,7 +93,7 @@ Route::get('/product/category/{id}', 'productsByCategory')->name('category.produ
 Route::get('/pages/team/{id}', 'TeamDetails')->name('team.details');
 Route::get('/pages/appointment', 'BookAppointment')->name('users.bookAppointment');
 Route::get('/pages/faqs', 'Faqs')->name('users.faqs');
-Route::get('/accept-cookie', 'Accept')->name('cookie.accept');
+// Route::get('/accept-cookie', 'Accept')->name('cookie.accept');
 });
 
 // <!-- Route::middleware(['auth'])->group(function () {
@@ -108,6 +109,9 @@ Route::controller(PrescriptionController::class)->group(function(){
 });
 
 Route::get('upload/sitemap', [SiteMapController::class, 'SiteMap'])->name('site.map');
+
+Route::get('/accept-cookie', [CookieController::class, 'Accept'])->name('cookie.accept');
+
 
 Route::get('blogs', [BlogController::class, 'Index'])->name('users.blogs');
 Route::get('blogs/details/{id}', [BlogController::class, 'BlogDetails'])->name('blogs.details');
