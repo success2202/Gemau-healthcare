@@ -21,9 +21,10 @@ use App\Http\Controllers\BookAppointmentController;
 use App\Http\Controllers\Users\PrescriptionController;
 use App\Http\Controllers\Users\ProductDetailsController;
 
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, '__invoke'] )->name('dashboard');
-    Route::get('/',  [HomeController::class, 'Index'])->name('users.index');
+    Route::match(['get', 'post']'/',  [HomeController::class, 'Index'])->name('users.index');
 Route::get('/dashboard',  [HomeController::class, 'Index'])->name('dashboard');
 });
 
