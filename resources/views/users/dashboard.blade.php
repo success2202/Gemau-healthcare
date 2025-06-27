@@ -429,7 +429,7 @@
         <h4 class="tit">We are Compassionate</h4>
       </div>
       <div class="flip-card-back bg">
-        <p>By choosing Gemau Home Care Services you are opting for a full-service home care provider that will manage your support from start to finish. We are registered and licensed to provide this support. We handle everything, so you worry less. Our managers, caregivers and medical team are all certified and registered, hence giving you the confidence to relax and know you are in capable hands..</p>
+        <p>By choosing Gemau HealthCare Services you are opting for a full-service home care provider that will manage your support from start to finish. We are registered and licensed to provide this support. We handle everything, so you worry less. Our managers, caregivers and medical team are all certified and registered, hence giving you the confidence to relax and know you are in capable hands..</p>
       </div>
     </div>
   </div>
@@ -468,7 +468,7 @@
         <h4 class="tit">24/7 Reliable Care</h4>
       </div>
       <div class="flip-card-back bg">
-        <p>Every single one of our caregivers are employed directly by Angels Home Care Services. We never enlist the use of staffing agencies. This means we can ensure the quality of service that each of our caregivers deliver meets our high standards and that they are each totally supported in their roles.</p>
+        <p>Our services is 24/7 Reliable. Every single one of our caregivers are employed directly by Gemau HealthCare Services. We never enlist the use of staffing agencies. This means we can ensure the quality of service that each of our caregivers deliver meets our high standards and that they are each totally supported in their roles.</p>
       </div>
     </div>
   </div>

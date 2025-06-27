@@ -28,7 +28,7 @@ href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&am
 
 </head>
 <body>
-@if (!Cookie::has('cookie_consent'))
+{{-- @if (!Cookie::has('cookie_consent'))
 <div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-gray-800 text-white p-4 z-50 text-sm">
     <div class="flex justify-between items-center max-w-6xl mx-auto">
         <p>We use cookies to improve your experience and deliver personalized healthcare services. By continuing to browse, you agree to our use of cookies.</p>
@@ -40,7 +40,7 @@ href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&am
         </form>
     </div>
 </div>
-@endif
+@endif --}}
 
     <div class="wrapper">
       {{-- <div class="preloader">
