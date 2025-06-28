@@ -87,7 +87,7 @@ Route::prefix('manage')->group(function () {
 
         Route::controller(PagesController::class)->group(function () {
             Route::get('/add/menu', 'AddMenu')->name('admin.addMenu');
-            Route::post('/add/create/', 'createMenu');
+            Route::post('/add/create/', 'createMenu')->name('admin.createMenu');
             Route::get('/menu/index/', 'MenuIndex')->name('admin.MenuIndex');
             Route::get('/menu/edit/{id}', 'EditMenu')->name('menuEdit');
             Route::post('/menu/update/{id}', 'updateMenu');
@@ -149,6 +149,7 @@ Route::prefix('manage')->group(function () {
             Route::post('blog/update/{id}', 'Update')->name('admin.blog.update');
             Route::post('blog/delete/{id}', 'Delete')->name('admin.blog.delete');
         });
+
 
         Route::controller(ServiceController::class)->group(function(){
             Route::get('/services', 'Index')->name('admin.service.index');

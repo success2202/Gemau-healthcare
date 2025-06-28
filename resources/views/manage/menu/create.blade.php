@@ -5,7 +5,8 @@
  <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                {{Form::open(['action' => 'PagesController@createMenu', 'method'=>'post', 'enctype' => 'multipart/form-data'])}}
+                
+              <form action="{{ route('admin.createMenu') }}" method="POST">
               @csrf
               <div class="card">
                         <div class="card-body">
@@ -37,7 +38,7 @@
                            </div>
                         </div>
                         </div>
-                    {{Form::close()}}
+                    </Form>
 
     </div>
                         </div>

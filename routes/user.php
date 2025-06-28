@@ -111,7 +111,7 @@ Route::controller(PrescriptionController::class)->group(function(){
 
 Route::get('upload/sitemap', [SiteMapController::class, 'SiteMap'])->name('site.map');
 
-Route::get('/accept-cookie', [CookieController::class, 'Accept'])->name('cookie.accept');
+Route::post('/accept-cookie', [CookieController::class, 'Accept'])->name('cookie.accept');
 
 
 Route::get('blogs', [BlogController::class, 'Index'])->name('users.blogs');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Controllers\Controller;
 
 
-use App\Models\Page;
+use App\Models\Menu;
 use App\Models\Blog;
 use App\Models\ContactUs;
 use App\Models\TermsConditions;
@@ -34,7 +34,7 @@ class PagesController extends Controller
             Session::flash('m','Some fields are missing');
             return back();
         }
-         Page::create([
+         Menu::create([
             'name' => $request->name
          ]);
          Session::flash('alert', 'success');
@@ -47,12 +47,12 @@ class PagesController extends Controller
         return view('manage.menu.index')
         ->with('bheading', 'Menu List')
         ->with('breadcrumb', 'Menu List')
-        ->with('menu', Page::get());
+        ->with('menu', Menu::get());
     }
 
 
     public function EditMenu($id){ 
-        $id = Page::where('id', decrypt($id))->first();
+        $id = Menu::where('id', decrypt($id))->first();
         
         return view('manage.menu.edit')
         ->with('bheading', 'Edit Menu')
@@ -61,7 +61,7 @@ class PagesController extends Controller
     }
 
     public function updateMenu(Request $request, $id){
-        $id = Page::where('id', decrypt($id))->first()
+        $id = Menu::where('id', decrypt($id))->first()
         ->update(['name' => $request->name]);
         Session::flash('alert', 'success');
         Session::flash('message','Menu updated successfully');

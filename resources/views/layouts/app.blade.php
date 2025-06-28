@@ -24,23 +24,48 @@ href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&am
 
 <link rel="shortcut icon" href="{{asset('images/'.$settings->fav)}}" type="image/x-icon">
 @yield('styles')
+<style>
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0; right: 0;
+  background: #222;
+  color: #fff;
+  padding: 15px;
+  font-size: 14px;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#cookie-banner button {
+  background: #28a745;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+}
+</style>
 
 
 </head>
 <body>
-{{-- @if (!Cookie::has('cookie_consent'))
-<div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-gray-800 text-white p-4 z-50 text-sm">
-    <div class="flex justify-between items-center max-w-6xl mx-auto">
-        <p>We use cookies to improve your experience and deliver personalized healthcare services. By continuing to browse, you agree to our use of cookies.</p>
-        <form method="POST" action="{{ route('cookie.accept') }}">
+@if (!Cookie::has('cookie_consent'))
+<div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-gray-900 text-white text-sm p-4 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-2">
+        <p class="m-0">
+            We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.
+        </p>
+        <form action="{{ route('cookie.accept') }}" method="POST">
             @csrf
-            <button type="submit" class="ml-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+            <button type="submit" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white text-sm">
                 Accept
             </button>
         </form>
     </div>
 </div>
-@endif --}}
+@endif
+
 
     <div class="wrapper">
       {{-- <div class="preloader">

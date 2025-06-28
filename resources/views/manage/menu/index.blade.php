@@ -42,7 +42,7 @@
                                                     <a href="#">{{$sp->name}}</a>
                                                 </td>        
                                                   <td>
-                                                    <a href="#">{{$sp->created_at->format('d/M/y')}}</a>
+                                                    <a href="#">{{$sp->created_at}}</a>
                                                 </td>
                                                         
                                                 <td class="text-right">
