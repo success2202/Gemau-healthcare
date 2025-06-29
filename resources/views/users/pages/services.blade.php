@@ -36,16 +36,13 @@
   <div class="bg-img"><img src="{{ asset('frontend/images/backgrounds/im.jpg') }}" alt="background"></div>
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
-        <div class="heading text-center mb-60">
-          <h5>Our services</h5>
-          <h3 class="heading__subtitle"><p style="color:white !important;">flexibility of our home care services....</p></h3>
-        </div><!-- /.heading -->
-      
+      <div class="col-12">
+        <h5>Our Services</h5>
+        {{-- <h6 style="color:white !important;">Useful advice for anyone responsible for the care of an elderly or disabled person</h6> --}}
         <nav>
           <ol class="breadcrumb justify-content-center mb-0">
-            <li class="breadcrumb-item" style="color:white !important;"><a href="{{ route('users.index') }}" style="color:white !important;">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page" style="color:white !important;">service</li>
+            <li class="breadcrumb-item"><a href="{{ route('users.index') }}" style="color:white !important;">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page" style="color:white !important;">  Services</li>
           </ol>
         </nav>
       </div><!-- /.col-xl-6 -->

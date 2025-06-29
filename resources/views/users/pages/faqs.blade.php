@@ -33,7 +33,7 @@
         <nav>
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="{{ route('users.index') }}" style="color:white !important;">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page" style="color:white !important;">Faqs</li>
+            <li class="breadcrumb-item active" aria-current="page" style="color:white !important;">FAQs</li>
           </ol>
         </nav>
       </div><!-- /.col-xl-6 -->
