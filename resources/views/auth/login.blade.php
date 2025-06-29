@@ -61,7 +61,7 @@
             </div>
             <a href="{{route('password.request')}}">Reset password</a>
         </div>
-        <button class="btn btn-primary btn-block">Sign in</button>
+        <button class="btn btn-primary">Sign in</button>
         <hr>
         {{-- <ul class="list-inline">
             <li class="list-inline-item">

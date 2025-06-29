@@ -82,7 +82,7 @@
             <label style="float:left" for="password"> Password</label>
             <input type="password" name="password" class="form-control"  id="password" placeholder="Password" required="">
         </div>
-        <button class="btn btn-primary btn-block">Register</button>
+        <button class="btn btn-primary">Register</button>
         <hr>
         {{-- <ul class="list-inline">
             <li class="list-inline-item">

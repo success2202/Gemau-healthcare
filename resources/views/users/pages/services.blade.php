@@ -71,7 +71,7 @@
                   <img src="{{asset('/images/services/'.$service->images)}}" alt="Product" loading="lazy">
                 </div><!-- /.service__icon -->
                 <div class="service__content">
-                  <h6>{{ $service->title }}</h6>
+                  <h6><a href="{{ route('service.details',encrypt($service->id)) }}">{{ $service->title }} </a></h6>
                   {{ \Illuminate\Support\Str::limit(strip_tags($service->contents), 50) }}
                   
                  

@@ -117,7 +117,7 @@
                   <div class="post__meta d-flex align-items-center mb-20">
                     <span class="post__meta-date">{{$blog->created_at->format('M d, Y')}}.</span>
                     <a class="post__meta-author" href="#">{{_('By'). ' '.$settings->site_name}}</a>
-                    <a class="post__meta-comments" href="#">{{ $blog->comments->count() }} coments</a>
+                    <a class="post__meta-comments" href="#">{{ $blog->comments->count() }} comments</a>
                   </div><!-- /.blog-meta -->
                   <h1 class="post__title mb-30">
                     {{$blog->title}}

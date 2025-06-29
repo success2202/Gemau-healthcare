@@ -112,7 +112,7 @@
               <li>
                 <h5 class="details__title">Speciality</h5>
                 <div class="details__content">
-                  <p class="mb-0">{{ $team->title }} </p>
+                  <p class="mb-0" style="color:rgb(40, 85, 74);">{{ $team->title }} </p>
                 </div>
               </li>
               {{-- <li>

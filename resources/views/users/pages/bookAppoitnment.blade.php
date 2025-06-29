@@ -139,10 +139,10 @@
     </div>
 
                   <div class="col-12">
-                    <button type="submit"  class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10 bg">
+                    <center><button type="submit"  class="btn btn-secondary  mt-10 bg">
                       <span>Book Appointment</span> 
-                    </button>
-                    <p><b>Note:</b> Appointment booking is subject to official confirmation.  A feedback should be expected via e-mail within 24 hours after form submission </p>
+                    </button> </center> 
+                    <p><strong>Note:</strong> Appointment booking is subject to official confirmation.  A feedback should be expected via e-mail within 24 hours after form submission </p>
                     <div class="contact-result"></div>
                   </div><!-- /.col-lg-12 -->
                 </div><!-- /.row -->
@@ -166,7 +166,7 @@
                 </div>
                 <div>
                   
-                  <a href="{{ route('contact-us') }}" class="btn btn__white btn__rounded btn__outlined">Contact Us</a>
+                  <a href="{{ route('contact-us') }}" class="btn btn__white">Contact Us</a>
                 </div>
               </div>
             </div>

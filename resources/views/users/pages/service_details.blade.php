@@ -139,10 +139,10 @@
               @foreach ($team as $item)
               <div class="member">
                 <div class="member__img image-container">
-                  <img src="{{ asset('images/team/'.$item->image) }}" alt="member img">
+                 <a href="{{ route('team.details', encrypt($item->id)) }}"> <img src="{{ asset('images/team/'.$item->image) }}" alt="member img"> </a>
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">{{ $item->name }}</a></h5>
+                  <h5 class="member__name"><a href="{{ route('team.details', encrypt($item->id)) }}">{{ $item->name }}</a></h5>
                   <p class="member__job">{{ $item->title }}</p>
                 </div><!-- /.member-info -->
               </div><!-- /.member -->
