@@ -139,7 +139,7 @@
     </div>
 
                   <div class="col-12">
-                    <center><button type="submit"  class="btn btn-secondary  mt-10 bg">
+                    <center><button type="submit"  class="btn btn-primary  mt-10 bg">
                       <span>Book Appointment</span> 
                     </button> </center> 
                     <p><strong>Note:</strong> Appointment booking is subject to official confirmation.  A feedback should be expected via e-mail within 24 hours after form submission </p>

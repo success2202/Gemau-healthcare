@@ -265,7 +265,7 @@
             </div><!-- /.carousel -->
           </div><!-- /.col-12 -->
         </div><!-- /.row -->
-        <center><a href="{{ route('users.bookAppointment') }}" class="btn btn-primary mt-2 bg">Book Appointment</a></center>
+        {{-- <center><a href="{{ route('users.bookAppointment') }}" class="btn btn-primary mt-2 bg">Book Appointment</a></center> --}}
       </div><!-- /.container -->
       
     </section><!-- /.Team -->
