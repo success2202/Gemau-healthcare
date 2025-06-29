@@ -110,7 +110,7 @@ Route::controller(PrescriptionController::class)->group(function(){
 });
 
 Route::get('upload/sitemap', [SiteMapController::class, 'SiteMap'])->name('site.map');
-
+                                    
 Route::post('/accept-cookie', [CookieController::class, 'Accept'])->name('cookie.accept');
 
 
