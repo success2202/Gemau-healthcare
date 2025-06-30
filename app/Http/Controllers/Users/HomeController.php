@@ -73,6 +73,7 @@ class HomeController extends Controller
     }
 
     public function Index(){
+        
         $slider = Slider::latest()->get();
         $test = Testimonials::all();
         $team = Team::all();

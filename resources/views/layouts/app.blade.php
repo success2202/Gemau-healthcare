@@ -56,7 +56,7 @@ href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&am
         <p class="m-0">
             We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.
         </p>
-        <form action="{{ route('cookie.accept') }}" method="POST">
+        <form action="{{ route('cookie.accept') }}" method="post">
             @csrf
             <button type="submit" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white text-sm">
                 Accept

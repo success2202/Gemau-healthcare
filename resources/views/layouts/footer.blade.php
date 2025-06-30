@@ -24,7 +24,19 @@
                     @forelse ($site_menu as $menu )
                     <li > 
                     @if($menu->name == 'Home') 
-                    <a style="color:#d6d2d2" href="{{route('dashboard')}}">{{$menu->name}}</a>
+                    <a style="color:#d6d2d2" href="{{route('users.index')}}">{{$menu->name}}</a>
+                    @elseif($menu->name == 'About Us') 
+                    <a style="color:#d6d2d2" href="{{route('about-us')}}">{{$menu->name}}</a>
+                     @elseif($menu->name == 'Services') 
+                    <a style="color:#d6d2d2" href="{{route('users.services')}}">{{$menu->name}}</a>
+                     @elseif($menu->name == 'Blogs') 
+                    <a style="color:#d6d2d2" href="{{route('users.blogs')}}">{{$menu->name}}</a>
+                     @elseif($menu->name == 'Contact-Us') 
+                    <a style="color:#d6d2d2" href="{{route('contact-us')}}">{{$menu->name}}</a>
+                     @elseif($menu->name == 'Book Appointment') 
+                    <a style="color:#d6d2d2" href="{{route('users.bookAppointment')}}">{{$menu->name}}</a>
+                     @elseif($menu->name == 'Help & Faqs') 
+                    <a style="color:#d6d2d2" href="{{route('users.faqs')}}">{{$menu->name}}</a>
                      @else <a style="color:#d6d2d2" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
                    </li>
                      @empty

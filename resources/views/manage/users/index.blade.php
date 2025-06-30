@@ -41,7 +41,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h2 class="font-weight-bold mb-2">{{$users}}</h2>
-                                    <div>Registered Users</div>
+                                    <div>Total Registered Users</div>
                                 </div>
                                 <div>
                                     <span class="dashboard-pie-3">{{$users}}/100</span>

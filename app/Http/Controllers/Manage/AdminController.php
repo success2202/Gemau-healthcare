@@ -31,9 +31,9 @@ class AdminController extends Controller
         
       public function index(){
           return view('manage.users.index')
-          ->with('bheading', 'Index')
+          ->with('bheading', 'Index') 
           ->with('breadcrumb', 'Index')
-          ->with('bookappoint', count(BookAppoint::all()))
+          ->with('bookappoint', count(BookAppoint::orderBy('appointment_date', 'asc')->get()))
           ->with('bookappoints', BookAppoint::all())
           ->with('users', count(User::all()))
           ->with('order', count(Order::all()))
