@@ -142,7 +142,7 @@
                                                     <a href="#">{{$sp->appointment_date}}</a>
                                                 </td> --}}
                                                
-                                               <td>  {{ \Carbon\Carbon::now()->format('Y-m-d H:i:s') }}</td>
+                                               <td>  {{$sp->appointment_date}}</td>
                                             
                                                         
                                                 <td class="text-right">
