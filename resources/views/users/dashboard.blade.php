@@ -127,7 +127,7 @@
 .image-container {
   width: 300px;
   height: 200px;
-  border: 2px solid #ccc;
+  /* border: 2px solid #ccc; */
   overflow: hidden;
 }
 
