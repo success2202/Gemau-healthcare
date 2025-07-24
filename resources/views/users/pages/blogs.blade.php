@@ -85,7 +85,7 @@
                 </div><!-- /.post__img -->
                 <div class="post__body">
                   <div class="post__meta-cat">
-                    <a href="#">Gemau</a>
+                    <a href="#">GemauHealthcare</a>
                   </div><!-- /.blog-meta-cat -->
                   <div class="post__meta d-flex">
                     <span class="post__meta-date">{{$item->created_at->format('M d, Y')}}.</span>
