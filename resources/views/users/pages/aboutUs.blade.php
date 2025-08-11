@@ -36,8 +36,8 @@
             <div class="about__Text">
               <p class="mb-30">{!! $aboutUs->content !!}</p>
               <div class="d-flex align-items-center mb-30">
-                <a href="doctors-grid.html" class="btn btn__primary btn__outlined btn__rounded mr-30">
-                  Meet Our Team</a>
+                <a href="{{route('users.bookAppointment')}}" class="btn btn__primary btn__outlined btn__rounded mr-30">
+                  Book Appointment</a>
                 <img src="{{asset('images/'.$settings->site_logo)}}" class="logo-dark" width="120px" alt="singnture">
               </div>
             </div>
